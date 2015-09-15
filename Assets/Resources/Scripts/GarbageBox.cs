@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class GarbageBoxCollision : DestroyableCollision {
+public class GarbageBox : Destroyable {
 
     Rigidbody rb;
     GameObject car;
@@ -10,7 +10,9 @@ public class GarbageBoxCollision : DestroyableCollision {
     void Start () {
         rb = GetComponent<Rigidbody>();
         car = GameObject.Find("Car");
-        
+
+
+        cost = 100;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,7 @@ public class GarbageBoxCollision : DestroyableCollision {
     {
         Vector3 dir = car.GetComponent<Move>().GetDirection();
         float coef = 40000;
-        rb.AddForce(dir.x * coef, coef, dir.z* coef, ForceMode.Impulse);
+        rb.AddForce(dir.x * coef *3f, coef, dir.z* coef*3f, ForceMode.Impulse);
         rb.AddTorque(dir.z * coef*1.5f, 0, dir.x * coef*1.5f, ForceMode.Impulse);
         Destroy(GetComponent<Collider>());
         StartCoroutine(HideTimer());
@@ -31,7 +33,7 @@ public class GarbageBoxCollision : DestroyableCollision {
 
     IEnumerator HideTimer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         Destroy(gameObject);
        
     }

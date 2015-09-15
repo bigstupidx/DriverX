@@ -3,10 +3,11 @@ using System.Collections;
 
 public class CarContact : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-       // transform.GetComponent<Collider>().isTrigger = true;
+    Library library;
 
+	void Start () {
+        // transform.GetComponent<Collider>().isTrigger = true;
+        library = GameObject.Find("Global").GetComponent<Library>();
     }
 
     // Update is called once per frame
@@ -20,13 +21,15 @@ public class CarContact : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
  
-        DestroyableCollision destoyableCollision = col.gameObject.GetComponent<DestroyableCollision>();
+        Destroyable destoyable = col.gameObject.GetComponent<Destroyable>();
 
-        if (destoyableCollision != null)
+        if (destoyable != null)
         {
-            destoyableCollision.OnCollision(col.transform);
+            destoyable.OnCollision(col.transform);
         }
-        
+
+        library.score.AddScoreForDestroy(destoyable);
+
         CameraShakeInstance c = CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
      //   c.PositionInfluence = new Vector3(1,1,1);
        // c.PositionInfluence = new Vector3(1, 1, 1);

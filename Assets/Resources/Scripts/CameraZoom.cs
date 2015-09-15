@@ -39,7 +39,6 @@ public class CameraZoom : MonoBehaviour {
         if (Mathf.Abs(temp - newFieldOfView) > 0.1f)
         //          delta = 0;
         {
-            Debug.Log(Mathf.Abs(temp - newFieldOfView));
 
             transform.Translate(0, 0, -delta * MathTools.GetZnak(temp - newFieldOfView));
         }
