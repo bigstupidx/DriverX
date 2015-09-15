@@ -12,7 +12,7 @@ public class Move : MonoBehaviour {
 
     HingeJoint joint;
 
-    float maxSpeed = 50;
+    float maxSpeed = 90;
 
     float acceleration = 1.5f;
 
@@ -23,16 +23,17 @@ public class Move : MonoBehaviour {
     float wheelRotation = 0;
     float deltaWheelRotation = 0.15f;
 
-    float minWheelRotation = -4.5f;
-    float maxWheelRotation = 4.5f;
-    float maxDriftSpeed = 20;
-    float xCompensation = 1.5f;
+    float minWheelRotation = -3.5f;
+    float maxWheelRotation = 3.5f;
+    float maxDriftSpeed = 50;
+    float xCompensation = 2.95f;
 
-
+    Vector3 dir = new Vector3();
+    Vector3 lastPos = new Vector3();
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
-        wheel = GameObject.Find("Canvas/Wheel").GetComponent<Wheel>();
+        lastPos = transform.position;
     }
 
     void Update()
@@ -42,6 +43,7 @@ public class Move : MonoBehaviour {
         
        if(Input.GetKeyUp(KeyCode.UpArrow))
             isRun = false;
+
 
        /*
         if (joint != null)
@@ -77,6 +79,8 @@ public class Move : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+        dir = (transform.position - lastPos).normalized;
+        lastPos = transform.position;
         //    if (isRun)
         //  {
 
@@ -85,9 +89,6 @@ public class Move : MonoBehaviour {
 
         if (relativeSpeed.x < 0)
             znakSpeedX = -1;
-
-        Debug.Log(relativeSpeed);
-
 
 
 
@@ -190,5 +191,10 @@ public class Move : MonoBehaviour {
     public Vector3 GetRelativeSpeed()
     {
         return relativeSpeed;
+    }
+
+    public Vector3 GetDirection()
+    {
+        return dir;
     }
 }
