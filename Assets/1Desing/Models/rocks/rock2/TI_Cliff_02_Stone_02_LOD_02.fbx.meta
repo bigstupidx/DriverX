@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c8e66d7ceee877e458f06d946841e857
-timeCreated: 1442321377
+guid: c2acb579c6147024bb5ccacbcc9346cd
+timeCreated: 1442346366
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: TI_Cliff_02_o
+    4300000: TI_Cliff_02_Stone_02_LOD_02
     7400000: Take 001
     9500000: //RootNode
   materials:
