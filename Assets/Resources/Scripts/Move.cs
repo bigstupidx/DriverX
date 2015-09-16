@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 public class Move : MonoBehaviour {
 
@@ -21,13 +19,14 @@ public class Move : MonoBehaviour {
     Vector3 relativeSpeed;
 
     float wheelRotation = 0;
-    float deltaWheelRotation = 0.15f;
+    float deltaWheelRotation = 0.075f;
 
-    float minWheelRotation = -2f;
     float maxWheelRotation = 2f;
     float maxDriftSpeed = 60;
     float xCompensationCoef = 0.03447815f/2f;
     float tresholdSpeedX;
+
+    float compensationOnLowTurn = 8;
 
     //0.03496f
     float xCompensation;
@@ -41,7 +40,7 @@ public class Move : MonoBehaviour {
         lastPos = transform.position;
 
         if (maxDriftSpeed <= 60)
-            tresholdSpeedX = 0.726183f * maxDriftSpeed-3 ;
+            tresholdSpeedX = 0.726183f / 2* maxWheelRotation * maxDriftSpeed-3 ;
         else
             tresholdSpeedX = 44f-3;
     }
@@ -87,7 +86,6 @@ public class Move : MonoBehaviour {
         UpdateDirection();
 
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + wheelRotation, 0);
-        //rigidbody.AddRelativeTorque(0, wheelRotation/50, 0, ForceMode.VelocityChange);
         relativeSpeed = transform.InverseTransformDirection(rigidbody.velocity);
 
         int znakSpeedX = 1;
@@ -95,96 +93,42 @@ public class Move : MonoBehaviour {
         if (relativeSpeed.x < 0)
             znakSpeedX = -1;
 
-        Debug.Log(relativeSpeed.ToString("F7"));
-        if (Mathf.Abs(relativeSpeed.x) > 0.001)
-        {
-         //   float tresholdSpeedX;
-         //   if (maxDriftSpeed <= 60)
-         //       tresholdSpeedX = 0.726183f*maxDriftSpeed;
-            //  if (Mathf.Abs(relativeSpeed.x) > 44 && Mathf.Abs(relativeSpeed.x) < 46)
-            //  {
-         //   if (relativeSpeed.z < maxDriftSpeed)
-      //      {
-                AddGas(maxDriftSpeed);
-
-                //}
-
-                float minusSpeedX;
-            //  if (Mathf.Abs(relativeSpeed.x) > 44 && Mathf.Abs(relativeSpeed.x) < 46)
-         //   Debug.Log(tresholdSpeedX);
-            if (Mathf.Abs(relativeSpeed.x) < tresholdSpeedX && wheelRotation != 0)
+       
+            if (Mathf.Abs(relativeSpeed.x) > 0.001)
             {
-                //Debug.Log("LOL "+Mathf.Abs(relativeSpeed.x - tresholdSpeedX));
-            //    if (Mathf.Abs(relativeSpeed.x) - tresholdSpeedX < xCompensation)
-         //       {
-        //            minusSpeedX = (Mathf.Abs(relativeSpeed.x) - tresholdSpeedX)*(-1);
+                if (Mathf.Abs(wheelRotation) >= maxWheelRotation - 0.5f) // если занос
+                {
+                    AddGas(maxDriftSpeed);
+                    float minusSpeedX;
 
-       //             Debug.Log("LOL " + (Mathf.Abs(relativeSpeed.x)- tresholdSpeedX));
-       //         }
-       //         else
-                    minusSpeedX = -2;
-            }
-            else
-                minusSpeedX = Mathf.Min(xCompensation, Mathf.Abs(relativeSpeed.x)); /* *znakSpeedX* (-1)*/ ;
-                //     else
-                //      minusSpeedX = 1;
-              //  Debug.Log("MinusSpeedX " + minusSpeedX);
+                    if (Mathf.Abs(relativeSpeed.x) < tresholdSpeedX && wheelRotation != 0)
+                        minusSpeedX = 0;
+                    else
+                        minusSpeedX = Mathf.Min(xCompensation, Mathf.Abs(relativeSpeed.x));
+
+                    rigidbody.AddRelativeForce(new Vector3(minusSpeedX * znakSpeedX * (-1), 0, 0), ForceMode.VelocityChange);
+                }
+                else
+                {
+                    AddGas(maxSpeed);
+                float minusSpeedX;
+
+                minusSpeedX = Mathf.Min(compensationOnLowTurn, Mathf.Abs(relativeSpeed.x));
+
                 rigidbody.AddRelativeForce(new Vector3(minusSpeedX * znakSpeedX * (-1), 0, 0), ForceMode.VelocityChange);
 
-         //   }//   AddGas(maxDriftSpeed);
-            /*
-            if (relativeSpeed.z > maxDriftSpeed)
+
+            }
+        }
+            else
             {
-                float plusSpeedZ = Mathf.Min(relativeSpeed.z - maxDriftSpeed, 1);
-                rigidbody.AddRelativeForce(new Vector3(0, 0, -plusSpeedZ), ForceMode.VelocityChange);
-            }*/
-            //      float minusSpeedX;
-            // if (Mathf.Abs(relativeSpeed.x) > 44 && Mathf.Abs(relativeSpeed.x) < 46)
-            //         minusSpeedX = Mathf.Min(xCompensation, Mathf.Abs(relativeSpeed.x)) /* *znakSpeedX* (-1)*/ ;
-            //    else
-            //      minusSpeedX = 1;
-
-            //     rigidbody.AddRelativeForce(new Vector3(minusSpeedX * znakSpeedX* (-1), 0, 0), ForceMode.VelocityChange);
+                AddGas(maxSpeed);
+            }
+        
+        
 
 
-
-            /*
-            if (relativeSpeed.z > minSpeedWhenDrift)
-            {
-                Debug.Log("lol");
-                float minusSpeedZ = Mathf.Min( Math.Abs(relativeSpeed.z) - minSpeedWhenDrift, 0.5f);
-
-                rigidbody.AddRelativeForce(new Vector3(0, 0, -minusSpeedZ), ForceMode.VelocityChange);
-            }*/
-
-        }
-        else
-        {
-                AddGas(maxSpeed);          
-        }
-
-
-        /*
-       }
-       else
-       {
-            
-                if (transform.InverseTransformDirection(rigidbody.velocity).z <= 0.2f)
-                    rigidbody.velocity = new Vector3(0,0,0);
-                else
-                    rigidbody.AddRelativeForce(new Vector3(0, 0, -0.5f), ForceMode.VelocityChange);
-
-           
-
-
-        }
-        */
-
-
-
-
-        //   GetComponent<Rigidbody>().AddForce(new Vector3(10, 0, 0), ForceMode.Force);
-
+       
     }
 
     private void UpdateDirection()
@@ -221,17 +165,17 @@ public class Move : MonoBehaviour {
 
     public void MinusWheelRotation()
     {
-        wheelRotation = Mathf.Max(wheelRotation - deltaWheelRotation, minWheelRotation);
+        wheelRotation = Mathf.Max(wheelRotation - deltaWheelRotation, -maxWheelRotation);
     }
 
     public void ToZeroWheelRotation()
     {
 
         if (wheelRotation < 0)
-            wheelRotation = Mathf.Min(0, wheelRotation + 0.3f);
+            wheelRotation = Mathf.Min(0, wheelRotation + 0.1f);
 
         if (wheelRotation > 0)
-            wheelRotation = Mathf.Max(0, wheelRotation - 0.3f);
+            wheelRotation = Mathf.Max(0, wheelRotation - 0.1f);
 
     }
 
