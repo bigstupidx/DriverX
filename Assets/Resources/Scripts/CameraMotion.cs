@@ -11,8 +11,6 @@ public class CameraMotion : MonoBehaviour
     void Start()
     {
         car = GameObject.Find("Car");
-
-
     }
 
 
@@ -20,6 +18,9 @@ public class CameraMotion : MonoBehaviour
     {
           Vector3 carPosition = car.transform.position;
           transform.position = new Vector3(carPosition.x, carPosition.y, carPosition.z);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, car.transform.rotation, Time.deltaTime*4);
+          //car.transform.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
     }
 
 }
