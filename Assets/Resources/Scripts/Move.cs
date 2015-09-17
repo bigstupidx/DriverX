@@ -21,8 +21,8 @@ public class Move : MonoBehaviour {
     float wheelRotation = 0;
     float deltaWheelRotation = 0.075f;
 
-    float maxWheelRotation = 2f;
-    float maxDriftSpeed = 60;
+    float maxWheelRotation = 1.5f;
+    float maxDriftSpeed = 80;
     float xCompensationCoef = 0.03447815f/2f;
     float tresholdSpeedX;
 

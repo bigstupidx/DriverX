@@ -52,6 +52,8 @@ public class CameraMotion : MonoBehaviour
     public float maximumTilt = 15f;
     private float tiltAngle = 0f;
 
+    private Vector3 positionVelocity;
+    private Quaternion rotationVelocity;
     void Start()
     {
 
@@ -92,7 +94,7 @@ public class CameraMotion : MonoBehaviour
 
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
 
         // Early out if we don't have a target
@@ -121,7 +123,10 @@ public class CameraMotion : MonoBehaviour
 
         // Set the position of the camera on the x-z plane to:
         // distance meters behind the target
-        transform.position = playerCar.position;
+          transform.position = playerCar.position;
+
+     
+
         transform.position -= currentRotation * Vector3.forward * distance;
 
         // Set the height of the camera
@@ -131,6 +136,23 @@ public class CameraMotion : MonoBehaviour
         transform.LookAt(new Vector3(playerCar.position.x, playerCar.position.y + heightOffset, playerCar.position.z));
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(tiltAngle, -10f, 10f));
 
+    /*    float positionSmooth = 40;
+        float rotationSmooth = 40;
+
+        Quaternion targetRotation = Quaternion.LookRotation(playerCar.transform.position - transform.position);
+        Quaternion lookAtRotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSmooth);
+
+        float newXPosition = Mathf.SmoothDamp(transform.position.x, playerCar.position.x, ref positionVelocity.x, positionSmooth / 100);
+        float newYPosition = Mathf.SmoothDamp(transform.position.y, playerCar.position.y, ref positionVelocity.y, positionSmooth / 100);
+        float newZPosition = Mathf.SmoothDamp(transform.position.z, playerCar.position.z, ref positionVelocity.z, positionSmooth / 100);
+        transform.position = new Vector3(newXPosition, newYPosition, newZPosition);
+  //      float newXRotation = Mathf.SmoothDampAngle(transform.rotation.x, playerCar.rotation.x, ref rotationVelocity.x, rotationSmooth / 100);
+  //      float newYRotation = Mathf.SmoothDampAngle(transform.rotation.y, playerCar.rotation.y, ref rotationVelocity.y, rotationSmooth / 100);
+   //     float newZRotation = Mathf.SmoothDampAngle(transform.rotation.z, playerCar.rotation.z, ref rotationVelocity.z, rotationSmooth / 100);
+   //     float newWRotation = Mathf.SmoothDampAngle(transform.rotation.w, playerCar.rotation.w, ref rotationVelocity.w, rotationSmooth / 100);
+   //     transform.rotation = new Quaternion(newXRotation + lookAtRotation.x, newYRotation + lookAtRotation.y, newZRotation + lookAtRotation.z, newWRotation + lookAtRotation.w);
+
+    */
     }
 
 
