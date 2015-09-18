@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: asphalt
+  m_Name: Asphalt
   m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,8 +19,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 878bc7897a8fcc14bb143959fa89b1ab, type: 3}
-          m_Scale: {x: 20, y: 20}
+          m_Texture: {fileID: 2800000, guid: ecddffb0c1e01d74c8b14d9640d32a5b, type: 3}
+          m_Scale: {x: 1, y: 36}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -32,27 +32,6 @@ Material:
       data:
         first:
           name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat1
-        second:
-          m_Texture: {fileID: 2800000, guid: 39a85bc088b4e214f99cdd9862d5948a, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat2
-        second:
-          m_Texture: {fileID: 2800000, guid: 08eb1e2e05cc01747bb81dc9a5be6ea5, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat3
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -99,69 +78,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MainTex1
-        second:
-          m_Texture: {fileID: 2800000, guid: 39a85bc088b4e214f99cdd9862d5948a, type: 3}
-          m_Scale: {x: 5.21000004, y: 4.94999981}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MainTex2
-        second:
-          m_Texture: {fileID: 2800000, guid: 08eb1e2e05cc01747bb81dc9a5be6ea5, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap1
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap2
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat1bump
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat2bump
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat3bump
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat4
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Splat4bump
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -175,10 +91,6 @@ Material:
         first:
           name: _Cutoff
         second: .5
-      data:
-        first:
-          name: _Shininess
-        second: 1
       data:
         first:
           name: _Parallax
@@ -215,26 +127,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _LightMap
-        second: .400000006
-      data:
-        first:
-          name: _SpecPower1
-        second: 1
-      data:
-        first:
-          name: _SpecPower2
-        second: 1
-      data:
-        first:
-          name: _SpecPower3
-        second: 1
-      data:
-        first:
-          name: _SpecPower4
-        second: 1
     m_Colors:
       data:
         first:
@@ -243,8 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _SpecColor
         second: {r: 1, g: 1, b: 1, a: 1}

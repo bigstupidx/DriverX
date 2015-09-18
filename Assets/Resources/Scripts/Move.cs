@@ -12,7 +12,7 @@ public class Move : MonoBehaviour {
 
     float maxSpeed = 100;
 
-    float acceleration = 1.5f;
+    float acceleration = 1f;
 
     float minSpeedWhenDrift = 20;
 
