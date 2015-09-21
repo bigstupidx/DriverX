@@ -94,9 +94,8 @@ public class CameraMotion : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-
         // Early out if we don't have a target
       //  if (!playerCar || !playerRigid)
     //        return;

@@ -21,8 +21,8 @@ public class Move : MonoBehaviour {
     float wheelRotation = 0;
     float deltaWheelRotation = 0.075f;
 
-    float maxWheelRotation = 1.5f;
-    float maxDriftSpeed = 80;
+    float maxWheelRotation = 2f;
+    float maxDriftSpeed = 60;
     float xCompensationCoef = 0.03447815f/2f;
     float tresholdSpeedX;
 
@@ -40,9 +40,9 @@ public class Move : MonoBehaviour {
         lastPos = transform.position;
 
         if (maxDriftSpeed <= 60)
-            tresholdSpeedX = 0.726183f / 2* maxWheelRotation * maxDriftSpeed-3 ;
+            tresholdSpeedX = 0.726183f / 2* maxWheelRotation * maxDriftSpeed-4 ;
         else
-            tresholdSpeedX = 44f-3;
+            tresholdSpeedX = 44f-4;
     }
 
     void Update()
@@ -111,11 +111,11 @@ public class Move : MonoBehaviour {
                 else
                 {
                     AddGas(maxSpeed);
-                float minusSpeedX;
+                    float minusSpeedX;
 
-                minusSpeedX = Mathf.Min(compensationOnLowTurn, Mathf.Abs(relativeSpeed.x));
+                    minusSpeedX = Mathf.Min(compensationOnLowTurn, Mathf.Abs(relativeSpeed.x));
 
-                rigidbody.AddRelativeForce(new Vector3(minusSpeedX * znakSpeedX * (-1), 0, 0), ForceMode.VelocityChange);
+                    rigidbody.AddRelativeForce(new Vector3(minusSpeedX * znakSpeedX * (-1), 0, 0), ForceMode.VelocityChange);
 
 
             }

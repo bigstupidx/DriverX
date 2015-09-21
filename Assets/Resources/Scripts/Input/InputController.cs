@@ -10,6 +10,9 @@ public class InputController : MonoBehaviour {
 
     GameObject car;
 
+    public enum Direction { LEFT,RIGHT,NONE}
+    private Direction currentDirection = Direction.NONE;
+
     void Start () {
         leftButton = transform.FindChild("LeftButton").gameObject;
         rightButton = transform.FindChild("RightButton").gameObject;
@@ -20,7 +23,7 @@ public class InputController : MonoBehaviour {
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         bool leftIsUse = leftButton.GetComponent<GameControllButton>().IsUse();
         bool rightIsUse = rightButton.GetComponent<GameControllButton>().IsUse();
@@ -28,14 +31,13 @@ public class InputController : MonoBehaviour {
         if ((leftIsUse && !rightIsUse) || (!leftIsUse && rightIsUse))
         {
             if (leftIsUse)
-                car.GetComponent<Move>().MinusWheelRotation();
+                currentDirection = Direction.LEFT;
 
             if (rightIsUse)
-                car.GetComponent<Move>().PlusWheelRotation();
+                currentDirection = Direction.RIGHT;
         }
         else
-            car.GetComponent<Move>().ToZeroWheelRotation();
-
+            currentDirection = Direction.NONE;
     }
 
     private void setDefaultButtons()
@@ -53,5 +55,9 @@ public class InputController : MonoBehaviour {
         rightButton.GetComponent<Image>().color = new Color(0, 0, 0, 0);
     }
    
+    public Direction GetDirection()
+    {
+        return currentDirection;
+    }
 
 }
