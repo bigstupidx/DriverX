@@ -5278,8 +5278,8 @@ GameObject:
   - 4: {fileID: 2081437558}
   - 54: {fileID: 2081437562}
   - 114: {fileID: 2081437559}
-  - 114: {fileID: 2081437561}
   - 114: {fileID: 2081437560}
+  - 114: {fileID: 2081437561}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -5339,14 +5339,14 @@ MonoBehaviour:
   - {fileID: 1135140277}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
   m_MaximumSteerAngle: 25
-  m_SteerHelper: .643999994
+  m_SteerHelper: 1
   m_TractionControl: 1
   m_FullTorqueOverAllWheels: 2500
   m_ReverseTorque: 500
   m_MaxHandbrakeTorque: 1e+08
   m_Downforce: 100
   m_SpeedType: 0
-  m_Topspeed: 150
+  m_Topspeed: 70
   m_RevRangeBoundary: 1
   m_SlipLimit: .300000012
   m_BrakeTorque: 20000
@@ -5377,15 +5377,15 @@ MonoBehaviour:
 --- !u!114 &2081437561
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400022, guid: 0e7ee4df08df88c4880f43398f9ad2c2,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081437557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b859ce69248c1f4597926fcfc1c53f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uskorenie: .0199999996
 --- !u!54 &2081437562
 Rigidbody:
   m_ObjectHideFlags: 0

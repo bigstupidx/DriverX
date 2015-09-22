@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private Library library;
 
         public float uskorenie = 0.05f;
-        public float deltaWheelRotation = 0.05f;
+        private float deltaWheelRotation = 0.5f;
 
         private void Start()
         {
