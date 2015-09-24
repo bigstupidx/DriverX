@@ -47,10 +47,10 @@ namespace UnityStandardAssets.Vehicles.Car
                         wheelRotation = Mathf.Clamp(wheelRotation - deltaWheelRotation, 0, 1);
                     break;
             }
-            
 
-         //   wheelRotation = Input.GetAxis("Horizontal");
-           // verticalAxis = Input.GetAxis("Vertical");
+
+            //   wheelRotation = Input.GetAxis("Horizontal");
+            // verticalAxis = Input.GetAxis("Vertical");
 
             //float handbrake = Input.GetAxis("Jump");
             m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);

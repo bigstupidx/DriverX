@@ -23,7 +23,8 @@
 		};
 		
 		void vert (inout appdata_full v, out Input o) {
-			
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+
 			o.color = (v.color);
 			
 		}

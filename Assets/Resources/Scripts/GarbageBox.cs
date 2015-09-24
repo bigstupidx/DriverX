@@ -22,7 +22,7 @@ public class GarbageBox : Destroyable {
 
     public override void OnCollision(Transform carTransform)
     {
-        Vector3 dir = car.GetComponent<Move>().GetDirection();
+        Vector3 dir = car.GetComponent<CarContact>().GetDirection();
         float coef = 40000;
         rb.AddForce(dir.x * coef *3f, coef, dir.z* coef*3f, ForceMode.Impulse);
         rb.AddTorque(dir.z * coef*1.5f, 0, dir.x * coef*1.5f, ForceMode.Impulse);
