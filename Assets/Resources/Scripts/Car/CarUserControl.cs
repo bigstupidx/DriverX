@@ -76,7 +76,6 @@ namespace UnityStandardAssets.Vehicles.Car
                    verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1); 
                
             }
-            Debug.Log(verticalAxis);
             m_Car.Move(wheelRotation, verticalAxis, verticalAxis, handbrake);
             //#else
             //      m_Car.Move(h, v, v, 0f);
