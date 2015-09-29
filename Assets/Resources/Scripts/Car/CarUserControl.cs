@@ -55,7 +55,7 @@ namespace UnityStandardAssets.Vehicles.Car
             // verticalAxis = Input.GetAxis("Vertical");
 
             //            verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, 0, 1); //Input.GetAxis("Horizontal");
-            if (transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity).z > 10)
+       /*     if (transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity).z > 10)
             {
                 if (Input.GetKey(KeyCode.A) || library.inputController.HandbrakeIsUse())
                     //verticalAxis = Mathf.Clamp(verticalAxis - uskorenie, -1, 1); //Input.GetAxis("Horizontal");
@@ -68,15 +68,15 @@ namespace UnityStandardAssets.Vehicles.Car
 
             }
             else
-            {
+         *///   {
                 if (Input.GetKey(KeyCode.A) || library.inputController.HandbrakeIsUse())
                    verticalAxis = Mathf.Clamp(verticalAxis - uskorenie, -1, 1); 
 
                 else
                    verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1); 
                
-            }
-            m_Car.Move(wheelRotation, verticalAxis, verticalAxis, handbrake);
+    //        }
+            m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
             //#else
             //      m_Car.Move(h, v, v, 0f);
             //#endif

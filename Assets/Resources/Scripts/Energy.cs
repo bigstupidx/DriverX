@@ -5,7 +5,7 @@ public class Energy : MonoBehaviour {
 
     float energy;
     float maxEnergy;
-    float minusCoef = 1.5f;
+    float minusCoef = 1.3f;
 
 
     void Start () {
@@ -14,12 +14,12 @@ public class Energy : MonoBehaviour {
 	
     void Update()
     {
-        energy = Mathf.Clamp(energy - Time.deltaTime* minusCoef* (1+energy/maxEnergy*6), 0 ,maxEnergy);
+        energy = Mathf.Clamp(energy - Time.deltaTime* minusCoef* (1+energy/maxEnergy*8), 0 ,maxEnergy);
     }
 
 	public void AddEnergy(Destroyable destroyable)
     {
-        energy = Mathf.Clamp(energy + destroyable.GetEnergy(), 0,maxEnergy);
+        energy = Mathf.Clamp(energy + destroyable.GetRewardEnergy(), 0,maxEnergy);
     }
 
     public float GetEnergy()

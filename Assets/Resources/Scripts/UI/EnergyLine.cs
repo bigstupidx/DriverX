@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnergyLine : MonoBehaviour {
 
     Library library;
-
-    public Transform target;
 
     private float lineWidth;
     private RectTransform energyLine;
@@ -18,7 +17,20 @@ public class EnergyLine : MonoBehaviour {
         energyLine = transform.FindChild("Mask").FindChild("Energy").GetComponent<RectTransform>();
         lineWidth = energyLine.sizeDelta.x;
 
+        CreateS();
 
+    }
+
+    private void CreateS()
+    {
+
+        GameObject[] s = new GameObject[4];
+        for(int  i = 0; i < 4;i++)
+        {
+            s[0] = Instantiate(Resources.Load("Prefabs/UI/Risk")) as GameObject;
+            s[0].transform.SetParent(transform.FindChild("Mask"));
+            s[0].GetComponent<RectTransform>().localPosition = new Vector3((i+1)/4f*lineWidth - lineWidth/2, 0, 0);
+       }
     }
 
     // Update is called once per frame

@@ -11,10 +11,10 @@ public class GarbageBox : Destroyable {
 
         rb = GetComponent<Rigidbody>();
 
-
-        cost = 300;
-        energy = 30;
-        minEnergy = 30;
+    //    string name = this.GetType().Name;
+  //      cost = 300;
+  //      energy = 25;
+//        minEnergy = 30;
 	}
 
     new void Update()

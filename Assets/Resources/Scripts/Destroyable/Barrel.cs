@@ -13,9 +13,9 @@ public class Barrel : Destroyable {
         rb = GetComponent<Rigidbody>();
 
 
-        cost = 200;
-        energy = 20;
-        minEnergy = 10;
+  //      cost = 200;
+ //       energy = 20;
+ //       minEnergy = 10;
     }
 
     new void Update()
