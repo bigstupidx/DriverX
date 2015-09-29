@@ -7,8 +7,11 @@ public class Score : MonoBehaviour {
 
     float timer;
 
+    int scoreToWin;
+
 	void Start () {
         library = GetComponent<Library>();
+        scoreToWin = 20000;
 	}
 
     public void AddScoreForDestroy(Destroyable destroyable)
@@ -33,9 +36,14 @@ public class Score : MonoBehaviour {
     {
         if (!library.currentScore.IsZero())
         {
-            library.fullScore.AddScore(library.currentScore.GetScore());
+            library.fullScore.AddScore(library.currentScore.GetFullScore());
             library.currentScore.ClearScore();
         }
+    }
+
+    public int GetScoreToWin()
+    {
+        return scoreToWin;
     }
 
 }

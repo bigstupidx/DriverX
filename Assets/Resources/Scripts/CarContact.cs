@@ -7,6 +7,7 @@ public class CarContact : MonoBehaviour {
     Vector3 dir = new Vector3();
     Vector3 lastPos = new Vector3();
 
+
     void Start () {
         // transform.GetComponent<Collider>().isTrigger = true;
         library = GameObject.Find("Global").GetComponent<Library>();
@@ -30,14 +31,16 @@ public class CarContact : MonoBehaviour {
 
         if (destoyable != null)
         {
-            destoyable.OnCollision(col.transform);
+            destoyable.OnCollision(transform);
+            library.score.AddScoreForDestroy(destoyable);
+            library.energy.AddEnergy(destoyable);
+
+            CameraShakeInstance c = CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
         }
 
-        library.score.AddScoreForDestroy(destoyable);
 
-        CameraShakeInstance c = CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
-     //   c.PositionInfluence = new Vector3(1,1,1);
-       // c.PositionInfluence = new Vector3(1, 1, 1);
+        //   c.PositionInfluence = new Vector3(1,1,1);
+        // c.PositionInfluence = new Vector3(1, 1, 1);
     }
 
     public Vector3 GetDirection()

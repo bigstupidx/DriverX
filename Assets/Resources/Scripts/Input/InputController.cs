@@ -7,8 +7,10 @@ public class InputController : MonoBehaviour {
 
     GameObject leftButton;
     GameObject rightButton;
+    GameObject handbrake;
 
     GameObject car;
+
 
     public enum Direction { LEFT,RIGHT,NONE}
     private Direction currentDirection = Direction.NONE;
@@ -16,6 +18,8 @@ public class InputController : MonoBehaviour {
     void Start () {
         leftButton = transform.FindChild("LeftButton").gameObject;
         rightButton = transform.FindChild("RightButton").gameObject;
+        handbrake = transform.FindChild("Handbrake").gameObject;
+
 
         car = GameObject.Find("Car");
 
@@ -38,6 +42,8 @@ public class InputController : MonoBehaviour {
         }
         else
             currentDirection = Direction.NONE;
+
+        
     }
 
     private void setDefaultButtons()
@@ -58,6 +64,11 @@ public class InputController : MonoBehaviour {
     public Direction GetDirection()
     {
         return currentDirection;
+    }
+
+    public bool HandbrakeIsUse()
+    {
+        return handbrake.GetComponent<GameControllButton>().IsUse() ;
     }
 
 }
