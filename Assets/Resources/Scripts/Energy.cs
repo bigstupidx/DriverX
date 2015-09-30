@@ -14,7 +14,7 @@ public class Energy : MonoBehaviour {
 	
     void Update()
     {
-        energy = Mathf.Clamp(energy - Time.deltaTime* minusCoef* (1+energy/maxEnergy*8), 0 ,maxEnergy);
+        //energy = Mathf.Clamp(energy - Time.deltaTime* minusCoef* (1+energy/maxEnergy*8), 0 ,maxEnergy);
     }
 
 	public void AddEnergy(Destroyable destroyable)

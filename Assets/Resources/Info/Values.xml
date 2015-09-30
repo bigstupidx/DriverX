@@ -1,26 +1,13 @@
   <items>
-    <BrokenWheel>  
-        <minEnergy>0</minEnergy>
+     <Light>  
         <rewardEnergy>10</rewardEnergy>
         <cost>100</cost>
-    </BrokenWheel>
+    </Light>
   
-   <Barrel>  
-        <minEnergy>10</minEnergy>
-        <rewardEnergy>20</rewardEnergy>
-        <cost>200</cost>
-    </Barrel>
-  
-     <GarbageBox>  
-        <minEnergy>30</minEnergy>
-        <rewardEnergy>25</rewardEnergy>
-        <cost>300</cost>
-    </GarbageBox>
-  
-     <Wall>  
+     <Heavy>  
         <minEnergy>60</minEnergy>
         <rewardEnergy>30</rewardEnergy>
-        <cost>400</cost>
-    </Wall>
+        <cost>500</cost>
+    </Heavy>
    
 </items>
