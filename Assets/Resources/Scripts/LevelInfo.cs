@@ -25,7 +25,10 @@ public class LevelInfo : MonoBehaviour {
             {
                 switch (childVal.Name)
                 {
-                   
+                    case "minEnergy":
+                       
+                        minEnergy = int.Parse(childVal.InnerText);
+                        break;
                     case "rewardEnergy":
                         rewardEnergy = int.Parse(childVal.InnerText);
                         break;
@@ -34,7 +37,7 @@ public class LevelInfo : MonoBehaviour {
                         break;
                 }
             }
-            DestroyableInfo destroyableInfo = new DestroyableInfo(cost, rewardEnergy);
+            DestroyableInfo destroyableInfo = new DestroyableInfo(cost,minEnergy,rewardEnergy);
             obj.Add(node.Name, destroyableInfo);
         }
 
@@ -47,6 +50,7 @@ public class LevelInfo : MonoBehaviour {
         DestroyableInfo destroyableInfo;//= new DestroyableInfo(1,1,1);
         obj.TryGetValue(name, out destroyableInfo);
 
+        Debug.Log(destroyableInfo.GetMinEnergy());
         return destroyableInfo;
     }
 }
