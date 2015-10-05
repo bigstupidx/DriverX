@@ -5,7 +5,6 @@
     </Light>
   
      <Heavy>  
-        <minEnergy>60</minEnergy>
         <rewardEnergy>30</rewardEnergy>
         <cost>500</cost>
     </Heavy>
