@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Library : MonoBehaviour {
 
+   [HideInInspector] public GameObject car;
    [HideInInspector] public CurrentScore currentScore;
    [HideInInspector] public FullScore fullScore;
    [HideInInspector] public Score score;
@@ -14,6 +15,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public LevelInfo levelInfo;
     // Use this for initialization
 	void Awake () {
+        car = GameObject.Find("Car");
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
         fullScore = GameObject.Find("FullScore").GetComponent<FullScore>();
         score = GetComponent<Score>();
