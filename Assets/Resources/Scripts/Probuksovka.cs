@@ -5,6 +5,7 @@ public class Probuksovka : MonoBehaviour {
 
     Library library;
     GameObject probuksovkaParticle;
+    bool isProbuksovka;
 
     // Use this for initialization
     void Start()
@@ -16,16 +17,26 @@ public class Probuksovka : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Rigidbody carRigid = library.car.GetComponent<Rigidbody>();
-            if (library.car.transform.InverseTransformDirection(carRigid.velocity).z < 15 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
+        if (library.car.transform.InverseTransformDirection(carRigid.velocity).z < 6 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
+        {
+            if (!isProbuksovka)
             {
-                if(!probuksovkaParticle.activeSelf)
-                    probuksovkaParticle.SetActive(true);
+                probuksovkaParticle.GetComponent<ParticleSystem>().loop = true;
+                probuksovkaParticle.transform.GetChild(0).GetComponent<ParticleSystem>().loop = true;
+                isProbuksovka = true;
             }
-            else
+                    //probuksovkaParticle.SetActive(true);
+        }
+        else
+        {
+            if (isProbuksovka)
             {
-                if (probuksovkaParticle.activeSelf)
-                    probuksovkaParticle.SetActive(false);
+                probuksovkaParticle.GetComponent<ParticleSystem>().loop = false;
+                probuksovkaParticle.transform.GetChild(0).GetComponent<ParticleSystem>().loop = false;
+                isProbuksovka = false;
             }
+            //probuksovkaParticle.SetActive(false);
+        }
 
     }
 }
