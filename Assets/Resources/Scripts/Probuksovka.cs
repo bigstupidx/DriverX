@@ -17,10 +17,12 @@ public class Probuksovka : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Rigidbody carRigid = library.car.GetComponent<Rigidbody>();
-        if (library.car.transform.InverseTransformDirection(carRigid.velocity).z < 6 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
+        if (library.car.transform.InverseTransformDirection(carRigid.velocity).z < 8 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
         {
             if (!isProbuksovka)
             {
+                probuksovkaParticle.SetActive(false);
+                probuksovkaParticle.SetActive(true);
                 probuksovkaParticle.GetComponent<ParticleSystem>().loop = true;
                 probuksovkaParticle.transform.GetChild(0).GetComponent<ParticleSystem>().loop = true;
                 isProbuksovka = true;
