@@ -22,7 +22,9 @@ namespace UnityStandardAssets.Vehicles.Car
         void Update()
         {
             Rigidbody carRigid = library.car.GetComponent<Rigidbody>();
-            if (library.car.GetComponent<CarController>().CurrentSpeed < 12 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
+          //  WheelHit wheelhit;
+          //  GetComponent<WheelCollider>().GetGroundHit(out wheelhit);
+            if (library.car.GetComponent<CarController>().CurrentSpeed < 25 && GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0)
             {
                 if (!isProbuksovka)
                 {
