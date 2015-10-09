@@ -3,7 +3,12 @@ guid: 57de82f5a2f220241be08c05d774c3ba
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: MEP_Cactus_h_01
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -27,7 +32,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 3
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
