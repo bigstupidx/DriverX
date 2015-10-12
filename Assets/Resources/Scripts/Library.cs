@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Vehicles.Car;
 
 public class Library : MonoBehaviour {
 
@@ -13,9 +14,13 @@ public class Library : MonoBehaviour {
    [HideInInspector] public TimerScript timerScript;
    [HideInInspector] public TimerUI timerUI;
    [HideInInspector] public LevelInfo levelInfo;
+   [HideInInspector] public GameObject tasks;
+   [HideInInspector] public TaskStrings taskStrings;
+   [HideInInspector] public GameObject pauseButton;
+    [HideInInspector] public GameObject pauseMenu;
     // Use this for initialization
-	void Awake () {
-        car = GameObject.Find("Car");
+    void Awake () {
+        car = GameObject.FindObjectOfType<CarController>().gameObject;
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
         fullScore = GameObject.Find("FullScore").GetComponent<FullScore>();
         score = GetComponent<Score>();
@@ -25,6 +30,11 @@ public class Library : MonoBehaviour {
         timerScript = GameObject.FindObjectOfType<TimerScript>();
         timerUI = GameObject.FindObjectOfType<TimerUI>();
         levelInfo = GetComponent<LevelInfo>();
+        tasks = GameObject.Find("Tasks");
+        taskStrings = GetComponent<TaskStrings>();
+        pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
+        pauseMenu = GameObject.Find("Canvas").transform.FindChild("Scroll").gameObject;
+        
 	}
 	
 }

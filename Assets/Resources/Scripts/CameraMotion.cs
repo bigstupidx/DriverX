@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityStandardAssets.Vehicles.Car;
 public class CameraMotion : MonoBehaviour
 {
     /*
@@ -58,10 +58,10 @@ public class CameraMotion : MonoBehaviour
     {
 
         // Early out if we don't have a target
-      //  if (!playerCar)
-     //   {
-     //       if (GameObject.FindObjectOfType<RCCCarControllerV2>())
-                playerCar = GameObject.Find("Car").transform;
+        //  if (!playerCar)
+        //   {
+        //       if (GameObject.FindObjectOfType<RCCCarControllerV2>())
+        playerCar = GameObject.FindObjectOfType<CarController>().transform;
             //else
               //  return;
     //   }

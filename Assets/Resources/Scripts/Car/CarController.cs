@@ -55,6 +55,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
+        public float maxAngleX = 45;
+        public float maxAngleZ = 35;
         // Use this for initialization
         private void Start()
         {
@@ -71,6 +73,25 @@ namespace UnityStandardAssets.Vehicles.Car
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
         }
 
+        void Update()
+        {
+            float newAngleX = GetClamAngle(transform.eulerAngles.x, maxAngleX);
+            float newAngleZ = GetClamAngle(transform.eulerAngles.z, maxAngleZ);
+
+            transform.rotation = Quaternion.Euler(newAngleX, transform.rotation.eulerAngles.y, newAngleZ);
+        }
+
+        float GetClamAngle(float currentAngle, float maxAngle)
+        {
+            float newAngle = currentAngle;
+
+            if (currentAngle > maxAngle && currentAngle <= 180)
+                newAngle = maxAngle;
+            else
+                if (currentAngle > 180 && currentAngle < 360 - maxAngle)
+                newAngle = 360 - maxAngle;
+            return newAngle;
+        }
 
         private void GearChanging()
         {
