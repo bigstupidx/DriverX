@@ -15,8 +15,10 @@ public class ScrollBoxController : MonoBehaviour {
 
         rt = GetComponent<RectTransform>();
 
+
         AddTasks();
 
+        transform.parent.gameObject.SetActive(false);
     }
 
     private void AddTasks()
@@ -33,14 +35,14 @@ public class ScrollBoxController : MonoBehaviour {
             ancoredPos.y = ((rectTransform.rect.height) * (i + 0.5f) + border) * (-1);
             rectTransform.anchoredPosition = ancoredPos;
             taskItem.GetComponentInChildren<Text>().text = taskScripts[i].GetDescription();
-        }
+            taskScripts[i].SetItem(taskItem);
 
+            if (taskScripts[i].IsComplete())
+                taskScripts[i].SetColored();
+        }
 
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)*taskScripts.Length+border);
     }
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
+    
 }

@@ -17,7 +17,8 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject tasks;
    [HideInInspector] public TaskStrings taskStrings;
    [HideInInspector] public GameObject pauseButton;
-    [HideInInspector] public GameObject pauseMenu;
+   [HideInInspector] public GameObject pauseMenu;
+   [HideInInspector] public PreferencesSaver preferencesSaver;
     // Use this for initialization
     void Awake () {
         car = GameObject.FindObjectOfType<CarController>().gameObject;
@@ -34,7 +35,7 @@ public class Library : MonoBehaviour {
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").transform.FindChild("Scroll").gameObject;
-        
+        preferencesSaver = GetComponent<PreferencesSaver>();
 	}
 	
 }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class DestroyAllWheels : Task {
 
@@ -9,4 +9,17 @@ public class DestroyAllWheels : Task {
         base.Start();
 	}
 	
+    new void Update()
+    {
+        base.Update();
+
+        if(!IsComplete())
+        {
+            int count = library.car.GetComponent<CarContact>().GetDestroyableCount("BrokenWheel");
+
+            if (count == 4)
+            SetJustComplete();
+        }
+
+    }
 }

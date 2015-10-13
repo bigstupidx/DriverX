@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public class CarContact : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class CarContact : MonoBehaviour {
     Vector3 dir = new Vector3();
     Vector3 lastPos = new Vector3();
 
+    Dictionary<string,int> dictionaryDestroyable = new Dictionary<string, int>();
 
     void Start () {
         // transform.GetComponent<Collider>().isTrigger = true;
@@ -36,6 +38,8 @@ public class CarContact : MonoBehaviour {
             library.energy.AddEnergy(destoyable);
 
             CameraShakeInstance c = CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
+
+            AddDestroyable(destoyable.GetType().Name);
         }
 
 
@@ -43,9 +47,30 @@ public class CarContact : MonoBehaviour {
         // c.PositionInfluence = new Vector3(1, 1, 1);
     }
 
+    private void AddDestroyable(String name)
+    {
+        int val = 0;
+
+        if (dictionaryDestroyable.TryGetValue(name, out val))
+            dictionaryDestroyable[name] += 1;
+        else
+            dictionaryDestroyable.Add(name, 1);
+
+    }
+
     public Vector3 GetDirection()
     {
         return dir;
+    }
+
+    public int GetDestroyableCount(string name)
+    {
+        int val = 0;
+
+        if (dictionaryDestroyable.TryGetValue(name, out val))
+            return val;
+        else
+            return 0;
     }
 
 }
