@@ -67,6 +67,8 @@ public class CarContact : MonoBehaviour {
     {
         int val = 0;
 
+
+
         if (dictionaryDestroyable.TryGetValue(name, out val))
             return val;
         else

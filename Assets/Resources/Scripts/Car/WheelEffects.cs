@@ -32,8 +32,8 @@ namespace UnityStandardAssets.Vehicles.Car
             }
 
             m_WheelCollider = GetComponent<WheelCollider>();
-            m_AudioSource = GetComponent<AudioSource>();
-            PlayingAudio = false;
+        //    m_AudioSource = GetComponent<AudioSource>();
+       //     PlayingAudio = false;
 
             if (skidTrailsDetachedParent == null)
             {
@@ -46,10 +46,11 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             skidParticles.transform.position = transform.position - transform.up*m_WheelCollider.radius;
             skidParticles.Emit(1);
+            /*
             if (!skidding)
             {
                 StartCoroutine(StartSkidTrail());
-            }
+            }*/
         }
 
 
