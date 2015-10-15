@@ -25,7 +25,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         }
 
-        void Update()
+        void FixedUpdate()
         {
             dir = (transform.position - lastPos).normalized;
             lastPos = transform.position;
@@ -40,12 +40,13 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void RideEffectEmit()
         {
+
             if (GetComponent<WheelCollider>().isGrounded)
             {
-               /* Quaternion quater = Quaternion.LookRotation(dir);
+                Quaternion quater = Quaternion.LookRotation(dir);
                 quater *= Quaternion.Euler(-20, 180, 0);
                 rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
-                */
+                
                 TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
                 Color color = rideEffect.startColor;
 

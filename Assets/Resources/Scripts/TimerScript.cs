@@ -5,7 +5,7 @@ public class TimerScript : MonoBehaviour {
 
     float timeLeft;
     void Start () {
-        timeLeft = 60;
+        timeLeft = 90;
 	}
 	
 	// Update is called once per frame
