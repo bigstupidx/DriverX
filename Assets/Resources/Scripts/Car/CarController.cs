@@ -60,8 +60,10 @@ namespace UnityStandardAssets.Vehicles.Car
         public float maxAngleZ = 35;
 
         private ParticleSystem rideEffect;
-        private Color color1 = new Color32(206 , 206 , 206 , 33 );
-        private Color color2 = new Color32(255, 225, 159, 87 );
+
+        public float dustAngle;
+
+        
         // Use this for initialization
         private void Start()
         {
@@ -327,7 +329,7 @@ namespace UnityStandardAssets.Vehicles.Car
             if(allWheelHit)
             {
                 Quaternion quater = Quaternion.LookRotation(m_Rigidbody.velocity.normalized);
-                quater *= Quaternion.Euler(-20, 180, 0);
+                quater *= Quaternion.Euler(dustAngle*(-1), 180, 0);
                 rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
                 
                 TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
