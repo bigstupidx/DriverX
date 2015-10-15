@@ -321,7 +321,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
                 if(CurrentSpeed < 25)
                     m_WheelColliders[i].GetComponent<Probuksovka>().ProbuksovkaEmit();
-                //m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
+                m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
             }
 
             if(allWheelHit)
@@ -329,7 +329,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 Quaternion quater = Quaternion.LookRotation(m_Rigidbody.velocity.normalized);
                 quater *= Quaternion.Euler(-20, 180, 0);
                 rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
-
+                
                 TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
                 Color color = rideEffect.startColor;
 

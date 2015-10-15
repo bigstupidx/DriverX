@@ -18,8 +18,8 @@ namespace UnityStandardAssets.Vehicles.Car
         void Start()
         {
             library = GameObject.FindObjectOfType<Library>();
-            probuksovkaParticle = transform.FindChild("WheelOut").GetComponent<ParticleSystem>();
-          //  rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
+           probuksovkaParticle = transform.FindChild("WheelOut").GetComponent<ParticleSystem>();
+            rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
 
             lastPos = transform.position;
 
