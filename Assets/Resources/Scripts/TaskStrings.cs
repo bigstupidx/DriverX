@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class TaskStrings : MonoBehaviour
 {
 
-    Dictionary<string, string> obj = new Dictionary<string, string>();
+    Dictionary<string, TaskValue> obj = new Dictionary<string, TaskValue>();
     // Use this for initialization
     void Awake()
     {
@@ -25,11 +25,26 @@ public class TaskStrings : MonoBehaviour
             {
                 foreach (XmlNode childVal in node.ChildNodes)
                 {
+                    List<string> fullText = new List<string>();
+                    List<string> helperText = new List<string>();
+
+                    foreach(XmlNode point in childVal.ChildNodes)
+                    {
+                        switch(point.Attributes["type"].Value)
+                        {
+                            case "fulltext": fullText.Add(point.InnerText); break;
+                            case "helpertext": helperText.Add(point.InnerText); break;
+                        }
+                    }
+
+                    
+                    TaskValue taskValue = new TaskValue(fullText.ToArray(),helperText.ToArray());
+
                     try
                     {
-                        obj.Add(childVal.Attributes["name"].Value, childVal.InnerText);
+                        obj.Add(childVal.Attributes["name"].Value, taskValue);
                     }
-                    catch (System.Xml.XmlException)
+                    catch
                     {
                         continue;
                     }
@@ -42,10 +57,10 @@ public class TaskStrings : MonoBehaviour
 
     }
 
-    public string GetString(string name)
+    public TaskValue GetTaskValue(string name)
     {
-        string str;
-        obj.TryGetValue(name, out str);
-        return str;
+        TaskValue taskValue;
+        obj.TryGetValue(name, out taskValue);
+        return taskValue;
     }
 }

@@ -1,51 +1,17 @@
 fileFormatVersion: 2
-guid: e8fb1f6046ebbc44e81153e22d455914
-timeCreated: 1442321377
+guid: 243dfe005d8037847800c3c4c5a75816
+timeCreated: 1444846835
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Hi_wood_fence_01
-    100002: Hi_wood_fence_02
-    100004: Hi_wood_fence_03
-    100006: Hi_wood_fence_04
-    100008: Hi_wood_fence_05
-    100010: Hi_wood_k
-    100012: Hi_wood_STOLB
-    100014: Particle View 001
-    100016: //RootNode
-    400000: Hi_wood_fence_01
-    400002: Hi_wood_fence_02
-    400004: Hi_wood_fence_03
-    400006: Hi_wood_fence_04
-    400008: Hi_wood_fence_05
-    400010: Hi_wood_k
-    400012: Hi_wood_STOLB
-    400014: Particle View 001
-    400016: //RootNode
-    2300000: Hi_wood_fence_01
-    2300002: Hi_wood_fence_02
-    2300004: Hi_wood_fence_03
-    2300006: Hi_wood_fence_04
-    2300008: Hi_wood_fence_05
-    2300010: Hi_wood_k
-    2300012: Hi_wood_STOLB
-    3300000: Hi_wood_fence_01
-    3300002: Hi_wood_fence_02
-    3300004: Hi_wood_fence_03
-    3300006: Hi_wood_fence_04
-    3300008: Hi_wood_fence_05
-    3300010: Hi_wood_k
-    3300012: Hi_wood_STOLB
-    4300000: Hi_wood_fence_01
-    4300002: Hi_wood_fence_02
-    4300004: Hi_wood_fence_03
-    4300006: Hi_wood_fence_04
-    4300008: Hi_wood_fence_05
-    4300010: Hi_wood_k
-    4300012: Hi_wood_STOLB
-    7400000: Take 001
-    9500000: //RootNode
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2300000: default
+    3300000: default
+    4300000: default
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +36,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 2
+    meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
@@ -103,7 +69,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

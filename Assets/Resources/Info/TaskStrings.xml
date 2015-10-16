@@ -1,5 +1,19 @@
 <items>
   <ru>
-    <task name ="DestroyAllWheels">Уничтожте все покрышки на карте</task>
+    <task name ="DestroyAllWheels">
+      <point type="fulltext">Уничтожте все покрышки на карте</point>
+      <point type="helpertext">Разбито</point>
+      <point type="helpertext">покрышек</point>
+    </task>
+    <task name ="DestroyAllGarbageBox">
+      <point type="fulltext">Уничтожте все мусорные баки на карте</point>
+      <point type="helpertext">Разбито</point>
+      <point type="helpertext">мусорных баков</point>
+    </task>
+    <task name ="Combo">
+      <point type="fulltext">Наберите за одно комбо</point>
+      <point type="fulltext">очков</point>
+
+    </task>
   </ru>
 </items>

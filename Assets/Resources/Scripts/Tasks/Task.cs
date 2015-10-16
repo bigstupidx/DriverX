@@ -4,7 +4,7 @@ using System.Collections;
 
 public abstract class Task : MonoBehaviour {
 
-    protected string taskDescription;
+    protected TaskValue taskValue;
     protected Library library;
 
     private bool isComplete;
@@ -12,27 +12,37 @@ public abstract class Task : MonoBehaviour {
 
     protected GameObject item;
 
+    protected string description;
+
     // Use this for initialization
     protected void Start() {
         library = GameObject.FindObjectOfType<Library>();
-        taskDescription = library.taskStrings.GetString(this.GetType().Name);
-
+        taskValue = library.taskStrings.GetTaskValue(this.GetType().Name);
+        description = Description();
         if (library.preferencesSaver.TaskIsComplete(1, this.GetType().Name))
         {
             isComplete = true;
         }
     }
 
+    abstract protected string Description();
 
 	
     protected void Update()
     {
+        
+        if (!IsComplete())
+        {
+            Conditions();
 
+        }
     }
+
+    abstract protected void Conditions();
 
 	public string GetDescription()
     {
-        return taskDescription;
+        return description;
     }
 
     public bool IsComplete()

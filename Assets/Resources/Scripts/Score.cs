@@ -9,6 +9,8 @@ public class Score : MonoBehaviour {
 
     int scoreToWin;
 
+    int lastCombo;
+
 	void Start () {
         library = GetComponent<Library>();
         scoreToWin = 20000;
@@ -36,7 +38,8 @@ public class Score : MonoBehaviour {
     {
         if (!library.currentScore.IsZero())
         {
-            library.fullScore.AddScore(library.currentScore.GetFullScore());
+            lastCombo = library.currentScore.GetFullScore();
+            library.fullScore.AddScore(lastCombo);
             library.currentScore.ClearScore();
         }
     }
@@ -44,6 +47,11 @@ public class Score : MonoBehaviour {
     public int GetScoreToWin()
     {
         return scoreToWin;
+    }
+
+    public int GetLastCombo()
+    {
+        return lastCombo;
     }
 
 }

@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class DestroyAllWheels : Task {
 
-	// Use this for initialization
-	new void Start ()
+
+    // Use this for initialization
+    new void Start ()
     {
         base.Start();
 	}
@@ -13,13 +15,19 @@ public class DestroyAllWheels : Task {
     {
         base.Update();
 
-        if(!IsComplete())
-        {
-            int count = library.car.GetComponent<CarContact>().GetDestroyableCount("BrokenWheel");
 
-            if (count == 4)
+    }
+
+    protected override string Description()
+    {
+        return taskValue.GetFullText(0);
+    }
+
+    protected override void Conditions()
+    {
+        int count = library.car.GetComponent<CarContact>().GetDestroyableCount("BrokenWheel");
+
+        if (count == 4)
             SetJustComplete();
-        }
-
     }
 }

@@ -32,7 +32,7 @@ public class ScrollBoxController : MonoBehaviour {
             taskItem.transform.SetParent(transform, false);
             RectTransform rectTransform = taskItem.GetComponent<RectTransform>();
             Vector3 ancoredPos = rectTransform.anchoredPosition;
-            ancoredPos.y = ((rectTransform.rect.height) * (i + 0.5f) + border) * (-1);
+            ancoredPos.y = ((rectTransform.rect.height+border) * (i) + 0.5f*rectTransform.rect.height + border) * (-1);
             rectTransform.anchoredPosition = ancoredPos;
             taskItem.GetComponentInChildren<Text>().text = taskScripts[i].GetDescription();
             taskScripts[i].SetItem(taskItem);

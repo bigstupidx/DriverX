@@ -13,6 +13,7 @@ public class CurrentScore : MonoBehaviour {
     Color yellowColor = new Color(255/255f, 215/255f, 0/255f, 255/255f);
     Color blueColor = new Color(45 / 255f, 45 / 255f, 255 / 255f, 255/255f);
 
+    IEnumerator currentCoroutine;
 	// Use this for initialization
 	void Start () {
         text = GetComponent<Text>();
@@ -26,6 +27,9 @@ public class CurrentScore : MonoBehaviour {
 
         text.text = score + " X " + coef;
         text.color = yellowColor;
+
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
     }
 
     public int GetFullScore()
@@ -43,7 +47,8 @@ public class CurrentScore : MonoBehaviour {
         coef = 0;
         fullScore = 0;
 
-        StartCoroutine(HideScore());
+        currentCoroutine = HideScore();
+        StartCoroutine(currentCoroutine);
     }
 
     IEnumerator HideScore()
