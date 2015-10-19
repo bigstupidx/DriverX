@@ -61,9 +61,13 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private ParticleSystem rideEffect;
 
-        public float dustAngle;
+      //  public float dustAngle;
 
-        
+        private int numNitro = 30;
+        private int currentNitro = 0;
+
+        Transform asotSystems;
+        ParticleSystem[] rayAsot;
         // Use this for initialization
         private void Start()
         {
@@ -80,7 +84,9 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
-            rideEffect = transform.FindChild("RideEffect").GetComponent<ParticleSystem>();
+            rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<ParticleSystem>();
+            asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
+            rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         }
 
         void Update()
@@ -202,8 +208,17 @@ namespace UnityStandardAssets.Vehicles.Car
             AddDownForce();
             CheckForWheelSpin();
             TractionControl();
+
+            if(currentNitro > 0)
+            {
+
+                m_Rigidbody.AddRelativeForce(new Vector3(0, 0, 100000), ForceMode.Force);
+                currentNitro--;
+            }
+
         }
 
+       
 
         private void CapSpeed()
         {
@@ -213,13 +228,13 @@ namespace UnityStandardAssets.Vehicles.Car
                 case SpeedType.MPH:
 
                     speed *= 2.23693629f;
-                    if (speed > m_Topspeed)
-                        m_Rigidbody.velocity = (m_Topspeed/2.23693629f) * m_Rigidbody.velocity.normalized;
+                    if (speed > m_Topspeed && currentNitro <= 0)
+                        m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity,(m_Topspeed/2.23693629f) * m_Rigidbody.velocity.normalized,0.1f);
                     break;
 
                 case SpeedType.KPH:
                     speed *= 3.6f;
-                    if (speed > m_Topspeed)
+                    if (speed > m_Topspeed && currentNitro <= 0)
                         m_Rigidbody.velocity = (m_Topspeed/3.6f) * m_Rigidbody.velocity.normalized;
                     break;
             }
@@ -323,13 +338,14 @@ namespace UnityStandardAssets.Vehicles.Car
 
                 if(CurrentSpeed < 25)
                     m_WheelColliders[i].GetComponent<Probuksovka>().ProbuksovkaEmit();
+
                 m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
             }
 
             if(allWheelHit)
             {
                 Quaternion quater = Quaternion.LookRotation(m_Rigidbody.velocity.normalized);
-                quater *= Quaternion.Euler(dustAngle*(-1), 180, 0);
+                quater *= Quaternion.Euler(0, 180, 0);
                 rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
                 
                 TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
@@ -352,8 +368,9 @@ namespace UnityStandardAssets.Vehicles.Car
 
                 color.a = color.a * CurrentSpeed / MaxSpeed;
                 rideEffect.startColor = color;
-                rideEffect.Emit(1);        
+               rideEffect.Emit(1);        
             }
+
 
 
             // is the tire slipping above the given threshhold
@@ -444,7 +461,28 @@ namespace UnityStandardAssets.Vehicles.Car
             }
             return false;
         }
-    }
 
-   
+
+        public void Nitro()
+        {
+
+            StartCoroutine(ShowNitro());
+
+            foreach(Transform asotSystem in asotSystems)
+            {
+                asotSystem.GetComponent<ParticleSystem>().Play();
+            }
+            
+          
+        }
+
+        System.Collections.IEnumerator ShowNitro()
+        {
+            yield return new WaitForSeconds(0.1f);
+
+            rayAsot[0].Play();
+
+            currentNitro = numNitro;
+        }
+    }
 }

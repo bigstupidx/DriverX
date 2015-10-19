@@ -11,6 +11,8 @@ public class BrokenWheel : Destroyable {
 
         rb = GetComponent<Rigidbody>();
 
+
+     
     }
 
     // Update is called once per frame

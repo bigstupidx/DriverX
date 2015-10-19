@@ -19,7 +19,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             library = GameObject.FindObjectOfType<Library>();
            probuksovkaParticle = transform.FindChild("WheelOut").GetComponent<ParticleSystem>();
-            rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
+           rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
 
             lastPos = transform.position;
 
@@ -38,13 +38,14 @@ namespace UnityStandardAssets.Vehicles.Car
             
         }
 
+        
         public void RideEffectEmit()
         {
 
             if (GetComponent<WheelCollider>().isGrounded)
             {
                 Quaternion quater = Quaternion.LookRotation(dir);
-                quater *= Quaternion.Euler(-20, 180, 0);
+                quater *= Quaternion.Euler(0, 180, 0);
                 rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
                 
                 TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
@@ -62,6 +63,12 @@ namespace UnityStandardAssets.Vehicles.Car
                 color.a = color.a * library.car.GetComponent<CarController>().CurrentSpeed / library.car.GetComponent<CarController>().MaxSpeed;
                 rideEffect.startColor = color;
                 rideEffect.Emit(1);
+
+              //  if(!rideEffect.IsAlive())
+                //{
+                  //  rideEffect.Play();
+                //}
+
             }
         }
     }

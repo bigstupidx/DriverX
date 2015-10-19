@@ -73,10 +73,15 @@ namespace UnityStandardAssets.Vehicles.Car
                    verticalAxis = Mathf.Clamp(verticalAxis - uskorenie, -1, 1); 
 
                 else
-                   verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1); 
-               
-    //        }
+                   verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1);
+
+            //        }
+
+         
+
             m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
+
+            
             //#else
             //      m_Car.Move(h, v, v, 0f);
             //#endif
@@ -90,5 +95,14 @@ namespace UnityStandardAssets.Vehicles.Car
             */
 
         }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+                m_Car.Nitro();
+        }
+
     }
+
+  
 }
