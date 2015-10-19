@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         Library library;
         ParticleSystem probuksovkaParticle;
-        ParticleSystem rideEffect;
+       // ParticleSystem rideEffect;
         bool isProbuksovka;
 
         Vector3 dir = new Vector3();
@@ -19,7 +19,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             library = GameObject.FindObjectOfType<Library>();
            probuksovkaParticle = transform.FindChild("WheelOut").GetComponent<ParticleSystem>();
-           rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
+       //    rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
 
             lastPos = transform.position;
 
@@ -38,7 +38,7 @@ namespace UnityStandardAssets.Vehicles.Car
             
         }
 
-        
+        /*
         public void RideEffectEmit()
         {
 
@@ -70,6 +70,6 @@ namespace UnityStandardAssets.Vehicles.Car
                 //}
 
             }
-        }
+        }*/
     }
 }

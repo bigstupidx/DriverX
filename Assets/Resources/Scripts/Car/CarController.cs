@@ -339,7 +339,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 if(CurrentSpeed < 25)
                     m_WheelColliders[i].GetComponent<Probuksovka>().ProbuksovkaEmit();
 
-                m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
+              //  m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
             }
 
             if(allWheelHit)
