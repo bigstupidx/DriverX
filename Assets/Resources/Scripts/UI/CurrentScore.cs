@@ -19,18 +19,29 @@ public class CurrentScore : MonoBehaviour {
         text = GetComponent<Text>();
 	}
 
-    public void AddScrore(int addScore)
+    public void AddScoreAndCoef(int addScore, bool isCoef)
     {
-        coef += 1;
+        if(isCoef)
+            coef += 1;
+
         score += addScore;
         fullScore = coef * score;
 
+        ShowScore();
+        
+    }
+
+   
+
+    private void ShowScore()
+    {
         text.text = score + " X " + coef;
         text.color = yellowColor;
 
-        if(currentCoroutine != null)
+        if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
     }
+
 
     public int GetFullScore()
     {

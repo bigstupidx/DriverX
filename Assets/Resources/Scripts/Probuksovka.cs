@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace UnityStandardAssets.Vehicles.Car
-{
 
     public class Probuksovka : MonoBehaviour
     {
@@ -72,4 +70,4 @@ namespace UnityStandardAssets.Vehicles.Car
             }
         }*/
     }
-}
+

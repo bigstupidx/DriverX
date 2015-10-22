@@ -69,31 +69,21 @@ public class CameraMotion : MonoBehaviour
         playerRigid = playerCar.GetComponent<Rigidbody>();
         cam = transform.FindChild("Camera").GetComponent<Camera>();
 
+        ToDefaultPosition();
   //      if (GetComponent<RCCCamManager>())
      //       GetComponent<RCCCamManager>().target = playerCar;
 
     }
-
+    
     void Update()
     {
 
-        // Early out if we don't have a target
-//        if (!playerCar)
-   //         return;
-
-   //     if (playerRigid != playerCar.GetComponent<Rigidbody>())
-   //         playerRigid = playerCar.GetComponent<Rigidbody>();
-
-        //Tilt Angle Calculation.
         tiltAngle = Mathf.Lerp(tiltAngle, (Mathf.Clamp(-playerCar.InverseTransformDirection(playerRigid.velocity).x, -35, 35)), Time.deltaTime * 2f);
-
-       // if (!cam)
-   //         cam = GetComponent<Camera>();
 
         cam.fieldOfView = Mathf.Lerp(minimumFOV, maximumFOV, (playerRigid.velocity.magnitude * 3f) / 150f);
 
     }
-
+    
     void FixedUpdate()
     {
         // Early out if we don't have a target
@@ -154,6 +144,10 @@ public class CameraMotion : MonoBehaviour
     */
     }
 
-
+    public void ToDefaultPosition()
+    {
+        transform.rotation = playerCar.rotation;
+        transform.position = new Vector3(playerCar.position.x, playerCar.position.y + height *2, playerCar.position.z-distance*2);
+    }
 
 }

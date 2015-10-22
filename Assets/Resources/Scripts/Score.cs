@@ -18,9 +18,28 @@ public class Score : MonoBehaviour {
 
     public void AddScoreForDestroy(Destroyable destroyable)
     {
-        library.currentScore.AddScrore(destroyable.GetCost());
+        AddScoreAndCoef(destroyable.GetCost(), true);
+    }
+
+    private void AddScoreAndCoef(int cost, bool isCoef)
+    {
+        library.currentScore.AddScoreAndCoef(cost, isCoef);
         timer = 2;
     }
+
+    public void AddScore(int cost)
+    {
+        AddScoreAndCoef(cost, false);
+    }
+
+    public void AddCoef()
+    {
+        AddScoreAndCoef(0, true);
+    }
+
+
+
+
 
     void Update()
     {
@@ -34,7 +53,7 @@ public class Score : MonoBehaviour {
 
     }
 
-    void CurrentScoreToFullScore()
+    public void CurrentScoreToFullScore()
     {
         if (!library.currentScore.IsZero())
         {

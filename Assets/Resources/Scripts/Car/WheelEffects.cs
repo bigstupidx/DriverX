@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace UnityStandardAssets.Vehicles.Car
-{
+
     [RequireComponent(typeof (AudioSource))]
     public class WheelEffects : MonoBehaviour
     {
@@ -92,4 +91,4 @@ namespace UnityStandardAssets.Vehicles.Car
             Destroy(m_SkidTrail.gameObject, 10);
         }
     }
-}
+

@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour {
     GameObject leftButton;
     GameObject rightButton;
     GameObject handbrake;
+    GameObject nitro;
 
     GameObject car;
 
@@ -19,7 +20,7 @@ public class InputController : MonoBehaviour {
         leftButton = transform.FindChild("LeftButton").gameObject;
         rightButton = transform.FindChild("RightButton").gameObject;
         handbrake = transform.FindChild("Handbrake").gameObject;
-
+        nitro = transform.FindChild("NitroButton").gameObject;
 
         car = GameObject.Find("Car");
 
@@ -69,6 +70,17 @@ public class InputController : MonoBehaviour {
     public bool HandbrakeIsUse()
     {
         return handbrake.GetComponent<GameControllButton>().IsUse() ;
+    }
+
+    public bool NitroIsUsed()
+    {
+        if(nitro.GetComponent<GameControllButton>().IsUse())
+        {
+            nitro.GetComponent<GameControllButton>().SetIsUse(false);
+            return true;
+        }
+
+        return false;
     }
 
 }

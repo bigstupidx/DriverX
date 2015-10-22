@@ -20,6 +20,10 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject pauseMenu;
    [HideInInspector] public PreferencesSaver preferencesSaver;
    [HideInInspector] public TaskHelper taskHelper;
+   [HideInInspector] public EndMenu endMenu;
+   [HideInInspector] public GameObject level;
+   [HideInInspector] public GlobalController globalController;
+   [HideInInspector] public GameObject cam;
     // Use this for initialization
     void Awake () {
         car = GameObject.FindObjectOfType<CarController>().gameObject;
@@ -35,9 +39,13 @@ public class Library : MonoBehaviour {
         tasks = GameObject.Find("Tasks");
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
-        pauseMenu = GameObject.Find("Canvas").transform.FindChild("Scroll").gameObject;
+        pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>().gameObject;
+        endMenu = GameObject.Find("Canvas").GetComponentInChildren<EndMenu>();
         preferencesSaver = GetComponent<PreferencesSaver>();
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
+        level = GameObject.FindGameObjectWithTag("Level");
+        globalController = GetComponent<GlobalController>();
+        cam = GameObject.Find("MainCamera");
 	}
 	
 }

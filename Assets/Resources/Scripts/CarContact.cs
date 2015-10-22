@@ -2,23 +2,34 @@
 using System.Collections.Generic;
 using System;
 
-public class CarContact : MonoBehaviour {
+
+public class CarContact : MonoBehaviour
+{
 
     Library library;
     Vector3 dir = new Vector3();
     Vector3 lastPos = new Vector3();
+    CarController carController;
 
-    Dictionary<string,int> dictionaryDestroyable = new Dictionary<string, int>();
+    WheelCollider[] wheelColliders;
 
-    void Start () {
+    Dictionary<string, int> dictionaryDestroyable = new Dictionary<string, int>();
+
+    bool isGrounded;
+
+    void Start()
+    {
         // transform.GetComponent<Collider>().isTrigger = true;
         library = GameObject.Find("Global").GetComponent<Library>();
+        carController = GetComponent<CarController>();
+        wheelColliders = carController.GetWheelColliders();
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
-        UpdateDirection();        
-	}
+    void FixedUpdate()
+    {
+        UpdateDirection();
+    }
 
     private void UpdateDirection()
     {
@@ -28,7 +39,6 @@ public class CarContact : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
- 
         Destroyable destoyable = col.gameObject.GetComponent<Destroyable>();
 
         if (destoyable != null)
@@ -42,9 +52,40 @@ public class CarContact : MonoBehaviour {
             AddDestroyable(destoyable.GetType().Name);
         }
 
+        Letter letter = col.gameObject.GetComponent<Letter>();
 
+        if (letter != null)
+        {
+            WordRide wordRide = library.tasks.GetComponent<WordRide>();
+
+            if (wordRide != null)
+                wordRide.CheckLetter(letter.letterNum);
+
+            Destroy(letter.gameObject);
+        }
+
+        if(col.gameObject.tag.Equals("Kanistra"))
+        {
+            TakeKanistra takeKanistra = library.tasks.GetComponent<TakeKanistra>();
+
+            if(takeKanistra != null)
+                takeKanistra.SetTake();
+
+            Destroy(col.gameObject);
+        }
         //   c.PositionInfluence = new Vector3(1,1,1);
         // c.PositionInfluence = new Vector3(1, 1, 1);
+    }
+
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        isGrounded = false;
     }
 
     private void AddDestroyable(String name)
@@ -67,12 +108,30 @@ public class CarContact : MonoBehaviour {
     {
         int val = 0;
 
-
-
         if (dictionaryDestroyable.TryGetValue(name, out val))
             return val;
         else
             return 0;
     }
 
+    public bool IsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool IsFlight()
+    {
+        bool temp = true;
+
+        for (int i = 0; i < 4; i++)
+        {
+            temp = temp & !wheelColliders[i].isGrounded;
+        }
+
+        temp = temp & !IsGrounded();
+
+        return temp;
+    }
+
 }
+

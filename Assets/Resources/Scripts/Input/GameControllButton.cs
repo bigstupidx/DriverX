@@ -24,4 +24,8 @@ public class GameControllButton : MonoBehaviour, IPointerDownHandler, IPointerUp
         return isUse;
     }
 
+    public void SetIsUse(bool val)
+    {
+        isUse = false;
+    }
 }

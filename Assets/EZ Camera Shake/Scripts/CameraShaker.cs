@@ -167,5 +167,9 @@ public class CameraShaker : MonoBehaviour
     public List<CameraShakeInstance> ShakeInstances
     { get { return new List<CameraShakeInstance>(cameraShakeInstances); } }
 
+    public void ClearShakeInstances()
+    {
+        cameraShakeInstances.Clear();
+    }
 }
 
