@@ -56,7 +56,7 @@ public class CarContact : MonoBehaviour
 
         if (letter != null)
         {
-            WordRide wordRide = library.tasks.GetComponent<WordRide>();
+            WordRide wordRide = library.level.GetComponent<WordRide>();
 
             if (wordRide != null)
                 wordRide.CheckLetter(letter.letterNum);
@@ -66,7 +66,7 @@ public class CarContact : MonoBehaviour
 
         if(col.gameObject.tag.Equals("Kanistra"))
         {
-            TakeKanistra takeKanistra = library.tasks.GetComponent<TakeKanistra>();
+            TakeKanistra takeKanistra = library.level.GetComponentInChildren<TakeKanistra>();
 
             if(takeKanistra != null)
                 takeKanistra.SetTake();

@@ -21,8 +21,6 @@ public abstract class Destroyable : MonoBehaviour {
         library = GameObject.FindObjectOfType<Library>();
        // Debug.Log(library.levelInfo);
         destroyableInfo = library.levelInfo.GetDestroyableInfo("Light");
-
-     
     }
 
     protected void Update()

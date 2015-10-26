@@ -36,10 +36,7 @@ public class TaskStrings : MonoBehaviour
                             case "helpertext": helperText.Add(point.InnerText); break;
                         }
                     }
-
-                    
                     TaskValue taskValue = new TaskValue(fullText.ToArray(),helperText.ToArray());
-
                     try
                     {
                         obj.Add(childVal.Attributes["name"].Value, taskValue);
@@ -61,6 +58,12 @@ public class TaskStrings : MonoBehaviour
     {
         TaskValue taskValue;
         obj.TryGetValue(name, out taskValue);
+
         return taskValue;
+    }
+
+    void Update()
+    {
+        //Debug.Log(GetTaskValue("Points").GetFullText(0));
     }
 }

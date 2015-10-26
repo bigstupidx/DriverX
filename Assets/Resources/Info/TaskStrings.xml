@@ -15,7 +15,7 @@
       <point type="fulltext">очков</point>
     </task>
     <task name ="WordRide">
-      <point type="fulltext">Соберите слово RIDE из буков, разбросанных по полю</point>
+      <point type="fulltext">Соберите слово RIDE из букв, разбросанных по полю</point>
     </task>
     <task name ="FlightTime">
       <point type="fulltext">Проведите в воздухе</point>            

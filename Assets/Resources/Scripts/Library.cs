@@ -14,7 +14,6 @@ public class Library : MonoBehaviour {
    [HideInInspector] public TimerScript timerScript;
    [HideInInspector] public TimerUI timerUI;
    [HideInInspector] public LevelInfo levelInfo;
-   [HideInInspector] public GameObject tasks;
    [HideInInspector] public TaskStrings taskStrings;
    [HideInInspector] public GameObject pauseButton;
    [HideInInspector] public GameObject pauseMenu;
@@ -24,6 +23,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject level;
    [HideInInspector] public GlobalController globalController;
    [HideInInspector] public GameObject cam;
+   
     // Use this for initialization
     void Awake () {
         car = GameObject.FindObjectOfType<CarController>().gameObject;
@@ -36,7 +36,6 @@ public class Library : MonoBehaviour {
         timerScript = GameObject.FindObjectOfType<TimerScript>();
         timerUI = GameObject.FindObjectOfType<TimerUI>();
         levelInfo = GetComponent<LevelInfo>();
-        tasks = GameObject.Find("Tasks");
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>().gameObject;

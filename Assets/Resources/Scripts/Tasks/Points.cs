@@ -8,7 +8,8 @@ public class Points : Task {
 
     protected override void Conditions()
     {
-        throw new NotImplementedException();
+        if (library.fullScore.GetBigFullScore() >= maxPoints)
+            SetJustComplete();
     }
 
     protected override string Description()
@@ -23,6 +24,6 @@ public class Points : Task {
 	
 	// Update is called once per frame
 	new void Update () {
-        base.Start();
+        base.Update();
 	}
 }

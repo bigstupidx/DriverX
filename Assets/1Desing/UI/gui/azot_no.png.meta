@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: f1a0a2727a2388c4aad109129bb7b041
-timeCreated: 1445337540
+timeCreated: 1445600263
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: azot_no_0
+    21300002: azot_no_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,25 +32,45 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 28, z: 0, w: 28}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: -1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: azot_no_0
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 216
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: azot_no_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 33
+        width: 201
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

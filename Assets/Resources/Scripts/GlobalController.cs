@@ -14,9 +14,12 @@ public class GlobalController : MonoBehaviour {
 
 
         GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/Level4")) as GameObject;
-        library.level = newLevel;
+        Destroy(library.level);
 
-        Destroy(GameObject.Find("Level4"));
+        library.level = newLevel;
+        library.pauseMenu.SetActive(true);
+        library.pauseMenu.GetComponentInChildren<ScrollBoxController>().ClearTasks();
+        library.pauseMenu.SetActive(false);
         
         library.car.GetComponent<CarController>().ToStartPosition();
         library.car.GetComponent<CarUserControl>().ToDefault();
@@ -50,9 +53,22 @@ public class GlobalController : MonoBehaviour {
 
     IEnumerator PartyTime()
     {
-        library.score.CurrentScoreToFullScore();
+        BeforeShowMenu();
         yield return new WaitForSeconds(1.5f);
+        ShowMenu();
+
+
+    }
+
+    void BeforeShowMenu()
+    {
+        library.score.CurrentScoreToFullScore();
+    }
+
+    void ShowMenu()
+    {
         library.endMenu.gameObject.SetActive(true);
         Time.timeScale = 0;
+        library.fullScore.SaveBigFullScore();
     }
 }

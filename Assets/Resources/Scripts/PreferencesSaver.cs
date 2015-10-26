@@ -15,4 +15,17 @@ public class PreferencesSaver : MonoBehaviour {
 
         return bool.Parse(val);
     }
+
+    public void SaveTaskValue(int level, string taskName, string val)
+    {
+        PlayerPrefs.SetString("Level_" + level + "/" + taskName + "/value", val);
+        PlayerPrefs.Save();
+    }
+
+    public string GetTaskValue(int level, string taskName)
+    {
+        string val = PlayerPrefs.GetString("Level_" + level + "/" + taskName + "/value", "");
+
+        return val;
+    }
 }

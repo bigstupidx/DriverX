@@ -19,22 +19,25 @@ public abstract class Task : MonoBehaviour {
         library = GameObject.FindObjectOfType<Library>();
         taskValue = library.taskStrings.GetTaskValue(this.GetType().Name);
         description = Description();
+     
+        library.pauseMenu.SetActive(true);
+        item = library.pauseMenu.GetComponentInChildren<ScrollBoxController>().AddTask(this);
+        library.pauseMenu.SetActive(false);
+
         if (library.preferencesSaver.TaskIsComplete(1, this.GetType().Name))
         {
             isComplete = true;
+            SetColored();
         }
     }
 
     abstract protected string Description();
-
 	
     protected void Update()
-    {
-        
+    {   
         if (!IsComplete())
         {
             Conditions();
-
         }
     }
 
@@ -77,6 +80,5 @@ public abstract class Task : MonoBehaviour {
         SetColored();
         library.preferencesSaver.SaveTaskComplete(1, this.GetType().Name);
         justComplete = true;
-
     }
 }

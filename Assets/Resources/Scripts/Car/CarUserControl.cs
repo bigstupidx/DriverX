@@ -92,14 +92,20 @@ public class CarUserControl : MonoBehaviour
         }
         else
         {
-            if(GetComponent<Rigidbody>().velocity.magnitude < 1 && !m_Car.GetComponent<CarContact>().IsFlight())
+            if (!m_Car.GetComponent<CarContact>().IsFlight())
             {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                isStay = true;
+                if (GetComponent<Rigidbody>().velocity.magnitude < 1)
+                {
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                    isStay = true;
+                }
+                else
+                {
+                    m_Car.Move(0, 0, 0, 1);
+                    m_Car.GetComponent<Rigidbody>().velocity = Vector3.Lerp(m_Car.GetComponent<Rigidbody>().velocity, Vector3.zero, 0.02f);
+                }
             }
-            else
-                m_Car.Move(0, -1, -1, 0);
         }
     }
 
