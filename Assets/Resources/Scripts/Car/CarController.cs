@@ -468,14 +468,18 @@ public class CarController : MonoBehaviour
     public void Nitro()
     {
 
-        StartCoroutine(ShowNitro());
-
-        foreach(Transform asotSystem in asotSystems)
+        if (library.energy.EnergyEnough())
         {
-            asotSystem.GetComponent<ParticleSystem>().Play();
+            StartCoroutine(ShowNitro());
+
+            library.energy.UseEnergy();
+
+            foreach (Transform asotSystem in asotSystems)
+            {
+                asotSystem.GetComponent<ParticleSystem>().Play();
+            }
         }
             
-          
     }
 
     System.Collections.IEnumerator ShowNitro()
@@ -485,6 +489,14 @@ public class CarController : MonoBehaviour
         rayAsot[0].Play();
 
         currentNitro = numNitro;
+    }
+
+    public bool IsNitro()
+    {
+        if (currentNitro <= 0)
+            return false;
+        else
+            return true;
     }
 
     public WheelCollider[] GetWheelColliders()
