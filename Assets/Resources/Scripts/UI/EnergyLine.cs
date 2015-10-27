@@ -35,7 +35,8 @@ public class EnergyLine : MonoBehaviour {
             raze.transform.SetParent(transform);
 
             RectTransform razeRT = raze.GetComponent<RectTransform>();
-            raze.GetComponent<RectTransform>().anchoredPosition = new Vector2(lineWidth / razeCount * i - lineWidth / 2f, (-1) * razeRT.sizeDelta.y);
+            raze.GetComponent<RectTransform>().anchoredPosition = new Vector2(lineWidth / razeCount * i - lineWidth / 2f, (-1) * razeRT.sizeDelta.y/2f);
+            raze.GetComponent<RectTransform>().localScale = Vector3.one;
         }
     }
 
