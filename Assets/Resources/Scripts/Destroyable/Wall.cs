@@ -21,9 +21,7 @@ public class Wall : Destroyable {
     // Use this for initialization
     new void Start () {
         base.Start();
-      //  cost = 400;
-   //     energy = 30;
-    //    minEnergy = 60;
+
     }
 	
 	// Update is called once per frame

@@ -24,6 +24,8 @@ public class GlobalController : MonoBehaviour {
         library.car.GetComponent<CarController>().ToStartPosition();
         library.car.GetComponent<CarUserControl>().ToDefault();
 
+        library.energy.ToDefault();
+
         library.cam.GetComponent<CameraMotion>().ToDefaultPosition();
         library.cam.GetComponentInChildren<CameraShaker>().ClearShakeInstances();
 
