@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fc4cc76d921e80845a4d538e34616dd0
-timeCreated: 1444577014
+guid: bf80ac093ebc60544b3424eff68cf52a
+timeCreated: 1446044677
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Road_Block
+    4300000: mur2:Box03
     9500000: //RootNode
   materials:
     importMaterials: 1
