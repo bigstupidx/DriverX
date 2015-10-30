@@ -64,11 +64,11 @@ public class CarContact : MonoBehaviour
             Destroy(letter.gameObject);
         }
 
-        if(col.gameObject.tag.Equals("Kanistra"))
+        if (col.gameObject.tag.Equals("Kanistra"))
         {
             TakeKanistra takeKanistra = library.level.GetComponentInChildren<TakeKanistra>();
 
-            if(takeKanistra != null)
+            if (takeKanistra != null)
                 takeKanistra.SetTake();
 
             Destroy(col.gameObject);
@@ -77,7 +77,7 @@ public class CarContact : MonoBehaviour
         // c.PositionInfluence = new Vector3(1, 1, 1);
     }
 
-    
+
     void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
@@ -129,6 +129,20 @@ public class CarContact : MonoBehaviour
         }
 
         temp = temp & !IsGrounded();
+
+        return temp;
+    }
+
+    public bool IsOneContact()
+    {
+        bool temp = false;
+
+        for (int i = 0; i < 4; i++)
+        {
+            temp = temp || wheelColliders[i].isGrounded;
+        }
+
+        temp = temp || IsGrounded();
 
         return temp;
     }

@@ -32,5 +32,10 @@
       <point type="helpertext">Набрано</point>
       <point type="helpertext">очков</point>
     </task>
+    <task name ="DestroyAllWalls">
+      <point type="fulltext">Уничтожте все бетонные стены</point>
+      <point type="helpertext">Разбито</point>
+      <point type="helpertext">бетонных стен</point>
+    </task>
   </ru>
 </items>

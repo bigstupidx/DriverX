@@ -44,7 +44,7 @@ public class CarController : MonoBehaviour
     private float m_GearFactor;
     private float m_OldRotation;
     private float m_CurrentTorque;
-    private Rigidbody m_Rigidbody;
+    public Rigidbody m_Rigidbody;
     private const float k_ReversingThreshold = 0.01f;
 
     public bool Skidding { get; private set; }
@@ -60,6 +60,7 @@ public class CarController : MonoBehaviour
 
     private ParticleSystem rideEffect;
 
+    private CarContact carContact;
     //  public float dustAngle;
 
     private int numNitro = 30;
@@ -89,6 +90,7 @@ public class CarController : MonoBehaviour
         rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<ParticleSystem>();
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
+        carContact = GetComponent<CarContact>();
     }
 
     void Update()
@@ -98,6 +100,7 @@ public class CarController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(newAngleX, transform.rotation.eulerAngles.y, newAngleZ);
 
+       
             
     }
 
@@ -493,10 +496,10 @@ public class CarController : MonoBehaviour
 
     public bool IsNitro()
     {
-        if (currentNitro <= 0)
-            return false;
-        else
+        if (CurrentSpeed >= MaxSpeed + 10 || currentNitro > 0)
             return true;
+        else
+            return false;
     }
 
     public WheelCollider[] GetWheelColliders()
@@ -513,6 +516,17 @@ public class CarController : MonoBehaviour
         transform.position = startPosition.position;
         transform.rotation = startPosition.rotation;
     }
-        
+
+    public void MoveBack(float wheelRotation, float verticalAxis)
+    {
+        float zSpeed = transform.InverseTransformDirection(m_Rigidbody.velocity).z;
+        if (carContact.IsOneContact() && zSpeed > -20)
+        {
+            m_Rigidbody.AddRelativeForce(new Vector3(0, 0, -9000), ForceMode.Force);
+        }
+
+        Move(wheelRotation, verticalAxis, verticalAxis, 0);
+    }
+
 }
 

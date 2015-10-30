@@ -22,6 +22,7 @@ public abstract class Task : MonoBehaviour {
      
         library.pauseMenu.SetActive(true);
         item = library.pauseMenu.GetComponentInChildren<ScrollBoxController>().AddTask(this);
+        
         library.pauseMenu.SetActive(false);
 
         if (library.preferencesSaver.TaskIsComplete(1, this.GetType().Name))

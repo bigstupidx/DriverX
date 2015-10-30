@@ -7,12 +7,12 @@ public class Energy : MonoBehaviour {
     float maxEnergy;
 
 
-    float nitroCost = 30;
+    float nitroCost = 50;
 
     Library library;
     void Start () {
         library = GameObject.FindObjectOfType<Library>();
-        maxEnergy = 90;
+        maxEnergy = 100;
 	}
 	
     void Update()
