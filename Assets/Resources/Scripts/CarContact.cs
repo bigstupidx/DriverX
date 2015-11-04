@@ -147,5 +147,18 @@ public class CarContact : MonoBehaviour
         return temp;
     }
 
+    public bool IsOneContactWheel()
+    {
+        bool temp = false;
+
+        for (int i = 0; i < 4; i++)
+        {
+            temp = temp || wheelColliders[i].isGrounded;
+        }
+
+
+        return temp;
+    }
+
 }
 

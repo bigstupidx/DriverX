@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Cactus : Destroyable {
 
-    public GameObject particlePrafab;
+    public GameObject particlePrefab;
 
     public override void OnCollision(Transform carTransfrom)
     {
-        GameObject particle = Instantiate(particlePrafab);
+        GameObject particle = Instantiate(particlePrefab);
 
         particle.transform.position = new Vector3(transform.position.x,transform.position.y+3,transform.position.z);
         particle.GetComponent<ParticleSystem>().Play();
@@ -29,9 +29,9 @@ public class Cactus : Destroyable {
     {
         base.Start();
         
-        if(particlePrafab == null)
+        if(particlePrefab == null)
         {
-            particlePrafab = Resources.Load("Prefabs/Particles/CactusContact") as GameObject;
+            particlePrefab = Resources.Load("Prefabs/Particles/CactusContact") as GameObject;
         }
 
 
