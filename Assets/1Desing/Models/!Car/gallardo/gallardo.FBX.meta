@@ -1,17 +1,44 @@
 fileFormatVersion: 2
-guid: 243dfe005d8037847800c3c4c5a75816
-timeCreated: 1444846835
+guid: 37a47c4c92aabad45a7e564dba236bce
+timeCreated: 1446670217
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: default
+    100000: Box001
     100002: //RootNode
-    400000: default
+    100004: Gellardo Body
+    100006: Gellardo Wheel
+    100008: Gellardo Wheel 1
+    100010: Gellardo Wheel 2
+    100012: Gellardo Wheel 3
+    400000: Box001
     400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    400004: Gellardo Body
+    400006: Gellardo Wheel
+    400008: Gellardo Wheel 1
+    400010: Gellardo Wheel 2
+    400012: Gellardo Wheel 3
+    2300000: Box001
+    2300002: Gellardo Body
+    2300004: Gellardo Wheel
+    2300006: Gellardo Wheel 1
+    2300008: Gellardo Wheel 2
+    2300010: Gellardo Wheel 3
+    3300000: Box001
+    3300002: Gellardo Body
+    3300004: Gellardo Wheel
+    3300006: Gellardo Wheel 1
+    3300008: Gellardo Wheel 2
+    3300010: Gellardo Wheel 3
+    4300000: Gellardo Body
+    4300002: Gellardo Wheel
+    4300004: Gellardo Wheel
+    4300006: Gellardo Wheel
+    4300008: Gellardo Wheel
+    4300010: Box001
+    7400000: Take 001
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +96,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
