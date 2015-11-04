@@ -36,15 +36,5 @@ public class YellowBox : Destroyable {
 
     }
 
-    protected override void LockObject()
-    {
-        GetComponent<Collider>().isTrigger = false;
-        GetComponent<Rigidbody>().isKinematic = true;
-    }
-
-    protected override void UnlockObject()
-    {
-        GetComponent<Collider>().isTrigger = true;
-        GetComponent<Rigidbody>().isKinematic = false;
-    }
+  
 }

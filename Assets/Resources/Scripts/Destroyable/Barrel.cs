@@ -5,6 +5,7 @@ using System;
 public class Barrel : Destroyable {
 
     Rigidbody rb;
+    GameObject sparksPrefab;
     // Use this for initialization
     new void Start()
     {
@@ -12,10 +13,8 @@ public class Barrel : Destroyable {
 
         rb = GetComponent<Rigidbody>();
 
+        sparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
 
-  //      cost = 200;
- //       energy = 20;
- //       minEnergy = 10;
     }
 
     new void Update()
@@ -32,6 +31,11 @@ public class Barrel : Destroyable {
         Destroy(GetComponent<Collider>());
         StartCoroutine(HideTimer());
 
+        GameObject particle = Instantiate(sparksPrefab);
+        particle.transform.position = new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
+        particle.transform.rotation = Quaternion.LookRotation(library.car.GetComponent<CarContact>().GetDirection());
+        particle.GetComponent<ParticleSystem>().Play();
+
     }
 
     IEnumerator HideTimer()
@@ -41,15 +45,5 @@ public class Barrel : Destroyable {
 
     }
 
-    protected override void LockObject()
-    {
-        GetComponent<Collider>().isTrigger = false;
-        GetComponent<Rigidbody>().isKinematic = true;
-    }
-
-    protected override void UnlockObject()
-    {
-        GetComponent<Collider>().isTrigger = true;
-        GetComponent<Rigidbody>().isKinematic = false;
-    }
+  
 }

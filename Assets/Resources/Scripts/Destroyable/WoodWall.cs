@@ -8,15 +8,7 @@ public class WoodWall : Destroyable
         Destroy(gameObject);
     }
 
-    protected override void LockObject()
-    {
-        GetComponent<Collider>().isTrigger = false;
-    }
-
-    protected override void UnlockObject()
-    {
-        GetComponent<Collider>().isTrigger = true;
-    }
+   
 
     // Use this for initialization
     new void Start()
