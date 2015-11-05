@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 37a47c4c92aabad45a7e564dba236bce
-timeCreated: 1446670217
+guid: 103f98f8004673d478a4e506aa722460
+timeCreated: 1446716829
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -12,7 +12,6 @@ ModelImporter:
     100008: Gellardo Wheel 1
     100010: Gellardo Wheel 2
     100012: Gellardo Wheel 3
-    100014: Gellardo Wheel001
     400000: Box001
     400002: //RootNode
     400004: Gellardo Body
@@ -20,28 +19,24 @@ ModelImporter:
     400008: Gellardo Wheel 1
     400010: Gellardo Wheel 2
     400012: Gellardo Wheel 3
-    400014: Gellardo Wheel001
     2300000: Box001
     2300002: Gellardo Body
     2300004: Gellardo Wheel
     2300006: Gellardo Wheel 1
     2300008: Gellardo Wheel 2
     2300010: Gellardo Wheel 3
-    2300012: Gellardo Wheel001
     3300000: Box001
     3300002: Gellardo Body
     3300004: Gellardo Wheel
     3300006: Gellardo Wheel 1
     3300008: Gellardo Wheel 2
     3300010: Gellardo Wheel 3
-    3300012: Gellardo Wheel001
     4300000: Gellardo Body
     4300002: Gellardo Wheel
     4300004: Gellardo Wheel
     4300006: Gellardo Wheel
     4300008: Gellardo Wheel
     4300010: Box001
-    4300012: Gellardo Wheel001
     7400000: Take 001
     9500000: //RootNode
   materials:
