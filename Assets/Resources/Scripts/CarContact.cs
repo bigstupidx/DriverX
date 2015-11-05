@@ -47,7 +47,8 @@ public class CarContact : MonoBehaviour
             library.score.AddScoreForDestroy(destoyable);
             library.energy.AddEnergy(destoyable);
 
-            CameraShakeInstance c = CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
+            EZCameraShake.CameraShakeInstance c = EZCameraShake.CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
+            
 
             AddDestroyable(destoyable.GetType().Name);
         }
@@ -158,6 +159,14 @@ public class CarContact : MonoBehaviour
 
 
         return temp;
+    }
+
+    public void MetalSparks(Vector3 sparksPosition)
+    {
+        GameObject particle = Instantiate(library.metalSparksPrefab);
+        particle.transform.position = new Vector3(sparksPosition.x, sparksPosition.y, sparksPosition.z);
+        particle.transform.rotation = Quaternion.LookRotation(dir);
+        particle.GetComponent<ParticleSystem>().Play();
     }
 
 }

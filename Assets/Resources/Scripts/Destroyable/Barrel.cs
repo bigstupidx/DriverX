@@ -5,7 +5,6 @@ using System;
 public class Barrel : Destroyable {
 
     Rigidbody rb;
-    GameObject sparksPrefab;
     // Use this for initialization
     new void Start()
     {
@@ -13,7 +12,6 @@ public class Barrel : Destroyable {
 
         rb = GetComponent<Rigidbody>();
 
-        sparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
 
     }
 
@@ -25,16 +23,13 @@ public class Barrel : Destroyable {
     public override void OnCollision(Transform carTransform)
     {
         Vector3 dir = (transform.position - carTransform.position).normalized;//carTransform.GetComponent<CarContact>().GetDirection();
-        float coef = 300;
+        float coef = 130;
         rb.AddForce(dir.x * coef * 3f, coef, dir.z * coef * 3f, ForceMode.Impulse);
         rb.AddTorque(dir.z * coef /6f, 0, dir.x * coef/6f, ForceMode.Impulse);
         Destroy(GetComponent<Collider>());
         StartCoroutine(HideTimer());
 
-        GameObject particle = Instantiate(sparksPrefab);
-        particle.transform.position = new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
-        particle.transform.rotation = Quaternion.LookRotation(library.car.GetComponent<CarContact>().GetDirection());
-        particle.GetComponent<ParticleSystem>().Play();
+        library.car.GetComponent<CarContact>().MetalSparks(new Vector3(transform.position.x, transform.position.y + 2, transform.position.z));
 
     }
 

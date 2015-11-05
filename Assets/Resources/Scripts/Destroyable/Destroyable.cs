@@ -9,7 +9,7 @@ public abstract class Destroyable : MonoBehaviour {
 
     public abstract void OnCollision(Transform carTransfrom);
 
-    public Library library;
+    protected Library library;
 
     Shader shader1;
     Material material;

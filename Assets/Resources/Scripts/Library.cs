@@ -23,6 +23,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject level;
    [HideInInspector] public GlobalController globalController;
    [HideInInspector] public GameObject cam;
+   [HideInInspector] public GameObject metalSparksPrefab;
    
     // Use this for initialization
     void Awake () {
@@ -45,6 +46,8 @@ public class Library : MonoBehaviour {
         level = GameObject.FindGameObjectWithTag("Level");
         globalController = GetComponent<GlobalController>();
         cam = GameObject.Find("MainCamera");
-	}
-	
+        metalSparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
+
+    }
+
 }

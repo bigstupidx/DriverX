@@ -27,7 +27,7 @@ public class GlobalController : MonoBehaviour {
         library.energy.ToDefault();
 
         library.cam.GetComponent<CameraMotion>().ToDefaultPosition();
-        library.cam.GetComponentInChildren<CameraShaker>().ClearShakeInstances();
+     //   library.cam.GetComponentInChildren<EZCameraShake.CameraShaker>().ClearShakeInstances();
 
         library.fullScore.ClearScore();
 
