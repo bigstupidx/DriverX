@@ -23,6 +23,8 @@ public class GlobalController : MonoBehaviour {
         
         library.car.GetComponent<CarController>().ToStartPosition();
         library.car.GetComponent<CarUserControl>().ToDefault();
+        library.car.GetComponent<FlightController>().ToDefault();
+        library.car.GetComponent<CarContact>().ToDefault();
 
         library.energy.ToDefault();
 

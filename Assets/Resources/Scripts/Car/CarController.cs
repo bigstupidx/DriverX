@@ -98,8 +98,12 @@ public class CarController : MonoBehaviour
         float newAngleX = GetClamAngle(transform.eulerAngles.x, maxAngleX);
         float newAngleZ = GetClamAngle(transform.eulerAngles.z, maxAngleZ);
 
+    //    newAngleX = MathTools.ULerp(transform.eulerAngles.x, maxAngleX, Mathf.Abs(m_Rigidbody.angularVelocity.x)* Time.deltaTime);
+
         transform.rotation = Quaternion.Euler(newAngleX, transform.rotation.eulerAngles.y, newAngleZ);
 
+
+      //  Debug.Log(m_Rigidbody.angularVelocity);
        
             
     }

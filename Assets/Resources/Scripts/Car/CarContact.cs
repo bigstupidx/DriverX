@@ -47,7 +47,7 @@ public class CarContact : MonoBehaviour
             library.score.AddScoreForDestroy(destoyable);
             library.energy.AddEnergy(destoyable);
 
-            EZCameraShake.CameraShakeInstance c = EZCameraShake.CameraShaker.Instance.ShakeOnce(3, 3, 0.1f, 2f);
+            EZCameraShake.CameraShakeInstance c = EZCameraShake.CameraShaker.Instance.ShakeOnce(2, 4, 0.1f, 2f);
             
 
             AddDestroyable(destoyable.GetType().Name);
@@ -168,6 +168,12 @@ public class CarContact : MonoBehaviour
         particle.transform.rotation = Quaternion.LookRotation(dir);
         particle.GetComponent<ParticleSystem>().Play();
     }
+
+    public void ToDefault()
+    {
+        dictionaryDestroyable.Clear();
+    }
+
 
 }
 

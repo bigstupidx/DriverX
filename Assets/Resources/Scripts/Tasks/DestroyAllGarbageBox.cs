@@ -14,7 +14,6 @@ public class DestroyAllGarbageBox : Task
         base.Start();
 
         fullCount = GameObject.Find("GarbageBoxes").transform.childCount;
-
     }
 
     protected override string Description()

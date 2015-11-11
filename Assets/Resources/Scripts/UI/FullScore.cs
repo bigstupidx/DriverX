@@ -48,12 +48,8 @@ public class FullScore : MonoBehaviour {
 
     void UpdateBigFullScore()
     {
-        string val = library.preferencesSaver.GetTaskValue(1, "Points");
+        savedBigFullScore = library.preferencesSaver.GetIntTaskValue(1, "Points");
 
-        if (!val.Equals(""))
-        {
-            savedBigFullScore = int.Parse(val);
-        }
 
         bigFullScore = savedBigFullScore + fullScore;
     }

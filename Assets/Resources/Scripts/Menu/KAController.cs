@@ -15,8 +15,10 @@ public class KAController : MonoBehaviour {
 
     void ToDefault()
     {
+        libraryMenu.garage.gameObject.SetActive(false);
         libraryMenu.taskMenu.gameObject.SetActive(false);
         libraryMenu.waitBackground.ToDefault();
+        libraryMenu.mainScreen.ToDefault();
     }
 
 	public void ShowGarage()

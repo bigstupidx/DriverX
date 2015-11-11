@@ -105,4 +105,13 @@ public class FlightController : MonoBehaviour
         return fullTime;
     }
 
+    public void ToDefault()
+    {
+        fallTimer = 0;
+        wasFlight = false;
+        secondTimer = 0;
+        firstTimer = 0;
+        fullTime = 0;
+        isCoef = false;
+    }
 }

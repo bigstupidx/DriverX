@@ -31,7 +31,7 @@ public class WaitBackground : MonoBehaviour {
 
     public void Hide()
     {
-        iTween.FadeTo(gameObject, 0, 2);
+       // iTween.FadeTo(gameObject, 0, 2);
         iTween.ValueTo(gameObject,
             iTween.Hash("from", image.color.a,
              "to", 0,
