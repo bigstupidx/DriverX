@@ -41,7 +41,7 @@ public class FullScore : MonoBehaviour {
 
     public void UpdateText()
     {
-        text.text = fullScore + " (" + bigFullScore+")";
+        text.text = fullScore+"" /*+ " (" + bigFullScore+")"*/;
 
     }
 

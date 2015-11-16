@@ -15,7 +15,6 @@ public class GlobalController : MonoBehaviour {
 
         GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/Level4")) as GameObject;
         Destroy(library.level);
-
         library.level = newLevel;
         library.pauseMenu.SetActive(true);
         library.pauseMenu.GetComponentInChildren<ScrollBoxController>().ClearTasks();
@@ -27,6 +26,8 @@ public class GlobalController : MonoBehaviour {
         library.car.GetComponent<CarContact>().ToDefault();
 
         library.energy.ToDefault();
+
+        library.wordRideCanvas.ToDefault();
 
         library.cam.GetComponent<CameraMotion>().ToDefaultPosition();
      //   library.cam.GetComponentInChildren<EZCameraShake.CameraShaker>().ClearShakeInstances();

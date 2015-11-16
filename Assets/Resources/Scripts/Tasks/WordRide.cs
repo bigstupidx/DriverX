@@ -22,6 +22,8 @@ public class WordRide : Task {
     public void CheckLetter(int numLetter)
     {
         letterArray[numLetter - 1] = true;
+
+        library.wordRideCanvas.ShowLetter(numLetter-1);
     }
 
     protected override string Description()

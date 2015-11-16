@@ -10,14 +10,19 @@ public class CurrentScore : MonoBehaviour {
     int coef;
     int fullScore;
 
-    Color yellowColor = new Color(255/255f, 215/255f, 0/255f, 255/255f);
-    Color blueColor = new Color(45 / 255f, 45 / 255f, 255 / 255f, 255/255f);
+    Material redColor;
+    Material blueColor;
+
+    //  Color yellowColor = new Color(255/255f, 215/255f, 0/255f, 255/255f);
+    //Color blueColor = new Color(45 / 255f, 45 / 255f, 255 / 255f, 255/255f);
 
     IEnumerator currentCoroutine;
 	// Use this for initialization
 	void Start () {
         text = GetComponent<Text>();
-	}
+        redColor = Resources.Load("Font/font1") as Material;
+        blueColor = Resources.Load("Font/font2") as Material;
+    }
 
     public void AddScoreAndCoef(int addScore, bool isCoef)
     {
@@ -36,7 +41,7 @@ public class CurrentScore : MonoBehaviour {
     private void ShowScore()
     {
         text.text = score + " X " + coef;
-        text.color = yellowColor;
+        text.material = redColor;
 
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
@@ -50,7 +55,7 @@ public class CurrentScore : MonoBehaviour {
 
     public void ClearScore()
     {
-        text.color = blueColor;
+        text.material = blueColor;
 
         text.text = fullScore+"";
 

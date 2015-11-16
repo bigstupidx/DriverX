@@ -4,11 +4,12 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System;
 
-public class GameControllButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+public class GameControllButton : MonoBehaviour,IPointerDownHandler, IPointerUpHandler/*IPointerEnterHandler, IPointerExitHandler*/
+{
 
     bool isUse = false; 
 
-
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         isUse = true;
@@ -19,6 +20,7 @@ public class GameControllButton : MonoBehaviour, IPointerDownHandler, IPointerUp
         isUse = false;
     }
 
+    
     public bool IsUse()
     {
         return isUse;
@@ -28,4 +30,14 @@ public class GameControllButton : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         isUse = false;
     }
+    /*
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isUse = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isUse = false;
+    }*/
 }

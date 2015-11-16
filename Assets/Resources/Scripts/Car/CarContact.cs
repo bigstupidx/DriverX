@@ -57,10 +57,12 @@ public class CarContact : MonoBehaviour
 
         if (letter != null)
         {
-            WordRide wordRide = library.level.GetComponent<WordRide>();
-
+            WordRide wordRide = library.level.GetComponentInChildren<WordRide>();
+            
             if (wordRide != null)
+            {
                 wordRide.CheckLetter(letter.letterNum);
+            }
 
             Destroy(letter.gameObject);
         }
