@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 7e999d78b2f4012408e7aa38363dccaf
-timeCreated: 1446563685
+guid: 7e1f989c0feef854da5ea344a473e194
+timeCreated: 1447678323
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Industrial_Chimney
-    100002: //RootNode
-    400000: Industrial_Chimney
-    400002: //RootNode
-    2300000: Industrial_Chimney
-    3300000: Industrial_Chimney
-    4300000: Industrial_Chimney
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Oil_Chimney_03
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +68,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
