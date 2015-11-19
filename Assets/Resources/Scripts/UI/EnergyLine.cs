@@ -26,6 +26,7 @@ public class EnergyLine : MonoBehaviour {
 
     private void CreateRaze()
     {
+        
         int razeCount = (int) Mathf.Floor(library.energy.GetMaxEnergy() / library.energy.GetNitroCost());
 
         for(int i = 1; i < razeCount; i++ )
@@ -56,7 +57,7 @@ public class EnergyLine : MonoBehaviour {
 
         float maskSize = (((float)energy / (float)maxEnergy)) * lineWidth;
 
-        maskSize = MathTools.ULerp(mask.sizeDelta.x, maskSize, 5f*Time.deltaTime);
+        maskSize = MathTools.ULerp(mask.sizeDelta.x, maskSize, 3f*Time.deltaTime);
 
         mask.sizeDelta = new Vector2(maskSize, mask.sizeDelta.y);
 

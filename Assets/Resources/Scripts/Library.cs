@@ -25,6 +25,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject cam;
    [HideInInspector] public GameObject metalSparksPrefab;
    [HideInInspector] public WordRideCanvas wordRideCanvas;
+   [HideInInspector] public CarUserParametres carUserParametres;
    
     // Use this for initialization
     void Awake () {
@@ -50,7 +51,7 @@ public class Library : MonoBehaviour {
         wordRideCanvas = GameObject.FindObjectOfType<WordRideCanvas>();
 
         metalSparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
-
+        carUserParametres = GetComponent<CarUserParametres>();
     }
 
 }

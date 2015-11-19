@@ -5,7 +5,7 @@ using System;
 
 public class ScrollBoxController : MonoBehaviour {
 
-    public float border = 20;
+    public float border =0;
     Library library;
     RectTransform rt;
     GameObject taskItemPrefab;
@@ -22,7 +22,7 @@ public class ScrollBoxController : MonoBehaviour {
 
         transform.parent.gameObject.SetActive(false);
     }
-
+    /*
     private void AddTasks()
     {
         Task[] taskScripts = library.level.GetComponentsInChildren<Task>();
@@ -33,7 +33,7 @@ public class ScrollBoxController : MonoBehaviour {
             taskItem.transform.SetParent(transform, false);
             RectTransform rectTransform = taskItem.GetComponent<RectTransform>();
             Vector3 ancoredPos = rectTransform.anchoredPosition;
-            ancoredPos.y = ((rectTransform.rect.height+border) * (i) + 0.5f*rectTransform.rect.height + border) * (-1);
+           // ancoredPos.y = ((rectTransform.rect.height+border) * (i) + 0.5f*rectTransform.rect.height + border) * (-1);
             rectTransform.anchoredPosition = ancoredPos;
             taskItem.GetComponentInChildren<Text>().text = taskScripts[i].GetDescription();
             Debug.Log(taskScripts[i].GetDescription());
@@ -45,7 +45,7 @@ public class ScrollBoxController : MonoBehaviour {
         }
 
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)*taskScripts.Length+border);
-    }
+    }*/
 
     public GameObject AddTask(Task task)
     {
@@ -61,7 +61,6 @@ public class ScrollBoxController : MonoBehaviour {
 
   
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)* itemCount+border);
-
         return taskItem;
     }
 

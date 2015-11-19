@@ -71,8 +71,8 @@ public abstract class Task : MonoBehaviour {
 
     public void SetColored()
     {
-        Color oldColor = item.GetComponent<Image>().color;
-        item.GetComponent<Image>().color = new Color(0, 1, 0, oldColor.a);
+       // Color oldColor = item.GetComponent<RawImage>().color;
+       // item.GetComponent<Image>().color = new Color(0, 1, 0, oldColor.a);
     }
 
     protected void SetJustComplete()

@@ -70,6 +70,9 @@ public class CarController : MonoBehaviour
     ParticleSystem[] rayAsot;
 
     Library library;
+
+    public float nMaxSpeed = 85;
+    public float nMinSpeed = 65;
     // Use this for initialization
     private void Start()
     {
@@ -89,6 +92,9 @@ public class CarController : MonoBehaviour
 
         rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<ParticleSystem>();
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
+
+        m_Topspeed += library.carUserParametres.speed/CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
+
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
     }
@@ -193,7 +199,7 @@ public class CarController : MonoBehaviour
 
         //Set the steer on the front wheels.
         //Assuming that wheels 0 and 1 are the front wheels.
-        m_SteerAngle = steering*m_MaximumSteerAngle;
+        m_SteerAngle = steering*(1-(CurrentSpeed*library.carUserParametres.controllability/16)/MaxSpeed)*m_MaximumSteerAngle;
         m_WheelColliders[0].steerAngle = m_SteerAngle;
         m_WheelColliders[1].steerAngle = m_SteerAngle;
 
@@ -351,12 +357,12 @@ public class CarController : MonoBehaviour
             //  m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
         }
 
-        if(allWheelHit)
+        if (allWheelHit)
         {
             Quaternion quater = Quaternion.LookRotation(m_Rigidbody.velocity.normalized);
             quater *= Quaternion.Euler(0, 180, 0);
             rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
-                
+
             TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
             Color color = rideEffect.startColor;
 
@@ -372,14 +378,26 @@ public class CarController : MonoBehaviour
                 if (UnityEngine.Random.Range(1, 3) == 1)
                     color = twoColor.color1;
                 else
-                    color = twoColor.color2;   
+                    color = twoColor.color2;
             }
 
             color.a = color.a * CurrentSpeed / MaxSpeed;
             rideEffect.startColor = color;
-            rideEffect.Emit(1);        
-        }
 
+            if (!rideEffect.loop)
+            {
+                rideEffect.gameObject.SetActive(false);
+                rideEffect.gameObject.SetActive(true);
+                rideEffect.loop = true;
+
+            }
+            //rideEffect.Play();
+        }
+        else
+        {
+            rideEffect.Stop();
+            rideEffect.loop = false;
+        }
 
 
         // is the tire slipping above the given threshhold
