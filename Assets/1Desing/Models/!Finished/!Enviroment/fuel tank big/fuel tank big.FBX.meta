@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1d8f50a5d9b7af74796a3c140c430e88
-timeCreated: 1447920948
+guid: a2a59054cca7b6c4aaac484b18d21846
+timeCreated: 1448283458
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
@@ -9,10 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: decal_rubblerocks
-    6400000: //RootNode
-    7400000: Take 001
-    9500000: //RootNode
+    4300000: FuelPickUp01
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,7 +35,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -70,7 +67,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
