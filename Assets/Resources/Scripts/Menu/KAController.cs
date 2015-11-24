@@ -10,6 +10,7 @@ public class KAController : MonoBehaviour {
     void Start()
     {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
+        currentObject = libraryMenu.mainScreen;
         ToDefault();
     }
 
@@ -26,6 +27,8 @@ public class KAController : MonoBehaviour {
         HideCurrent();
         currentObject = libraryMenu.garage;
         ShowCurrent();
+        libraryMenu.garage.ToDefault();
+
     }
 
     public void ShowTasksMenu()

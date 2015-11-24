@@ -50,6 +50,18 @@ public class PreferencesSaver : MonoBehaviour {
         return number;
     }
 
+
+    public void SaveCurrentCar(int num)
+    {
+        SavePref("CurrentCar", num+"");
+    }
+
+    public int GetCurrentCar()
+    {
+        string val = GetPref("CurrentCar", 0+"");
+        return int.Parse(val);
+    }
+
     private void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);

@@ -79,7 +79,7 @@ public class MainScreen : MonoBehaviour {
     {
         iTween.ShakePosition(gameObject,
             iTween.Hash(
-                "amount", new Vector3(15, 15, 15),
+                "amount", new Vector3(3, 3, 3),
                 "time", 0.8f
                 )
             );
