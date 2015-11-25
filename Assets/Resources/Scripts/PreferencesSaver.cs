@@ -62,6 +62,18 @@ public class PreferencesSaver : MonoBehaviour {
         return int.Parse(val);
     }
 
+    public void CarUpgrade(int numCar, int numParameter)
+    {
+        SavePref("CarUpgrade_" + numCar+"/"+numParameter, (GetCarUpgrade(numCar,numParameter)+1)+"");
+    }
+
+    public int GetCarUpgrade(int numCar, int numParameter)
+    {
+       return int.Parse(GetPref("CarUpgrade_" + numCar+"/"+numParameter, 0+""));
+    }
+
+
+
     private void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);

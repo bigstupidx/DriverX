@@ -16,7 +16,7 @@ public class Garage : MonoBehaviour {
 
     public void ToDefault()
     {
-        carChanger.ShowCar();
+        carChanger.ToDefault();
     }
 
 }

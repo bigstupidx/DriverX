@@ -11,10 +11,12 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public GameObject bg;
     [HideInInspector] public CarsInfo carsInfo;
     [HideInInspector] public PreferencesSaver preferencesSaver;
-   // [HideInInspector] public GameObject car;
+    [HideInInspector] public Filling filling;
+    [HideInInspector] public CarChanger carChanger;
+    // [HideInInspector] public GameObject car;
 
     // Use this for initialization
-	void Start () {
+	void Awake () {
         garage = GameObject.FindObjectOfType<Garage>();
         taskMenu = GameObject.FindObjectOfType<TaskMenu>();
         kaController = GameObject.FindObjectOfType<KAController>();
@@ -23,6 +25,8 @@ public class LibraryMenu : MonoBehaviour {
         bg = GameObject.Find("BG");
         carsInfo = GetComponent<CarsInfo>();
         preferencesSaver = GetComponent<PreferencesSaver>();
+        filling = GameObject.FindObjectOfType<Filling>();
+        carChanger = GameObject.FindObjectOfType<CarChanger>();
         /*
         car = garage.transform.Find("Car").gameObject;
         if (car == null)

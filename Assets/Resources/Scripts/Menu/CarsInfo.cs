@@ -6,9 +6,12 @@ using System.Xml;
 public class CarsInfo : MonoBehaviour {
 
     List<CarParametres> obj = new List<CarParametres>();
+    LibraryMenu libraryMenu;
     // Use this for initialization
     void Awake()
     {
+        libraryMenu = GameObject.FindObjectOfType<LibraryMenu>(); 
+
         TextAsset xmlAsset = Resources.Load("Info/Cars") as TextAsset;
 
         XmlDocument xmlDoc = new XmlDocument();
@@ -17,7 +20,25 @@ public class CarsInfo : MonoBehaviour {
 
         foreach (XmlNode node in xmlDoc.ChildNodes[0])
         {
-            CarParametres carParametres = new CarParametres(obj.Count,node.Attributes["name"].Value); 
+
+            int[] param = { 1, 1, 1 };
+
+            foreach(XmlNode childNode in node.ChildNodes[0])
+            {
+                switch(childNode.Attributes["name"].Value)
+                {
+                    case "1": param[0] = int.Parse(childNode.InnerText); break;
+                    case "2": param[1] = int.Parse(childNode.InnerText); break;
+                    case "3": param[2] = int.Parse(childNode.InnerText); break;
+
+                }
+            }
+
+
+            CarParametres carParametres = new CarParametres(obj.Count,node.Attributes["name"].Value, param); 
+
+
+
             obj.Add(carParametres);
         }
     }

@@ -35,6 +35,8 @@ public class CarChanger : MonoBehaviour {
                PrewCar();
            }
        );
+
+        
     }
 	
 	// Update is called once per frame
@@ -45,32 +47,44 @@ public class CarChanger : MonoBehaviour {
     void NextCar()
     {
         int numCar = carParametres.GetNumCar();
-        if (numCar+1 < libraryMenu.carsInfo.GetCarsCount())
+        foreach (Transform child in car.transform)
         {
-            foreach (Transform child in car.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
-            if (carParametres != null)
-                StartCoroutine(CreateCar(numCar + 1));
+            Destroy(child.gameObject);
         }
+
+        if (carParametres != null)
+            StartCoroutine(CreateCar(numCar + 1));
+
+        UpdateDisableButton();
     }
 
     void PrewCar()
     {
         int numCar = carParametres.GetNumCar();
 
-        if (numCar > 0)
+        foreach (Transform child in car.transform)
         {
-            foreach (Transform child in car.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
-            if (carParametres != null)
-                StartCoroutine(CreateCar(numCar - 1));
+            Destroy(child.gameObject);
         }
+
+        if (carParametres != null)
+            StartCoroutine(CreateCar(numCar - 1));
+        UpdateDisableButton();
+    }
+
+    void UpdateDisableButton()
+    {
+        int numCar = carParametres.GetNumCar();
+
+        if (numCar + 1 >= libraryMenu.carsInfo.GetCarsCount())
+            next.interactable = false;
+        else
+            next.interactable = true;
+
+        if (numCar <= 0)
+            prew.interactable = false;
+        else
+            prew.interactable = true;
     }
 
     public void ShowCar()
@@ -82,14 +96,32 @@ public class CarChanger : MonoBehaviour {
         int carNum = libraryMenu.preferencesSaver.GetCurrentCar();
 
         StartCoroutine(CreateCar(carNum));
+
+        UpdateDisableButton();
     }
 
+    public void ToDefault()
+    {
+        ShowCar();
+    
+    }
 
 
     IEnumerator CreateCar(int carNum)
     {
         CarParametres carParametres = libraryMenu.carsInfo.GetCarInfo(carNum);
         this.carParametres = carParametres;
+
+
+        libraryMenu.filling.UpdateAllPower(
+            carParametres.GetParam(1),
+            carParametres.GetParam(2), 
+            carParametres.GetParam(3),
+            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 1),
+            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 2), 
+            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 3));
+
+
         ResourceRequest rr = Resources.LoadAsync("Prefabs/UI/Cars/"+carParametres.GetName());
         yield return rr;
         
@@ -101,5 +133,10 @@ public class CarChanger : MonoBehaviour {
         carObject.transform.localScale = new Vector3(1, 1, 1);
 
 
+    }
+
+    public CarParametres GetCurrentCarParametres()
+    {
+        return carParametres;
     }
 }
