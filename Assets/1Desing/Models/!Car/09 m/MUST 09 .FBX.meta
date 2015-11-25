@@ -1,41 +1,24 @@
 fileFormatVersion: 2
-guid: ab634f6ee64ce0c48ac04f50a3500256
-timeCreated: 1448194095
+guid: 35ffe594aee4dd549ad5a71b494aa120
+timeCreated: 1448402715
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: FordMustangGT390_CarBody
-    100002: front left
-    100004: front right
-    100006: //RootNode
-    100008: w_left_back
-    100010: w_right back
-    400000: FordMustangGT390_CarBody
-    400002: front left
-    400004: front right
-    400006: //RootNode
-    400008: w_left_back
-    400010: w_right back
-    2300000: FordMustangGT390_CarBody
-    2300002: front left
-    2300004: front right
-    2300006: w_left_back
-    2300008: w_right back
-    3300000: FordMustangGT390_CarBody
-    3300002: front left
-    3300004: front right
-    3300006: w_left_back
-    3300008: w_right back
-    4300000: w_right back
-    4300002: front right
-    4300004: front left
-    4300006: w_left_back
-    4300008: FordMustangGT390_CarBody
-    7400000: Take 001
-    9500000: //RootNode
+    100000: //RootNode
+    100002: Object001
+    100004: Plane001
+    400000: //RootNode
+    400002: Object001
+    400004: Plane001
+    2300000: Object001
+    2300002: Plane001
+    3300000: Object001
+    3300002: Plane001
+    4300000: Plane001
+    4300002: Object001
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -61,20 +44,20 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
-    swapUVChannels: 0
-    generateSecondaryUV: 0
+    swapUVChannels: 1
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
-    secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 4
+    secondaryUVAngleDistortion: 56
+    secondaryUVAreaDistortion: 62
+    secondaryUVHardAngle: 128
+    secondaryUVPackMargin: 52
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 81
-    splitTangentsAcrossUV: 1
+    normalSmoothAngle: 180
+    splitTangentsAcrossUV: 0
     normalImportMode: 1
     tangentImportMode: 1
   importAnimation: 1
@@ -91,7 +74,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
