@@ -7,6 +7,8 @@ public class MainScreen : MonoBehaviour {
     public RawImage logo1;
     public RawImage logo2;
     public RawImage pressToStart;
+    public Image bg;
+
     public LibraryMenu libraryMenu;
     public Button button;
 	// Use this for initialization
@@ -14,8 +16,10 @@ public class MainScreen : MonoBehaviour {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
         logo1 = transform.FindChild("FirstLogo").GetComponent<RawImage>();
         logo2 = transform.FindChild("SecondLogo").GetComponent<RawImage>();
+        bg = GetComponent<Image>();
         pressToStart = transform.FindChild("PressToStart").GetComponent<RawImage>();
         button = transform.FindChild("Button").GetComponent<Button>();
+
 
         button.onClick.AddListener(
             delegate
@@ -79,10 +83,14 @@ public class MainScreen : MonoBehaviour {
     {
         iTween.ShakePosition(gameObject,
             iTween.Hash(
-                "amount", new Vector3(3, 3, 3),
-                "time", 0.8f
+                "amount", new Vector3(10,10, 10),
+                "time", 0.8f,
+                "oncomplete", (System.Action<object>)(newVal => bg.color = new Color(bg.color.r,bg.color.g, bg.color.b, 0)),
+                "oncompletetarget", gameObject
                 )
             );
+
+
     }
 
     void ShowPressStart()

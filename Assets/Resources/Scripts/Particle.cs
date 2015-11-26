@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Particle : MonoBehaviour {
+public class Particle : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public GameObject particle;
+
+    void Start()
+    {
+        GameObject GO = null;
+        if (particle != null)
+        {
+            GO = Instantiate(particle) as GameObject;
+            GO.transform.localPosition = particle.transform.localPosition;
+        }
+    }
 }

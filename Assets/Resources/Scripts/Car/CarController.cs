@@ -90,7 +90,7 @@ public class CarController : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
-        rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<ParticleSystem>();
+        rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<Particle>().particle.GetComponent<ParticleSystem>();
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
 
         m_Topspeed += library.carUserParametres.speed/CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
