@@ -5,7 +5,7 @@ using System.Xml;
 
 public class CarsInfo : MonoBehaviour {
 
-    List<CarParametres> obj = new List<CarParametres>();
+    static List<CarParametres> obj = new List<CarParametres>();
     LibraryMenu libraryMenu;
     // Use this for initialization
     void Awake()
@@ -43,9 +43,12 @@ public class CarsInfo : MonoBehaviour {
         }
     }
 
-    public CarParametres GetCarInfo(int num)
+    public static CarParametres GetCarInfo(int num)
     {
-        return obj[num];
+        if (num + 1 > obj.Count)
+            return null;
+        else
+            return obj[num];
     }
     
     public int GetCarsCount()

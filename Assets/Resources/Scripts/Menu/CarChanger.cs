@@ -11,6 +11,8 @@ public class CarChanger : MonoBehaviour {
 
     CarParametres carParametres;
 
+    public static int NumCar; 
+
 	// Use this for initialization
 	void Start () {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
@@ -47,6 +49,7 @@ public class CarChanger : MonoBehaviour {
     void NextCar()
     {
         int numCar = carParametres.GetNumCar();
+        NumCar = numCar;
         foreach (Transform child in car.transform)
         {
             Destroy(child.gameObject);
@@ -61,7 +64,7 @@ public class CarChanger : MonoBehaviour {
     void PrewCar()
     {
         int numCar = carParametres.GetNumCar();
-
+        NumCar = numCar;
         foreach (Transform child in car.transform)
         {
             Destroy(child.gameObject);
@@ -75,6 +78,8 @@ public class CarChanger : MonoBehaviour {
     void UpdateDisableButton()
     {
         int numCar = carParametres.GetNumCar();
+
+        NumCar = numCar;
 
         if (numCar + 1 >= libraryMenu.carsInfo.GetCarsCount())
             next.interactable = false;
@@ -109,7 +114,7 @@ public class CarChanger : MonoBehaviour {
 
     IEnumerator CreateCar(int carNum)
     {
-        CarParametres carParametres = libraryMenu.carsInfo.GetCarInfo(carNum);
+        CarParametres carParametres = CarsInfo.GetCarInfo(carNum);
         this.carParametres = carParametres;
 
 

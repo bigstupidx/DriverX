@@ -84,9 +84,16 @@ public class MainScreen : MonoBehaviour {
         iTween.ShakePosition(gameObject,
             iTween.Hash(
                 "amount", new Vector3(10,10, 10),
-                "time", 0.8f,
-                "oncomplete", (System.Action<object>)(newVal => bg.color = new Color(bg.color.r,bg.color.g, bg.color.b, 0)),
-                "oncompletetarget", gameObject
+                "time", 0.8f
+                
+                )
+            );
+
+        iTween.ShakePosition(libraryMenu.bg,
+            iTween.Hash(
+                "amount", new Vector3(1, 1, 1),
+                "time", 0.8f
+                
                 )
             );
 

@@ -65,6 +65,7 @@ public class KAController : MonoBehaviour {
     IEnumerator StartLevel()
     {  
         AsyncOperation async = Application.LoadLevelAsync("1234");
+       
         yield return async; 
     }
 }
