@@ -62,8 +62,8 @@ public class MainScreen : MonoBehaviour {
         iTween.ValueTo(gameObject,
             iTween.Hash("from",0,
              "to", 1,
-              "time", 0.8f,
-              "delay", 2.4f,
+              "time", 0.5f,
+              "delay", 2f,
              "onupdate", (System.Action<object>)(newVal => logo2.color = new Color(logo2.color.r, logo2.color.g, logo2.color.b, (float)newVal)),
              "oncomplete", "OnCompleteShowLogo",
              "oncompletetarget", gameObject
