@@ -46,8 +46,16 @@ public class KAController : MonoBehaviour {
 
     void HideCurrent()
     {
+        
         if(currentObject != null)
-        currentObject.gameObject.SetActive(false);
+        {
+            if(currentObject == libraryMenu.garage)
+            {
+                libraryMenu.fireStart.GetComponent<Particle>().StopLoop();
+            }
+
+            currentObject.gameObject.SetActive(false);
+        }
     }
 
     void ShowCurrent()

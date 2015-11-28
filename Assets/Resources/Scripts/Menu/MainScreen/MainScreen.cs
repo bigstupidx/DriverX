@@ -24,6 +24,7 @@ public class MainScreen : MonoBehaviour {
         button.onClick.AddListener(
             delegate
             {
+                libraryMenu.fireBackground.GetComponent<Particle>().StopLoop();
                 libraryMenu.kaController.ShowGarage();
             }
         );
@@ -50,17 +51,18 @@ public class MainScreen : MonoBehaviour {
                 "scale", new Vector3(1, 1, 1), 
                 "delay", 0.2f,
                 "time", 0.45f,
-                "onstart", (System.Action<object>)(newVal => logo1.color = new Color(logo1.color.r, logo1.color.g, logo1.color.b, 1)),
+                "onstart", (System.Action<object>)(newVal => { logo1.color = new Color(logo1.color.r, logo1.color.g, logo1.color.b, 1); StartCoroutine(StartFireBG());}),
                 "easetype", iTween.EaseType.easeInCubic,
                 "oncomplete", "ShakeCamera",
                 "oncompletetarget", gameObject
                 )
              );
 
-      
+
+
 
         iTween.ValueTo(gameObject,
-            iTween.Hash("from",0,
+            iTween.Hash("from", 0,
              "to", 1,
               "time", 0.5f,
               "delay", 2f,
@@ -72,6 +74,14 @@ public class MainScreen : MonoBehaviour {
 
         );
     }
+
+    IEnumerator StartFireBG()
+    {
+        yield return new WaitForSeconds(1.4f);
+        libraryMenu.fireBackground.GetComponent<Particle>().PlayLoop();
+    }
+
+
 
     void OnCompleteShowLogo()
     {

@@ -13,10 +13,16 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public PreferencesSaver preferencesSaver;
     [HideInInspector] public Filling filling;
     [HideInInspector] public CarChanger carChanger;
+    [HideInInspector] public GameObject fireBackground;
+    [HideInInspector] public GameObject secondCanvas;
+    [HideInInspector] public GameObject fireStart;
     // [HideInInspector] public GameObject car;
 
     // Use this for initialization
 	void Awake () {
+        secondCanvas = GameObject.Find("SecondCanvas");
+        fireBackground = GameObject.Find("FireBackground");
+        fireStart = GameObject.Find("FireStart");
         garage = GameObject.FindObjectOfType<Garage>();
         taskMenu = GameObject.FindObjectOfType<TaskMenu>();
         kaController = GameObject.FindObjectOfType<KAController>();
