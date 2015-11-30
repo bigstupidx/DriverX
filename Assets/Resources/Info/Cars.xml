@@ -22,4 +22,13 @@
       <param name="3">3</param>
     </params>
   </car>
+
+ <car name ="TTS">
+    <params>
+      <param name="1">4</param>
+      <param name="2">4</param>
+      <param name="3">4</param>
+    </params>
+  </car>
+
 </items>
