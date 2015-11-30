@@ -65,11 +65,18 @@ public class Power : MonoBehaviour {
 
         if (valSecond >= 3)
             HideButton();
+        else
+            ShowButton();
     }
 
     public void HideButton()
     {
         button.gameObject.SetActive(false);
-
     }
+
+    public void ShowButton()
+    {
+        button.gameObject.SetActive(true);
+    }
+
 }
