@@ -23,14 +23,14 @@ public class CarController : MonoBehaviour
     [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
     [SerializeField] private Vector3 m_CentreOfMassOffset;
     [SerializeField] private float m_MaximumSteerAngle;
-    [Range(0, 1)] [SerializeField] private float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
-    [Range(0, 1)] [SerializeField] private float m_TractionControl; // 0 is no traction control, 1 is full interference
+    private float m_SteerHelper = 0.98f; // 0 is raw physics , 1 the car will grip in the direction it is facing
+    private float m_TractionControl = 0.9f; // 0 is no traction control, 1 is full interference
     [SerializeField] private float m_FullTorqueOverAllWheels;
     [SerializeField] private float m_ReverseTorque;
     [SerializeField] private float m_MaxHandbrakeTorque;
     [SerializeField] private float m_Downforce = 100f;
     [SerializeField] private SpeedType m_SpeedType;
-    [SerializeField] private float m_Topspeed = 200;
+    private float m_Topspeed = 55;
     [SerializeField] private static int NoOfGears = 5;
     [SerializeField] private float m_RevRangeBoundary = 1f;
     [SerializeField] private float m_SlipLimit;
@@ -44,7 +44,7 @@ public class CarController : MonoBehaviour
     private float m_GearFactor;
     private float m_OldRotation;
     private float m_CurrentTorque;
-    public Rigidbody m_Rigidbody;
+    [SerializeField] public Rigidbody m_Rigidbody;
     private const float k_ReversingThreshold = 0.01f;
 
     public bool Skidding { get; private set; }
@@ -55,10 +55,10 @@ public class CarController : MonoBehaviour
     public float Revs { get; private set; }
     public float AccelInput { get; private set; }
 
-    public float maxAngleX = 45;
-    public float maxAngleZ = 35;
+    float maxAngleX = 20;
+    float maxAngleZ = 15;
 
-    private ParticleSystem rideEffect;
+    private Particle rideEffect;
 
     private CarContact carContact;
     //  public float dustAngle;
@@ -71,10 +71,10 @@ public class CarController : MonoBehaviour
 
     Library library;
 
-    public float nMaxSpeed = 85;
-    public float nMinSpeed = 65;
+    [HideInInspector] public float nMaxSpeed = 85;
+    [HideInInspector] public float nMinSpeed = 65;
     // Use this for initialization
-    private void Start()
+    void Awake()
     {
         library = GameObject.FindObjectOfType<Library>();
 
@@ -90,7 +90,7 @@ public class CarController : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
 
-        rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<Particle>().particle.GetComponent<ParticleSystem>();
+        rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<Particle>();
 
 
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
@@ -99,6 +99,8 @@ public class CarController : MonoBehaviour
 
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
+
+        ToStartPosition();
     }
 
     void Update()
@@ -361,12 +363,13 @@ public class CarController : MonoBehaviour
 
         if (allWheelHit)
         {
+            ParticleSystem particleSystem = rideEffect.GetParticle();
             Quaternion quater = Quaternion.LookRotation(m_Rigidbody.velocity.normalized);
             quater *= Quaternion.Euler(0, 180, 0);
-            rideEffect.transform.rotation = Quaternion.Slerp(rideEffect.transform.rotation, quater, Time.deltaTime * 5);
+            particleSystem.transform.rotation = Quaternion.Slerp(particleSystem.transform.rotation, quater, Time.deltaTime * 5);
 
-            TwoColor twoColor = rideEffect.GetComponent<TwoColor>();
-            Color color = rideEffect.startColor;
+            TwoColor twoColor = particleSystem.GetComponent<TwoColor>();
+            Color color = particleSystem.startColor;
 
             if (twoColor != null)
             {
@@ -384,21 +387,15 @@ public class CarController : MonoBehaviour
             }
 
             color.a = color.a * CurrentSpeed / MaxSpeed;
-            rideEffect.startColor = color;
+            particleSystem.startColor = color;
 
-            if (!rideEffect.loop)
-            {
-                rideEffect.gameObject.SetActive(false);
-                rideEffect.gameObject.SetActive(true);
-                rideEffect.loop = true;
+            if (!particleSystem.loop)
+                rideEffect.PlayLoop();
 
-            }
-            //rideEffect.Play();
         }
         else
         {
-            rideEffect.Stop();
-            rideEffect.loop = false;
+            rideEffect.StopLoop();
         }
 
 
@@ -535,6 +532,7 @@ public class CarController : MonoBehaviour
     {
         gameObject.SetActive(false);
         gameObject.SetActive(true);
+
 
         Transform startPosition = library.level.transform.FindChild("StartPosition").transform;
         transform.position = startPosition.position;

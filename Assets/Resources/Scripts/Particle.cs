@@ -15,17 +15,9 @@ public class Particle : MonoBehaviour
         if (particle != null)
         {
             GO = Instantiate(particle) as GameObject;
-            GO.transform.SetParent(transform, false);
+            GO.transform.SetParent(transform,false);
 
-            if (GO.GetComponent<RectTransform>() != null && particle.transform.GetComponent<RectTransform>() != null)
-            {
-                GO.GetComponent<RectTransform>().anchoredPosition = particle.GetComponent<RectTransform>().anchoredPosition;
-            }
-            else
-            {
-                GO.transform.localPosition = particle.transform.localPosition;
-            }
-
+            
             if (autoStart)
             {
                 foreach (ParticleSystem ps in GO.GetComponentsInChildren<ParticleSystem>())
@@ -76,5 +68,10 @@ public class Particle : MonoBehaviour
                 GO.SetActive(false);
             }
         }
+    }
+
+    public ParticleSystem GetParticle()
+    {
+        return GO.GetComponent<ParticleSystem>();
     }
 }

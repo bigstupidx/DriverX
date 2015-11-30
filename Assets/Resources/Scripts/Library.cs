@@ -28,8 +28,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public CarUserParametres carUserParametres;
    
     // Use this for initialization
-    void Awake () {
-        car = GameObject.FindObjectOfType<CarController>().gameObject;
+    void Start () {
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
         fullScore = GameObject.Find("FullScore").GetComponent<FullScore>();
         score = GetComponent<Score>();

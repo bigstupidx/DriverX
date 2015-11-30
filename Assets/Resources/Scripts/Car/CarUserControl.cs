@@ -21,7 +21,7 @@ public class CarUserControl : MonoBehaviour
     bool isEnd;
     bool isStay;
 
-    private void Start()
+    void Start()
     {
         // get the car controller
         m_Car = GetComponent<CarController>();
@@ -29,64 +29,67 @@ public class CarUserControl : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         // pass the input to the car!
         //#if !MOBILE_INPUT
-        if (!isEnd)
-        {
-            InputController.Direction directionWheel = library.inputController.GetDirection();
 
 
-            switch (directionWheel)
+            if (!isEnd)
             {
-                case InputController.Direction.LEFT:
-                    wheelRotation = Mathf.Clamp(wheelRotation - deltaWheelRotation, -1, 1);
-                    break;
-                case InputController.Direction.RIGHT:
-                    wheelRotation = Mathf.Clamp(wheelRotation + deltaWheelRotation, -1, 1);
-                    break;
-                case InputController.Direction.NONE:
-                    if (wheelRotation < 0)
-                        wheelRotation = Mathf.Clamp(wheelRotation + deltaWheelRotation, -1, 0);
-                    else if (wheelRotation > 0)
-                        wheelRotation = Mathf.Clamp(wheelRotation - deltaWheelRotation, 0, 1);
-                    break;
-            }
+                InputController.Direction directionWheel = library.inputController.GetDirection();
 
 
-            if (Input.GetKey(KeyCode.A) || library.inputController.HandbrakeIsUse())
-            {
-                verticalAxis = Mathf.Clamp(verticalAxis - uskorenie, -1, 1);
-                m_Car.MoveBack(wheelRotation, verticalAxis);
-            }
-            else
-            {
-                verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1);
-                m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
-            }
-        
-           
-
-       
-        }
-        else
-        {
-            if (!m_Car.GetComponent<CarContact>().IsFlight())
-            {
-                if (GetComponent<Rigidbody>().velocity.magnitude < 1)
+                switch (directionWheel)
                 {
-                    GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                    isStay = true;
+                    case InputController.Direction.LEFT:
+                        wheelRotation = Mathf.Clamp(wheelRotation - deltaWheelRotation, -1, 1);
+                        break;
+                    case InputController.Direction.RIGHT:
+                        wheelRotation = Mathf.Clamp(wheelRotation + deltaWheelRotation, -1, 1);
+                        break;
+                    case InputController.Direction.NONE:
+                        if (wheelRotation < 0)
+                            wheelRotation = Mathf.Clamp(wheelRotation + deltaWheelRotation, -1, 0);
+                        else if (wheelRotation > 0)
+                            wheelRotation = Mathf.Clamp(wheelRotation - deltaWheelRotation, 0, 1);
+                        break;
+                }
+
+
+                if (Input.GetKey(KeyCode.A) || library.inputController.HandbrakeIsUse())
+                {
+                    verticalAxis = Mathf.Clamp(verticalAxis - uskorenie, -1, 1);
+                    m_Car.MoveBack(wheelRotation, verticalAxis);
                 }
                 else
                 {
-                    m_Car.Move(0, 0, 0, 1);
-                    m_Car.GetComponent<Rigidbody>().velocity = Vector3.Lerp(m_Car.GetComponent<Rigidbody>().velocity, Vector3.zero, 0.02f);
+                    verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1);
+                    m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
+                }
+
+
+
+
+            }
+            else
+            {
+                if (!m_Car.GetComponent<CarContact>().IsFlight())
+                {
+                    if (GetComponent<Rigidbody>().velocity.magnitude < 1)
+                    {
+                        GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                        isStay = true;
+                    }
+                    else
+                    {
+                        m_Car.Move(0, 0, 0, 1);
+                        m_Car.GetComponent<Rigidbody>().velocity = Vector3.Lerp(m_Car.GetComponent<Rigidbody>().velocity, Vector3.zero, 0.02f);
+                    }
                 }
             }
-        }
+        
     }
 
     void Update()

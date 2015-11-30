@@ -26,8 +26,7 @@ public class Probuksovka : MonoBehaviour
 
         GameObject probuksovkaParticleGO = Instantiate(probuksovkaParticlePrefab);
 
-        probuksovkaParticleGO.transform.parent = transform;
-        probuksovkaParticleGO.transform.localPosition = probuksovkaParticlePrefab.transform.localPosition;
+        probuksovkaParticleGO.transform.SetParent(transform, false);
 
         probuksovkaParticle = probuksovkaParticleGO.GetComponent<ParticleSystem>();
         //    rideEffect = transform.FindChild("RideEffectWheel").GetComponent<ParticleSystem>();
@@ -44,7 +43,6 @@ public class Probuksovka : MonoBehaviour
 
     public void ProbuksovkaEmit()
     {
-  
         if (GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0 && carController.CurrentSpeed < 25)
         {
             if (probuksovkaParticle.loop == false)

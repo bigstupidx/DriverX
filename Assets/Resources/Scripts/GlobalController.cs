@@ -5,6 +5,7 @@ public class GlobalController : MonoBehaviour {
 
     // Use this for initialization
     Library library;
+
 	void Start () {
         library = GetComponent<Library>();
 	}
