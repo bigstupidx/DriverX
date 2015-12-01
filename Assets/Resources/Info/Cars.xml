@@ -31,4 +31,20 @@
     </params>
   </car>
 
+  <car name ="MUST">
+    <params>
+      <param name="1">5</param>
+      <param name="2">5</param>
+      <param name="3">5</param>
+    </params>
+  </car>
+  
+  <car name ="Shogun">
+    <params>
+      <param name="1">6</param>
+      <param name="2">6</param>
+      <param name="3">6</param>
+    </params>
+  </car>
+
 </items>
