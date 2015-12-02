@@ -1,21 +1,21 @@
 <items>
   <ru>
     <task name ="DestroyAllWheels">
-      <point type="fulltext">Уничтожте все покрышки на карте</point>
+      <point type="fulltext">Уничтожте все покрышки</point>
       <point type="helpertext">Разбито</point>
       <point type="helpertext">покрышек</point>
     </task>
     <task name ="DestroyAllGarbageBox">
-      <point type="fulltext">Уничтожте все мусорные баки на карте</point>
+      <point type="fulltext">Уничтожте все мусорные баки</point>
       <point type="helpertext">Разбито</point>
       <point type="helpertext">мусорных баков</point>
     </task>
     <task name ="Combo">
-      <point type="fulltext">Наберите за одно комбо</point>
-      <point type="fulltext">очков</point>
+      <point type="fulltext">Наберите</point>
+      <point type="fulltext">очков комбо</point>
     </task>
     <task name ="WordRide">
-      <point type="fulltext">Соберите слово RIDE из букв, разбросанных по полю</point>
+      <point type="fulltext">Соберите слово RIDE</point>
     </task>
     <task name ="FlightTime">
       <point type="fulltext">Проведите в воздухе</point>            

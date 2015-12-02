@@ -9,8 +9,13 @@ public class CarCreator : MonoBehaviour {
         library = GameObject.FindObjectOfType<Library>();
 
         CarParametres carParametres = CarsInfo.GetCarInfo(CarChanger.NumCar);
-        
-        GameObject GO = Instantiate(Resources.Load("Prefabs/Cars/" + carParametres.GetName())) as GameObject;
+
+        GameObject GO;
+        if (carParametres == null)
+            GO = Instantiate(Resources.Load("Prefabs/Cars/HemiFox")) as GameObject;
+        else
+            GO = Instantiate(Resources.Load("Prefabs/Cars/" + carParametres.GetName())) as GameObject;
+
         library.car = GO;
 
     }

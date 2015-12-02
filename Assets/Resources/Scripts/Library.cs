@@ -16,7 +16,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public LevelInfo levelInfo;
    [HideInInspector] public TaskStrings taskStrings;
    [HideInInspector] public GameObject pauseButton;
-   [HideInInspector] public GameObject pauseMenu;
+   [HideInInspector] public PauseMenu pauseMenu;
    [HideInInspector] public PreferencesSaver preferencesSaver;
    [HideInInspector] public TaskHelper taskHelper;
    [HideInInspector] public EndMenu endMenu;
@@ -26,6 +26,8 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject metalSparksPrefab;
    [HideInInspector] public WordRideCanvas wordRideCanvas;
    [HideInInspector] public CarUserParametres carUserParametres;
+   [HideInInspector] public GameUI gameUI;
+   [HideInInspector] public CanvasController canvasController;
    
     // Use this for initialization
     void Start () {
@@ -40,7 +42,7 @@ public class Library : MonoBehaviour {
         levelInfo = GetComponent<LevelInfo>();
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
-        pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>().gameObject;
+        pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>();
         endMenu = GameObject.Find("Canvas").GetComponentInChildren<EndMenu>();
         preferencesSaver = GetComponent<PreferencesSaver>();
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
@@ -51,6 +53,8 @@ public class Library : MonoBehaviour {
 
         metalSparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
         carUserParametres = GetComponent<CarUserParametres>();
+        gameUI = GameObject.FindObjectOfType<GameUI>();
+        canvasController = GameObject.FindObjectOfType<CanvasController>();
     }
 
 }

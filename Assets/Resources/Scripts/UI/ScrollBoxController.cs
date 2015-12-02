@@ -10,67 +10,52 @@ public class ScrollBoxController : MonoBehaviour {
     RectTransform rt;
     GameObject taskItemPrefab;
     int itemCount;
+
+    GameObject scrollBox;
     // Use this for initialization
     void Start () {
-
         library = GameObject.FindObjectOfType<Library>();
 
         rt = GetComponent<RectTransform>();
 
         taskItemPrefab = Resources.Load("Prefabs/UI/TaskItem") as GameObject;
+
+        scrollBox = transform.FindChild("ScrollBox").gameObject;
+
+        //library.pauseMenu.CloseMenu();
+        library.canvasController.ShowPauseMenu(false);
+
         //AddTasks();
-
-        transform.parent.gameObject.SetActive(false);
     }
-    /*
-    private void AddTasks()
-    {
-        Task[] taskScripts = library.level.GetComponentsInChildren<Task>();
 
-        for (int i = 0; i < taskScripts.Length; i++)
-        {
-            GameObject taskItem = Instantiate(taskItemPrefab) as GameObject;
-            taskItem.transform.SetParent(transform, false);
-            RectTransform rectTransform = taskItem.GetComponent<RectTransform>();
-            Vector3 ancoredPos = rectTransform.anchoredPosition;
-           // ancoredPos.y = ((rectTransform.rect.height+border) * (i) + 0.5f*rectTransform.rect.height + border) * (-1);
-            rectTransform.anchoredPosition = ancoredPos;
-            taskItem.GetComponentInChildren<Text>().text = taskScripts[i].GetDescription();
-            Debug.Log(taskScripts[i].GetDescription());
-
-            taskScripts[i].SetItem(taskItem);
-
-            if (taskScripts[i].IsComplete())
-                taskScripts[i].SetColored();
-        }
-
-        rt.sizeDelta = new Vector2(rt.sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)*taskScripts.Length+border);
-    }*/
 
     public GameObject AddTask(Task task)
     {
-        itemCount++;   
+        itemCount++;
         GameObject taskItem = Instantiate(taskItemPrefab) as GameObject;
-        taskItem.transform.SetParent(transform, false);
+        taskItem.transform.SetParent(scrollBox.transform, false);
         RectTransform rectTransform = taskItem.GetComponent<RectTransform>();
         Vector3 ancoredPos = rectTransform.anchoredPosition;
         ancoredPos.y = ((rectTransform.rect.height + border) * (itemCount-1) + 0.5f * rectTransform.rect.height + border) * (-1);
         rectTransform.anchoredPosition = ancoredPos;
-        taskItem.GetComponentInChildren<Text>().text = task.GetDescription();
-
-
-  
-        rt.sizeDelta = new Vector2(rt.sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)* itemCount+border);
+        taskItem.transform.FindChild("Text").GetComponent<Text>().text = task.GetDescription();
+        scrollBox.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollBox.GetComponent<RectTransform>().sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)* itemCount+border);
         return taskItem;
     }
 
     public void ClearTasks()
     {
         itemCount = 0;
-        foreach(Transform child in transform)
+        foreach(Transform child in scrollBox.transform)
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void ToDefaultPosition()
+    {
+        RectTransform SBRT = scrollBox.GetComponent<RectTransform>();
+        SBRT.anchoredPosition = new Vector2(SBRT.anchoredPosition.x, (rt.rect.height - scrollBox.GetComponent<RectTransform>().rect.height) / 2);
     }
 
     

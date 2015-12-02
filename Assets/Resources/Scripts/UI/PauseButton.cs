@@ -19,6 +19,7 @@ public class PauseButton : MonoBehaviour {
 
     void ShowMenu()
     {
-        library.pauseMenu.SetActive(true);
+        //library.pauseMenu.OpenMenu();
+        library.canvasController.ShowPauseMenu(true);
     }
 }

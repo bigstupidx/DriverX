@@ -2,21 +2,25 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BackButton : MonoBehaviour {
+public class BackButton : RawButton {
 
-    Button button;
+    
     Library library;
-    void Start()
+    new void Start()
     {
+        base.Start();
         library = GameObject.FindObjectOfType<Library>();
         button = GetComponent<Button>();
 
         button.onClick.AddListener(delegate { HideMenu(); ShowPauseButton(); Time.timeScale = 1; });
+
+       
     }
 
     void HideMenu()
     {
-        transform.parent.gameObject.SetActive(false);
+        //library.pauseMenu.CloseMenu();
+        library.canvasController.ShowPauseMenu(false);
     }
 
     void ShowPauseButton()
