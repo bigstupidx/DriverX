@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 03.12.2015 17:04:07
+# File Created: 03.12.2015 17:29:19
 
-newmtl Material__25
+newmtl _123Material__25
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -15,7 +15,7 @@ newmtl Material__25
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 
-newmtl Material__26
+newmtl _123Material__26
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -29,7 +29,7 @@ newmtl Material__26
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 
-newmtl material_0
+newmtl _123material_0
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -41,7 +41,7 @@ newmtl material_0
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
 
-newmtl Material__20
+newmtl _123Material__20
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -55,7 +55,7 @@ newmtl Material__20
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_6_D.tga
 
-newmtl Material__132
+newmtl _123Material__132
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -69,7 +69,7 @@ newmtl Material__132
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 
-newmtl Material__24
+newmtl _123Material__24
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -83,7 +83,7 @@ newmtl Material__24
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 
-newmtl Material__23
+newmtl _123Material__23
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -97,7 +97,7 @@ newmtl Material__23
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_2_D.tga
 
-newmtl Material__1
+newmtl _123Material__1
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -111,7 +111,7 @@ newmtl Material__1
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_1_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_1_D.tga
 
-newmtl Material__55
+newmtl _123Material__55
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -122,24 +122,8 @@ newmtl Material__55
 	Kd 0.5880 0.5880 0.5880
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka F:\!Nikita\g1t_arena\arena\Assets\1Desing\Models\!Car\hum vie\4011_humvee_1_D.psd
-	map_Kd F:\!Nikita\g1t_arena\arena\Assets\1Desing\Models\!Car\hum vie\4011_humvee_1_D.psd
 
-newmtl Material__15
-	Ns 10.0000
-	Ni 1.5000
-	d 1.0000
-	Tr 0.0000
-	Tf 1.0000 1.0000 1.0000 
-	illum 2
-	Ka 0.5880 0.5880 0.5880
-	Kd 0.5880 0.5880 0.5880
-	Ks 0.0000 0.0000 0.0000
-	Ke 0.0000 0.0000 0.0000
-	map_Ka F:\!Nikita\models\humvee\4011_humvee_1_D.tga
-	map_Kd F:\!Nikita\models\humvee\4011_humvee_1_D.tga
-
-newmtl Material__17
+newmtl _123Material__15
 	Ns 10.0000
 	Ni 1.5000
 	d 1.0000
@@ -153,7 +137,21 @@ newmtl Material__17
 	map_Ka F:\!Nikita\models\humvee\4011_humvee_1_D.tga
 	map_Kd F:\!Nikita\models\humvee\4011_humvee_1_D.tga
 
-newmtl wire_027177027
+newmtl _123Material__17
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka F:\!Nikita\models\humvee\4011_humvee_1_D.tga
+	map_Kd F:\!Nikita\models\humvee\4011_humvee_1_D.tga
+
+newmtl _123wire_027177027
 	Ns 32.0000
 	Ni 1.5000
 	d 1.0000
