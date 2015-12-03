@@ -1,0 +1,116 @@
+fileFormatVersion: 2
+guid: a40384ab56431f44da5dca07d483cc34
+timeCreated: 1449141172
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box001
+    100004: humvee_accessories_1
+    100006: humvee_door_004
+    100008: humvee_door_02
+    100010: humvee_wheel
+    100012: humvee_wheel001
+    100014: humvee_wheel002
+    100016: humvee_wheel003
+    100018: Object001
+    400000: //RootNode
+    400002: Box001
+    400004: humvee_accessories_1
+    400006: humvee_door_004
+    400008: humvee_door_02
+    400010: humvee_wheel
+    400012: humvee_wheel001
+    400014: humvee_wheel002
+    400016: humvee_wheel003
+    400018: Object001
+    2300000: Box001
+    2300002: humvee_accessories_1
+    2300004: humvee_door_004
+    2300006: humvee_door_02
+    2300008: humvee_wheel
+    2300010: humvee_wheel001
+    2300012: humvee_wheel002
+    2300014: humvee_wheel003
+    2300016: Object001
+    3300000: Box001
+    3300002: humvee_accessories_1
+    3300004: humvee_door_004
+    3300006: humvee_door_02
+    3300008: humvee_wheel
+    3300010: humvee_wheel001
+    3300012: humvee_wheel002
+    3300014: humvee_wheel003
+    3300016: Object001
+    4300000: Box001
+    4300002: humvee_accessories_1
+    4300004: humvee_door_004
+    4300006: humvee_door_02
+    4300008: humvee_wheel
+    4300010: humvee_wheel001
+    4300012: humvee_wheel002
+    4300014: humvee_wheel003
+    4300016: Object001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 180
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
