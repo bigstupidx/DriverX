@@ -1,72 +1,15 @@
 fileFormatVersion: 2
-guid: 6a970510e3fd8c241aab43fb2fe33cee
-timeCreated: 1449152806
+guid: 92111a5e31d7985409bace025656b728
+timeCreated: 1449170589
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: humvee_wheel
-    100004: humvee_wheel001
-    100006: humvee_wheel002
-    100008: humvee_wheel003
-    100010: Object001
-    100012: Box001
-    100014: humvee_accessories_1
-    100016: humvee_door_02
-    100018: Box002
-    100020: Box003
-    100022: Box004
-    100024: Box005
     400000: //RootNode
-    400002: humvee_wheel
-    400004: humvee_wheel001
-    400006: humvee_wheel002
-    400008: humvee_wheel003
-    400010: Object001
-    400012: Box001
-    400014: humvee_accessories_1
-    400016: humvee_door_02
-    400018: Box002
-    400020: Box003
-    400022: Box004
-    400024: Box005
-    2300000: humvee_wheel
-    2300002: humvee_wheel001
-    2300004: humvee_wheel002
-    2300006: humvee_wheel003
-    2300008: Object001
-    2300010: Box001
-    2300012: humvee_accessories_1
-    2300014: humvee_door_02
-    2300016: Box002
-    2300018: Box003
-    2300020: Box004
-    2300022: Box005
-    3300000: humvee_wheel
-    3300002: humvee_wheel001
-    3300004: humvee_wheel002
-    3300006: humvee_wheel003
-    3300008: Object001
-    3300010: Box001
-    3300012: humvee_accessories_1
-    3300014: humvee_door_02
-    3300016: Box002
-    3300018: Box003
-    3300020: Box004
-    3300022: Box005
-    4300000: humvee_wheel
-    4300002: humvee_wheel001
-    4300004: humvee_wheel002
-    4300006: humvee_wheel003
-    4300008: Object001
-    4300010: Box001
-    4300012: humvee_accessories_1
-    4300014: humvee_door_02
-    4300016: Box002
-    4300018: Box003
-    4300020: Box004
-    4300022: Box005
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Box003
   materials:
     importMaterials: 1
     materialName: 0
@@ -106,9 +49,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 180
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
