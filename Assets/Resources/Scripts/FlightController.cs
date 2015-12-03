@@ -80,11 +80,11 @@ public class FlightController : MonoBehaviour
                 if(fallTimer >= fallThreshold)
                 {
                     GameObject particle = Instantiate(fallPrefab);
-                    particle.transform.parent = transform;
+                    particle.transform.SetParent(transform, false);
                     Vector3 newPos = transform.position;
-                    newPos.y -= 0.5f;
+                    newPos.y += 0.3f;
                     particle.transform.position = newPos;
-                    particle.transform.rotation = Quaternion.Euler(-90,transform.rotation.eulerAngles.y,0);
+                   // particle.transform.rotation = Quaternion.Euler(-90,transform.rotation.eulerAngles.y,0);
                     particle.GetComponent<ParticleSystem>().Play();
                 }
                 fallTimer = 0;

@@ -14,6 +14,8 @@ public abstract class Task : MonoBehaviour {
 
     protected string description;
 
+    public int reward;
+
     // Use this for initialization
     protected void Start() {
         library = GameObject.FindObjectOfType<Library>();
@@ -47,6 +49,8 @@ public abstract class Task : MonoBehaviour {
     {
         return description;
     }
+
+
 
     public bool IsComplete()
     {

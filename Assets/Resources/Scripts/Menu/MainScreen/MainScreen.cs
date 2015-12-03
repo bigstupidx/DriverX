@@ -79,6 +79,7 @@ public class MainScreen : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.4f);
         libraryMenu.fireBackground.GetComponent<Particle>().PlayLoop();
+        libraryMenu.dustSmall.GetComponent<Particle>().PlayLoop();
     }
 
 

@@ -47,4 +47,19 @@
     </params>
   </car>
 
+  <car name ="Pickup">
+    <params>
+      <param name="1">6</param>
+      <param name="2">6</param>
+      <param name="3">6</param>
+    </params>
+  </car>
+
+  <car name ="Hummer">
+    <params>
+      <param name="1">6</param>
+      <param name="2">6</param>
+      <param name="3">6</param>
+    </params>
+  </car>
 </items>

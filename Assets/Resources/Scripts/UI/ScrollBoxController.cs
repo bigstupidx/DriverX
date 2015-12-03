@@ -38,7 +38,9 @@ public class ScrollBoxController : MonoBehaviour {
         Vector3 ancoredPos = rectTransform.anchoredPosition;
         ancoredPos.y = ((rectTransform.rect.height + border) * (itemCount-1) + 0.5f * rectTransform.rect.height + border) * (-1);
         rectTransform.anchoredPosition = ancoredPos;
-        taskItem.transform.FindChild("Text").GetComponent<Text>().text = task.GetDescription();
+        taskItem.transform.FindChild("MainText").GetComponent<Text>().text = task.GetDescription();
+        taskItem.transform.FindChild("Reward").GetComponent<Text>().text = task.reward+"";
+
         scrollBox.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollBox.GetComponent<RectTransform>().sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)* itemCount+border);
         return taskItem;
     }

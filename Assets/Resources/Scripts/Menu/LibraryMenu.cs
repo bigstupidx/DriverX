@@ -16,6 +16,7 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public GameObject fireBackground;
     [HideInInspector] public GameObject secondCanvas;
     [HideInInspector] public GameObject fireStart;
+    [HideInInspector] public GameObject dustSmall;
     // [HideInInspector] public GameObject car;
 
     // Use this for initialization
@@ -33,6 +34,7 @@ public class LibraryMenu : MonoBehaviour {
         preferencesSaver = GetComponent<PreferencesSaver>();
         filling = GameObject.FindObjectOfType<Filling>();
         carChanger = GameObject.FindObjectOfType<CarChanger>();
+        dustSmall = GameObject.Find("DustSmall");
         /*
         car = garage.transform.Find("Car").gameObject;
         if (car == null)
