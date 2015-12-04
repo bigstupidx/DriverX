@@ -98,7 +98,7 @@ public class CarChanger : MonoBehaviour {
         {
             Destroy(child.gameObject);
         }
-        int carNum = libraryMenu.preferencesSaver.GetCurrentCar();
+        int carNum = PreferencesSaver.GetCurrentCar();
 
         StartCoroutine(CreateCar(carNum));
 
@@ -122,21 +122,38 @@ public class CarChanger : MonoBehaviour {
             carParametres.GetParam(1),
             carParametres.GetParam(2), 
             carParametres.GetParam(3),
-            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 1),
-            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 2), 
-            libraryMenu.preferencesSaver.GetCarUpgrade(carNum, 3));
+            PreferencesSaver.GetCarUpgrade(carNum, 1),
+            PreferencesSaver.GetCarUpgrade(carNum, 2), 
+            PreferencesSaver.GetCarUpgrade(carNum, 3));
 
+
+        bool isOpen = PreferencesSaver.CarIsOpen(carNum);
+
+        if (!isOpen)
+        {
+            libraryMenu.garage.ShowBuyButton(0);
+            libraryMenu.garage.HidePlayButton();
+            libraryMenu.garage.HideSecondPower();
+        }
+        else
+        {
+            libraryMenu.garage.HideBuyButton();
+            libraryMenu.garage.ShowPlayButton();
+            libraryMenu.garage.ShowSecondPower();
+        }
 
         ResourceRequest rr = Resources.LoadAsync("Prefabs/UI/Cars/"+carParametres.GetName());
+ 
+
         yield return rr;
         
         GameObject carObject = Instantiate(rr.asset as GameObject);
-        carObject.transform.parent = car.transform;
+        carObject.transform.SetParent(car.transform, false);
 
         carObject.transform.localPosition = new Vector3(0, 0, 0);
         carObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         carObject.transform.localScale = new Vector3(1, 1, 1);
-
+        
 
     }
 

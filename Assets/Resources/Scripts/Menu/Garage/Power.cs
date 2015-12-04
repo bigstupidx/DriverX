@@ -38,7 +38,7 @@ public class Power : MonoBehaviour {
 
     public void AddPower()
     {
-        libraryMenu.preferencesSaver.CarUpgrade(libraryMenu.carChanger.GetCurrentCarParametres().GetNumCar(), int.Parse(transform.parent.name));
+        PreferencesSaver.CarUpgrade(libraryMenu.carChanger.GetCurrentCarParametres().GetNumCar(), int.Parse(transform.parent.name));
 
         valSecond++;
         UpdateVisualize();

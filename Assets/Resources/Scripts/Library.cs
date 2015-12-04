@@ -17,7 +17,6 @@ public class Library : MonoBehaviour {
    [HideInInspector] public TaskStrings taskStrings;
    [HideInInspector] public GameObject pauseButton;
    [HideInInspector] public PauseMenu pauseMenu;
-   [HideInInspector] public PreferencesSaver preferencesSaver;
    [HideInInspector] public TaskHelper taskHelper;
    [HideInInspector] public EndMenu endMenu;
    [HideInInspector] public GameObject level;
@@ -44,7 +43,6 @@ public class Library : MonoBehaviour {
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>();
         endMenu = GameObject.Find("Canvas").GetComponentInChildren<EndMenu>();
-        preferencesSaver = GetComponent<PreferencesSaver>();
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
         level = GameObject.FindGameObjectWithTag("Level");
         globalController = GetComponent<GlobalController>();

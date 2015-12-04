@@ -26,7 +26,7 @@ public abstract class Task : MonoBehaviour {
         
 
 
-        if (library.preferencesSaver.TaskIsComplete(1, this.GetType().Name))
+        if (PreferencesSaver.TaskIsComplete(1, this.GetType().Name))
         {
             isComplete = true;
             SetColored();
@@ -85,7 +85,7 @@ public abstract class Task : MonoBehaviour {
     {
         SetComplete();
         SetColored();
-        library.preferencesSaver.SaveTaskComplete(1, this.GetType().Name);
+        PreferencesSaver.SaveTaskComplete(1, this.GetType().Name);
         justComplete = true;
     }
 }

@@ -6,12 +6,12 @@ public class PreferencesSaver : MonoBehaviour {
 
     public static string pass = "HeyKey";
 
-    public void SaveTaskComplete(int level, string taskName)
+    public static void SaveTaskComplete(int level, string taskName)
     {
         SavePref("Level_" + level + "/" + taskName + "/complete", "true");
     }
 
-    public bool TaskIsComplete(int level, string taskName)
+    public static bool TaskIsComplete(int level, string taskName)
     {
         string val = GetPref("Level_" + level + "/" + taskName + "/complete", "false");
 
@@ -21,19 +21,19 @@ public class PreferencesSaver : MonoBehaviour {
             return true;
     }
 
-    public void SaveTaskValue(int level, string taskName, string val)
+    public static void SaveTaskValue(int level, string taskName, string val)
     {
         SavePref("Level_" + level + "/" + taskName + "/value", val);
     }
 
-    public string GetTaskValue(int level, string taskName)
+    public static string GetTaskValue(int level, string taskName)
     {
         string val = GetPref("Level_" + level + "/" + taskName + "/value", "");
 
         return val;
     }
 
-    public int GetIntTaskValue(int level, string taskName)
+    public static int GetIntTaskValue(int level, string taskName)
     {
         string str = GetTaskValue(level, taskName);
 
@@ -51,36 +51,80 @@ public class PreferencesSaver : MonoBehaviour {
     }
 
 
-    public void SaveCurrentCar(int num)
+    public static void SaveCurrentCar(int num)
     {
         SavePref("CurrentCar", num+"");
     }
 
-    public int GetCurrentCar()
+    public static int GetCurrentCar()
     {
         string val = GetPref("CurrentCar", 0+"");
         return int.Parse(val);
     }
 
-    public void CarUpgrade(int numCar, int numParameter)
+    public static void OpenCar(int num)
+    {
+        SavePref("OpenCar/" + num, true+"");
+    }
+
+    public static bool CarIsOpen(int num)
+    {
+        bool isOpen = false;
+
+        if (num == 0)
+            return true;
+
+        try
+        {
+            isOpen = bool.Parse(GetPref("OpenCar/" + num, "false"));
+        }
+        catch (FormatException)
+        {
+            isOpen = false;
+        }
+
+
+        return isOpen;
+    }
+
+    public static void CarUpgrade(int numCar, int numParameter)
     {
         SavePref("CarUpgrade_" + numCar+"/"+numParameter, (GetCarUpgrade(numCar,numParameter)+1)+"");
     }
 
-    public int GetCarUpgrade(int numCar, int numParameter)
+    public static int GetCarUpgrade(int numCar, int numParameter)
     {
        return int.Parse(GetPref("CarUpgrade_" + numCar+"/"+numParameter, 0+""));
     }
 
+    public static void SetMoney(int money)
+    {
+        SavePref("Money", money + "");
+    }
+
+    public static int GetMoney()
+    {
+        return int.Parse(GetPref("Money", 0 + ""));
+    }
+
+    public static void SetGold(int gold)
+    {
+        SavePref("Gold", gold + "");
+    }
+
+    public static int GetGold()
+    {
+        return int.Parse(GetPref("Gold", 0 + ""));
+    }
 
 
-    private void SavePref(string key, string val)
+    private static void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);
         PlayerPrefs.Save();
     }
 
-    private string GetPref(string key, string defaultValue)
+    private static string GetPref(string key, string defaultValue)
     {
         return SecurePlayerPrefs.GetString(key, defaultValue, pass);
     }

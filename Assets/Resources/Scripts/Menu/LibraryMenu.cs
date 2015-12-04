@@ -10,7 +10,6 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public MainScreen mainScreen;
     [HideInInspector] public GameObject bg;
     [HideInInspector] public CarsInfo carsInfo;
-    [HideInInspector] public PreferencesSaver preferencesSaver;
     [HideInInspector] public Filling filling;
     [HideInInspector] public CarChanger carChanger;
     [HideInInspector] public GameObject fireBackground;
@@ -31,7 +30,6 @@ public class LibraryMenu : MonoBehaviour {
         mainScreen = GameObject.FindObjectOfType<MainScreen>();
         bg = GameObject.Find("BG");
         carsInfo = GetComponent<CarsInfo>();
-        preferencesSaver = GetComponent<PreferencesSaver>();
         filling = GameObject.FindObjectOfType<Filling>();
         carChanger = GameObject.FindObjectOfType<CarChanger>();
         dustSmall = GameObject.Find("DustSmall");

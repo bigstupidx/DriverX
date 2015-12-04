@@ -19,9 +19,9 @@ public class CarUserParametres : MonoBehaviour {
         if (carParametres != null)
         {
 
-            speed = carParametres.GetParam(1) + library.preferencesSaver.GetCarUpgrade(CarChanger.NumCar, 1);
-            nitro = carParametres.GetParam(2) + library.preferencesSaver.GetCarUpgrade(CarChanger.NumCar, 2);
-            controllability = carParametres.GetParam(3) + library.preferencesSaver.GetCarUpgrade(CarChanger.NumCar, 3);
+            speed = carParametres.GetParam(1) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 1);
+            nitro = carParametres.GetParam(2) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 2);
+            controllability = carParametres.GetParam(3) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 3);
         }
         controllability = Mathf.Clamp(controllability, 1, maxVal);
         nitro = Mathf.Clamp(nitro, 1, maxVal);
