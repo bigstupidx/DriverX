@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 48f5f98084626934c81d47a0241dbfa3
+timeCreated: 1449229574
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: 1451_mesh_exhaust_c_lod00
+    100004: 2169_mesh_decal_placement_shell
+    100006: 4258_mesh_paint_wheel_arch_large_lod01
+    100008: 690_mesh_carbon_bumper_front_large_c_lod00
+    100010: front
+    100012: Object001
+    100014: Object002
+    100016: Object003
+    100018: Object004
+    100020: Object005
+    100022: windows
+    100024: Object006
+    100026: Object007
+    100028: Object008
+    100030: Object009
+    400000: //RootNode
+    400002: 1451_mesh_exhaust_c_lod00
+    400004: 2169_mesh_decal_placement_shell
+    400006: 4258_mesh_paint_wheel_arch_large_lod01
+    400008: 690_mesh_carbon_bumper_front_large_c_lod00
+    400010: front
+    400012: Object001
+    400014: Object002
+    400016: Object003
+    400018: Object004
+    400020: Object005
+    400022: windows
+    400024: Object006
+    400026: Object007
+    400028: Object008
+    400030: Object009
+    2300000: 1451_mesh_exhaust_c_lod00
+    2300002: 2169_mesh_decal_placement_shell
+    2300004: 4258_mesh_paint_wheel_arch_large_lod01
+    2300006: 690_mesh_carbon_bumper_front_large_c_lod00
+    2300008: front
+    2300010: Object001
+    2300012: Object002
+    2300014: Object003
+    2300016: Object004
+    2300018: Object005
+    2300020: windows
+    2300022: Object006
+    2300024: Object007
+    2300026: Object008
+    2300028: Object009
+    3300000: 1451_mesh_exhaust_c_lod00
+    3300002: 2169_mesh_decal_placement_shell
+    3300004: 4258_mesh_paint_wheel_arch_large_lod01
+    3300006: 690_mesh_carbon_bumper_front_large_c_lod00
+    3300008: front
+    3300010: Object001
+    3300012: Object002
+    3300014: Object003
+    3300016: Object004
+    3300018: Object005
+    3300020: windows
+    3300022: Object006
+    3300024: Object007
+    3300026: Object008
+    3300028: Object009
+    4300000: 1451_mesh_exhaust_c_lod00
+    4300002: 2169_mesh_decal_placement_shell
+    4300004: 4258_mesh_paint_wheel_arch_large_lod01
+    4300006: 690_mesh_carbon_bumper_front_large_c_lod00
+    4300008: front
+    4300010: Object001
+    4300012: Object002
+    4300014: Object003
+    4300016: Object004
+    4300018: Object005
+    4300020: windows
+    4300022: Object006
+    4300024: Object007
+    4300026: Object008
+    4300028: Object009
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 53
+    splitTangentsAcrossUV: 0
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
