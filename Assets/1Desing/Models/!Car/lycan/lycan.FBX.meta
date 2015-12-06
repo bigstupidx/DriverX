@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: e6fc3c36720c7614b9c5eb2689806689
+timeCreated: 1449402964
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Body
+    100002: Box003
+    100004: Collider
+    100006: driver
+    100008: Driver_Body
+    100010: Driver_Head
+    100012: //RootNode
+    100014: Object001
+    100016: sl
+    100018: WMotorsHypersports
+    100020: WMotorsLykanHypersport_CarBase
+    100022: WMotorsLykanHypersport_CarBody
+    100024: WMotorsLykanHypersport_CarDetail
+    100026: WMotorsLykanHypersport_CarInterior
+    100028: WMotorsLykanHypersport_CarLights
+    100030: WMotorsLykanHypersport_WindowTransparent
+    100032: WMotorsLykanHypersport_WingMirrors
+    400000: Body
+    400002: Box003
+    400004: Collider
+    400006: driver
+    400008: Driver_Body
+    400010: Driver_Head
+    400012: //RootNode
+    400014: Object001
+    400016: sl
+    400018: WMotorsHypersports
+    400020: WMotorsLykanHypersport_CarBase
+    400022: WMotorsLykanHypersport_CarBody
+    400024: WMotorsLykanHypersport_CarDetail
+    400026: WMotorsLykanHypersport_CarInterior
+    400028: WMotorsLykanHypersport_CarLights
+    400030: WMotorsLykanHypersport_WindowTransparent
+    400032: WMotorsLykanHypersport_WingMirrors
+    2300000: Box003
+    2300002: Driver_Body
+    2300004: Driver_Head
+    2300006: Object001
+    2300008: sl
+    2300010: WMotorsLykanHypersport_CarBase
+    2300012: WMotorsLykanHypersport_CarBody
+    2300014: WMotorsLykanHypersport_CarDetail
+    2300016: WMotorsLykanHypersport_CarInterior
+    2300018: WMotorsLykanHypersport_CarLights
+    2300020: WMotorsLykanHypersport_WindowTransparent
+    2300022: WMotorsLykanHypersport_WingMirrors
+    3300000: Box003
+    3300002: Driver_Body
+    3300004: Driver_Head
+    3300006: Object001
+    3300008: sl
+    3300010: WMotorsLykanHypersport_CarBase
+    3300012: WMotorsLykanHypersport_CarBody
+    3300014: WMotorsLykanHypersport_CarDetail
+    3300016: WMotorsLykanHypersport_CarInterior
+    3300018: WMotorsLykanHypersport_CarLights
+    3300020: WMotorsLykanHypersport_WindowTransparent
+    3300022: WMotorsLykanHypersport_WingMirrors
+    4300000: Driver_Body
+    4300002: Driver_Head
+    4300004: WMotorsLykanHypersport_CarBody
+    4300006: WMotorsLykanHypersport_CarBase
+    4300008: WMotorsLykanHypersport_CarDetail
+    4300010: WMotorsLykanHypersport_CarInterior
+    4300012: WMotorsLykanHypersport_CarLights
+    4300014: WMotorsLykanHypersport_WindowTransparent
+    4300016: WMotorsLykanHypersport_WingMirrors
+    4300018: sl
+    4300020: Box003
+    4300022: Object001
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 156
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box003
+        weight: 1
+      - path: Object001
+        weight: 1
+      - path: sl
+        weight: 1
+      - path: WMotorsHypersports
+        weight: 1
+      - path: WMotorsHypersports/Body
+        weight: 1
+      - path: WMotorsHypersports/Body/driver
+        weight: 1
+      - path: WMotorsHypersports/Body/driver/Driver_Body
+        weight: 1
+      - path: WMotorsHypersports/Body/driver/Driver_Head
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_CarBase
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_CarBody
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_CarDetail
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_CarInterior
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_CarLights
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_WindowTransparent
+        weight: 1
+      - path: WMotorsHypersports/Body/WMotorsLykanHypersport_WingMirrors
+        weight: 1
+      - path: WMotorsHypersports/Collider
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 30
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
