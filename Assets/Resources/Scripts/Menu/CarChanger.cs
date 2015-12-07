@@ -58,6 +58,8 @@ public class CarChanger : MonoBehaviour {
         if (carParametres != null)
             StartCoroutine(CreateCar(numCar + 1));
 
+
+
         UpdateDisableButton();
     }
 
@@ -116,6 +118,7 @@ public class CarChanger : MonoBehaviour {
     {
         CarParametres carParametres = CarsInfo.GetCarInfo(carNum);
         this.carParametres = carParametres;
+        
 
 
         libraryMenu.filling.UpdateAllPower(
