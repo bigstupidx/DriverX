@@ -6,6 +6,7 @@ public class BackButton : RawButton {
 
     
     Library library;
+    Button button;
     new void Start()
     {
         base.Start();

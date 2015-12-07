@@ -134,7 +134,7 @@ public class CarChanger : MonoBehaviour {
 
         if (!isOpen)
         {
-            libraryMenu.garage.ShowBuyButton(0);
+            libraryMenu.garage.ShowBuyButton(carParametres.GetCost());
             libraryMenu.garage.HidePlayButton();
             libraryMenu.garage.HideSecondPower();
         }
@@ -164,4 +164,6 @@ public class CarChanger : MonoBehaviour {
     {
         return carParametres;
     }
+
+   
 }

@@ -5,6 +5,24 @@
       <param name="2">1</param>
       <param name="3">1</param>
     </params>
+    <cost>10000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
 
   <car name ="MK2">  
@@ -13,6 +31,24 @@
       <param name="2">2</param>
       <param name="3">2</param>
     </params>
+    <cost>20000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
   
   <car name ="Sandking">
@@ -21,6 +57,24 @@
       <param name="2">3</param>
       <param name="3">3</param>
     </params>
+  <cost>30000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
 
  <car name ="TTS">
@@ -29,7 +83,25 @@
       <param name="2">4</param>
       <param name="3">4</param>
     </params>
-  </car>
+    <cost>40000</cost>
+   <upgrades>
+     <upgrade name="1">
+       <item name="1">100</item>
+       <item name="2">200</item>
+       <item name="3">300</item>
+     </upgrade>
+     <upgrade name="2">
+       <item name="1">100</item>
+       <item name="2">200</item>
+       <item name="3">300</item>
+     </upgrade>
+     <upgrade name="3">
+       <item name="1">100</item>
+       <item name="2">200</item>
+       <item name="3">300</item>
+     </upgrade>
+   </upgrades>
+ </car>
 
   <car name ="MUST">
     <params>
@@ -37,6 +109,24 @@
       <param name="2">5</param>
       <param name="3">5</param>
     </params>
+    <cost>50000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
   
   <car name ="Shogun">
@@ -45,6 +135,24 @@
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
+    <cost>60000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
 
   <car name ="Pickup">
@@ -53,6 +161,24 @@
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
+    <cost>70000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
 
   <car name ="Hummer">
@@ -61,5 +187,23 @@
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
+    <cost>80000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
   </car>
 </items>

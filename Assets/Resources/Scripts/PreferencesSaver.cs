@@ -65,6 +65,7 @@ public class PreferencesSaver : MonoBehaviour {
     public static void OpenCar(int num)
     {
         SavePref("OpenCar/" + num, true+"");
+        SaveCurrentCar(num);
     }
 
     public static bool CarIsOpen(int num)

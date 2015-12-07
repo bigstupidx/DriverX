@@ -9,10 +9,16 @@ public class CarParametres {
     int[] param = new int[3];
     int[] secondParam = new int[3];
 
-	public CarParametres (int numCar, string name, int[] param) {
+    int cost;
+
+    int[,] upgradeCost = new int[3,3];
+
+	public CarParametres (int numCar, string name, int[] param, int cost, int[,] upgradeCost) {
         this.name = name;
         this.numCar = numCar;
         this.param = param;
+        this.cost = cost;
+        this.upgradeCost = upgradeCost;
 	}
 	
     public string GetName()
@@ -40,4 +46,13 @@ public class CarParametres {
         this.secondParam = secondParam;
     }
 
+    public int GetCost()
+    {
+        return cost;
+    }
+
+    public int GetUpgradeCost(int numParam, int numLevel)
+    {
+        return upgradeCost[numParam-1, numLevel-1];
+    }
 }

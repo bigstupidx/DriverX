@@ -23,9 +23,9 @@ public class CarsInfo : MonoBehaviour {
 
             int[] param = { 1, 1, 1 };
 
-            foreach(XmlNode childNode in node.ChildNodes[0])
+            foreach (XmlNode childNode in node.ChildNodes[0])
             {
-                switch(childNode.Attributes["name"].Value)
+                switch (childNode.Attributes["name"].Value)
                 {
                     case "1": param[0] = int.Parse(childNode.InnerText); break;
                     case "2": param[1] = int.Parse(childNode.InnerText); break;
@@ -34,8 +34,28 @@ public class CarsInfo : MonoBehaviour {
                 }
             }
 
+            int cost = int.Parse(node.ChildNodes[1].InnerText);
 
-            CarParametres carParametres = new CarParametres(obj.Count,node.Attributes["name"].Value, param); 
+
+            int[,] upgradeCost = new int[3,3];
+
+            int i = 0;
+
+
+            foreach (XmlNode childNode in node.ChildNodes[2])
+            {
+
+                int num = int.Parse(childNode.Attributes["name"].Value);
+                 
+                i = 0;
+                foreach (XmlNode item in childNode)
+                {
+                    upgradeCost[num-1,i++] = int.Parse(item.InnerText);
+                }
+
+            }
+
+            CarParametres carParametres = new CarParametres(obj.Count,node.Attributes["name"].Value, param, cost, upgradeCost); 
 
 
 

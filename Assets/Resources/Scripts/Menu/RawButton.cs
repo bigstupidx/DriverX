@@ -4,17 +4,16 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 
-public abstract class RawButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class RawButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 
-    protected Button button;
 
     Texture image1;
     public Texture clickableImage;
 
 	// Use this for initialization
 	public void Start () {
-        button = GetComponent<Button>();
+
         image1 = GetComponent<RawImage>().texture;
     }
 

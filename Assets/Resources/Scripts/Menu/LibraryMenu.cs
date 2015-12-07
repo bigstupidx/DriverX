@@ -16,6 +16,8 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public GameObject secondCanvas;
     [HideInInspector] public GameObject fireStart;
     [HideInInspector] public GameObject dustSmall;
+    [HideInInspector] public WindowWarning windowWarning;
+    [HideInInspector] public WindowConfirmation windowConfirmation;
     // [HideInInspector] public GameObject car;
 
     // Use this for initialization
@@ -33,6 +35,8 @@ public class LibraryMenu : MonoBehaviour {
         filling = GameObject.FindObjectOfType<Filling>();
         carChanger = GameObject.FindObjectOfType<CarChanger>();
         dustSmall = GameObject.Find("DustSmall");
+        windowWarning = GameObject.FindObjectOfType<WindowWarning>();
+        windowConfirmation = GameObject.FindObjectOfType<WindowConfirmation>();
         /*
         car = garage.transform.Find("Car").gameObject;
         if (car == null)
