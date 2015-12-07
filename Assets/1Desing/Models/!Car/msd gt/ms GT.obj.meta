@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: 47d47ac988d720a41a7dd23f844344ee
+timeCreated: 1449496007
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: 159_mesh_plastic_bumper_front_b_lod00
+    100002: 3488_mesh_spoiler_plates_g_lod00
+    100004: 3520_mesh_spoiler_h_lod00
+    100006: 831_mesh_plastic_bumper_rear_pulled_c_lod00
+    100008: Box001
+    100010: Box002
+    100012: Cylinder003
+    100014: Mercedes_AMG_GT_CarBase
+    100016: Mercedes_AMG_GT_CarBody
+    100018: Mercedes_AMG_GT_CarDetail
+    100020: Mercedes_AMG_GT_CarLights
+    100022: Mercedes_AMG_GT_WindowTransparent2
+    100024: //RootNode
+    100026: panel
+    400000: 159_mesh_plastic_bumper_front_b_lod00
+    400002: 3488_mesh_spoiler_plates_g_lod00
+    400004: 3520_mesh_spoiler_h_lod00
+    400006: 831_mesh_plastic_bumper_rear_pulled_c_lod00
+    400008: Box001
+    400010: Box002
+    400012: Cylinder003
+    400014: Mercedes_AMG_GT_CarBase
+    400016: Mercedes_AMG_GT_CarBody
+    400018: Mercedes_AMG_GT_CarDetail
+    400020: Mercedes_AMG_GT_CarLights
+    400022: Mercedes_AMG_GT_WindowTransparent2
+    400024: //RootNode
+    400026: panel
+    2300000: 159_mesh_plastic_bumper_front_b_lod00
+    2300002: 3488_mesh_spoiler_plates_g_lod00
+    2300004: 3520_mesh_spoiler_h_lod00
+    2300006: 831_mesh_plastic_bumper_rear_pulled_c_lod00
+    2300008: Box001
+    2300010: Box002
+    2300012: Cylinder003
+    2300014: Mercedes_AMG_GT_CarBase
+    2300016: Mercedes_AMG_GT_CarBody
+    2300018: Mercedes_AMG_GT_CarDetail
+    2300020: Mercedes_AMG_GT_CarLights
+    2300022: Mercedes_AMG_GT_WindowTransparent2
+    2300024: panel
+    3300000: 159_mesh_plastic_bumper_front_b_lod00
+    3300002: 3488_mesh_spoiler_plates_g_lod00
+    3300004: 3520_mesh_spoiler_h_lod00
+    3300006: 831_mesh_plastic_bumper_rear_pulled_c_lod00
+    3300008: Box001
+    3300010: Box002
+    3300012: Cylinder003
+    3300014: Mercedes_AMG_GT_CarBase
+    3300016: Mercedes_AMG_GT_CarBody
+    3300018: Mercedes_AMG_GT_CarDetail
+    3300020: Mercedes_AMG_GT_CarLights
+    3300022: Mercedes_AMG_GT_WindowTransparent2
+    3300024: panel
+    4300000: 159_mesh_plastic_bumper_front_b_lod00
+    4300002: 3488_mesh_spoiler_plates_g_lod00
+    4300004: 3520_mesh_spoiler_h_lod00
+    4300006: 831_mesh_plastic_bumper_rear_pulled_c_lod00
+    4300008: Box001
+    4300010: Box002
+    4300012: Cylinder003
+    4300014: Mercedes_AMG_GT_CarBase
+    4300016: Mercedes_AMG_GT_CarBody
+    4300018: Mercedes_AMG_GT_CarDetail
+    4300020: Mercedes_AMG_GT_CarLights
+    4300022: Mercedes_AMG_GT_WindowTransparent2
+    4300024: panel
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 30
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
