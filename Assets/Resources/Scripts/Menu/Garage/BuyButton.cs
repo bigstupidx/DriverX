@@ -30,7 +30,7 @@ public class BuyButton : MenuButton {
                   libraryMenu.carChanger.ShowCar();
               }  
           );
-            libraryMenu.windowConfirmation.Show("Вы уверены, что хотите купить "+carParametres.GetName()+" за "+carParametres.GetCost());
+            libraryMenu.windowConfirmation.Show("Вы уверены, что хотите купить "+carParametres.GetName()+" за "+carParametres.GetCost()+"%");
             
         }
 

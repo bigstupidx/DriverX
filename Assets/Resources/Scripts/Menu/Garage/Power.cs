@@ -16,10 +16,14 @@ public class Power : MonoBehaviour {
 
     Sprite[] mainSprites = new Sprite[6];
     Sprite[] secondSprites = new Sprite[4];
+
+    int type;
 	// Use this for initialization
 	void Start () {
 
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
+
+        type = int.Parse(transform.parent.name);
 
         for(int i = 0; i < 6; i++)
             mainSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_powers/car_pow_"+(i+1));
@@ -30,7 +34,41 @@ public class Power : MonoBehaviour {
         button.onClick.AddListener(
            delegate
            {
-               AddPower();
+               Button buttonOk = libraryMenu.windowConfirmation.button1;
+               CarParametres carParametres = libraryMenu.carChanger.GetCurrentCarParametres();
+               string tempStr = "";
+
+
+               switch (type)
+               {
+                   case 1: tempStr = "увеличения скорости авто"; break;
+                   case 2: tempStr = "увеличения объёма нитро"; break;
+                   case 3: tempStr = "улучшения управляемости"; break;
+
+               }
+
+               int upgradeCost = carParametres.GetUpgradeCost(type, valSecond + 1);
+
+
+               buttonOk.onClick.AddListener(
+                   delegate
+                   {
+                       libraryMenu.windowConfirmation.Hide();
+
+                       if (upgradeCost < Bank.GetMoney())
+                       {
+                           Bank.MinusMoney(upgradeCost);
+                           AddPower();
+                       }
+                       else
+                       {
+                           libraryMenu.windowWarning.Show("У вас не достаточно средств для " + tempStr);
+                       }
+                   }
+               );
+
+
+               libraryMenu.windowConfirmation.Show("Стоимость " + tempStr + " составляет " + upgradeCost + "%. Произвести улучшение?");
            }
         );
 
@@ -38,7 +76,7 @@ public class Power : MonoBehaviour {
 
     public void AddPower()
     {
-        PreferencesSaver.CarUpgrade(libraryMenu.carChanger.GetCurrentCarParametres().GetNumCar(), int.Parse(transform.parent.name));
+        PreferencesSaver.CarUpgrade(libraryMenu.carChanger.GetCurrentCarParametres().GetNumCar(), type);
 
         valSecond++;
         UpdateVisualize();
