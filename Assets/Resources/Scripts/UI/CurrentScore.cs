@@ -15,6 +15,9 @@ public class CurrentScore : MonoBehaviour {
 
     //  Color yellowColor = new Color(255/255f, 215/255f, 0/255f, 255/255f);
     //Color blueColor = new Color(45 / 255f, 45 / 255f, 255 / 255f, 255/255f);
+    Library library;
+    Particle fireParticle;
+    Particle smokeParticle;
 
     IEnumerator currentCoroutine;
 	// Use this for initialization
@@ -22,6 +25,22 @@ public class CurrentScore : MonoBehaviour {
         text = GetComponent<Text>();
         redColor = Resources.Load("Font/font1") as Material;
         blueColor = Resources.Load("Font/font2") as Material;
+
+        library = GameObject.FindObjectOfType<Library>();
+
+        fireParticle = library.particleCanvas.transform.FindChild("UI").FindChild("FireComboParticle").GetComponent<Particle>();
+        smokeParticle = library.particleCanvas.transform.FindChild("UI").FindChild("SmokeComboParticle").GetComponent<Particle>();
+
+        fireParticle.GetComponent<RectTransform>().anchoredPosition =
+            new Vector2(
+            fireParticle.GetComponent<RectTransform>().anchoredPosition.x,
+            GetComponent<RectTransform>().anchoredPosition.y);
+
+        smokeParticle.GetComponent<RectTransform>().anchoredPosition = 
+            new Vector2(
+            smokeParticle.GetComponent<RectTransform>().anchoredPosition.x,
+            GetComponent<RectTransform>().anchoredPosition.y);
+
     }
 
     public void AddScoreAndCoef(int addScore, bool isCoef)
@@ -40,6 +59,9 @@ public class CurrentScore : MonoBehaviour {
 
     private void ShowScore()
     {
+        if(!fireParticle.GetParticle().loop)
+        fireParticle.PlayLoop();
+
         text.text = score + " X " + coef;
         text.material = redColor;
 
@@ -55,6 +77,9 @@ public class CurrentScore : MonoBehaviour {
 
     public void ClearScore()
     {
+        fireParticle.StopLoop();
+        smokeParticle.GetParticle().Play();
+
         text.material = blueColor;
 
         text.text = fullScore+"";

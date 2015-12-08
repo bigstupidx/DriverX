@@ -27,7 +27,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public CarUserParametres carUserParametres;
    [HideInInspector] public GameUI gameUI;
    [HideInInspector] public CanvasController canvasController;
-   
+   [HideInInspector] public GameObject particleCanvas;
     // Use this for initialization
     void Start () {
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
@@ -53,6 +53,9 @@ public class Library : MonoBehaviour {
         carUserParametres = GetComponent<CarUserParametres>();
         gameUI = GameObject.FindObjectOfType<GameUI>();
         canvasController = GameObject.FindObjectOfType<CanvasController>();
+
+        particleCanvas = GameObject.Find("ParticleCanvas");
+
     }
 
 }
