@@ -1,46 +1,15 @@
 fileFormatVersion: 2
-guid: d045545ddaa5bb546bac763c4d997246
-timeCreated: 1446463913
+guid: f96378e21b5df6c4692b3343416a61d3
+timeCreated: 1449748465
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Car_Body
-    100002: //RootNode
-    100004: HotRod
-    100006: LB_Wheel
-    100008: LF_Wheel
-    100010: Line001
-    100012: RB_Wheel
-    100014: RF_Wheel
-    400000: Car_Body
-    400002: //RootNode
-    400004: HotRod
-    400006: LB_Wheel
-    400008: LF_Wheel
-    400010: Line001
-    400012: RB_Wheel
-    400014: RF_Wheel
-    2300000: Car_Body
-    2300002: LB_Wheel
-    2300004: LF_Wheel
-    2300006: Line001
-    2300008: RB_Wheel
-    2300010: RF_Wheel
-    3300000: Car_Body
-    3300002: LB_Wheel
-    3300004: LF_Wheel
-    3300006: Line001
-    3300008: RB_Wheel
-    3300010: RF_Wheel
-    4300000: Line001
-    4300002: LF_Wheel
-    4300004: RF_Wheel
-    4300006: RB_Wheel
-    4300008: LB_Wheel
-    4300010: Car_Body
-    7400000: Take 001
-    9500000: //RootNode
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: polySurface1970
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +38,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -80,9 +49,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 156
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
@@ -98,7 +67,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
