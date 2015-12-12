@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: d805d6b94e933c04e95a72b004bf31ed
-timeCreated: 1444142744
+guid: 4eed73e554568ee4fb92e3d88536824e
+timeCreated: 1449933409
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: NewMesh_tris_588
     400000: //RootNode
-    400002: NewMesh_tris_588
-    2300000: NewMesh_tris_588
-    3300000: NewMesh_tris_588
-    4300000: NewMesh_tris_588
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: TI_Cliff_02_h_LOD_02
   materials:
     importMaterials: 1
     materialName: 0
@@ -51,9 +49,9 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 125
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
