@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: ba6192d5c2c8f2b40820691e6f021e8c
-timeCreated: 1444142744
+guid: 0b23b3e4a78384e46a61e66443f36d72
+timeCreated: 1450090747
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: NewMesh_tris_532
     400000: //RootNode
-    400002: NewMesh_tris_532
-    2300000: NewMesh_tris_532
-    3300000: NewMesh_tris_532
-    4300000: NewMesh_tris_532
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: polySurface560
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +68,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
