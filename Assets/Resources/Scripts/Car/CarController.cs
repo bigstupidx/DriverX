@@ -55,8 +55,8 @@ public class CarController : MonoBehaviour
     public float Revs { get; private set; }
     public float AccelInput { get; private set; }
 
-    float maxAngleX = 20;
-    float maxAngleZ = 15;
+    float maxAngleX = 30;
+    float maxAngleZ = 30;
 
     private Particle rideEffect;
 
