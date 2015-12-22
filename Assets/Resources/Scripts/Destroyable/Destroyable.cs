@@ -56,5 +56,12 @@ public abstract class Destroyable : MonoBehaviour {
     }
 
 
+    protected IEnumerator HideTimer()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+
+    }
+
 
 }

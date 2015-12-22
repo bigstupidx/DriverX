@@ -29,12 +29,6 @@ public class YellowBox : Destroyable {
 
     }
 
-    IEnumerator HideTimer()
-    {
-        yield return new WaitForSeconds(3);
-        Destroy(gameObject);
-
-    }
-
+   
   
 }
