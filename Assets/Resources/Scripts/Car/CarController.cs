@@ -23,7 +23,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
     [SerializeField] private Vector3 m_CentreOfMassOffset;
     [SerializeField] private float m_MaximumSteerAngle;
-    private float m_SteerHelper = 0.98f; // 0 is raw physics , 1 the car will grip in the direction it is facing
+    [SerializeField]
+     private float m_SteerHelper = 0.98f; // 0 is raw physics , 1 the car will grip in the direction it is facing
+    [SerializeField]
     private float m_TractionControl = 0.9f; // 0 is no traction control, 1 is full interference
     [SerializeField] private float m_FullTorqueOverAllWheels;
     [SerializeField] private float m_ReverseTorque;

@@ -15,8 +15,10 @@ public class RoadSign : Destroyable
         isProcess = true;
 
          quater = Quaternion.AngleAxis(90, Vector3.Cross(Vector3.up, dir))* transform.rotation;
+        library.car.GetComponent<CarContact>().MetalSparks(new Vector3(transform.position.x, transform.position.y + 2, transform.position.z));
 
-     
+        StartCoroutine(HideTimer());
+        
     }
 
 
