@@ -1,17 +1,15 @@
 fileFormatVersion: 2
-guid: 76fe5859670093e499fbacf15a8e9803
-timeCreated: 1450298751
+guid: 8d2dafff9b44e9040bac1ae00cb22a95
+timeCreated: 1450957779
 licenseType: Pro
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: DrawCall_1086
   materials:
     importMaterials: 1
     materialName: 0
