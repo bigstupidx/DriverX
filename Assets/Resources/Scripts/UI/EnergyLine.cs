@@ -27,16 +27,21 @@ public class EnergyLine : MonoBehaviour {
     private void CreateRaze()
     {
         
-        int razeCount = (int) Mathf.Floor(library.energy.GetMaxEnergy() / library.energy.GetNitroCost());
+        float razeCount = library.energy.GetMaxEnergy() / library.energy.GetNitroCost();
+        int razeC = 0;
 
-        for(int i = 1; i < razeCount; i++ )
+        if (razeCount != 1)
+            razeC = (int)Mathf.Floor(razeCount);
+
+
+        for(int i = 1; i <= razeC; i++ )
         {
             GameObject razePrefab = Resources.Load("Prefabs/UI/Raze") as GameObject;
             GameObject raze = Instantiate(razePrefab);
             raze.transform.SetParent(transform);
 
             RectTransform razeRT = raze.GetComponent<RectTransform>();
-            raze.GetComponent<RectTransform>().anchoredPosition = new Vector2(lineWidth / razeCount * i - lineWidth / 2f, (-1) * razeRT.sizeDelta.y/2f);
+            raze.GetComponent<RectTransform>().anchoredPosition = new Vector2(1f/razeCount * i * lineWidth - lineWidth/2f, (-1) * razeRT.sizeDelta.y/2f);
             raze.GetComponent<RectTransform>().localScale = Vector3.one;
         }
     }

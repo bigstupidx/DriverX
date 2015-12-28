@@ -11,7 +11,7 @@ public class WordRide : Task {
 
         if (IsComplete())
         {
-            Destroy(library.level.transform.FindChild("Elements").FindChild("WordRide").gameObject);
+            Destroy(library.level.transform.FindChild("Objects").FindChild("DestroyableObjects").FindChild("WordRide").gameObject);
         }
     }
 	

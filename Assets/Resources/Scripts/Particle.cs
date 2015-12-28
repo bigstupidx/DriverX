@@ -70,6 +70,8 @@ public class Particle : MonoBehaviour
         }
     }
 
+
+
     public ParticleSystem GetParticle()
     {
         return GO.GetComponent<ParticleSystem>();
