@@ -42,13 +42,17 @@ public class CarContact : MonoBehaviour
         lastPos = transform.position;
     }
 
-    void OnTriggerEnter(Collider col)
+
+
+    public void OnTriggerEnter1(Collider col)
     {
+       
+
         Destroyable destoyable = col.gameObject.GetComponent<Destroyable>();
 
         if (destoyable != null)
         {
-            destoyable.OnCollision(transform);
+            destoyable.OnCollisionObject(transform);
             library.score.AddScoreForDestroy(destoyable);
             library.energy.AddEnergy(destoyable);
 
@@ -72,7 +76,9 @@ public class CarContact : MonoBehaviour
             Destroy(letter.gameObject);
         }
 
-        if (col.gameObject.tag.Equals("Kanistra"))
+        Kanistra kanistra = col.gameObject.GetComponent<Kanistra>();
+
+        if (kanistra != null)
         {
             TakeKanistra takeKanistra = library.level.GetComponentInChildren<TakeKanistra>();
 

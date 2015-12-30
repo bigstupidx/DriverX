@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WoodWall : Destroyable
 {
-    public override void OnCollision(Transform carTransfrom)
+    protected override void OnCollision(Transform carTransfrom)
     {
         Destroy(gameObject);
     }

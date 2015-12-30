@@ -7,7 +7,27 @@ public abstract class Destroyable : MonoBehaviour {
 
     protected bool isLock;
 
-    public abstract void OnCollision(Transform carTransfrom);
+    bool isUsed;
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.GetComponent<MainCollider>() != null)
+        {
+            library.car.GetComponent<CarContact>().OnTriggerEnter1(GetComponent<Collider>());
+
+        }
+
+    }
+    
+    public void OnCollisionObject(Transform carTransfrom)
+    {
+        if(!isUsed)
+        OnCollision(carTransfrom);
+
+        isUsed = true;
+    }
+
+    protected abstract void OnCollision(Transform carTransfrom);
 
     protected Library library;
 
@@ -16,10 +36,13 @@ public abstract class Destroyable : MonoBehaviour {
 
     DestroyableInfo destroyableInfo;
 
+    
+
     protected void Start()
     {
         library = GameObject.FindObjectOfType<Library>();
         // Debug.Log(library.levelInfo);
+
 
         destroyableInfo = library.levelInfo.GetDestroyableInfo("Light");
     }

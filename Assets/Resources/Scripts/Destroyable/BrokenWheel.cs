@@ -21,7 +21,7 @@ public class BrokenWheel : Destroyable {
         base.Update();
     }
 
-    public override void OnCollision(Transform carTransform)
+    protected override void OnCollision(Transform carTransform)
     {
         Vector3 dir = (transform.position - carTransform.position).normalized;
         float coef = 130 * library.car.GetComponent<CarController>().CurrentSpeed / library.car.GetComponent<CarController>().nMaxSpeed;

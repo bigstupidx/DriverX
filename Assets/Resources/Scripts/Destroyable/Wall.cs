@@ -7,7 +7,7 @@ public class Wall : Destroyable {
     public GameObject particlePrafab;
 
 
-    public override void OnCollision(Transform carTransfrom)
+    protected override void OnCollision(Transform carTransfrom)
     {/*
         GameObject particle = Instantiate(particlePrafab);
 

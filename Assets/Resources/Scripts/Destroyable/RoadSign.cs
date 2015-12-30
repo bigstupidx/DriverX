@@ -6,7 +6,7 @@ public class RoadSign : Destroyable
 
     bool isProcess;
     Quaternion quater;
-    public override void OnCollision(Transform carTransform)
+    protected override void OnCollision(Transform carTransform)
     {
         Vector3 dir = Vector3.Reflect(carTransform.GetComponent<CarContact>().GetDirection(), Vector3.up);
 

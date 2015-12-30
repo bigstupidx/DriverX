@@ -17,10 +17,10 @@ public class Bui : Destroyable
         base.Update();
     }
 
-    public override void OnCollision(Transform carTransform)
+    protected override void OnCollision(Transform carTransform)
     {
         Rigidbody rb = gameObject.AddComponent<Rigidbody>();
-        rb.mass = 30;
+        rb.mass = 20;
         
 
         Vector3 dir = (transform.position - carTransform.position).normalized;//carTransform.GetComponent<CarContact>().GetDirection();

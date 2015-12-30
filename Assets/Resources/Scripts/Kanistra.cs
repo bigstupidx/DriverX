@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Letter : MonoBehaviour {
+public class Kanistra : MonoBehaviour {
 
-    public int letterNum;
-
+    // Use this for initialization
     Library library;
 
     void Start()

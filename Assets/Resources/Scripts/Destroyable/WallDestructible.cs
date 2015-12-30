@@ -15,18 +15,31 @@ public class WallDestructible : MonoBehaviour {
 	    if(library.car.GetComponent<CarController>().IsNitro() && !isDestroyable)
         {
             isDestroyable = true;
-            foreach(Collider collider in GetComponentsInChildren<Collider>())
+            foreach(Transform tr1  in transform)
             {
-                collider.isTrigger = true;
+                foreach (Transform tr in tr1)
+                {
+                    Collider collider = tr.GetComponent<Collider>();
+
+                    if (collider != null)
+                        collider.isTrigger = true;
+
+                }
             }
         }
         
         if(!library.car.GetComponent<CarController>().IsNitro() && isDestroyable)
         {
             isDestroyable = false;
-            foreach (Collider collider in GetComponentsInChildren<Collider>())
+            foreach (Transform tr1 in transform)
             {
-                collider.isTrigger = false;
+                foreach (Transform tr in tr1)
+                {
+                    Collider collider = tr.GetComponent<Collider>();
+
+                    if (collider != null)
+                        collider.isTrigger = false;
+                }
             }
         }
 

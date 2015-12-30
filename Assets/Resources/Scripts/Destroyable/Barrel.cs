@@ -20,7 +20,7 @@ public class Barrel : Destroyable {
         base.Update();
     }
 
-    public override void OnCollision(Transform carTransform)
+    protected override void OnCollision(Transform carTransform)
     {
         Vector3 dir = (transform.position - carTransform.position).normalized;//carTransform.GetComponent<CarContact>().GetDirection();
         float coef = 130;
