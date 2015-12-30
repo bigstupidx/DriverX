@@ -46,7 +46,6 @@ public class CarContact : MonoBehaviour
 
     public void OnTriggerEnter1(Collider col)
     {
-       
 
         Destroyable destoyable = col.gameObject.GetComponent<Destroyable>();
 

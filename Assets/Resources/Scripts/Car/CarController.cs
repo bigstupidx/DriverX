@@ -99,7 +99,7 @@ public class CarController : MonoBehaviour
 
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
 
-        m_Topspeed += library.carUserParametres.speed/CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
+        m_Topspeed += library.carUserParametres.speed/(float) CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
 
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
@@ -243,8 +243,8 @@ public class CarController : MonoBehaviour
         }
 
 
-       // CalculateRevs();
-       // GearChanging();
+        CalculateRevs();
+        GearChanging();
 
         AddDownForce();
         CheckForWheelSpin();
@@ -270,8 +270,10 @@ public class CarController : MonoBehaviour
 
                 speed *= 2.23693629f;
                 if (speed > m_Topspeed && currentNitro <= 0)
-                    m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity,(m_Topspeed/2.23693629f) * m_Rigidbody.velocity.normalized,0.1f);
-                break;
+                     m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity,((m_Topspeed-10)/2.23693629f) * m_Rigidbody.velocity.normalized,0.1f); // m_Topspeed - 10  чтобы быстрее снижалась
+
+                  //  m_Rigidbody.velocity = m_Topspeed/2.23693629f *m_Rigidbody.velocity.normalized;
+                    break;
 
             case SpeedType.KPH:
                 speed *= 3.6f;
@@ -539,6 +541,8 @@ public class CarController : MonoBehaviour
 
     public bool IsNitro()
     {
+       // Debug.Log("CurrentSpeed " + CurrentSpeed+"; MaxSpeed "+ MaxSpeed);
+
         if (CurrentSpeed >= MaxSpeed + 10 || currentNitro > 0)
             return true;
         else

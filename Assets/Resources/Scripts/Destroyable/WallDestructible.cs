@@ -12,7 +12,9 @@ public class WallDestructible : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(library.car.GetComponent<CarController>().IsNitro() && !isDestroyable)
+
+
+        if (library.car.GetComponent<CarController>().IsNitro() && !isDestroyable)
         {
             isDestroyable = true;
             foreach(Transform tr1  in transform)
@@ -20,7 +22,6 @@ public class WallDestructible : MonoBehaviour {
                 foreach (Transform tr in tr1)
                 {
                     Collider collider = tr.GetComponent<Collider>();
-
                     if (collider != null)
                         collider.isTrigger = true;
 
