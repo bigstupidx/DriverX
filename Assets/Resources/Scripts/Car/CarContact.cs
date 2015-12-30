@@ -15,7 +15,11 @@ public class CarContact : MonoBehaviour
 
     Dictionary<string, int> dictionaryDestroyable = new Dictionary<string, int>();
 
-    bool isGrounded;
+    bool isCollide;
+
+    bool isZavis;
+
+    Poddon poddon;
 
     void Start()
     {
@@ -23,6 +27,7 @@ public class CarContact : MonoBehaviour
         library = GameObject.Find("Global").GetComponent<Library>();
         carController = GetComponent<CarController>();
         wheelColliders = carController.GetWheelColliders();
+
     }
 
     // Update is called once per frame
@@ -80,16 +85,23 @@ public class CarContact : MonoBehaviour
         // c.PositionInfluence = new Vector3(1, 1, 1);
     }
 
-
+    
     void OnCollisionEnter(Collision collision)
     {
-        isGrounded = true;
+        isCollide = true;
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        isCollide = true;
     }
 
     void OnCollisionExit(Collision collision)
     {
-        isGrounded = false;
+        isCollide = false;
     }
+
+    
 
     private void AddDestroyable(String name)
     {
@@ -117,9 +129,9 @@ public class CarContact : MonoBehaviour
             return 0;
     }
 
-    public bool IsGrounded()
+    public bool IsCollide()
     {
-        return isGrounded;
+        return isCollide;
     }
 
     public bool IsFlight()
@@ -131,7 +143,7 @@ public class CarContact : MonoBehaviour
             temp = temp & !wheelColliders[i].isGrounded;
         }
 
-        temp = temp & !IsGrounded();
+        temp = temp & !IsCollide();
 
         return temp;
     }
@@ -145,7 +157,7 @@ public class CarContact : MonoBehaviour
             temp = temp || wheelColliders[i].isGrounded;
         }
 
-        temp = temp || IsGrounded();
+        temp = temp || IsCollide();
 
         return temp;
     }
@@ -175,6 +187,7 @@ public class CarContact : MonoBehaviour
     {
         dictionaryDestroyable.Clear();
     }
+
 
 
 }

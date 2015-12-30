@@ -10,6 +10,11 @@
       <point type="helpertext">Разбито</point>
       <point type="helpertext">мусорных баков</point>
     </task>
+    <task name ="DestroyAllBui">
+      <point type="fulltext">Уничтожте все буи</point>
+      <point type="helpertext">Разбито</point>
+      <point type="helpertext">буёв</point>
+    </task>
     <task name ="Combo">
       <point type="fulltext">Наберите</point>
       <point type="fulltext">очков комбо</point>

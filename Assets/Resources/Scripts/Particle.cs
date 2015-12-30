@@ -7,7 +7,9 @@ public class Particle : MonoBehaviour
 
     public GameObject particle;
     public bool autoStart;
-    
+
+    public bool isGlobal;
+
     GameObject GO = null;
     void Start()
     {
@@ -15,7 +17,8 @@ public class Particle : MonoBehaviour
         if (particle != null)
         {
             GO = Instantiate(particle) as GameObject;
-            GO.transform.SetParent(transform,false);
+
+                GO.transform.SetParent(transform, false);
 
             
             if (autoStart)

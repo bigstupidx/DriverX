@@ -75,6 +75,8 @@ public class CarController : MonoBehaviour
 
     [HideInInspector] public float nMaxSpeed = 85;
     [HideInInspector] public float nMinSpeed = 65;
+
+    Poddon poddon;
     // Use this for initialization
     void Awake()
     {
@@ -101,6 +103,9 @@ public class CarController : MonoBehaviour
 
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
+
+
+        poddon = GameObject.FindObjectOfType<Poddon>();
 
         ToStartPosition();
     }
@@ -188,6 +193,21 @@ public class CarController : MonoBehaviour
 
     public void Move(float steering, float accel, float footbrake, float handbrake)
     {
+        
+        if(poddon.IsZavis())
+        {
+            if(accel > 0)
+            {
+                m_Rigidbody.AddRelativeForce(new Vector3(0, 0,15000), ForceMode.Force);
+            }
+            else
+            {
+                m_Rigidbody.AddRelativeForce(new Vector3(0, 0, -15000), ForceMode.Force);
+
+            }
+        }
+
+
         for (int i = 0; i < 4; i++)
         {
             Quaternion quat;
@@ -223,8 +243,8 @@ public class CarController : MonoBehaviour
         }
 
 
-        CalculateRevs();
-        GearChanging();
+       // CalculateRevs();
+       // GearChanging();
 
         AddDownForce();
         CheckForWheelSpin();
@@ -287,7 +307,7 @@ public class CarController : MonoBehaviour
                 break;
 
         }
-
+        
         for (int i = 0; i < 4; i++)
         {
             if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
@@ -544,6 +564,9 @@ public class CarController : MonoBehaviour
     public void MoveBack(float wheelRotation, float verticalAxis)
     {
         float zSpeed = transform.InverseTransformDirection(m_Rigidbody.velocity).z;
+
+
+
         if (carContact.IsOneContact() && zSpeed > -20)
         {
             m_Rigidbody.AddRelativeForce(new Vector3(0, 0, -9000), ForceMode.Force);
