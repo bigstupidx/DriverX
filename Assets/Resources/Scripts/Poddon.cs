@@ -8,7 +8,7 @@ public class Poddon : MonoBehaviour {
 
     float time;
 
-    float porog = 0.3f;
+    float porog = 1f;
 	// Use this for initialization
 	
 	void OnTriggerEnter(Collider collider)
@@ -37,9 +37,10 @@ public class Poddon : MonoBehaviour {
 
     public bool IsZavis()
     {
-
         if (isCollide && time > porog)
+        {
             return true;
+        }
         else
             return false;
     }

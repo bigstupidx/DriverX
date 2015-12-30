@@ -194,7 +194,7 @@ public class CarController : MonoBehaviour
     public void Move(float steering, float accel, float footbrake, float handbrake)
     {
         
-        if(poddon.IsZavis())
+        if(poddon.IsZavis()/* && carContact.IsFreeAllWheel()*/)
         {
             if(accel > 0)
             {
@@ -543,7 +543,7 @@ public class CarController : MonoBehaviour
     {
        // Debug.Log("CurrentSpeed " + CurrentSpeed+"; MaxSpeed "+ MaxSpeed);
 
-        if (CurrentSpeed >= MaxSpeed + 10 || currentNitro > 0)
+        if (CurrentSpeed >= MaxSpeed + 20 || currentNitro > 0)
             return true;
         else
             return false;

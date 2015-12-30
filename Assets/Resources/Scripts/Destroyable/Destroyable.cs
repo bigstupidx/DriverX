@@ -11,8 +11,7 @@ public abstract class Destroyable : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if(GetComponent<Bui>() != null)
-            Debug.Log(GetComponent<Collider>().isTrigger);
+       
 
         if (collider.GetComponent<MainCollider>() != null)
         {
