@@ -75,17 +75,6 @@ public class CarContact : MonoBehaviour
             Destroy(letter.gameObject);
         }
 
-        Kanistra kanistra = col.gameObject.GetComponent<Kanistra>();
-
-        if (kanistra != null)
-        {
-            TakeKanistra takeKanistra = library.level.GetComponentInChildren<TakeKanistra>();
-
-            if (takeKanistra != null)
-                takeKanistra.SetTake();
-
-            Destroy(col.gameObject);
-        }
         //   c.PositionInfluence = new Vector3(1,1,1);
         // c.PositionInfluence = new Vector3(1, 1, 1);
     }

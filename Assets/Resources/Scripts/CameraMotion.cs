@@ -98,7 +98,7 @@ public class CameraMotion : MonoBehaviour
         float currentRotationAngle = transform.eulerAngles.y;
         float currentHeight = transform.position.y;
 
-        if (speed < -2)
+        if (speed < -10)
             wantedRotationAngle = playerCar.eulerAngles.y + 180;
 
         // Damp the rotation around the y-axis

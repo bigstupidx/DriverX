@@ -42,5 +42,11 @@
       <point type="helpertext">Разбито</point>
       <point type="helpertext">бетонных стен</point>
     </task>
+    <task name ="FindLevelExit">
+      <point type="fulltext">Найдите выход с уровня</point>
+    </task>
+    <task name ="JumpHelicopter">
+      <point type="fulltext">Перепрыгните вертолёт</point>
+    </task>
   </ru>
 </items>

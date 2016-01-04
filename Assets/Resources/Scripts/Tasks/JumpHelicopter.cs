@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TakeKanistra: Task {
-
-
+public class JumpHelicopter : Task
+{
     bool isTake;
     protected override void Conditions()
     {
@@ -11,7 +10,7 @@ public class TakeKanistra: Task {
             SetJustComplete();
     }
 
-   
+
 
     protected override string Description()
     {
@@ -23,9 +22,12 @@ public class TakeKanistra: Task {
     {
         base.Start();
 
-        if(IsComplete())
+        if (IsComplete())
         {
-            Destroy(GameObject.FindObjectOfType<Kanistra>().gameObject);
+            HelicopterTrigger ht = GameObject.FindObjectOfType<HelicopterTrigger>();
+
+            if (ht != null)
+                Destroy(ht.gameObject);
         }
     }
 

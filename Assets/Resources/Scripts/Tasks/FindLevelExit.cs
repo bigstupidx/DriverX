@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TakeKanistra: Task {
+public class FindLevelExit : Task
+{
 
 
     bool isTake;
@@ -11,7 +12,7 @@ public class TakeKanistra: Task {
             SetJustComplete();
     }
 
-   
+
 
     protected override string Description()
     {
@@ -23,9 +24,9 @@ public class TakeKanistra: Task {
     {
         base.Start();
 
-        if(IsComplete())
+        if (IsComplete())
         {
-            Destroy(GameObject.FindObjectOfType<Kanistra>().gameObject);
+            Destroy(GameObject.FindObjectOfType<FinalPoint>().gameObject);
         }
     }
 

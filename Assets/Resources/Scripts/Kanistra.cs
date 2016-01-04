@@ -13,11 +13,13 @@ public class Kanistra : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.GetComponent<MainCollider>() != null)
-        {
-            library.car.GetComponent<CarContact>().OnTriggerEnter1(GetComponent<Collider>());
+        TakeKanistra takeKanistra = library.level.GetComponentInChildren<TakeKanistra>();
 
-        }
+        if (takeKanistra != null)
+            takeKanistra.SetTake();
+
+        Destroy(gameObject);
+
 
     }
 }

@@ -23,11 +23,16 @@ public class TimerScript : MonoBehaviour {
 
         if (timeLeft == 0 && !isShow)
         {
-            isShow = true;
-            library.globalController.TimerIsEnd();
+            SetEnd();
         }
 	}
 
+    public void SetEnd()
+    {
+        isShow = true;
+        timeLeft = 0;
+        library.globalController.TimerIsEnd();
+    }
 
     public float GetTimeLeft()
     {
