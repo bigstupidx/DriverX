@@ -18,7 +18,7 @@ public class FlightController : MonoBehaviour
 
     bool isCoef;
 
-    int mnozitel = 7;
+    int mnozitel = 70;
 
     bool wasFlight;
 
@@ -62,7 +62,7 @@ public class FlightController : MonoBehaviour
 
                 int val = (int) Mathf.Floor(preVal);
 
-                secondTimer = preVal - val;
+                secondTimer = (preVal - val)/mnozitel;
 
                 library.score.AddScore(val);
 

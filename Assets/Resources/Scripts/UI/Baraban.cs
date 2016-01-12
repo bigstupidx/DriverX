@@ -7,6 +7,8 @@ public class Baraban : MonoBehaviour {
     public GameObject arrow;
     public BarabanScore barabanScore;
 
+    public Text reward;
+
     public RawImage[] sectors = new RawImage[10];
 
     public Texture lightImage;
@@ -17,6 +19,11 @@ public class Baraban : MonoBehaviour {
     const float BonusCost = 5;
     const float StandartCost = 1;
 
+    float timer;
+    const int CoefScoreToMoney = 10;
+
+    int tempReward;
+    int fullReward;
     // Use this for initialization
     Library library;
 	void Start () {
@@ -101,12 +108,64 @@ public class Baraban : MonoBehaviour {
 
     IEnumerator UpdatePoints(bool val)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
 
         if (val)
             barabanScore.AddCoef();
         else
             StartCoroutine(barabanScore.ShowNoCoefSum());
         //library.canvasController.ShowEndMenu();
+    }
+
+    public void ConvertToMoney()
+    {
+     //   barabanScore.GetComponent<Text>().text = 0+"";
+    //    reward.text = "% " + barabanScore.GetFullScore() / 10;
+
+        StartCoroutine(ConvertCoroutine());
+    }
+
+    IEnumerator ConvertCoroutine()
+    {
+        while (true)
+        {
+            int tempFullScore = barabanScore.GetTempFullScore();
+
+
+
+            timer += Time.deltaTime;
+
+            float mnozitel = barabanScore.GetFullScore() / 3f;
+
+            float preValScore = timer * mnozitel;
+
+            int valScore = (int)Mathf.Floor(preValScore);
+
+            timer = (preValScore - valScore)/mnozitel;
+
+
+            tempFullScore = (int) Mathf.Clamp(tempFullScore - valScore,0,10000000000000000000);
+
+
+
+            barabanScore.SetTempFullScore(tempFullScore);
+
+            tempReward = (int)Mathf.Ceil((barabanScore.GetFullScore() - tempFullScore) / CoefScoreToMoney);
+            reward.text = "% "+tempReward;
+
+
+
+            if (tempFullScore == 0)
+                break;
+
+            yield return new WaitForEndOfFrame();
+        }
+        fullReward = tempReward;
+
+        Bank.PlusMoney(fullReward);
+
+        yield return new WaitForSeconds(2f);
+        library.canvasController.ShowEndMenu();
+
     }
 }

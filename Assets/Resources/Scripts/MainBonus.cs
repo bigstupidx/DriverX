@@ -40,6 +40,7 @@ public class MainBonus : MonoBehaviour {
                 PreferencesSaver.SaveMainBonusTime(lastDateTime);
             }
         }
+
     }
 
     public bool IsAvailable()

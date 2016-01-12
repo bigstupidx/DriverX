@@ -7,7 +7,7 @@ public class BarabanScore : MonoBehaviour {
     int score;
     int coef =4;
     int fullScore;
-
+    int tempFullScore;
     Text text;
 
 
@@ -50,6 +50,8 @@ public class BarabanScore : MonoBehaviour {
         text.text = score + " x "+coef;
 
         fullScore = score * coef;
+
+        tempFullScore = fullScore;
 
         float delay = 0.1f;
 
@@ -98,6 +100,8 @@ public class BarabanScore : MonoBehaviour {
 
         fullScore = score;
 
+        tempFullScore = fullScore;
+
         text.text = fullScore + "";
 
         StartCoroutine(ShowMenu());
@@ -105,9 +109,26 @@ public class BarabanScore : MonoBehaviour {
 
     IEnumerator ShowMenu()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         library.fullScore.SaveBigFullScore(fullScore);
-        library.canvasController.ShowEndMenu();
+        library.canvasController.GetBaraban().ConvertToMoney();
+       // library.canvasController.ShowEndMenu();
+    }
+
+    public int GetFullScore()
+    {
+        return fullScore;
+    }
+
+    public int GetTempFullScore()
+    {
+        return tempFullScore;
+    }
+
+    public void SetTempFullScore(int val)
+    {
+        tempFullScore = val;
+        text.text = val + "";
     }
 }

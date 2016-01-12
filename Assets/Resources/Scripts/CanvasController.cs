@@ -93,4 +93,11 @@ public class CanvasController : MonoBehaviour {
         HidePauseMenu();
         HideEndMenu();
     }
+
+    public Baraban GetBaraban()
+    {
+        return baraban;
+    }
+
+
 }
