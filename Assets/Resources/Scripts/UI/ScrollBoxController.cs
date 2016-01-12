@@ -23,7 +23,7 @@ public class ScrollBoxController : MonoBehaviour {
         scrollBox = transform.FindChild("ScrollBox").gameObject;
 
         //library.pauseMenu.CloseMenu();
-        library.canvasController.ShowPauseMenu(false);
+     //   library.canvasController.ShowPauseMenu(false);
 
         //AddTasks();
     }

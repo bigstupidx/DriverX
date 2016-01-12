@@ -28,10 +28,12 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameUI gameUI;
    [HideInInspector] public CanvasController canvasController;
    [HideInInspector] public GameObject particleCanvas;
+   [HideInInspector] public CarCreator carCreator;
+   [HideInInspector] public MainBonus mainBonus;
     // Use this for initialization
     void Start () {
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
-        fullScore = GameObject.Find("FullScore").GetComponent<FullScore>();
+        fullScore = GameObject.FindObjectOfType<FullScore>();
         score = GetComponent<Score>();
         energy = GetComponent<Energy>();
         energyLine = GameObject.FindObjectOfType<EnergyLine>();     
@@ -42,9 +44,8 @@ public class Library : MonoBehaviour {
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>();
-        endMenu = GameObject.Find("Canvas").GetComponentInChildren<EndMenu>();
+        endMenu = GameObject.FindObjectOfType<EndMenu>();
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
-        level = GameObject.FindGameObjectWithTag("Level");
         globalController = GetComponent<GlobalController>();
         cam = GameObject.Find("MainCamera");
         wordRideCanvas = GameObject.FindObjectOfType<WordRideCanvas>();
@@ -55,7 +56,9 @@ public class Library : MonoBehaviour {
         canvasController = GameObject.FindObjectOfType<CanvasController>();
 
         particleCanvas = GameObject.Find("ParticleCanvas");
+        carCreator = GameObject.FindObjectOfType<CarCreator>();
 
+        mainBonus = GameObject.FindObjectOfType<MainBonus>();
     }
 
 }

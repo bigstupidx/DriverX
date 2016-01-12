@@ -6,11 +6,17 @@ public class CanvasController : MonoBehaviour {
     GameUI gameUI;
     InputController inputController;
     PauseMenu pauseMenu;
+    Baraban baraban;
+    EndMenu endMenu;
 	// Use this for initialization
 	void Start ()  {
         gameUI = GameObject.FindObjectOfType<GameUI>();
         inputController = GameObject.FindObjectOfType<InputController>();
         pauseMenu = GameObject.FindObjectOfType<PauseMenu>();
+        baraban = GameObject.FindObjectOfType<Baraban>();
+        endMenu = GameObject.FindObjectOfType<EndMenu>();
+
+        ToDefault();
 	}
 	
 	// Update is called once per frame
@@ -18,22 +24,73 @@ public class CanvasController : MonoBehaviour {
 	
 	}
 
-    public void ShowGameUI(bool val)
+    public void ShowGameUI()
     {
-            gameUI.gameObject.SetActive(val);
+            gameUI.gameObject.SetActive(true);
     }
 
-    public void ShowInput(bool val)
+    public void HideGameUI()
+    {
+        gameUI.gameObject.SetActive(false);
+    }
+
+    public void ShowInput()
     { 
-            inputController.gameObject.SetActive(val);
+            inputController.gameObject.SetActive(true);
     }
 
-    public void ShowPauseMenu(bool val)
+    public void HideInput()
+    {
+        inputController.gameObject.SetActive(false);
+    }
+
+    public void ShowPauseMenu()
     {
 
-        ShowGameUI(!val);
-        ShowInput(!val);
-        pauseMenu.gameObject.SetActive(val);
+        HideGameUI();
+        HideInput();
+        HideBaraban();
+        pauseMenu.gameObject.SetActive(true);
         pauseMenu.OpenMenu();
+    }
+
+    public void HidePauseMenu()
+    {
+        ShowGameUI();
+        ShowInput();
+        pauseMenu.gameObject.SetActive(false);
+    }
+
+    public void ShowBaraban()
+    {
+        HideGameUI();
+        HideInput();
+        baraban.gameObject.SetActive(true);
+        baraban.UseBaraban();
+    }
+
+    public void HideBaraban()
+    {
+        baraban.gameObject.SetActive(false);
+    }
+
+    public void ShowEndMenu()
+    {
+        HideBaraban();
+        endMenu.gameObject.SetActive(true);
+    }
+
+    public void HideEndMenu()
+    {
+        endMenu.gameObject.SetActive(false);
+    }
+
+    public void ToDefault()
+    {
+        ShowGameUI();
+        ShowInput();
+        HideBaraban();
+        HidePauseMenu();
+        HideEndMenu();
     }
 }

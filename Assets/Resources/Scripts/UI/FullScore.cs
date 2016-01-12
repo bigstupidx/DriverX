@@ -9,11 +9,14 @@ public class FullScore : MonoBehaviour {
     Library library;
     int savedBigFullScore;
     int bigFullScore;
+
+    int finalScore;
+
     void Start()
     {
         text = GetComponent<Text>();
         library = GameObject.FindObjectOfType<Library>();
-        UpdateBigFullScore();
+        savedBigFullScore = PreferencesSaver.GetIntTaskValue(1, "Points");
         UpdateText();
     }
 
@@ -25,16 +28,11 @@ public class FullScore : MonoBehaviour {
         UpdateText();
     }
 
-    public int GetScore()
-    {
-        return fullScore;
-    }
 
     public void ClearScore()
     {
         fullScore = 0;
 
-        UpdateBigFullScore();
         
         UpdateText();
     }
@@ -45,17 +43,17 @@ public class FullScore : MonoBehaviour {
 
     }
 
-
-    void UpdateBigFullScore()
+    public int GetFullScore()
     {
-        savedBigFullScore = PreferencesSaver.GetIntTaskValue(1, "Points");
-
-
-        bigFullScore = savedBigFullScore + fullScore;
+        return fullScore;
     }
 
-    public void SaveBigFullScore()
+
+
+    public void SaveBigFullScore(int finalScore)
     {
+        this.finalScore = finalScore;
+        bigFullScore = savedBigFullScore + finalScore;
         PreferencesSaver.SaveTaskValue(1, "Points", bigFullScore+"");
    }
 

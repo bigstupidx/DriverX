@@ -17,8 +17,8 @@ public class RetryButton : MonoBehaviour {
 	
     void ReloadLevel()
     {
-        library.globalController.SetToDefault();
-        transform.parent.gameObject.SetActive(false);
+          library.globalController.SetToDefault();
+
     }
 
 }

@@ -118,6 +118,33 @@ public class PreferencesSaver : MonoBehaviour {
         return int.Parse(GetPref("Gold", 0 + ""));
     }
 
+    public static void SetMainBonus(int col)
+    {
+        SavePref("MainBonus", col + "");
+    }
+
+    public static int GetMainBonus()
+    {
+        return int.Parse(GetPref("MainBonus", MainBonus.MaxValue + ""));
+    }
+
+    public static void SaveMainBonusTime(DateTime dateTime)
+    {
+        SavePref("LastTimeMainBonus", dateTime.ToString());        
+    }
+
+    public static DateTime GetMainBonusTime()
+    {
+        try
+        {
+            return System.DateTime.Parse(GetPref("LastTimeMainBonus", System.DateTime.MinValue.ToString()));
+        }
+        catch (FormatException)
+        {
+            return System.DateTime.MinValue;
+        }
+
+    }
 
     private static void SavePref(string key, string val)
     {
@@ -129,5 +156,7 @@ public class PreferencesSaver : MonoBehaviour {
     {
         return SecurePlayerPrefs.GetString(key, defaultValue, pass);
     }
+
+    
 
 }

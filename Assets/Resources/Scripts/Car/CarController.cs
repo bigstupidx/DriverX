@@ -107,9 +107,13 @@ public class CarController : MonoBehaviour
 
         poddon = GameObject.FindObjectOfType<Poddon>();
 
-        ToStartPosition();
     }
 
+    void Start()
+    {
+        ToStartPosition();
+
+    }
     void Update()
     {
         float newAngleX = GetClamAngle(transform.eulerAngles.x, maxAngleX);
@@ -252,7 +256,6 @@ public class CarController : MonoBehaviour
 
         if(currentNitro > 0)
         {
-
             m_Rigidbody.AddRelativeForce(new Vector3(0, 0, 70000), ForceMode.Force);
             currentNitro--;
         }
@@ -270,9 +273,9 @@ public class CarController : MonoBehaviour
 
                 speed *= 2.23693629f;
                 if (speed > m_Topspeed && currentNitro <= 0)
-                     m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity,((m_Topspeed-10)/2.23693629f) * m_Rigidbody.velocity.normalized,0.1f); // m_Topspeed - 10  чтобы быстрее снижалась
-
-                  //  m_Rigidbody.velocity = m_Topspeed/2.23693629f *m_Rigidbody.velocity.normalized;
+                {
+                    m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity, ((m_Topspeed - 10) / 2.23693629f) * m_Rigidbody.velocity.normalized, 0.1f); // m_Topspeed - 10  чтобы быстрее снижалась
+                }//  m_Rigidbody.velocity = m_Topspeed/2.23693629f *m_Rigidbody.velocity.normalized;
                     break;
 
             case SpeedType.KPH:
@@ -559,6 +562,14 @@ public class CarController : MonoBehaviour
         gameObject.SetActive(false);
         gameObject.SetActive(true);
 
+        //    m_Rigidbody.velocity = new Vector3(0, 0, 0);
+
+        for (int i = 0; i < 4; i++)
+        {
+            m_WheelColliders[i].gameObject.SetActive(false);
+            m_WheelColliders[i].gameObject.SetActive(true);
+        }
+        
 
         Transform startPosition = library.level.transform.FindChild("StartPosition").transform;
         transform.position = startPosition.position;

@@ -13,7 +13,7 @@ public class TimerScript : MonoBehaviour {
 
     public void ToDefault()
     {
-        timeLeft = 120;
+        timeLeft = 5;
         isShow = false;
     }
 	

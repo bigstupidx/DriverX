@@ -30,8 +30,7 @@ public class CameraMotion : MonoBehaviour
 
 
     // The target we are following
-    public Transform playerCar;
-    private Rigidbody playerRigid;
+    Library library;
     private Camera cam;
 
     // The distance in the x-z plane to the target
@@ -56,17 +55,16 @@ public class CameraMotion : MonoBehaviour
     private Quaternion rotationVelocity;
     void Start()
     {
+        library = GameObject.FindObjectOfType<Library>();
 
         // Early out if we don't have a target
         //  if (!playerCar)
         //   {
         //       if (GameObject.FindObjectOfType<RCCCarControllerV2>())
-        playerCar = GameObject.FindObjectOfType<CarController>().transform;
             //else
               //  return;
     //   }
 
-        playerRigid = playerCar.GetComponent<Rigidbody>();
         cam = transform.FindChild("Camera").GetComponent<Camera>();
 
         ToDefaultPosition();
@@ -77,8 +75,9 @@ public class CameraMotion : MonoBehaviour
     
     void Update()
     {
+        Rigidbody playerRigid = library.car.GetComponent<CarController>().m_Rigidbody;
 
-        tiltAngle = Mathf.Lerp(tiltAngle, (Mathf.Clamp(-playerCar.InverseTransformDirection(playerRigid.velocity).x, -35, 35)), Time.deltaTime * 2f);
+        tiltAngle = Mathf.Lerp(tiltAngle, (Mathf.Clamp(-library.car.transform.InverseTransformDirection(playerRigid.velocity).x, -35, 35)), Time.deltaTime * 2f);
 
         cam.fieldOfView = Mathf.Lerp(minimumFOV, maximumFOV, (playerRigid.velocity.magnitude * 3f) / 150f);
 
@@ -87,8 +86,11 @@ public class CameraMotion : MonoBehaviour
     void FixedUpdate()
     {
         // Early out if we don't have a target
-      //  if (!playerCar || !playerRigid)
-    //        return;
+        //  if (!playerCar || !playerRigid)
+        //        return;
+
+        Rigidbody playerRigid = library.car.GetComponent<CarController>().m_Rigidbody;
+        Transform playerCar = library.car.transform;
 
         float speed = (playerRigid.transform.InverseTransformDirection(playerRigid.velocity).z) * 3f;
 
@@ -146,6 +148,8 @@ public class CameraMotion : MonoBehaviour
 
     public void ToDefaultPosition()
     {
+        Transform playerCar = library.car.transform;
+
         transform.rotation = playerCar.rotation;
         transform.position = new Vector3(playerCar.position.x, playerCar.position.y + height *2, playerCar.position.z-distance*2);
     }

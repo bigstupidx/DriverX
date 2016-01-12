@@ -21,7 +21,7 @@ public class BackButton : RawButton {
     void HideMenu()
     {
         //library.pauseMenu.CloseMenu();
-        library.canvasController.ShowPauseMenu(false);
+        library.canvasController.HidePauseMenu();
     }
 
     void ShowPauseButton()

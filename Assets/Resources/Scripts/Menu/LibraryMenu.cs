@@ -18,6 +18,7 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public GameObject dustSmall;
     [HideInInspector] public WindowWarning windowWarning;
     [HideInInspector] public WindowConfirmation windowConfirmation;
+    [HideInInspector] public MainBonus mainBonus;
     // [HideInInspector] public GameObject car;
 
     // Use this for initialization
@@ -37,6 +38,8 @@ public class LibraryMenu : MonoBehaviour {
         dustSmall = GameObject.Find("DustSmall");
         windowWarning = GameObject.FindObjectOfType<WindowWarning>();
         windowConfirmation = GameObject.FindObjectOfType<WindowConfirmation>();
+
+        mainBonus = GetComponent<MainBonus>();
         /*
         car = garage.transform.Find("Car").gameObject;
         if (car == null)

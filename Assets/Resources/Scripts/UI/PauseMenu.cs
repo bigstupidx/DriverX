@@ -37,24 +37,27 @@ public class PauseMenu : MonoBehaviour {
 
     public void ClearTasks()
     {
-        bool isActive = scrollBoxController.gameObject.activeInHierarchy;
+        if (scrollBoxController != null)
+        {
+            bool isActive = scrollBoxController.gameObject.activeInHierarchy;
 
-        if(!isActive)
-        scrollBoxController.gameObject.SetActive(true);
+            if (!isActive)
+                scrollBoxController.gameObject.SetActive(true);
 
-        scrollBoxController.ClearTasks();
-
+            scrollBoxController.ClearTasks();
+        }
 
     }
 
     public GameObject AddTask(Task task)
     {
+        //gameObject.SetActive(true);
         bool isActive = scrollBoxController.gameObject.activeInHierarchy;
 
         if (!isActive)
             scrollBoxController.gameObject.SetActive(true);
         GameObject GO = scrollBoxController.AddTask(task);
-
+        //gameObject.SetActive(false);
         return GO;
     }
 }

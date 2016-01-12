@@ -132,7 +132,7 @@ public class CarChanger : MonoBehaviour {
 
         bool isOpen = PreferencesSaver.CarIsOpen(carNum);
 
-        if (isOpen)
+        if (!isOpen)
         {
             libraryMenu.garage.ShowBuyButton(carParametres.GetCost());
             libraryMenu.garage.HidePlayButton();

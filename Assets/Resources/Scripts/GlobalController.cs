@@ -8,21 +8,29 @@ public class GlobalController : MonoBehaviour {
 
 	void Start () {
         library = GetComponent<Library>();
+        SetToDefault();
 	}
 	
 	public void SetToDefault()
     {
+        library.mainBonus.MinusItem();
 
+        if (library.level == null)
+        {
+            library.level = GameObject.FindGameObjectWithTag("Level");
+            
+            return;
+        }
 
-        GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/Level4")) as GameObject;
         Destroy(library.level);
+        
+
+        GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/LevelDesert")) as GameObject;
         library.level = newLevel;
         library.pauseMenu.ClearTasks();
-        
-        library.car.GetComponent<CarController>().ToStartPosition();
-        library.car.GetComponent<CarUserControl>().ToDefault();
-        library.car.GetComponent<FlightController>().ToDefault();
-        library.car.GetComponent<CarContact>().ToDefault();
+
+        library.carCreator.UpdateCar();
+
 
         library.energy.ToDefault();
 
@@ -34,6 +42,11 @@ public class GlobalController : MonoBehaviour {
         library.fullScore.ClearScore();
 
         library.timerScript.ToDefault();
+
+        library.canvasController.HideEndMenu();
+        library.canvasController.ShowGameUI();
+        library.canvasController.ShowInput();
+
     }
 
     public void TimerIsEnd()
@@ -71,8 +84,9 @@ public class GlobalController : MonoBehaviour {
 
     void ShowMenu()
     {
-        library.endMenu.gameObject.SetActive(true);
-        Time.timeScale = 0;
-        library.fullScore.SaveBigFullScore();
+        library.canvasController.ShowBaraban();
+      //  Time.timeScale = 0;
     }
+
+
 }

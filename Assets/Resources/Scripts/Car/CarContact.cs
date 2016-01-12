@@ -132,8 +132,14 @@ public class CarContact : MonoBehaviour
     {
         bool temp = true;
 
+
         for (int i = 0; i < 4; i++)
         {
+            if (wheelColliders == null)
+            {
+                return false;
+            }
+
             temp = temp & !wheelColliders[i].isGrounded;
         }
 
