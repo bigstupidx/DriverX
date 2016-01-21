@@ -13,10 +13,6 @@ public class YellowBox : Destroyable {
     
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
 
     protected override void OnCollision(Transform carTransform)
     {

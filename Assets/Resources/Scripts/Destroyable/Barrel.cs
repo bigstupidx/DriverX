@@ -15,11 +15,6 @@ public class Barrel : Destroyable {
 
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
-
     protected override void OnCollision(Transform carTransform)
     {
         Vector3 dir = (transform.position - carTransform.position).normalized;//carTransform.GetComponent<CarContact>().GetDirection();

@@ -27,6 +27,8 @@ public class PauseMenu : MonoBehaviour {
         /*
         foreach (Transform child in transform)
             child.gameObject.SetActive(true);*/
+
+        scrollBoxController.UpdateDiscription();
         scrollBoxController.ToDefaultPosition();
 
     //    library.canvasController.ShowGameUI(false);
@@ -49,15 +51,15 @@ public class PauseMenu : MonoBehaviour {
 
     }
 
-    public GameObject AddTask(Task task)
+    public TaskItem AddTask(Task task)
     {
         //gameObject.SetActive(true);
         bool isActive = scrollBoxController.gameObject.activeInHierarchy;
 
         if (!isActive)
             scrollBoxController.gameObject.SetActive(true);
-        GameObject GO = scrollBoxController.AddTask(task);
+        TaskItem ti= scrollBoxController.AddTask(task);
         //gameObject.SetActive(false);
-        return GO;
+        return ti;
     }
 }

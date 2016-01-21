@@ -32,9 +32,9 @@ public class RoadSign : Destroyable
     }
 
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
-        base.Update();
+   
         //Debug.DrawRay(transform.position, Vector3.Cross(Vector3.up, dir), Color.red);
 
         if (isProcess)

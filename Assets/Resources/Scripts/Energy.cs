@@ -7,13 +7,16 @@ public class Energy : MonoBehaviour {
     float maxEnergy;
     float mnozitelNitro;
 
-    float nitroCost = 1;
+    static float coef = 100;
+
+    static float nitroCost = coef;
+
 
     Library library;
     void Start () {
         library = GameObject.FindObjectOfType<Library>();
-        mnozitelNitro = GetComponent<CarUserParametres>().nitro;
-        maxEnergy = 0.5f +mnozitelNitro/2;
+        mnozitelNitro = GetComponent<CarUserParametres>().nitro * coef;
+        maxEnergy = 0.5f * coef +mnozitelNitro/2 ;
 	}
 	
     void Update()
@@ -24,7 +27,7 @@ public class Energy : MonoBehaviour {
 
 	public void AddEnergy(Destroyable destroyable)
     {
-        energy = Mathf.Clamp(energy + maxEnergy/10f, 0,maxEnergy);
+        energy = Mathf.Clamp(energy + destroyable.GetRewardEnergy(), 0,maxEnergy);
     }
 
     public void UseEnergy()

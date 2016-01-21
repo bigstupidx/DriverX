@@ -65,7 +65,7 @@ public class CarController : MonoBehaviour
     private CarContact carContact;
     //  public float dustAngle;
 
-    private int numNitro = 30;
+    private int numNitro = 35;
     private int currentNitro = 0;
 
     Transform asotSystems;
@@ -77,6 +77,8 @@ public class CarController : MonoBehaviour
     [HideInInspector] public float nMinSpeed = 65;
 
     Poddon poddon;
+
+    bool wasNitro;
     // Use this for initialization
     void Awake()
     {
@@ -124,9 +126,8 @@ public class CarController : MonoBehaviour
         transform.rotation = Quaternion.Euler(newAngleX, transform.rotation.eulerAngles.y, newAngleZ);
 
 
-      //  Debug.Log(m_Rigidbody.angularVelocity);
-       
-            
+        //  Debug.Log(m_Rigidbody.angularVelocity);
+
     }
 
     float GetClamAngle(float currentAngle, float maxAngle)
@@ -237,6 +238,7 @@ public class CarController : MonoBehaviour
         ApplyDrive(accel, footbrake);
         CapSpeed();
 
+
         //Set the handbrake.
         //Assuming that wheels 2 and 3 are the rear wheels.
         if (handbrake > 0f)
@@ -267,23 +269,34 @@ public class CarController : MonoBehaviour
     private void CapSpeed()
     {
         float speed = m_Rigidbody.velocity.magnitude;
-        switch (m_SpeedType)
+    
+
+        speed *= 2.23693629f;
+
+                
+
+        if (speed > m_Topspeed)
         {
-            case SpeedType.MPH:
-
-                speed *= 2.23693629f;
-                if (speed > m_Topspeed && currentNitro <= 0)
+            if (currentNitro <= 0)
+            {
+                if (wasNitro)
+                    m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity, ((m_Topspeed - 15) / 2.23693629f) * m_Rigidbody.velocity.normalized, 0.08f); // m_Topspeed - 10  чтобы быстрее снижалась
+                else
                 {
-                    m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity, ((m_Topspeed - 10) / 2.23693629f) * m_Rigidbody.velocity.normalized, 0.1f); // m_Topspeed - 10  чтобы быстрее снижалась
-                }//  m_Rigidbody.velocity = m_Topspeed/2.23693629f *m_Rigidbody.velocity.normalized;
-                    break;
-
-            case SpeedType.KPH:
-                speed *= 3.6f;
-                if (speed > m_Topspeed && currentNitro <= 0)
-                    m_Rigidbody.velocity = (m_Topspeed/3.6f) * m_Rigidbody.velocity.normalized;
-                break;
+                    m_Rigidbody.velocity = (m_Topspeed / 2.23693629f) * m_Rigidbody.velocity.normalized;
+                }
+            }
+        }//  m_Rigidbody.velocity = m_Topspeed/2.23693629f *m_Rigidbody.velocity.normalized;
+        else
+        {
+            if (wasNitro && currentNitro <= 0)
+                wasNitro = false;
         }
+
+                          
+
+           
+       
     }
 
 
@@ -540,6 +553,7 @@ public class CarController : MonoBehaviour
         rayAsot[0].Play();
 
         currentNitro = numNitro;
+        wasNitro = true;
     }
 
     public bool IsNitro()

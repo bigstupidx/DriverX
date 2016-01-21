@@ -5,6 +5,16 @@
       <point type="helpertext">Разбито</point>
       <point type="helpertext">покрышек</point>
     </task>
+    <task name ="DestroyZnaki">
+      <point type="fulltext">Уничтожте</point>
+      <point type="fulltext">дорожный знак</point>
+      <point type="fulltext">дорожных знака</point>
+      <point type="fulltext">дорожных знаков</point>
+      <point type="helpertext">Разбито</point>
+      <point type="helpertext">дорожный знак</point>
+      <point type="helpertext">дорожных знака</point>
+      <point type="helpertext">дорожных знаков</point>
+    </task>
     <task name ="DestroyAllGarbageBox">
       <point type="fulltext">Уничтожте все мусорные баки</point>
       <point type="helpertext">Разбито</point>

@@ -12,10 +12,7 @@ public class Bui : Destroyable
         rb = GetComponent<Rigidbody>();
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
+
 
     protected override void OnCollision(Transform carTransform)
     {

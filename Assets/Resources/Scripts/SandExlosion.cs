@@ -19,8 +19,11 @@ public class SandExlosion : MonoBehaviour {
     {
         StartCoroutine(Explosion());
         // round.StopLoop();
-        Destroy(round.GetParticle().gameObject);
 
+
+
+        Destroy(round.GetParticle().gameObject);
+        Destroy(GetComponent<Collider>());
     }
 
     IEnumerator Explosion()

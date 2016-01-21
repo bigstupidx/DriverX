@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 using UnityEngine.UI;
 using System.Collections;
 
@@ -10,9 +11,8 @@ public abstract class Task : MonoBehaviour {
     private bool isComplete;
     protected bool justComplete;
 
-    protected GameObject item;
+    protected TaskItem item;
 
-    protected string description;
 
     public int reward;
 
@@ -20,16 +20,16 @@ public abstract class Task : MonoBehaviour {
     protected void Start() {
         library = GameObject.FindObjectOfType<Library>();
         taskValue = library.taskStrings.GetTaskValue(this.GetType().Name);
-        description = Description();
         
         item = library.pauseMenu.AddTask(this);
-        
 
+        item.SetDescription(GetDescription());
+        item.SetReward(reward + "");
 
         if (PreferencesSaver.TaskIsComplete(1, this.GetType().Name))
         {
-            isComplete = true;
-            SetColored();
+            SetComplete();
+            item.SetDone();
         }
     }
 
@@ -47,7 +47,7 @@ public abstract class Task : MonoBehaviour {
 
 	public string GetDescription()
     {
-        return description;
+        return Description();
     }
 
 
@@ -62,7 +62,7 @@ public abstract class Task : MonoBehaviour {
         return justComplete;
     }
 
-    public void SetItem(GameObject item)
+    public void SetItem(TaskItem item)
     {
         this.item = item;
     }
@@ -72,20 +72,19 @@ public abstract class Task : MonoBehaviour {
         isComplete = true;
     }
 
-    public void SetColored()
-    {
-        GameObject done = item.transform.FindChild("Done").gameObject;
-       
-       done.SetActive(true);
-       // Color oldColor = item.GetComponent<RawImage>().color;
-       // item.GetComponent<Image>().color = new Color(0, 1, 0, oldColor.a);
-    }
+
 
     protected void SetJustComplete()
     {
         SetComplete();
-        SetColored();
+        item.SetDone();
         PreferencesSaver.SaveTaskComplete(1, this.GetType().Name);
         justComplete = true;
+    }
+
+
+    public void UpdateConditions()
+    {
+        item.SetDescription(GetDescription());
     }
 }

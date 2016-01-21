@@ -17,8 +17,5 @@ public class WoodWall : Destroyable
 
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
+
 }

@@ -14,11 +14,7 @@ public class CartonBox : Destroyable
 
     }
 
-    // Update is called once per frame
-    new void Update()
-    {
-        base.Update();
-    }
+
 
     protected override void OnCollision(Transform carTransform)
     {

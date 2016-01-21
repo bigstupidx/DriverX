@@ -28,9 +28,5 @@ public class Cactus : Destroyable {
 
     }
 
-    // Update is called once per frame
-    new void Update()
-    {
-        base.Update();
-    }
+
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using System.Collections;
 using System;
 
@@ -10,6 +11,8 @@ public class ScrollBoxController : MonoBehaviour {
     RectTransform rt;
     GameObject taskItemPrefab;
     int itemCount;
+
+    List<Task> tasks = new List<Task>();
 
     GameObject scrollBox;
     // Use this for initialization
@@ -29,20 +32,20 @@ public class ScrollBoxController : MonoBehaviour {
     }
 
 
-    public GameObject AddTask(Task task)
+    public TaskItem AddTask(Task task)
     {
+        tasks.Add(task);
+
         itemCount++;
-        GameObject taskItem = Instantiate(taskItemPrefab) as GameObject;
-        taskItem.transform.SetParent(scrollBox.transform, false);
-        RectTransform rectTransform = taskItem.GetComponent<RectTransform>();
+        GameObject taskItemGO = Instantiate(taskItemPrefab) as GameObject;
+        taskItemGO.transform.SetParent(scrollBox.transform, false);
+        RectTransform rectTransform = taskItemGO.GetComponent<RectTransform>();
         Vector3 ancoredPos = rectTransform.anchoredPosition;
         ancoredPos.y = ((rectTransform.rect.height + border) * (itemCount-1) + 0.5f * rectTransform.rect.height + border) * (-1);
         rectTransform.anchoredPosition = ancoredPos;
-        taskItem.transform.FindChild("MainText").GetComponent<Text>().text = task.GetDescription();
-        taskItem.transform.FindChild("Reward").GetComponent<Text>().text = task.reward+"";
 
         scrollBox.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollBox.GetComponent<RectTransform>().sizeDelta.x, (taskItemPrefab.GetComponent<RectTransform>().sizeDelta.y + border)* itemCount+border);
-        return taskItem;
+        return taskItemGO.GetComponent<TaskItem>();
     }
 
     public void ClearTasks()
@@ -60,5 +63,15 @@ public class ScrollBoxController : MonoBehaviour {
         SBRT.anchoredPosition = new Vector2(SBRT.anchoredPosition.x, (rt.rect.height - scrollBox.GetComponent<RectTransform>().rect.height) / 2);
     }
 
+    public void UpdateDiscription()
+    {
+
+        foreach (Task task in tasks)
+        {
+
+            task.UpdateConditions();
+        }
+
+    }
     
 }

@@ -18,10 +18,6 @@ public class Container : Destroyable
         //        minEnergy = 30;
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
 
     protected override void OnCollision(Transform carTransform)
     {

@@ -14,10 +14,7 @@ public class BarrelRed : Destroyable
         rb = GetComponent<Rigidbody>();
     }
 
-    new void Update()
-    {
-        base.Update();
-    }
+
 
     protected override void OnCollision(Transform carTransform)
     {

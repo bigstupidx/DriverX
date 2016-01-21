@@ -20,7 +20,7 @@ public class Baraban : MonoBehaviour {
     const float StandartCost = 1;
 
     float timer;
-    const int CoefScoreToMoney = 10;
+    const int CoefScoreToMoney = 100;
 
     int tempReward;
     int fullReward;
@@ -99,6 +99,7 @@ public class Baraban : MonoBehaviour {
     public void UseBaraban()
     {
         barabanScore.SetScore(library.fullScore.GetFullScore());
+        reward.text = "% 0";
         UpdateSectors();
 
         Rotate();

@@ -8,5 +8,39 @@
         <rewardEnergy>30</rewardEnergy>
         <cost>500</cost>
     </Heavy>
-   
+
+    <CartonBox>
+        <rewardEnergy>7</rewardEnergy>
+        <cost>25</cost>
+    </CartonBox>
+    
+    <Conus>
+      <rewardEnergy>7</rewardEnergy>
+      <cost>25</cost>
+    </Conus>
+
+    <Barrel>
+      <rewardEnergy>14</rewardEnergy>
+      <cost>50</cost>
+    </Barrel>
+    
+    <Barrier1>
+      <rewardEnergy>21</rewardEnergy>
+      <cost>75</cost>
+    </Barrier1>
+    
+    <Barrier2>
+      <rewardEnergy>21</rewardEnergy>
+      <cost>75</cost>
+    </Barrier2>
+
+    <RoadSign>
+      <rewardEnergy>28</rewardEnergy>
+      <cost>100</cost>
+    </RoadSign>
+  
+   <Bui>
+      <rewardEnergy>56</rewardEnergy>
+      <cost>200</cost>
+    </Bui>
 </items>

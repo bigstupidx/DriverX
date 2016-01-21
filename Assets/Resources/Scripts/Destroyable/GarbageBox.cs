@@ -17,10 +17,7 @@ public class GarbageBox : Destroyable {
 //        minEnergy = 30;
 	}
 
-    new void Update()
-    {
-        base.Update();
-    }
+
 
     protected override void OnCollision(Transform carTransform)
     {

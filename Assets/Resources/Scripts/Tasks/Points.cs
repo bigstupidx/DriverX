@@ -14,7 +14,7 @@ public class Points : Task {
 
     protected override string Description()
     {
-        return taskValue.GetFullText(0) + " " + maxPoints + " " + taskValue.GetFullText(1);
+        return taskValue.GetFullText(0) + " " + maxPoints+" ("+library.fullScore.GetBigFullScore() + ") " + taskValue.GetFullText(1);
     }
 
     // Use this for initialization

@@ -17,6 +17,7 @@ public class FullScore : MonoBehaviour {
         text = GetComponent<Text>();
         library = GameObject.FindObjectOfType<Library>();
         savedBigFullScore = PreferencesSaver.GetIntTaskValue(1, "Points");
+        bigFullScore = savedBigFullScore;
         UpdateText();
     }
 

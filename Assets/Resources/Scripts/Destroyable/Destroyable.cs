@@ -44,30 +44,13 @@ public abstract class Destroyable : MonoBehaviour {
     {
         library = GameObject.FindObjectOfType<Library>();
 
+        destroyableInfo = library.levelInfo.GetDestroyableInfo(this.GetType().Name);
 
+        if(destroyableInfo == null)
         destroyableInfo = library.levelInfo.GetDestroyableInfo("Light");
     }
 
-    protected void Update()
-    {
-        /*
-        if(library.energy.GetEnergy() < destroyableInfo.GetMinEnergy())
-        {
-            if (!isLock)
-            {
-                LockObject();
-                isLock = true;
-            }
-        }
-        else
-        {
-            if (isLock)
-            {
-                UnlockObject();
-                isLock = false;
-            }
-        }*/
-    }
+ 
 
     public int GetCost()
     {
