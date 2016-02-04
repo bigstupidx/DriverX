@@ -4,12 +4,10 @@ using System.Collections;
 public class Bui : Destroyable
 {
 
-    Rigidbody rb;
     // Use this for initialization
     new void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody>();
     }
 
 

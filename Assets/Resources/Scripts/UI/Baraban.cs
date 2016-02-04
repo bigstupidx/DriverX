@@ -166,6 +166,8 @@ public class Baraban : MonoBehaviour {
         Bank.PlusMoney(fullReward);
 
         yield return new WaitForSeconds(2f);
+
+        library.globalController.gs = GlobalController.GameState.RetryMenu;
         library.canvasController.ShowEndMenu();
 
     }

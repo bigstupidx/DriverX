@@ -11,7 +11,10 @@ public class Score : MonoBehaviour {
 
     int lastCombo;
 
-	void Start () {
+    int comboNum = 0;
+    bool comboIsActive = false;
+
+    void Start () {
         library = GetComponent<Library>();
         scoreToWin = 20000;
 	}
@@ -19,6 +22,12 @@ public class Score : MonoBehaviour {
     public void AddScoreForDestroy(Destroyable destroyable)
     {
         AddScoreAndCoef(destroyable.GetCost(), true);
+
+        if (!comboIsActive)
+        {
+            comboIsActive = true;
+            comboNum++;
+        }
     }
 
     private void AddScoreAndCoef(int cost, bool isCoef)
@@ -37,16 +46,13 @@ public class Score : MonoBehaviour {
         AddScoreAndCoef(0, true);
     }
 
-
-
-
-
     void Update()
     {
         timer = Mathf.Max(timer - Time.deltaTime, 0);
 
         if(timer == 0)
         {
+            comboIsActive = false;
             CurrentScoreToFullScore();
         }
 
@@ -72,5 +78,16 @@ public class Score : MonoBehaviour {
     {
         return lastCombo;
     }
+
+    public bool IsCombo()
+    {
+        return comboIsActive;
+    }
+
+    public int GetComboNum()
+    {
+        return comboNum;
+    }
+
 
 }

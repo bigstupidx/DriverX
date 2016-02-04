@@ -14,14 +14,14 @@ public class CarUserParametres : MonoBehaviour {
         library = GameObject.FindObjectOfType<Library>();
 
         
-        CarParametres carParametres = CarsInfo.GetCarInfo(CarChanger.NumCar);
+        CarParametres carParametres = CarsInfo.GetCarInfo(StaticValues.NumCar);
 
         if (carParametres != null)
         {
 
-            speed = carParametres.GetParam(1) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 1);
-            nitro = carParametres.GetParam(2) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 2);
-            controllability = carParametres.GetParam(3) + PreferencesSaver.GetCarUpgrade(CarChanger.NumCar, 3);
+            speed = carParametres.GetParam(1) + PreferencesSaver.GetCarUpgrade(StaticValues.NumCar, 1);
+            nitro = carParametres.GetParam(2) + PreferencesSaver.GetCarUpgrade(StaticValues.NumCar, 2);
+            controllability = carParametres.GetParam(3) + PreferencesSaver.GetCarUpgrade(StaticValues.NumCar, 3);
         }
         controllability = Mathf.Clamp(controllability, 1, maxVal);
         nitro = Mathf.Clamp(nitro, 1, maxVal);

@@ -4,21 +4,26 @@ using System.Collections;
 public class Energy : MonoBehaviour {
 
     float energy;
-    float maxEnergy;
+    float maxEnergy = 100;
     float mnozitelNitro;
 
-    static float coef = 100;
 
-    static float nitroCost = coef;
+    static float nitroCost;
 
 
     Library library;
     void Start () {
         library = GameObject.FindObjectOfType<Library>();
-        mnozitelNitro = GetComponent<CarUserParametres>().nitro * coef;
-        maxEnergy = 0.5f * coef +mnozitelNitro/2 ;
-	}
-	
+        mnozitelNitro = GetComponent<CarUserParametres>().nitro;
+        // maxEnergy = 0.5f * coef +mnozitelNitro/2 ;
+
+        if (mnozitelNitro == 1)
+            nitroCost = maxEnergy;
+        else
+            nitroCost =  maxEnergy*maxEnergy/(maxEnergy*0.5f  + mnozitelNitro*maxEnergy/2f);
+
+    }
+
     void Update()
     {
         //energy = Mathf.Clamp(energy - Time.deltaTime* minusCoef* (1+energy/maxEnergy*8), 0 ,maxEnergy);

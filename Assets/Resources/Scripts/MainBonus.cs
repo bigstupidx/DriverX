@@ -70,11 +70,8 @@ public class MainBonus : MonoBehaviour {
 
     public void AddItem()
     {
-        if (count < MaxValue)
-        {
             count++;
             PreferencesSaver.SetMainBonus(count);
-        }
     }
 
     /*
@@ -82,36 +79,16 @@ public class MainBonus : MonoBehaviour {
     {
         count += col;
     }*/
+    
+    
 
-    public static DateTime GetNistTime() // Получение времени из интернета
+    public TimeSpan GetSubtract()
     {
-        DateTime dateTime = DateTime.MinValue;
+       //if (subtractTime == null)
+         //   return ;
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://nist.time.gov/actualtime.cgi?lzbc=siqm9b");
-        request.Method = "GET";
-        request.Accept = "text/html, application/xhtml+xml, */*";
-        request.UserAgent = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)";
-        request.ContentType = "application/x-www-form-urlencoded";
-        request.CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore); //No caching
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        if (response.StatusCode == HttpStatusCode.OK)
-        {
-            StreamReader stream = new StreamReader(response.GetResponseStream());
-            string html = stream.ReadToEnd();//<timestamp time=\"1395772696469995\" delay=\"1395772696469995\"/>
-            string time = Regex.Match(html, @"(?<=\btime="")[^""]*").Value;
-            double milliseconds = Convert.ToInt64(time) / 1000.0;
-            dateTime = new DateTime(1970, 1, 1).AddMilliseconds(milliseconds).ToLocalTime();
-        }
-
-        return dateTime;
-    }
-
-    public int GetSubtractMinutes()
-    {
-        if (subtractTime == null)
-            return 0;
-
-        return subtractTime.Minutes;
+        TimeSpan ts =  (new TimeSpan(0, (int)Mathf.Floor(RecoveryTime / 60f), RecoveryTime % 60)).Subtract(subtractTime); 
+        return ts;
     }
 
     public int GetSubtractSeconds()

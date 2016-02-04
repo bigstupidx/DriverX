@@ -13,7 +13,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public InputController inputController;
    [HideInInspector] public TimerScript timerScript;
    [HideInInspector] public TimerUI timerUI;
-   [HideInInspector] public LevelInfo levelInfo;
+   [HideInInspector] public Info info;
    [HideInInspector] public TaskStrings taskStrings;
    [HideInInspector] public GameObject pauseButton;
    [HideInInspector] public PauseMenu pauseMenu;
@@ -30,6 +30,8 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject particleCanvas;
    [HideInInspector] public CarCreator carCreator;
    [HideInInspector] public MainBonus mainBonus;
+   [HideInInspector] public GameObject secondCamera;
+   [HideInInspector] public WaitBackground waitBackground;
     // Use this for initialization
     void Start () {
         currentScore = GameObject.Find("CurrentScore").GetComponent<CurrentScore>();
@@ -40,7 +42,7 @@ public class Library : MonoBehaviour {
         inputController = GameObject.FindObjectOfType<InputController>();
         timerScript = GameObject.FindObjectOfType<TimerScript>();
         timerUI = GameObject.FindObjectOfType<TimerUI>();
-        levelInfo = GetComponent<LevelInfo>();
+        info = GetComponent<Info>();
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>();
@@ -48,6 +50,7 @@ public class Library : MonoBehaviour {
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
         globalController = GetComponent<GlobalController>();
         cam = GameObject.Find("MainCamera");
+        secondCamera = GameObject.Find("SecondCamera");
         wordRideCanvas = GameObject.FindObjectOfType<WordRideCanvas>();
 
         metalSparksPrefab = Resources.Load("Prefabs/Particles/MetalSpark") as GameObject;
@@ -59,6 +62,8 @@ public class Library : MonoBehaviour {
         carCreator = GameObject.FindObjectOfType<CarCreator>();
 
         mainBonus = GameObject.FindObjectOfType<MainBonus>();
+
+        waitBackground = GameObject.FindObjectOfType<WaitBackground>();
     }
 
 }

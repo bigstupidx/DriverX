@@ -3,56 +3,90 @@ using System.Collections;
 
 public class GlobalController : MonoBehaviour {
 
+    public enum GameState {WaitForStart, Ride, WaitForStay, Baraban, RetryMenu}
+    [HideInInspector] public GameState gs;
     // Use this for initialization
     Library library;
 
+
+
+
 	void Start () {
         library = GetComponent<Library>();
+
+        
         SetToDefault();
 	}
 	
 	public void SetToDefault()
     {
-        library.mainBonus.MinusItem();
+        gs = GameState.WaitForStart;
 
-        if (library.level == null)
+        library.mainBonus.MinusItem();
+        library.secondCamera.SetActive(false);
+
+        GameObject level = GameObject.FindGameObjectWithTag("Level");
+        
+        if (level == null)
         {
-            library.level = GameObject.FindGameObjectWithTag("Level");
-            
-            return;
+            level = CreateLevel();
+        }
+        else
+        {
+
+            if (StaticValues.NumLevel == 999)
+                StaticValues.NumLevel = level.GetComponent<LevelDevelopNum>().Num;
+
+            if (library.level != null)
+            {
+                Destroy(library.level);
+                level = CreateLevel();
+            }
         }
 
-        Destroy(library.level);
-        
+       
 
-        GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/LevelDesert")) as GameObject;
-        library.level = newLevel;
+        library.level = level;
+
+        library.waitBackground.Hide();
+
+
+
+    }
+
+    GameObject CreateLevel()
+    {
+
+        string levelName = Info.GetLevelInfo(StaticValues.NumLevel).GetName();
+
+        GameObject newLevel = Instantiate(Resources.Load("Prefabs/Levels/" + levelName)) as GameObject;
+        newLevel.name = levelName;
+
         library.pauseMenu.ClearTasks();
-
         library.carCreator.UpdateCar();
-
-
         library.energy.ToDefault();
-
         library.wordRideCanvas.ToDefault();
-
         library.cam.GetComponent<CameraMotion>().ToDefaultPosition();
-     //   library.cam.GetComponentInChildren<EZCameraShake.CameraShaker>().ClearShakeInstances();
-
         library.fullScore.ClearScore();
-
         library.timerScript.ToDefault();
-
         library.canvasController.HideEndMenu();
         library.canvasController.ShowGameUI();
         library.canvasController.ShowInput();
 
+        return newLevel;
+    }
+
+    public void StartCar()
+    {
+        library.timerScript.SetStart();
+        gs = GameState.Ride;
     }
 
     public void TimerIsEnd()
     {
-        library.car.GetComponent<CarUserControl>().SetEnd();
+        gs = GameState.WaitForStay;
         StartCoroutine(CheckIsStay());
+
     }
 
     IEnumerator CheckIsStay()
@@ -85,7 +119,12 @@ public class GlobalController : MonoBehaviour {
     void ShowMenu()
     {
         library.canvasController.ShowBaraban();
+        gs = GameState.Baraban;
       //  Time.timeScale = 0;
+    }
+
+    void Update()
+    {
     }
 
 

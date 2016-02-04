@@ -18,8 +18,10 @@ public class CarUserControl : MonoBehaviour
     private float deltaWheelRotation = 0.1f;
     private float deltaHandbrake = 0.1f;
 
-    bool isEnd;
+    bool isEnd = true;
     bool isStay;
+
+    bool readyToStart;
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class CarUserControl : MonoBehaviour
         //#if !MOBILE_INPUT
 
 
-            if (!isEnd)
+            if (library.globalController.gs == GlobalController.GameState.Ride)
             {
                 InputController.Direction directionWheel = library.inputController.GetDirection();
 
@@ -74,7 +76,7 @@ public class CarUserControl : MonoBehaviour
 
 
             }
-            else
+            else if(library.globalController.gs == GlobalController.GameState.WaitForStay)
             {
                 if (!m_Car.GetComponent<CarContact>().IsFlight())
                 {
@@ -83,6 +85,13 @@ public class CarUserControl : MonoBehaviour
                         GetComponent<Rigidbody>().velocity = Vector3.zero;
                         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                         isStay = true;
+
+                        foreach(WheelCollider collider in  m_Car.GetWheelColliders())
+                        {
+                            collider.GetComponent<Probuksovka>().StopProbuksovka();
+                        }
+                        m_Car.GetComponent<Rigidbody>().isKinematic = true;
+                        
                     }
                     else
                     {
@@ -96,7 +105,7 @@ public class CarUserControl : MonoBehaviour
 
     void Update()
     {
-        if(!isEnd)
+        if(library.globalController.gs == GlobalController.GameState.Ride)
             if (Input.GetKeyDown(KeyCode.Q)|| library.inputController.NitroIsUsed())
                 m_Car.Nitro();
     }
@@ -111,12 +120,10 @@ public class CarUserControl : MonoBehaviour
     public void ToDefault()
     {
         isStay = false;
-        isEnd = false;
     }
 
-    public void SetEnd()
-    {
-        isEnd = true;
-    }
-  
+
+
+
+
 }

@@ -6,6 +6,7 @@ public class RetryButton : MonoBehaviour {
 
     Button button;
     Library library;
+
 	// Use this for initialization
 	void Start () {
         library = FindObjectOfType<Library>();
@@ -17,7 +18,15 @@ public class RetryButton : MonoBehaviour {
 	
     void ReloadLevel()
     {
-          library.globalController.SetToDefault();
+        library.waitBackground.Show();
+        StartCoroutine(GlobalToDefault());
+
+    }
+
+    IEnumerator GlobalToDefault()
+    {
+        yield return new WaitForSeconds(1.5f);
+        library.globalController.SetToDefault();
 
     }
 

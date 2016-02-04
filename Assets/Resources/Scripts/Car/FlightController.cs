@@ -22,6 +22,8 @@ public class FlightController : MonoBehaviour
 
     bool wasFlight;
 
+    int jumpCount = 0;
+
     public GameObject fallPrefab;
     // Use this for initialization
     void Start()
@@ -38,7 +40,7 @@ public class FlightController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(carContact.IsFlight())
+        if(carContact.IsFlight() && !library.car.GetComponent<CarUserControl>().IsStay())
         {
             if(firstTimer < threshold)
                 firstTimer += Time.deltaTime;
@@ -50,8 +52,9 @@ public class FlightController : MonoBehaviour
                     isCoef = true;
                     secondTimer += firstTimer;
                     fullTime += firstTimer;
-
                     fallTimer += firstTimer;
+
+                    jumpCount++;
                 }
 
                 fullTime += Time.deltaTime;
@@ -113,5 +116,11 @@ public class FlightController : MonoBehaviour
         firstTimer = 0;
         fullTime = 0;
         isCoef = false;
+        jumpCount = 0;
+    }
+
+    public int GetJumpCount()
+    {
+        return jumpCount;
     }
 }

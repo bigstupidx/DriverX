@@ -11,7 +11,6 @@ public class CarChanger : MonoBehaviour {
 
     CarParametres carParametres;
 
-    public static int NumCar; 
 
 	// Use this for initialization
 	void Start () {
@@ -43,37 +42,41 @@ public class CarChanger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
     
     void NextCar()
     {
         int numCar = carParametres.GetNumCar();
-        NumCar = numCar;
+        numCar++;
         foreach (Transform child in car.transform)
         {
             Destroy(child.gameObject);
         }
 
         if (carParametres != null)
-            StartCoroutine(CreateCar(numCar + 1));
+            StartCoroutine(CreateCar(numCar ));
 
 
 
         UpdateDisableButton();
+
+
     }
 
     void PrewCar()
     {
+        
         int numCar = carParametres.GetNumCar();
-        NumCar = numCar;
+        numCar--;
+        
         foreach (Transform child in car.transform)
         {
             Destroy(child.gameObject);
         }
 
         if (carParametres != null)
-            StartCoroutine(CreateCar(numCar - 1));
+            StartCoroutine(CreateCar(numCar ));
+
         UpdateDisableButton();
     }
 
@@ -81,7 +84,7 @@ public class CarChanger : MonoBehaviour {
     {
         int numCar = carParametres.GetNumCar();
 
-        NumCar = numCar;
+//        StaticValues.NumCar = numCar;
 
         if (numCar + 1 >= libraryMenu.carsInfo.GetCarsCount())
             next.interactable = false;
@@ -118,7 +121,8 @@ public class CarChanger : MonoBehaviour {
     {
         CarParametres carParametres = CarsInfo.GetCarInfo(carNum);
         this.carParametres = carParametres;
-        
+
+        StaticValues.NumCar = carNum;
 
 
         libraryMenu.filling.UpdateAllPower(

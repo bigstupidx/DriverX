@@ -14,8 +14,8 @@ public class CarCreator : MonoBehaviour {
 	
     public void UpdateCar()
     {
-
-        CarParametres carParametres = CarsInfo.GetCarInfo(CarChanger.NumCar);
+        //Debug.Log(StaticValues.NumCar);
+        CarParametres carParametres = CarsInfo.GetCarInfo(StaticValues.NumCar);
 
         if (library.car != null)
             Destroy(library.car);

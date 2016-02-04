@@ -71,8 +71,10 @@ public class KAController : MonoBehaviour {
     }
 
     IEnumerator StartLevel()
-    {  
-        AsyncOperation async = Application.LoadLevelAsync("K123");
+    {
+        yield return new WaitForSeconds(1);
+
+        AsyncOperation async = Application.LoadLevelAsync("a1");
        
         yield return async; 
     }

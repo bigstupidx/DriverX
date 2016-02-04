@@ -21,6 +21,7 @@ public class CarContact : MonoBehaviour
 
     Poddon poddon;
 
+
     void Start()
     {
         // transform.GetComponent<Collider>().isTrigger = true;

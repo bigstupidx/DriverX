@@ -15,6 +15,24 @@
       <point type="helpertext">дорожных знака</point>
       <point type="helpertext">дорожных знаков</point>
     </task>
+    <task name ="DestroyRedBarrel">
+      <point type="fulltext">Уничтожте</point>
+      <point type="fulltext">красную бочку</point>
+      <point type="fulltext">красные бочки</point>
+      <point type="fulltext">красных бочек</point>
+      <point type="helpertext">Уничтожено</point>
+      <point type="helpertext">красных бочек</point>
+    </task>
+
+    <task name ="DestroyBoxesInCombo">
+      <point type="fulltext">Уничтожте</point>
+      <point type="fulltext">ящик за комбо</point>
+      <point type="fulltext">ящика за комбо</point>
+      <point type="fulltext">ящиков за комбо</point>
+      <point type="helpertext">Уничтожено</point>
+      <point type="helpertext">ящиков за комбо</point>
+    </task>
+    
     <task name ="DestroyAllGarbageBox">
       <point type="fulltext">Уничтожте все мусорные баки</point>
       <point type="helpertext">Разбито</point>
@@ -37,6 +55,14 @@
       <point type="fulltext">секунд</point>
       <point type="helpertext">В воздухе</point>
       <point type="helpertext">секунд</point>
+    </task>
+    <task name ="FlightAttempts">
+      <point type="fulltext">Совершите</point>
+      <point type="fulltext">прыжок</point>
+      <point type="fulltext">прыжка</point>
+      <point type="fulltext">прыжков</point>
+      <point type="helpertext">Совершено</point>
+      <point type="helpertext">прыжков</point>
     </task>
     <task name ="TakeKanistra">
       <point type="fulltext">Найдите канистру</point>

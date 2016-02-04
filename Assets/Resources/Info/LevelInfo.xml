@@ -1,0 +1,12 @@
+<items>
+  <level name ="LevelDesert">
+    <parametres>
+      <parametr name="time">110</parametr>
+    </parametres>
+  </level>
+  <level name ="LevelDesert2">
+    <parametres>
+      <parametr name="time">90</parametr>
+    </parametres>
+  </level>
+</items>

@@ -12,7 +12,7 @@ public abstract class Destroyable : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
        
-
+   
         if (collider.GetComponent<MainCollider>() != null)
         {
             library.car.GetComponent<CarContact>().OnTriggerEnter1(GetComponent<Collider>());
@@ -44,10 +44,10 @@ public abstract class Destroyable : MonoBehaviour {
     {
         library = GameObject.FindObjectOfType<Library>();
 
-        destroyableInfo = library.levelInfo.GetDestroyableInfo(this.GetType().Name);
+        destroyableInfo = Info.GetDestroyableInfo(this.GetType().Name);
 
         if(destroyableInfo == null)
-        destroyableInfo = library.levelInfo.GetDestroyableInfo("Light");
+        destroyableInfo = Info.GetDestroyableInfo("Light");
     }
 
  

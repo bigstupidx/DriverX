@@ -5,9 +5,13 @@ using System.Collections;
 public class WaitBackground : MonoBehaviour {
 
     Image image;
+
+    Library library;
+    LibraryMenu libraryMenu;
     // Use this for initialization
     void Start() {
         image = GetComponent<Image>();
+        library = GameObject.FindObjectOfType<Library>();
     }
 
     public void Show()
@@ -17,7 +21,7 @@ public class WaitBackground : MonoBehaviour {
         iTween.ValueTo(gameObject,
             iTween.Hash("from", image.color.a,
              "to", 1,
-             "time", 0.2f,
+             "time", 1f,
              "onupdate", "OnUpdate"
              )
         );
@@ -35,13 +39,11 @@ public class WaitBackground : MonoBehaviour {
         iTween.ValueTo(gameObject,
             iTween.Hash("from", image.color.a,
              "to", 0,
-              "time", 0.2f,
+              "time", 1f,
              "onupdate", "OnUpdate",
              "oncomplete", "OnCompleteHide",
              "oncompletetarget", gameObject
              )
-
-            
         );
         // image.enabled = false;
     }
@@ -49,6 +51,10 @@ public class WaitBackground : MonoBehaviour {
     void OnCompleteHide()
     {
         image.enabled = false;
+
+        if (library != null)
+            library.globalController.StartCar();
+        
     }
 
     void OnUpdate(float newVal)

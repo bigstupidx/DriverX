@@ -43,7 +43,7 @@ public class Probuksovka : MonoBehaviour
 
     public void ProbuksovkaEmit()
     {
-        if (GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0 && carController.CurrentSpeed < 25)
+        if (GetComponent<WheelCollider>().isGrounded && GetComponent<WheelCollider>().motorTorque > 0 && carController.CurrentSpeed < 25 && library.globalController.gs == GlobalController.GameState.Ride)
         {
             if (probuksovkaParticle.loop == false)
             {
@@ -56,7 +56,11 @@ public class Probuksovka : MonoBehaviour
             if(probuksovkaParticle.loop == true)
                 probuksovkaParticle.loop = false;
     }
-
+    
+    public void StopProbuksovka()
+    {
+        probuksovkaParticle.loop = false;
+    }
     /*
     public void RideEffectEmit()
     {

@@ -7,10 +7,12 @@ public class SandExlosion : MonoBehaviour {
     public Particle explosion;
 
     private Particle round;
+    Library library;
 
 	// Use this for initialization
 	void Start () {
         round = GetComponent<Particle>();
+        library = GameObject.FindObjectOfType<Library>();
 	}
 	
 	
@@ -21,7 +23,7 @@ public class SandExlosion : MonoBehaviour {
         // round.StopLoop();
 
 
-
+        library.secondCamera.SetActive(true);
         Destroy(round.GetParticle().gameObject);
         Destroy(GetComponent<Collider>());
     }
@@ -31,8 +33,16 @@ public class SandExlosion : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         destroyable.SetActive(false);
         explosion.GetParticle().Play();
-        Destroy(round.gameObject);
 
+        StartCoroutine(HideCamera());
+
+    }
+
+    IEnumerator HideCamera()
+    {
+        yield return new WaitForSeconds(2.5f);
+        library.secondCamera.SetActive(false);
+        Destroy(round.gameObject);
 
     }
 }

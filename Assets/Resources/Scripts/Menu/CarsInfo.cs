@@ -10,7 +10,7 @@ public class CarsInfo : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        libraryMenu = GameObject.FindObjectOfType<LibraryMenu>(); 
+        libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
 
         TextAsset xmlAsset = Resources.Load("Info/Cars") as TextAsset;
 
@@ -37,7 +37,7 @@ public class CarsInfo : MonoBehaviour {
             int cost = int.Parse(node.ChildNodes[1].InnerText);
 
 
-            int[,] upgradeCost = new int[3,3];
+            int[,] upgradeCost = new int[3, 3];
 
             int i = 0;
 
@@ -46,18 +46,16 @@ public class CarsInfo : MonoBehaviour {
             {
 
                 int num = int.Parse(childNode.Attributes["name"].Value);
-                 
+
                 i = 0;
                 foreach (XmlNode item in childNode)
                 {
-                    upgradeCost[num-1,i++] = int.Parse(item.InnerText);
+                    upgradeCost[num - 1, i++] = int.Parse(item.InnerText);
                 }
 
             }
 
-            CarParametres carParametres = new CarParametres(obj.Count,node.Attributes["name"].Value, param, cost, upgradeCost); 
-
-
+            CarParametres carParametres = new CarParametres(obj.Count, node.Attributes["name"].Value, param, cost, upgradeCost);
 
             obj.Add(carParametres);
         }
@@ -65,7 +63,7 @@ public class CarsInfo : MonoBehaviour {
 
     public static CarParametres GetCarInfo(int num)
     {
-        if (num + 1 > obj.Count)
+        if (num >= obj.Count)
             return null;
         else
             return obj[num];

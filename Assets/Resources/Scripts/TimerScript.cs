@@ -6,6 +6,8 @@ public class TimerScript : MonoBehaviour {
     float timeLeft;
     Library library;
     bool isShow;
+
+    bool isPlay = false;
     void Start () {
         library = FindObjectOfType<Library>();
         ToDefault();
@@ -13,23 +15,28 @@ public class TimerScript : MonoBehaviour {
 
     public void ToDefault()
     {
-        timeLeft = 110;
+        timeLeft = Info.GetLevelInfo(StaticValues.NumLevel).GetTime();
         isShow = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0, 1000);
 
-        if (timeLeft == 0 && !isShow)
+        if (isPlay)
         {
-            SetEnd();
+            timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0, 1000);
+
+            if (timeLeft == 0 && !isShow)
+            {
+                SetEnd();
+            }
         }
 	}
 
     public void SetEnd()
     {
         isShow = true;
+        isPlay = false;
         timeLeft = 0;
         library.globalController.TimerIsEnd();
     }
@@ -39,5 +46,9 @@ public class TimerScript : MonoBehaviour {
         return timeLeft;
     }
 
+    public void SetStart()
+    {
+        isPlay = true;
+    }
 
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class MainBonusButton : MonoBehaviour {
@@ -16,15 +17,24 @@ public class MainBonusButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        count.text = MainBonus.count + "";
+
+
         if (MainBonus.MaxValue == MainBonus.count)
             time.text = "";
+        else
+        {
 
-        count.text = MainBonus.count+"";
 
-        int minutes = (int)  MainBonus.RecoveryTime/60 - libraryMenu.mainBonus.GetSubtractMinutes();
-        int seconds = 60 - libraryMenu.mainBonus.GetSubtractSeconds();
+            //   int seconds = MainBonus.RecoveryTime % 60 - libraryMenu.mainBonus.GetSubtractSeconds();
+            //  if (seconds < 0)
+            //       seconds += 60;
 
-        time.text = minutes+" : "+seconds;
-         
+            //    int minutes = (int) Mathf.Ceil(MainBonus.RecoveryTime / 60f)   - libraryMenu.mainBonus.GetSubtractMinutes() - (int)Mathf.Ceil(seconds / 60f);
+
+            TimeSpan ts = libraryMenu.mainBonus.GetSubtract();
+
+            time.text = ts.Minutes.ToString("D2") + " : " + ts.Seconds.ToString("D2");
+        }
 	}
 }
