@@ -63,6 +63,9 @@ public class CarController : MonoBehaviour
     private Particle rideEffect;
 
     private CarContact carContact;
+
+    int nitroMnozitel = 100;
+
     //  public float dustAngle;
 
     private int numNitro = 35;
@@ -79,6 +82,8 @@ public class CarController : MonoBehaviour
     Poddon poddon;
 
     bool wasNitro;
+
+    float firstTimer;
     // Use this for initialization
     void Awake()
     {
@@ -125,8 +130,22 @@ public class CarController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(newAngleX, transform.rotation.eulerAngles.y, newAngleZ);
 
+        if(currentNitro > 0)
+        {
+            firstTimer += Time.deltaTime;
 
-        //  Debug.Log(m_Rigidbody.angularVelocity);
+            float preVal = firstTimer * nitroMnozitel;
+
+            int val = (int)Mathf.Floor(preVal);
+
+            firstTimer = (preVal - val) / nitroMnozitel;
+        
+            library.score.AddScore(val);
+        }
+        else
+        {
+            firstTimer = 0;
+        }
 
     }
 
@@ -292,10 +311,6 @@ public class CarController : MonoBehaviour
             if (wasNitro && currentNitro <= 0)
                 wasNitro = false;
         }
-
-                          
-
-           
        
     }
 
@@ -537,6 +552,8 @@ public class CarController : MonoBehaviour
             StartCoroutine(ShowNitro());
 
             library.energy.UseEnergy();
+
+            library.score.AddCoef();
 
             foreach (Transform asotSystem in asotSystems)
             {

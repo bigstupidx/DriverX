@@ -21,6 +21,8 @@ public abstract class Destroyable : MonoBehaviour {
 
     }
     
+
+
     public void OnCollisionObject(Transform carTransfrom)
     {
         if(!isUsed)

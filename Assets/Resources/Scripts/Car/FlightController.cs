@@ -123,4 +123,10 @@ public class FlightController : MonoBehaviour
     {
         return jumpCount;
     }
+
+    public bool IsFlight()
+    {
+        return wasFlight;
+    }
+
 }

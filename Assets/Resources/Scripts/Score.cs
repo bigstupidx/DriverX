@@ -50,7 +50,7 @@ public class Score : MonoBehaviour {
     {
         timer = Mathf.Max(timer - Time.deltaTime, 0);
 
-        if(timer == 0)
+        if(timer == 0 && !library.car.GetComponent<FlightController>().IsFlight())
         {
             comboIsActive = false;
             CurrentScoreToFullScore();

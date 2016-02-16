@@ -18,7 +18,7 @@ public class Library : MonoBehaviour {
    [HideInInspector] public GameObject pauseButton;
    [HideInInspector] public PauseMenu pauseMenu;
    [HideInInspector] public TaskHelper taskHelper;
-   [HideInInspector] public EndMenu endMenu;
+//   [HideInInspector] public EndMenu endMenu;
    [HideInInspector] public GameObject level;
    [HideInInspector] public GlobalController globalController;
    [HideInInspector] public GameObject cam;
@@ -46,7 +46,7 @@ public class Library : MonoBehaviour {
         taskStrings = GetComponent<TaskStrings>();
         pauseButton = GameObject.FindObjectOfType<PauseButton>().gameObject;
         pauseMenu = GameObject.Find("Canvas").GetComponentInChildren<PauseMenu>();
-        endMenu = GameObject.FindObjectOfType<EndMenu>();
+      //  endMenu = GameObject.FindObjectOfType<EndMenu>();
         taskHelper = GameObject.FindObjectOfType<TaskHelper>();
         globalController = GetComponent<GlobalController>();
         cam = GameObject.Find("MainCamera");

@@ -30,12 +30,11 @@ public class MainBonus : MonoBehaviour {
 
         if (subtractTime.TotalSeconds > RecoveryTime)
         {
-
             if (MainBonus.count < MainBonus.MaxValue)
             {
-                AddItem();
+                AddItem((int)Mathf.Floor((float)subtractTime.TotalSeconds / RecoveryTime));
 
-                lastDateTime = nowTime;
+                lastDateTime = nowTime-TimeSpan.FromSeconds((float)subtractTime.TotalSeconds % RecoveryTime);
 
                 PreferencesSaver.SaveMainBonusTime(lastDateTime);
             }
@@ -68,10 +67,15 @@ public class MainBonus : MonoBehaviour {
         }
     }
 
-    public void AddItem()
+    public void AddItem(int col)
     {
-            count++;
+        if (col > 0)
+        {
+            
+            count += col;
+            count = Mathf.Clamp(count, 0, MainBonus.MaxValue);
             PreferencesSaver.SetMainBonus(count);
+        }
     }
 
     /*

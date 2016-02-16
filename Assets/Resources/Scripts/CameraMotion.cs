@@ -112,9 +112,9 @@ public class CameraMotion : MonoBehaviour
 
 
 
-        if (library.globalController.gs == GlobalController.GameState.Ride)
+        if (library.globalController.gs == GlobalController.GameState.Ride && playerCar.GetComponent<CarController>().CurrentSpeed > 1)
         {
-            if (hit.transform != null && hit.transform.GetComponent<CarController>() == null)
+            if (hit.transform != null && hit.transform.GetComponent<CarController>() == null )
             {
                 defaultHeight = MathTools.ULerp(defaultHeight, 50, 0.0001f);
             }

@@ -2,13 +2,16 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class RetryButton : MonoBehaviour {
+public class RetryButton : RawButton {
 
     Button button;
     Library library;
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
+
+        base.Start();
+
         library = FindObjectOfType<Library>();
 
         button = GetComponent<Button>();

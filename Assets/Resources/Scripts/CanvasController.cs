@@ -51,7 +51,7 @@ public class CanvasController : MonoBehaviour {
         HideInput();
         HideBaraban();
         pauseMenu.gameObject.SetActive(true);
-        pauseMenu.OpenMenu();
+        pauseMenu.OpenPauseMenu();
     }
 
     public void HidePauseMenu()
@@ -77,12 +77,14 @@ public class CanvasController : MonoBehaviour {
     public void ShowEndMenu()
     {
         HideBaraban();
-        endMenu.gameObject.SetActive(true);
+        pauseMenu.gameObject.SetActive(true);
+        pauseMenu.OpenEndMenu();
     }
 
     public void HideEndMenu()
     {
-        endMenu.gameObject.SetActive(false);
+        pauseMenu.gameObject.SetActive(false);
+
     }
 
     public void ToDefault()
