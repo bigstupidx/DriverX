@@ -3,32 +3,6 @@ using System.Collections;
 using UnityStandardAssets.Vehicles.Car;
 public class CameraMotion : MonoBehaviour
 {
-    /*
-    Camera cam;
-    GameObject car;
-
-
-
-    void Start()
-    {
-        car = GameObject.Find("Car");
-    }
-
-
-    void Update()
-    {
-          Vector3 carPosition = car.transform.position;
-        //transform.position = new Vector3(carPosition.x, carPosition.y, carPosition.z);
-          transform.position = Vector3.Lerp(transform.position, car.transform.position, Time.deltaTime*10f); //new Vector3(carPosition.x, carPosition.y, carPosition.z);
-
-        //  Debug.Log(transform.position.ToString("F4"));
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, car.transform.rotation, Time.deltaTime*1.8f);
-          //car.transform.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
-    }
-    */
-
-
     // The target we are following
     Library library;
     private Camera cam;
@@ -69,7 +43,7 @@ public class CameraMotion : MonoBehaviour
 
         cam = transform.FindChild("Camera").GetComponent<Camera>();
 
-        ToDefaultPosition();
+       // ToDefaultPosition();
   //      if (GetComponent<RCCCamManager>())
      //       GetComponent<RCCCamManager>().target = playerCar;
 

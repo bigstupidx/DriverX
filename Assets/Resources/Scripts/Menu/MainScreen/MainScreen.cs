@@ -78,6 +78,12 @@ public class MainScreen : MonoBehaviour {
     IEnumerator StartFireBG()
     {
         yield return new WaitForSeconds(1.4f);
+
+
+        Image img = GetComponent<Image>();
+        img.color = new Color(img.color.r, img.color.g, img.color.b, 0);
+
+
         libraryMenu.fireBackground.GetComponent<Particle>().PlayLoop();
         libraryMenu.dustSmall.GetComponent<Particle>().PlayLoop();
     }

@@ -231,16 +231,9 @@ public class CarController : MonoBehaviour
             }
         }
 
+        UpdateWheelPosition();
 
-        for (int i = 0; i < 4; i++)
-        {
-            Quaternion quat;
-            Vector3 position;
-            m_WheelColliders[i].GetWorldPose(out position, out quat);
-            m_WheelMeshes[i].transform.position = position;
-            m_WheelMeshes[i].transform.rotation = quat;
-        }
-
+       
         //clamp input values
         steering = Mathf.Clamp(steering, -1, 1);
         AccelInput = accel = Mathf.Clamp(accel, 0, 1);
@@ -283,7 +276,18 @@ public class CarController : MonoBehaviour
 
     }
 
-       
+    void UpdateWheelPosition()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Quaternion quat;
+            Vector3 position;
+            m_WheelColliders[i].GetWorldPose(out position, out quat);
+            m_WheelMeshes[i].transform.position = position;
+            m_WheelMeshes[i].transform.rotation = quat;
+        }
+
+    }
 
     private void CapSpeed()
     {
@@ -600,11 +604,14 @@ public class CarController : MonoBehaviour
             m_WheelColliders[i].gameObject.SetActive(false);
             m_WheelColliders[i].gameObject.SetActive(true);
         }
-        
+
+        UpdateWheelPosition();
 
         Transform startPosition = library.level.transform.FindChild("StartPosition").transform;
         transform.position = startPosition.position;
         transform.rotation = startPosition.rotation;
+
+        library.cam.GetComponent<CameraMotion>().ToDefaultPosition();
     }
 
     public void MoveBack(float wheelRotation, float verticalAxis)
