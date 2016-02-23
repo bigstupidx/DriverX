@@ -19,6 +19,7 @@ public class TaskItem : MonoBehaviour {
 
     public void SetDescription(string str)
     {
+        if(description.text != null)
         description.text = str;
     }
 

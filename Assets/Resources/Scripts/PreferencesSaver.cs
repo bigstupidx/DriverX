@@ -108,6 +108,16 @@ public class PreferencesSaver : MonoBehaviour {
         return int.Parse(GetPref("Money", 0 + ""));
     }
 
+    public static void SetBarabanBooster(int val)
+    {
+        SavePref("BarabanBooster", val + "");
+    }
+
+    public static int GetBarabanBooster()
+    {
+        return int.Parse(GetPref("BarabanBooster", 0 + ""));
+    }
+
     public static void SetGold(int gold)
     {
         SavePref("Gold", gold + "");

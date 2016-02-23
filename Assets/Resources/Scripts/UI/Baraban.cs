@@ -4,104 +4,90 @@ using System.Collections;
 
 public class Baraban : MonoBehaviour {
 
-    public GameObject arrow;
     public BarabanScore barabanScore;
 
     public Text reward;
 
-    public RawImage[] sectors = new RawImage[10];
+    //public RawImage[] sectors = new RawImage[10];
 
-    public Texture lightImage;
-    public Texture darkImage;
+    public Button startBarabanButton;
+    public Button boosterButton;
 
-    float chanse;
+    public Text bonusText;
 
-    const float BonusCost = 5;
-    const float StandartCost = 1;
+    public GameObject sectors;
+
+
+    const int BonusCost = 5;
+    const int StandartCost = 1;
 
     float timer;
     const int CoefScoreToMoney = 100;
 
     int tempReward;
     int fullReward;
+
+    Vector3 startScale;
+
     // Use this for initialization
     Library library;
 	void Start () {
         library = GameObject.FindObjectOfType<Library>();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        startBarabanButton.onClick.AddListener(delegate { UseBaraban(); startBarabanButton.gameObject.SetActive(false); boosterButton.gameObject.SetActive(false); });
+
+        startScale = new Vector3(bonusText.gameObject.transform.localScale.x, bonusText.gameObject.transform.localScale.y, bonusText.gameObject.transform.localScale.z);
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 
     public void UpdateSectors()
     {
-        if (library.mainBonus.IsAvailable())
-        {
-            chanse = (BonusCost+StandartCost)/10f;
+        sectors.GetComponent<BarabanSectorContainer>().ToDefault();
 
-            for(int i = 0; i < BonusCost + StandartCost ; i++)
-            {
-                sectors[i].texture = lightImage;
-            }
+     //   if (library.mainBonus.IsAvailable())
+      //      chanse = (BonusCost+StandartCost);
 
-            for (int i = (int)(BonusCost + StandartCost); i < sectors.Length; i++)
-            {
-                sectors[i].texture = darkImage;
-            }
-        }
-        else
-        {
-            chanse = StandartCost/10f;
+       // else
 
-            for (int i = 0; i < StandartCost; i++)
-            {
-                sectors[i].texture = lightImage;
-            }
 
-            for (int i = (int)(StandartCost); i < sectors.Length; i++)
-            {
-                sectors[i].texture = darkImage;
-            }
-        }
+        sectors.GetComponent<BarabanSectorContainer>().SetActiveElements(StandartCost);
+
     }
 
     void Rotate()
     {
-        arrow.transform.rotation = Quaternion.Euler(0, 0, 0);
+        int random = Random.Range(0, 10);
 
-        float random = Random.Range(0, 100) / 100f;
 
-        while (random % 0.1f < 0.01f && random % 0.1f > 0)
-        {
-            random = Random.Range(0, 100) / 100f;
-        }
+        float apX = sectors.GetComponent<RectTransform>().anchoredPosition.x;
+        float rectW = sectors.GetComponent<RectTransform>().rect.width;
 
-        iTween.RotateBy(arrow, 
-            iTween.Hash(
-                "delay",0.5f,
-                "z",-(4f + random),
-                "speed", 250,
-                "oncomplete", (System.Action<object>)(newVal => {
-                    if(random <= chanse)
-                        StartCoroutine(UpdatePoints(true));
-                    else
-                        StartCoroutine(UpdatePoints(false));
-                }),
-                "easetype", iTween.EaseType.easeOutCubic,
-                "oncompletetarget", gameObject
-            )
+        iTween.ValueTo(sectors,
+            iTween.Hash("from", apX,
+            "to", apX+rectW*4 - random * rectW/10f - rectW/10f/2f,
+             "speed", 400,
+            "onupdate", (System.Action<object>)(newVal => sectors.GetComponent<RectTransform>().anchoredPosition = new Vector2((float)newVal, sectors.GetComponent<RectTransform>().anchoredPosition.y)),
+
+             "oncomplete", (System.Action<object>)(newVal => {
+                 if(sectors.GetComponent<BarabanSectorContainer>().IsActive(random))
+                     StartCoroutine(UpdatePoints(true));
+                 else
+                     StartCoroutine(UpdatePoints(false));
+             }),
+
+         "easetype", iTween.EaseType.easeOutCubic,
+         "oncompletetarget", gameObject
+         )
         );
-    }
+ 
+         }
 
     public void UseBaraban()
     {
-        barabanScore.SetScore(library.fullScore.GetFullScore());
-        reward.text = "% 0";
-        UpdateSectors();
-
         Rotate();
     }
 
@@ -152,7 +138,7 @@ public class Baraban : MonoBehaviour {
             barabanScore.SetTempFullScore(tempFullScore);
 
             tempReward = (int)Mathf.Ceil((barabanScore.GetFullScore() - tempFullScore) / CoefScoreToMoney);
-            reward.text = "% "+tempReward;
+            reward.text = "^ "+tempReward;
 
 
 
@@ -171,4 +157,101 @@ public class Baraban : MonoBehaviour {
         library.canvasController.ShowEndMenu();
 
     }
+
+    public void ToDefault()
+    {
+        barabanScore.SetScore(library.fullScore.GetFullScore());
+        reward.text = "^ 0";
+
+        if(library.mainBonus.IsAvailable())
+            bonusText.text = "% "+(MainBonus.count+1);
+        else
+            bonusText.text = "% " + MainBonus.count;
+
+
+        UpdateSectors();
+
+
+        startBarabanButton.gameObject.SetActive(true);
+        boosterButton.gameObject.SetActive(true);
+
+        boosterButton.GetComponent<BarabanBoosterButton>().ToDefault();
+
+
+        if (library.mainBonus.IsAvailable())
+        {
+            StartCoroutine(UseBonus());
+            startBarabanButton.GetComponent<RawButton>().DisableButton();
+            boosterButton.GetComponent<RawButton>().DisableButton();
+        }
+    }
+
+
+    IEnumerator UseBonus()
+    {
+        yield return new WaitForSeconds(0.5f);
+        bonusText.text = "% " + (MainBonus.count);
+
+        iTween.ScaleTo(bonusText.gameObject,
+                iTween.Hash(
+                    "scale", StaticValues.maxScaleTextInMenu,
+                    "time", StaticValues.timeToScaleTextInMenu,
+                    "easetype", iTween.EaseType.easeOutCubic
+                    )
+             );
+
+        iTween.ScaleTo(bonusText.gameObject,
+         iTween.Hash(
+              "scale", startScale,
+              "delay", StaticValues.timeToScaleTextInMenu,
+              "time", StaticValues.timeToScaleTextInMenu,
+              "easetype", iTween.EaseType.easeInCubic,
+              "oncomplete", (System.Action<object>)(newVal => {
+                  ShowFiveBonus();
+              }),
+              "oncompletetarget", gameObject
+         )
+     );
+    }
+
+    void ShowFiveBonus()
+    {
+        ShowBonus(BonusCost);
+        startBarabanButton.GetComponent<RawButton>().EnableButton();
+        boosterButton.GetComponent<BarabanBoosterButton>().UpdateStatusButton();
+    }
+
+    public void ShowBonus(int count)
+    {
+        GameObject[] objects = sectors.GetComponent<BarabanSectorContainer>().SetActiveElements(count);
+
+
+        for (int i = 0; i < objects.Length; i++)
+        {
+            objects[i].transform.localScale = new Vector3(2f, 2f, 2f);
+
+            iTween.ScaleTo(objects[i],
+              iTween.Hash(
+                  "scale", new Vector3(1, 1, 1),
+                  "time", 0.45f,
+                  "easetype", iTween.EaseType.easeInCubic,
+                  "oncompletetarget", gameObject
+                  )
+               );
+        }
+        ShakeCamera();
+
+    }
+
+    void ShakeCamera()
+    {
+        iTween.ShakePosition(library.cam,
+            iTween.Hash(
+                "delay", 0.45f,
+                "amount", new Vector3(0.5f, 0.5f, 0.5f),
+                "time", 0.8f
+                )
+            );
+    }
+
 }

@@ -129,13 +129,15 @@
     </upgrades>
   </car>
   
-  <car name ="Shogun">
+  
+
+  <car name ="Pickup">
     <params>
       <param name="1">6</param>
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
-    <cost>60000</cost>
+    <cost>70000</cost>
     <upgrades>
       <upgrade name="1">
         <item name="1">100</item>
@@ -154,14 +156,14 @@
       </upgrade>
     </upgrades>
   </car>
-
-  <car name ="Pickup">
+  
+  <car name ="MSGT">
     <params>
       <param name="1">6</param>
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
-    <cost>70000</cost>
+    <cost>80000</cost>
     <upgrades>
       <upgrade name="1">
         <item name="1">100</item>
@@ -207,31 +209,7 @@
     </upgrades>
   </car>
 
-  <car name ="Huracan">
-    <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
-    </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
-  </car>
+ 
 
   <car name ="Lycan">
     <params>
@@ -285,13 +263,40 @@
     </upgrades>
   </car>
 
-<car name ="MSGT">
+
+ <car name ="Huracan">
     <params>
       <param name="1">6</param>
       <param name="2">6</param>
       <param name="3">6</param>
     </params>
     <cost>80000</cost>
+    <upgrades>
+      <upgrade name="1">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="2">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+      <upgrade name="3">
+        <item name="1">100</item>
+        <item name="2">200</item>
+        <item name="3">300</item>
+      </upgrade>
+    </upgrades>
+  </car>
+  
+<car name ="Shogun">
+    <params>
+      <param name="1">6</param>
+      <param name="2">6</param>
+      <param name="3">6</param>
+    </params>
+    <cost>60000</cost>
     <upgrades>
       <upgrade name="1">
         <item name="1">100</item>

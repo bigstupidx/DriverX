@@ -20,29 +20,31 @@ public class BarabanScore : MonoBehaviour {
     public Particle fireParticle;
     public Particle smokeParticle;
 
+    Vector3 startScale;
+
     // Use this for initialization
     void Start () {
         text = GetComponent<Text>();
-        redColor = Resources.Load("Font/font1") as Material;
-        blueColor = Resources.Load("Font/font2") as Material;
+      //  redColor = Resources.Load("Font/font1") as Material;
+     //   blueColor = Resources.Load("Font/font2") as Material;
 
         library = GameObject.FindObjectOfType<Library>();
-       
+        startScale = new Vector3( text.gameObject.transform.localScale.x, text.gameObject.transform.localScale.y, text.gameObject.transform.localScale.z);
     }
 	
     public void SetScore(int score)
     {
 
-        fireParticle.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+     //   fireParticle.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
 
-        smokeParticle.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+ //       smokeParticle.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
 
-        if (!fireParticle.GetParticle().loop)
-            fireParticle.PlayLoop();
+  //      if (!fireParticle.GetParticle().loop)
+  //          fireParticle.PlayLoop();
 
         this.score = score;
         text.text = score+"";
-        text.material = redColor;
+      //  text.material = redColor;
     }
 
     public void AddCoef()
@@ -53,23 +55,21 @@ public class BarabanScore : MonoBehaviour {
 
         tempFullScore = fullScore;
 
-        float delay = 0.1f;
 
-        Vector3 scale = text.transform.localScale;
 
         iTween.ScaleTo(text.gameObject,
           iTween.Hash(
-              "scale",new Vector3(1,1,1),
-              "time", delay,
+              "scale",StaticValues.maxScaleTextInMenu,
+              "time", StaticValues.timeToScaleTextInMenu,
               "easetype", iTween.EaseType.easeOutCubic
           )
       );
 
         iTween.ScaleTo(text.gameObject,
          iTween.Hash(
-              "scale", new Vector3(0.52f,0.52f,0.52f),
-             "delay", delay,
-             "time", delay,
+              "scale", startScale,
+             "delay", StaticValues.timeToScaleTextInMenu,
+             "time", StaticValues.timeToScaleTextInMenu,
              "easetype", iTween.EaseType.easeInCubic
          )
      );
@@ -80,10 +80,10 @@ public class BarabanScore : MonoBehaviour {
 	public IEnumerator ShowCoefSum()
     {
         yield return new WaitForSeconds(2);
-        fireParticle.StopLoop();
-        smokeParticle.GetParticle().Play();
+    //    fireParticle.StopLoop();
+      //  smokeParticle.GetParticle().Play();
 
-        text.material = blueColor;
+   //     text.material = blueColor;
 
         text.text = fullScore + "";
 
@@ -93,10 +93,10 @@ public class BarabanScore : MonoBehaviour {
     public IEnumerator ShowNoCoefSum()
     {
         yield return new WaitForSeconds(1);
-        fireParticle.StopLoop();
-        smokeParticle.GetParticle().Play();
+      //  fireParticle.StopLoop();
+      //  smokeParticle.GetParticle().Play();
 
-        text.material = blueColor;
+    //    text.material = blueColor;
 
         fullScore = score;
 

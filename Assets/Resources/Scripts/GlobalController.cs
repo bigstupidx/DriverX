@@ -16,12 +16,15 @@ public class GlobalController : MonoBehaviour {
 
         
         SetToDefault();
+
+        Bank.PlusBarabanBooster(2);
 	}
 	
 	public void SetToDefault()
     {
         gs = GameState.WaitForStart;
 
+        library.mainBonus.UpdateState();
         library.mainBonus.MinusItem();
         library.secondCamera.SetActive(false);
 

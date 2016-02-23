@@ -8,6 +8,8 @@ public class CanvasController : MonoBehaviour {
     PauseMenu pauseMenu;
     Baraban baraban;
     EndMenu endMenu;
+
+    public RectTransform rt;
 	// Use this for initialization
 	void Start ()  {
         gameUI = GameObject.FindObjectOfType<GameUI>();
@@ -21,7 +23,6 @@ public class CanvasController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
     public void ShowGameUI()
@@ -66,7 +67,8 @@ public class CanvasController : MonoBehaviour {
         HideGameUI();
         HideInput();
         baraban.gameObject.SetActive(true);
-        baraban.UseBaraban();
+        baraban.ToDefault();
+        //baraban.UseBaraban();
     }
 
     public void HideBaraban()
@@ -100,6 +102,8 @@ public class CanvasController : MonoBehaviour {
     {
         return baraban;
     }
+
+
 
 
 }

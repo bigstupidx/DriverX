@@ -13,6 +13,8 @@ public class MainBonus : MonoBehaviour {
     DateTime lastDateTime;
     TimeSpan subtractTime;
 
+    bool isAvail;
+
     public const int RecoveryTime = 1800;
 
     // Use this for initialization
@@ -22,38 +24,23 @@ public class MainBonus : MonoBehaviour {
         subtractTime = new TimeSpan();
     }
 
-    void Update()
+    public void Update()
     {
-        DateTime nowTime = System.DateTime.Now;
 
-        subtractTime = nowTime.Subtract(lastDateTime);
-
-        if (subtractTime.TotalSeconds > RecoveryTime)
-        {
-            if (MainBonus.count < MainBonus.MaxValue)
-            {
-                AddItem((int)Mathf.Floor((float)subtractTime.TotalSeconds / RecoveryTime));
-
-                lastDateTime = nowTime-TimeSpan.FromSeconds((float)subtractTime.TotalSeconds % RecoveryTime);
-
-                PreferencesSaver.SaveMainBonusTime(lastDateTime);
-            }
-        }
-
+        UpdateState();
     }
 
     public bool IsAvailable()
     {
-        if (count > 0)
-            return true;
-        else
-            return false;
+
+        return isAvail;
     }
 
     public void MinusItem()
     {
         if (count > 0)
         {
+            isAvail = true;
             if (count == MaxValue)
             {
                 DateTime nowTime = System.DateTime.Now;
@@ -63,8 +50,10 @@ public class MainBonus : MonoBehaviour {
 
             count--;
             PreferencesSaver.SetMainBonus(count);
-           
+
         }
+        else
+            isAvail = false;
     }
 
     public void AddItem(int col)
@@ -102,4 +91,23 @@ public class MainBonus : MonoBehaviour {
         return subtractTime.Seconds;
     }
 
+    public void UpdateState()
+    {
+        DateTime nowTime = System.DateTime.Now;
+
+        subtractTime = nowTime.Subtract(lastDateTime);
+
+        if (subtractTime.TotalSeconds > RecoveryTime)
+        {
+            if (MainBonus.count < MainBonus.MaxValue)
+            {
+                AddItem((int)Mathf.Floor((float)subtractTime.TotalSeconds / RecoveryTime));
+
+                lastDateTime = nowTime - TimeSpan.FromSeconds((float)subtractTime.TotalSeconds % RecoveryTime);
+
+                PreferencesSaver.SaveMainBonusTime(lastDateTime);
+            }
+        }
+
+    }
 }
