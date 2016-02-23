@@ -24,7 +24,7 @@ public class CarCreator : MonoBehaviour {
 
         GameObject GO;
         if (carParametres == null)
-            GO = Instantiate(Resources.Load("Prefabs/Cars/MK2")) as GameObject;
+            GO = Instantiate(Resources.Load("Prefabs/Cars/Pickup")) as GameObject;
         else
             GO = Instantiate(Resources.Load("Prefabs/Cars/" + carParametres.GetName())) as GameObject;
 

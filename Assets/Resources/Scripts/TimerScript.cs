@@ -15,7 +15,7 @@ public class TimerScript : MonoBehaviour {
 
     public void ToDefault()
     {
-        timeLeft = 5;//Info.GetLevelInfo(StaticValues.NumLevel).GetTime();
+        timeLeft = Info.GetLevelInfo(StaticValues.NumLevel).GetTime();
         isShow = false;
     }
 	
