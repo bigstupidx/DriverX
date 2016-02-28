@@ -47,7 +47,7 @@ public class Power : MonoBehaviour {
 
                }
 
-               int upgradeCost = carParametres.GetUpgradeCost(type, valSecond + 1);
+               int upgradeCost = carParametres.GetUpgradeCost(valSecond + 1);
 
 
                buttonOk.onClick.AddListener(

@@ -14,17 +14,14 @@ public class CarCreator : MonoBehaviour {
 	
     public void UpdateCar()
     {
-        //Debug.Log(StaticValues.NumCar);
         CarParametres carParametres = CarsInfo.GetCarInfo(StaticValues.NumCar);
-
-
 
         if (library.car != null)
             Destroy(library.car);
 
         GameObject GO;
         if (carParametres == null)
-            GO = Instantiate(Resources.Load("Prefabs/Cars/Pickup")) as GameObject;
+            GO = Instantiate(Resources.Load("Prefabs/Cars/HemiFox")) as GameObject;
         else
             GO = Instantiate(Resources.Load("Prefabs/Cars/" + carParametres.GetName())) as GameObject;
 

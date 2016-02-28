@@ -6,313 +6,147 @@
       <param name="3">1</param>
     </params>
     <cost>10000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <level>1</level>
+    <minspeed>1</minspeed>
+    <type>main</type>
+  </car>
+  
+  <car name ="Shogun">
+    <params>
+      <param name="1">2</param>
+      <param name="2">1</param>
+      <param name="3">2</param>
+    </params>
+    <cost>1</cost>
+    <level>1</level>
+    <minspeed>1</minspeed>
+    <type>bonus</type>
   </car>
 
   <car name ="MK2">  
     <params>
       <param name="1">2</param>
       <param name="2">2</param>
-      <param name="3">2</param>
+      <param name="3">1</param>
     </params>
     <cost>20000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <level>2</level>
+    <minspeed>2</minspeed>
+    <type>main</type>
   </car>
   
   <car name ="Sandking">
     <params>
-      <param name="1">3</param>
-      <param name="2">3</param>
-      <param name="3">3</param>
+      <param name="1">2</param>
+      <param name="2">1</param>
+      <param name="3">2</param>
     </params>
-  <cost>30000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>20000</cost>
+    <level>2</level>
+    <minspeed>2</minspeed>
+    <type>main</type>
   </car>
 
  <car name ="TTS">
     <params>
-      <param name="1">4</param>
-      <param name="2">4</param>
-      <param name="3">4</param>
+      <param name="1">2</param>
+      <param name="2">3</param>
+      <param name="3">2</param>
     </params>
-    <cost>40000</cost>
-   <upgrades>
-     <upgrade name="1">
-       <item name="1">100</item>
-       <item name="2">200</item>
-       <item name="3">300</item>
-     </upgrade>
-     <upgrade name="2">
-       <item name="1">100</item>
-       <item name="2">200</item>
-       <item name="3">300</item>
-     </upgrade>
-     <upgrade name="3">
-       <item name="1">100</item>
-       <item name="2">200</item>
-       <item name="3">300</item>
-     </upgrade>
-   </upgrades>
+    <cost>30000</cost>
+    <level>3</level>
+    <minspeed>2</minspeed>
+    <type>main</type>
  </car>
 
   <car name ="MUST">
     <params>
-      <param name="1">5</param>
-      <param name="2">5</param>
-      <param name="3">5</param>
+      <param name="1">3</param>
+      <param name="2">2</param>
+      <param name="3">2</param>
     </params>
-    <cost>50000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>30000</cost>
+    <level>3</level>
+    <minspeed>2</minspeed>
+    <type>main</type>
   </car>
   
   
 
   <car name ="Pickup">
     <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
+      <param name="1">3</param>
+      <param name="2">3</param>
+      <param name="3">3</param>
     </params>
-    <cost>70000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>40000</cost>
+    <level>4</level>
+    <minspeed>3</minspeed>
+    <type>main</type>
   </car>
   
-  <car name ="MSGT">
+   <car name ="M4">
     <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
+      <param name="1">4</param>
+      <param name="2">2</param>
+      <param name="3">3</param>
     </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>40000</cost>
+    <level>4</level>
+    <minspeed>3</minspeed>
+    <type>main</type>
   </car>
-
+  
   <car name ="Hummer">
     <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
+      <param name="1">4</param>
+      <param name="2">4</param>
+      <param name="3">3</param>
     </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>50000</cost>
+    <level>5</level>
+    <minspeed>4</minspeed>
+    <type>main</type>
   </car>
 
  
-
-  <car name ="Lycan">
+  <car name ="MSGT">
     <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
+      <param name="1">5</param>
+      <param name="2">3</param>
+      <param name="3">3</param>
     </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
-  </car>
-
- <car name ="M4">
-    <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
-    </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <cost>50000</cost>
+    <level>5</level>
+    <minspeed>4</minspeed>
+    <type>main</type>
   </car>
 
 
  <car name ="Huracan">
     <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
-    </params>
-    <cost>80000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
-  </car>
-  
-<car name ="Shogun">
-    <params>
-      <param name="1">6</param>
-      <param name="2">6</param>
-      <param name="3">6</param>
+      <param name="1">5</param>
+      <param name="2">5</param>
+      <param name="3">3</param>
     </params>
     <cost>60000</cost>
-    <upgrades>
-      <upgrade name="1">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="2">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-      <upgrade name="3">
-        <item name="1">100</item>
-        <item name="2">200</item>
-        <item name="3">300</item>
-      </upgrade>
-    </upgrades>
+    <level>6</level>
+    <minspeed>5</minspeed>
+    <type>main</type>
   </car>
+  
+    <car name ="Lycan">
+    <params>
+      <param name="1">5</param>
+      <param name="2">3</param>
+      <param name="3">5</param>
+    </params>
+    <cost>60000</cost>
+    <level>6</level>
+    <minspeed>5</minspeed>
+    <type>main</type>
+  </car>
+
+
+
 </items>

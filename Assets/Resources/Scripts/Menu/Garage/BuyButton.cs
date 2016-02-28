@@ -35,4 +35,9 @@ public class BuyButton : MenuButton {
         }
 
         }
+
+    public void SetPrice(int val)
+    {
+        price.text = "^ " + val + "";
+    }
 }

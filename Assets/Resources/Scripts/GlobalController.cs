@@ -14,10 +14,8 @@ public class GlobalController : MonoBehaviour {
 	void Start () {
         library = GetComponent<Library>();
 
-        
         SetToDefault();
 
-        Bank.PlusBarabanBooster(2);
 	}
 	
 	public void SetToDefault()

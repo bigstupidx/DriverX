@@ -5,7 +5,7 @@ using System.Collections;
 public class MoneyBar : MonoBehaviour {
 
     public Text money;
-    public Text gold;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +15,6 @@ public class MoneyBar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-
-        gold.text = Bank.GetGold() + "";
-        money.text = Bank.GetMoney() + "";
+       money.text = "^ "+ Bank.GetMoney() + "";
 	}
 }

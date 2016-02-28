@@ -143,6 +143,16 @@ public class PreferencesSaver : MonoBehaviour {
         SavePref("LastTimeMainBonus", dateTime.ToString());        
     }
 
+    public static void UserJoinInGroupVK()
+    {
+        SavePref("UserJoinInGroupVK","true");
+    }
+
+    public static bool IsUserJoinInGroupVK()
+    {
+        return bool.Parse(GetPref("UserJoinInGroupVK", "false"));
+    }
+
     public static DateTime GetMainBonusTime()
     {
         try

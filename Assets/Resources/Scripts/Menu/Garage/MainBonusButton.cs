@@ -17,7 +17,7 @@ public class MainBonusButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        count.text = MainBonus.count + "";
+        count.text = "% "+ MainBonus.count + "";
 
 
         if (MainBonus.MaxValue == MainBonus.count)

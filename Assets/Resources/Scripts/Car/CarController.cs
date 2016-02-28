@@ -103,10 +103,10 @@ public class CarController : MonoBehaviour
 
         rideEffect = transform.FindChild("Particles").FindChild("RideEffect").GetComponent<Particle>();
 
-
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
 
-        m_Topspeed += library.carUserParametres.speed/(float) CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
+        m_Topspeed += (3+(library.carUserParametres.speed-library.carUserParametres.minSpeed)*2) /(float) CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
+
 
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
@@ -242,7 +242,9 @@ public class CarController : MonoBehaviour
 
         //Set the steer on the front wheels.
         //Assuming that wheels 0 and 1 are the front wheels.
-        m_SteerAngle = steering*(1-(CurrentSpeed*library.carUserParametres.controllability/16)/MaxSpeed)*m_MaximumSteerAngle;
+        m_SteerAngle = steering*
+            (1- /*((3 + (library.carUserParametres.controllability - library.carUserParametres.minSpeed) * 2)/16) * */(CurrentSpeed*0.6f) / MaxSpeed)
+            *m_MaximumSteerAngle;
         m_WheelColliders[0].steerAngle = m_SteerAngle;
         m_WheelColliders[1].steerAngle = m_SteerAngle;
 
@@ -296,7 +298,7 @@ public class CarController : MonoBehaviour
 
         speed *= 2.23693629f;
 
-                
+
 
         if (speed > m_Topspeed)
         {

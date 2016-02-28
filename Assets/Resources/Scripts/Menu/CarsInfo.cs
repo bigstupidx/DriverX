@@ -36,26 +36,20 @@ public class CarsInfo : MonoBehaviour {
 
             int cost = int.Parse(node.ChildNodes[1].InnerText);
 
+            int level = int.Parse(node.ChildNodes[2].InnerText);
+            int minSpeed = int.Parse(node.ChildNodes[3].InnerText);
 
-            int[,] upgradeCost = new int[3, 3];
+            bool isBonus = false;
 
-            int i = 0;
-
-
-            foreach (XmlNode childNode in node.ChildNodes[2])
+            switch (node.ChildNodes[4].InnerText)
             {
-
-                int num = int.Parse(childNode.Attributes["name"].Value);
-
-                i = 0;
-                foreach (XmlNode item in childNode)
-                {
-                    upgradeCost[num - 1, i++] = int.Parse(item.InnerText);
-                }
+                case "main": isBonus = false; break;
+                case "bonus": isBonus = true; break;
 
             }
 
-            CarParametres carParametres = new CarParametres(obj.Count, node.Attributes["name"].Value, param, cost, upgradeCost);
+
+            CarParametres carParametres = new CarParametres(obj.Count, node.Attributes["name"].Value, param, cost, level,minSpeed,isBonus);
 
             obj.Add(carParametres);
         }

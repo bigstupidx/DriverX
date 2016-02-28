@@ -11,14 +11,25 @@ public class CarParametres {
 
     int cost;
 
-    int[,] upgradeCost = new int[3,3];
+    int[] upgradeCost = new int[3];
 
-	public CarParametres (int numCar, string name, int[] param, int cost, int[,] upgradeCost) {
+    int level;
+    int minSpeed;
+    bool isBonus;
+
+	public CarParametres (int numCar, string name, int[] param, int cost, int level, int minSpeed, bool isBonus) {
         this.name = name;
         this.numCar = numCar;
         this.param = param;
         this.cost = cost;
-        this.upgradeCost = upgradeCost;
+        this.level = level;
+        this.minSpeed = minSpeed;
+        this.isBonus = isBonus;
+
+        upgradeCost[0] = cost/2;
+        upgradeCost[1] = cost / 2 * 3;
+        upgradeCost[2] = cost / 2 * 6;
+
 	}
 	
     public string GetName()
@@ -51,8 +62,23 @@ public class CarParametres {
         return cost;
     }
 
-    public int GetUpgradeCost(int numParam, int numLevel)
+    public int GetUpgradeCost(int numParam)
     {
-        return upgradeCost[numParam-1, numLevel-1];
+        return upgradeCost[numParam-1];
+    }
+
+    public int GetMinSpeed()
+    {
+        return minSpeed;
+    }
+
+    public int GetLevelCar()
+    {
+        return level;
+    }
+
+    public bool IsBonus()
+    {
+        return isBonus;
     }
 }

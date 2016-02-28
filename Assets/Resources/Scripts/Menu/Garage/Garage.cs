@@ -10,6 +10,8 @@ public class Garage : MonoBehaviour {
     public Button buyButton;
     public Button playButton;
 
+    public GameObject enterVk;
+
     public Filling filling;
 
 	// Use this for initialization
@@ -31,14 +33,21 @@ public class Garage : MonoBehaviour {
 
     public void ShowBuyButton(int val)
     {
+        enterVk.SetActive(false);
         buyButton.gameObject.SetActive(true);
-        buyButton.GetComponent<BuyButton>().price.text = val + "";
-
+        buyButton.GetComponent<BuyButton>().SetPrice(val);
     }
 
-   public void HideBuyButton()
+    public void ShowEnterVkButton()
     {
         buyButton.gameObject.SetActive(false);
+        enterVk.SetActive(true);
+    }
+
+    public void HideBuyAndVkButton()
+    {
+        buyButton.gameObject.SetActive(false);
+        enterVk.SetActive(false);
     }
 
     public void ShowPlayButton()

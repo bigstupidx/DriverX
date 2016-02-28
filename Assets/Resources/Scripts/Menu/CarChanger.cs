@@ -138,13 +138,21 @@ public class CarChanger : MonoBehaviour {
 
         if (!isOpen)
         {
-            libraryMenu.garage.ShowBuyButton(carParametres.GetCost());
+            if (!carParametres.IsBonus())
+            {
+                libraryMenu.garage.ShowBuyButton(carParametres.GetCost());
+            }
+            else
+            {
+                libraryMenu.garage.ShowEnterVkButton();
+            }
+          
             libraryMenu.garage.HidePlayButton();
             libraryMenu.garage.HideSecondPower();
         }
         else
         {
-            libraryMenu.garage.HideBuyButton();
+            libraryMenu.garage.HideBuyAndVkButton();
             libraryMenu.garage.ShowPlayButton();
             libraryMenu.garage.ShowSecondPower();
         }

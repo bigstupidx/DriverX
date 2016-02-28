@@ -13,18 +13,25 @@ public class Poddon : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider collider)
     {
+        if (!collider.tag.Equals("Ground"))
         isCollide = true;
+        
     }
 
     void OnTriggerStay(Collider collider)
     {
-        isCollide = true;
+        if (!collider.tag.Equals("Ground"))
+
+            isCollide = true;
+
     }
 
     void OnTriggerExit(Collider collider)
     {
         isCollide = false;
         time = 0;
+
+
     }
 
     void Update()
