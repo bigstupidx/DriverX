@@ -27,6 +27,7 @@ public class CraneDrop : MonoBehaviour
         Destroy(GetComponent<Collider>());
 
         StartCoroutine(HideCamera());
+        StartCoroutine(StopPlane());
     }
 
     IEnumerator HideCamera()
@@ -35,6 +36,12 @@ public class CraneDrop : MonoBehaviour
         library.secondCamera.SetActive(false);
         Destroy(round.gameObject);
 
+    }
+
+    IEnumerator StopPlane()
+    {
+        yield return new WaitForSeconds(5f);
+        plane.GetComponent<Rigidbody>().isKinematic = true;
     }
 
 }
