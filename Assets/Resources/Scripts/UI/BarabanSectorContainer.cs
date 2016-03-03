@@ -48,9 +48,9 @@ public class BarabanSectorContainer : MonoBehaviour {
         {
             int random = Random.Range(0, 10);
 
-            if (!sectors[random].gameObject.activeSelf)
+            if (!sectors[random].GetComponent<BarabanSector>().IsActive())
             {
-                sectors[random].gameObject.SetActive(true);
+                sectors[random].gameObject.GetComponent<BarabanSector>().Activate();
                 objects[i] = sectors[random].gameObject;
                 i++;
                 curCount--;
@@ -66,15 +66,15 @@ public class BarabanSectorContainer : MonoBehaviour {
 
     public void UnSelectAll()
     {
-        foreach (Transform child in transform)
+        for (int i = 0; i < sectors.Length; i++)
         {
-            child.gameObject.SetActive(false);
+            sectors[i].GetComponent<BarabanSector>().Deactive();
         }
     }
 
     public bool IsActive(int num)
     {
-        if (sectors[num].gameObject.activeSelf)
+        if (sectors[num].GetComponent<BarabanSector>().IsActive())
             return true;
         else
             return false;
@@ -98,7 +98,7 @@ public class BarabanSectorContainer : MonoBehaviour {
 
         for (int i = 0; i < sectors.Length; i++)
         {
-            val = val & sectors[i].gameObject.activeSelf;
+            val = val & sectors[i].GetComponent<BarabanSector>().IsActive();
         }
 
         return val;

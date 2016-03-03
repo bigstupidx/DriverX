@@ -228,9 +228,10 @@ public class Baraban : MonoBehaviour {
 
         for (int i = 0; i < objects.Length; i++)
         {
-            objects[i].transform.localScale = new Vector3(2f, 2f, 2f);
+            GameObject img = objects[i].GetComponent<BarabanSector>().numImg;
+            img.transform.localScale = new Vector3(2f, 2f, 2f);
 
-            iTween.ScaleTo(objects[i],
+            iTween.ScaleTo(img,
               iTween.Hash(
                   "scale", new Vector3(1, 1, 1),
                   "time", 0.45f,

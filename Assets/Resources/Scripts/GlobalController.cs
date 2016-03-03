@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GlobalController : MonoBehaviour {
@@ -86,6 +87,8 @@ public class GlobalController : MonoBehaviour {
     public void TimerIsEnd()
     {
         gs = GameState.WaitForStay;
+
+        library.canvasController.ShowTimeIsOver();
         StartCoroutine(CheckIsStay());
 
     }

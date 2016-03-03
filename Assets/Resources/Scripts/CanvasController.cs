@@ -8,8 +8,9 @@ public class CanvasController : MonoBehaviour {
     PauseMenu pauseMenu;
     Baraban baraban;
     EndMenu endMenu;
-
-    public RectTransform rt;
+    public GameObject timeIsOver;
+    Library library;
+  
 	// Use this for initialization
 	void Start ()  {
         gameUI = GameObject.FindObjectOfType<GameUI>();
@@ -17,6 +18,8 @@ public class CanvasController : MonoBehaviour {
         pauseMenu = GameObject.FindObjectOfType<PauseMenu>();
         baraban = GameObject.FindObjectOfType<Baraban>();
         endMenu = GameObject.FindObjectOfType<EndMenu>();
+
+        library = GameObject.FindObjectOfType<Library>();
 
         ToDefault();
 	}
@@ -66,6 +69,7 @@ public class CanvasController : MonoBehaviour {
     {
         HideGameUI();
         HideInput();
+        HideTimeIsOver();
         baraban.gameObject.SetActive(true);
         baraban.ToDefault();
         //baraban.UseBaraban();
@@ -96,6 +100,7 @@ public class CanvasController : MonoBehaviour {
         HideBaraban();
         HidePauseMenu();
         HideEndMenu();
+        timeIsOver.SetActive(false);
     }
 
     public Baraban GetBaraban()
@@ -104,6 +109,39 @@ public class CanvasController : MonoBehaviour {
     }
 
 
+    public void ShowTimeIsOver()
+    {
+        timeIsOver.SetActive(true);
+        timeIsOver.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
 
+        iTween.ScaleTo(timeIsOver.gameObject,
+         iTween.Hash(
+             "scale", new Vector3(1, 1, 1),
+             "time", 0.45f,
+             /* "onstart", (System.Action<object>)(newVal => logo1.color = new Color(logo1.color.r, logo1.color.g, logo1.color.b, 1)),*/
+             "easetype", iTween.EaseType.easeInCubic,
+             "oncomplete", "ShakeCamera",
+             "oncompletetarget", gameObject
+             )
+          );
+    }
+
+    void ShakeCamera()
+    {
+        /*
+        iTween.ShakePosition(library.cam,
+            iTween.Hash(
+                "amount", new Vector3(0.5f, 0.5f, 0.5f),
+                "time", 0.8f
+                )
+            );*/
+        EZCameraShake.CameraShakeInstance c = EZCameraShake.CameraShaker.Instance.ShakeOnce(2, 15, 0.1f, 1f);
+
+    }
+
+    public void HideTimeIsOver()
+    {
+        timeIsOver.SetActive(false);
+    }
 
 }
