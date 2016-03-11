@@ -74,7 +74,7 @@ public class KAController : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
 
-        AsyncOperation async = Application.LoadLevelAsync("a1");
+        AsyncOperation async = Application.LoadLevelAsync("a123");
        
         yield return async; 
     }

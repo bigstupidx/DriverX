@@ -166,6 +166,16 @@ public class PreferencesSaver : MonoBehaviour {
 
     }
 
+    public static void SetPurchaseComplete()
+    {
+        SavePref("PurchaseComplete", "true");
+    }
+
+    public static bool PurchaseIsComplete()
+    {       
+        return bool.Parse(GetPref("PurchaseComplete", "false"));
+
+    }
     private static void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);

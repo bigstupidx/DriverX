@@ -8,6 +8,8 @@ public class Bank{
 
     static int barabanBooster = PreferencesSaver.GetBarabanBooster();
 
+    
+
     public static int GetGold()
     {
         return gold;
@@ -22,6 +24,7 @@ public class Bank{
     {
         return barabanBooster;
     } 
+
 
     public static void PlusGold(int m_gold)
     {

@@ -5,7 +5,7 @@
       <param name="2">1</param>
       <param name="3">1</param>
     </params>
-    <cost>10000</cost>
+    <cost>1000</cost>
     <level>1</level>
     <minspeed>1</minspeed>
     <type>main</type>
@@ -29,7 +29,7 @@
       <param name="2">2</param>
       <param name="3">1</param>
     </params>
-    <cost>20000</cost>
+    <cost>2000</cost>
     <level>2</level>
     <minspeed>2</minspeed>
     <type>main</type>
@@ -41,7 +41,7 @@
       <param name="2">1</param>
       <param name="3">2</param>
     </params>
-    <cost>20000</cost>
+    <cost>2000</cost>
     <level>2</level>
     <minspeed>2</minspeed>
     <type>main</type>
@@ -53,7 +53,7 @@
       <param name="2">3</param>
       <param name="3">2</param>
     </params>
-    <cost>30000</cost>
+    <cost>3000</cost>
     <level>3</level>
     <minspeed>2</minspeed>
     <type>main</type>
@@ -65,7 +65,7 @@
       <param name="2">2</param>
       <param name="3">2</param>
     </params>
-    <cost>30000</cost>
+    <cost>3000</cost>
     <level>3</level>
     <minspeed>2</minspeed>
     <type>main</type>
@@ -79,7 +79,7 @@
       <param name="2">3</param>
       <param name="3">3</param>
     </params>
-    <cost>40000</cost>
+    <cost>4000</cost>
     <level>4</level>
     <minspeed>3</minspeed>
     <type>main</type>
@@ -91,7 +91,7 @@
       <param name="2">2</param>
       <param name="3">3</param>
     </params>
-    <cost>40000</cost>
+    <cost>4000</cost>
     <level>4</level>
     <minspeed>3</minspeed>
     <type>main</type>
@@ -103,7 +103,7 @@
       <param name="2">4</param>
       <param name="3">3</param>
     </params>
-    <cost>50000</cost>
+    <cost>5000</cost>
     <level>5</level>
     <minspeed>4</minspeed>
     <type>main</type>
@@ -116,7 +116,7 @@
       <param name="2">3</param>
       <param name="3">3</param>
     </params>
-    <cost>50000</cost>
+    <cost>5000</cost>
     <level>5</level>
     <minspeed>4</minspeed>
     <type>main</type>
@@ -129,7 +129,7 @@
       <param name="2">5</param>
       <param name="3">3</param>
     </params>
-    <cost>60000</cost>
+    <cost>6000</cost>
     <level>6</level>
     <minspeed>5</minspeed>
     <type>main</type>
@@ -141,7 +141,7 @@
       <param name="2">3</param>
       <param name="3">5</param>
     </params>
-    <cost>60000</cost>
+    <cost>6000</cost>
     <level>6</level>
     <minspeed>5</minspeed>
     <type>main</type>

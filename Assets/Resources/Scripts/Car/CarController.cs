@@ -242,9 +242,8 @@ public class CarController : MonoBehaviour
 
         //Set the steer on the front wheels.
         //Assuming that wheels 0 and 1 are the front wheels.
-        m_SteerAngle = steering*
-            (1- /*((3 + (library.carUserParametres.controllability - library.carUserParametres.minSpeed) * 2)/16) * */(CurrentSpeed*0.6f) / MaxSpeed)
-            *m_MaximumSteerAngle;
+        m_SteerAngle = steering *
+            (1 - ((library.carUserParametres.controllability - library.carUserParametres.speed) * 0.1f + (CurrentSpeed * 0.55f) / MaxSpeed)) * m_MaximumSteerAngle;
         m_WheelColliders[0].steerAngle = m_SteerAngle;
         m_WheelColliders[1].steerAngle = m_SteerAngle;
 

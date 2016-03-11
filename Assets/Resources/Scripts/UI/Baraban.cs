@@ -27,6 +27,8 @@ public class Baraban : MonoBehaviour {
     int tempReward;
     int fullReward;
 
+    bool isWinBaraban;
+
     Vector3 startScale;
 
     // Use this for initialization
@@ -61,7 +63,7 @@ public class Baraban : MonoBehaviour {
     void Rotate()
     {
         int random = Random.Range(0, 10);
-
+        isWinBaraban = sectors.GetComponent<BarabanSectorContainer>().IsActive(random);
 
         float apX = sectors.GetComponent<RectTransform>().anchoredPosition.x;
         float rectW = sectors.GetComponent<RectTransform>().rect.width;
@@ -73,10 +75,8 @@ public class Baraban : MonoBehaviour {
             "onupdate", (System.Action<object>)(newVal => sectors.GetComponent<RectTransform>().anchoredPosition = new Vector2((float)newVal, sectors.GetComponent<RectTransform>().anchoredPosition.y)),
 
              "oncomplete", (System.Action<object>)(newVal => {
-                 if(sectors.GetComponent<BarabanSectorContainer>().IsActive(random))
-                     StartCoroutine(UpdatePoints(true));
-                 else
-                     StartCoroutine(UpdatePoints(false));
+                     StartCoroutine(UpdatePoints(isWinBaraban));
+                 
              }),
 
          "easetype", iTween.EaseType.easeOutCubic,
@@ -154,6 +154,10 @@ public class Baraban : MonoBehaviour {
         yield return new WaitForSeconds(2f);
 
         library.globalController.gs = GlobalController.GameState.RetryMenu;
+
+        if(isWinBaraban)
+            MainPointInProject.ShowStaticAd();
+
         library.canvasController.ShowEndMenu();
 
     }

@@ -83,7 +83,10 @@ public class CanvasController : MonoBehaviour {
     public void ShowEndMenu()
     {
         HideBaraban();
+
         pauseMenu.gameObject.SetActive(true);
+
+
         pauseMenu.OpenEndMenu();
     }
 
