@@ -34,7 +34,7 @@ public class CraneDrop : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
         library.secondCamera.SetActive(false);
-        Destroy(round.gameObject);
+      //  Destroy(round.gameObject);
 
     }
 
@@ -42,6 +42,7 @@ public class CraneDrop : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         plane.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(round.gameObject);
     }
 
 }

@@ -4,27 +4,26 @@
 		_MainTex1 			("Texture 1 (RGB)", 2D) = "white" {} 
 		_BumpMap1 			("Bumpmap 1 (RGB)", 2D) = "bump" {}
 		_MainTex2 			("Texture 2 (RGB)", 2D) = "white" {}  
-		_BumpMap2 			("Bumpmap 1 (RGB)", 2D) = "bump" {}
+		_BumpMap2 			("Bumpmap 2 (RGB)", 2D) = "bump" {}
     }
     SubShader {
 		
       Tags { "RenderType" = "Opaque" }
       CGPROGRAM
-      #pragma surface surf BlinnPhong vertex:vert 
-	  #pragma target 3.0	    				   
-	  #pragma target 3.0	    
+      #pragma surface surf Lambert vertex:vert 
 	  
 		struct Input {
 		  
 			float2 uv_MainTex1 		: TEXCOORD0;
 			float2 uv_MainTex2 		: TEXCOORD1;
 			
-			float4 color			: TEXCOORD3;
+			float4 color			: COLOR;
 			
 		};
 		
 		void vert (inout appdata_full v, out Input o) {
-			
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+
 			o.color = (v.color);
 			
       }

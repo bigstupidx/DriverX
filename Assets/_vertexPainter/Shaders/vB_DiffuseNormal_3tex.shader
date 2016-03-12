@@ -13,7 +13,6 @@
       Tags { "RenderType" = "Opaque" }
       CGPROGRAM
       #pragma surface surf Lambert vertex:vert 
-	  #pragma target 3.0	    
 	  
 		struct Input {
 		  
@@ -21,12 +20,13 @@
 			float2 uv_MainTex2 		: TEXCOORD1;
 			float2 uv_MainTex3		: TEXCOORD2;
 			
-			float4 color			: TEXCOORD3;
+			float4 color			: COLOR;
 			
 		};
 		
 		void vert (inout appdata_full v, out Input o) {
-			
+			UNITY_INITIALIZE_OUTPUT(Input, o);
+
 			o.color = (v.color);
 			
       }
@@ -55,5 +55,5 @@
       ENDCG
 
 	} 
-FallBack "Diffuse"
+		FallBack "Mobile/Diffuse"
   }
