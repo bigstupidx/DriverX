@@ -32,15 +32,21 @@ public class CarContact : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         UpdateDirection();
     }
 
     private void UpdateDirection()
     {
-        dir = (transform.position - lastPos).normalized;
-        lastPos = transform.position;
+        if (library.globalController.gs == GlobalController.GameState.Ride)
+        {
+            Vector3 temp = (transform.position - lastPos).normalized;
+            if (temp != Vector3.zero)
+                dir = temp;
+
+            lastPos = transform.position;
+        }
     }
 
 

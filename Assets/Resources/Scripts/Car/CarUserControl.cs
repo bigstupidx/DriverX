@@ -68,8 +68,8 @@ public class CarUserControl : MonoBehaviour
                 {
 
 
-                verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1);
-                    m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
+                   verticalAxis = Mathf.Clamp(verticalAxis + uskorenie, -1, 1);
+                   m_Car.Move(wheelRotation, verticalAxis, verticalAxis, 0);
                 }
 
 

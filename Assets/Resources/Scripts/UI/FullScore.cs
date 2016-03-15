@@ -9,7 +9,6 @@ public class FullScore : MonoBehaviour {
     Library library;
     int savedBigFullScore;
     int bigFullScore;
-
     int finalScore;
 
     void Start()
@@ -40,7 +39,8 @@ public class FullScore : MonoBehaviour {
 
     public void UpdateText()
     {
-        text.text = fullScore+"" /*+ " (" + bigFullScore+")"*/;
+        if(!text.text.Equals(fullScore+""))
+            text.text = fullScore+"";
 
     }
 

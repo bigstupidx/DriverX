@@ -58,8 +58,8 @@ public class InputController : MonoBehaviour {
         rectRight.sizeDelta = new Vector2(Screen.width / 2, Screen.height);
         rectRight.localPosition = new Vector3(rectRight.sizeDelta.x / 2, 0, 0);
         */
-        leftButton.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        rightButton.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+       // leftButton.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+     //   rightButton.GetComponent<Image>().color = new Color(0, 0, 0, 0);
     }
    
     public Direction GetDirection()

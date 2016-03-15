@@ -416,11 +416,11 @@ public class CarController : MonoBehaviour
             }
 
             
-            m_WheelColliders[i].GetComponent<Probuksovka>().ProbuksovkaEmit();
+           m_WheelColliders[i].GetComponent<Probuksovka>().ProbuksovkaEmit();
 
             //  m_WheelColliders[i].GetComponent<Probuksovka>().RideEffectEmit();
         }
-
+        
         if (allWheelHit)
         {
             ParticleSystem particleSystem = rideEffect.GetParticle();
@@ -433,13 +433,7 @@ public class CarController : MonoBehaviour
 
             if (twoColor != null)
             {
-                /*
-                color = new Color(
-                    UnityEngine.Random.Range(twoColor.color1.r, twoColor.color2.r), 
-                    UnityEngine.Random.Range(twoColor.color1.g, twoColor.color2.g), 
-                    UnityEngine.Random.Range(twoColor.color1.b, twoColor.color2.b), 
-                    UnityEngine.Random.Range(twoColor.color1.a, twoColor.color2.a));
-                    */
+                
                 if (UnityEngine.Random.Range(1, 3) == 1)
                     color = twoColor.color1;
                 else
@@ -457,7 +451,7 @@ public class CarController : MonoBehaviour
         {
             rideEffect.StopLoop();
         }
-
+        
 
         // is the tire slipping above the given threshhold
         // if (Mathf.Abs(wheelHit.forwardSlip) >= m_SlipLimit || Mathf.Abs(wheelHit.sidewaysSlip) >= m_SlipLimit)

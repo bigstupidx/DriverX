@@ -17,7 +17,19 @@ public class GlobalController : MonoBehaviour {
 
         SetToDefault();
 
+        SetCameraClipPlane();
 	}
+
+    void SetCameraClipPlane()
+    {
+        Camera camera = library.cam.GetComponentInChildren<Camera>();
+        float[] distances = new float[32];
+        distances[10] = 150;
+        distances[11] = 400;
+        distances[12] = 500;
+
+        camera.layerCullDistances = distances;
+    }
 	
 	public void SetToDefault()
     {
@@ -50,9 +62,17 @@ public class GlobalController : MonoBehaviour {
 
         library.level = level;
 
+
+
+        StartCoroutine(
+            HideBg());
+
+    }
+
+    IEnumerator HideBg()
+    {
+        yield return new WaitForSeconds(2);
         library.waitBackground.Hide();
-
-
 
     }
 
@@ -127,9 +147,7 @@ public class GlobalController : MonoBehaviour {
       //  Time.timeScale = 0;
     }
 
-    void Update()
-    {
-    }
+
 
 
 }

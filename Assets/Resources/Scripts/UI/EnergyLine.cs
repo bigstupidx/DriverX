@@ -55,7 +55,6 @@ public class EnergyLine : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {      
-
         updateHealth();
     }
 
@@ -71,8 +70,11 @@ public class EnergyLine : MonoBehaviour {
         mask.sizeDelta = new Vector2(maskSize, mask.sizeDelta.y);
 
         float xPosLine = (maskSize  - lineWidth) / 2f;
+        
+        Vector2 temp = new Vector2(xPosLine, mask.anchoredPosition.y);
 
-        mask.anchoredPosition = new Vector2(xPosLine, mask.anchoredPosition.y);
+        if(!mask.anchoredPosition.Equals(temp))
+            mask.anchoredPosition = temp;
     }
 
     public void ToDefault()

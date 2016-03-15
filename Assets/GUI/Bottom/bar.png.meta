@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0dafedc003cf0a749b988bb5ed2b233d
-timeCreated: 1445973936
+guid: 78985bef6b72ebf4a92a6916518e68f5
+timeCreated: 1457962680
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: back_0
+    21300000: bar_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -18,7 +18,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -27,10 +27,10 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -38,29 +38,52 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 484, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: back_0
+    - name: bar_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 241
-        height: 164
+        x: 0
+        y: 482
+        width: 959
+        height: 68
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-  spritePackingTag: 
+      outline:
+      - - {x: 100.5, y: -33}
+        - {x: 102.5, y: -34}
+        - {x: 169.5, y: -34}
+        - {x: 170.5, y: -33}
+        - {x: 321.5, y: -33}
+        - {x: 322.5, y: -32}
+        - {x: 373.5, y: -32}
+        - {x: 374.5, y: -31}
+        - {x: 479.5, y: -31}
+        - {x: 479.5, y: 34}
+        - {x: -479.5, y: 34}
+        - {x: -479.5, y: -31}
+        - {x: -374.5, y: -31}
+        - {x: -373.5, y: -32}
+        - {x: -322.5, y: -32}
+        - {x: -321.5, y: -33}
+        - {x: -91.5, y: -33}
+        - {x: -90.5, y: -34}
+        - {x: -37.5, y: -34}
+        - {x: -36.5, y: -33}
+    outline: []
+  spritePackingTag: UI
   userData: 
   assetBundleName: 
   assetBundleVariant: 

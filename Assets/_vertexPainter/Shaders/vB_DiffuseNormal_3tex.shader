@@ -1,6 +1,5 @@
   Shader "vertexPainter/vB_DiffuseNormal_3tex" {
     Properties {
-		_Color 				("Main Color", Color) = (1,1,1,1)
 		_MainTex1 			("Texture 1 (RGB)", 2D) = "white" {}
 		_BumpMap1 			("Bumpmap 1 (RGB)", 2D) = "bump" {}
 		_MainTex2 			("Texture 2 (RGB)", 2D) = "white" {}
@@ -11,8 +10,10 @@
     SubShader {
 		
       Tags { "RenderType" = "Opaque" }
+	  LOD 150
       CGPROGRAM
-      #pragma surface surf Lambert vertex:vert 
+
+      #pragma surface surf Lambert  noforwardadd
 	  
 		struct Input {
 		  
@@ -23,20 +24,11 @@
 			float4 color			: COLOR;
 			
 		};
-		
-		void vert (inout appdata_full v, out Input o) {
-			UNITY_INITIALIZE_OUTPUT(Input, o);
-
-			o.color = (v.color);
-			
-      }
+	
 
 		uniform sampler2D _MainTex1, _MainTex2, _MainTex3;
 		uniform sampler2D _BumpMap1, _BumpMap2, _BumpMap3;
-	  
-		fixed4 _Color;
-		fixed _Tile;
-	  
+	  	  
 		void surf (Input IN, inout SurfaceOutput o) {
 			
 			fixed4 col  = tex2D( _MainTex1,		IN.uv_MainTex1)*IN.color.r;
@@ -47,7 +39,7 @@
 			normal 			+= UnpackNormal(tex2D(_BumpMap2, 	IN.uv_MainTex2))*IN.color.g;
 			normal 			+= UnpackNormal(tex2D(_BumpMap3, 	IN.uv_MainTex3))*IN.color.b;
 
-			o.Albedo = col * _Color.rgb;
+			o.Albedo = col;
 			o.Normal = normal;
 
 		}

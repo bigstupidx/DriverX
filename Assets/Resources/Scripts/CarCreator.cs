@@ -20,10 +20,16 @@ public class CarCreator : MonoBehaviour {
             Destroy(library.car);
 
         GameObject GO;
+        GameObject carPref;
         if (carParametres == null)
-            GO = Instantiate(Resources.Load("Prefabs/Cars/HemiFox")) as GameObject;
+            carPref = Resources.Load("Prefabs/Cars/HemiFox") as GameObject;
         else
-            GO = Instantiate(Resources.Load("Prefabs/Cars/" + carParametres.GetName())) as GameObject;
+            carPref = Resources.Load("Prefabs/Cars/" + carParametres.GetName()) as GameObject;
+
+
+        carPref.transform.position = new Vector3(0, 1000, 0);
+
+        GO = Instantiate(carPref);
 
         library.car = GO;
     }

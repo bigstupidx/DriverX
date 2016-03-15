@@ -104,6 +104,9 @@ public class CanvasController : MonoBehaviour {
         HidePauseMenu();
         HideEndMenu();
         timeIsOver.SetActive(false);
+
+        //HideGameUI();
+        //HideInput();
     }
 
     public Baraban GetBaraban()

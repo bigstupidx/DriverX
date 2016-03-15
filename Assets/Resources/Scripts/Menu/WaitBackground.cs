@@ -54,7 +54,8 @@ public class WaitBackground : MonoBehaviour {
 
         if (library != null)
             library.globalController.StartCar();
-        
+
+       
     }
 
     void OnUpdate(float newVal)

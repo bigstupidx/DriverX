@@ -10,15 +10,13 @@ public class TaskHelper : MonoBehaviour {
    
     void Start () {
         text = GetComponent<Text>();
+        text.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update () {
-	
-	}
 
     public void ShowTask(string str)
     {
+        text.enabled = true;
         text.text = str;
 
         if(currentCoroutine != null)
@@ -32,6 +30,7 @@ public class TaskHelper : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         text.text = "";
-
+        text.enabled = false;
+       
     }
 }

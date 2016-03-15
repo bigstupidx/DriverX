@@ -1,8 +1,5 @@
   Shader "vertexPainter/vB_DiffuseNormal_4tex" {
     Properties {
-		_Color 				("Main Color", Color) = (1,1,1,1)
-		_SpecColor 		("Specular Color", Color) = (0.5, 0.5, 0.5, 0)
-		_Shininess 		("Shininess", float) = 1.0
 		_MainTex1 		("Texture 1 (RGB), Spec (A)", 2D) = "white" {}
 		_BumpMap1 		("Bumpmap 1 (RGB)", 2D) = "bump" {}
 		_MainTex2 		("Texture 2 (RGB), Spec (A)", 2D) = "white" {}
@@ -15,10 +12,9 @@
     SubShader {
 		
       Tags { "RenderType" = "Opaque" }
-	  LOD 600
-      CGPROGRAM
-      #pragma surface surf BlinnPhong vertex:vert 
-	  #pragma target 3.0
+	  LOD 200
+	      CGPROGRAM
+	#pragma surface surf Lambert noforwardadd 
 	  
 		struct Input {
 		  
@@ -27,21 +23,15 @@
 			float2 uv_MainTex3			: TEXCOORD2; 
 			float2 uv_MainTex4			: TEXCOORD3;
 			
-			float4 color				: TEXCOORD4;
+			float4 color				: COLOR;
 			
 		};
 		
-		void vert (inout appdata_full v, out Input o) {
-			
-			o.color = (v.color);
-			
-      }
+
 
 		uniform sampler2D _MainTex1, _MainTex2, _MainTex3, _MainTex4;
 		uniform sampler2D _BumpMap1, _BumpMap2, _BumpMap3, _BumpMap4;
 	  
-		fixed4 _Color;
-		fixed _Shininess, _Tile;
 	  
 		void surf (Input IN, inout SurfaceOutput o) {
 			
@@ -55,7 +45,7 @@
 			normal 			+= UnpackNormal(tex2D(_BumpMap3, 	IN.uv_MainTex3))*IN.color.b;
 			normal 			+= UnpackNormal(tex2D(_BumpMap4, 	IN.uv_MainTex4))*IN.color.a;
 
-			o.Albedo 	= col * _Color.rgb;
+			o.Albedo 	= col ;
 			o.Normal 	= normal;
 
 		}

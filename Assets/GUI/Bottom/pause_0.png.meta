@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 379c5e679888aa9429d02794d041f4a7
-timeCreated: 1445974236
+guid: 27a1ae097f238c74da0e57ab77ee48bd
+timeCreated: 1445974518
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: nitro1_0
+    21300000: pause_0_0
+    21300002: pause_0_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -18,7 +19,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -27,7 +28,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 1
@@ -38,11 +39,12 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -50,17 +52,34 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: nitro1_0
+    - name: pause_0_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 241
-        height: 164
+        x: 27
+        y: 32
+        width: 124
+        height: 51
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-  spritePackingTag: 
+      outline:
+      - - {x: -39, y: 25.5}
+        - {x: -43, y: 21.5}
+        - {x: -46, y: 16.5}
+        - {x: -62, y: -19.5}
+        - {x: -62, y: -25.5}
+        - {x: -10, y: -25.5}
+        - {x: 8, y: 19.5}
+        - {x: 9, y: 25.5}
+      - - {x: 11, y: 25.5}
+        - {x: -2, y: -5.5}
+        - {x: -8, y: -24.5}
+        - {x: -8, y: -25.5}
+        - {x: 47, y: -25.5}
+        - {x: 62, y: 13.5}
+        - {x: 62, y: 25.5}
+    outline: []
+  spritePackingTag: UI
   userData: 
   assetBundleName: 
   assetBundleVariant: 

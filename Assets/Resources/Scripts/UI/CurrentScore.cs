@@ -41,6 +41,7 @@ public class CurrentScore : MonoBehaviour {
             smokeParticle.GetComponent<RectTransform>().anchoredPosition.x,
             GetComponent<RectTransform>().anchoredPosition.y);
 
+        text.enabled = false;
     }
 
     public void AddScoreAndCoef(int addScore, bool isCoef)
@@ -62,8 +63,16 @@ public class CurrentScore : MonoBehaviour {
         if(!fireParticle.GetParticle().loop)
         fireParticle.PlayLoop();
 
-        text.text = score + " X " + coef;
-        text.material = redColor;
+        string temp = score + " X " + coef;
+
+        if (!text.enabled)
+            text.enabled = true;
+
+        if(!temp.Equals(text.text))
+            text.text = temp;
+
+        if(!text.material.Equals(redColor))
+            text.material = redColor;
 
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
@@ -80,9 +89,16 @@ public class CurrentScore : MonoBehaviour {
         fireParticle.StopLoop();
         smokeParticle.GetParticle().Play();
 
-        text.material = blueColor;
+        if (!text.enabled)
+            text.enabled = true;
 
-        text.text = fullScore+"";
+        if (!text.material.Equals(blueColor))
+            text.material = blueColor;
+
+        string temp = fullScore + "";
+
+        if(!temp.Equals(text.text))
+            text.text = fullScore+"";
 
         score = 0;
         coef = 0;
@@ -96,6 +112,9 @@ public class CurrentScore : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         text.text = "";
+
+        if (text.enabled)
+            text.enabled = false;
 
     }
 
