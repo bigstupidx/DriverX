@@ -32,8 +32,10 @@ public class DestroyBoxesInCombo : Task
     {
 
         string str = taskValue.GetHelperText(0) + " " + count + "/" + fullCountInCombo + " " + taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
+
+
 
     protected override void Conditions()
     {
@@ -57,6 +59,8 @@ public class DestroyBoxesInCombo : Task
         lastCount = count;
 
         if (lastCountInCombo == fullCountInCombo)
+        {
             SetJustComplete();
+        }
     }
 }

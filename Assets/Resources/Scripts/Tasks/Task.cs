@@ -34,6 +34,11 @@ public abstract class Task : MonoBehaviour {
     }
 
     abstract protected string Description();
+    protected void MyActionComplete()
+    {
+        string str = TextStrings.GetString("done")+": "+ Description();
+        library.taskHelper.ShowWinTask(str);
+    }
 	
     protected void Update()
     {   
@@ -76,6 +81,7 @@ public abstract class Task : MonoBehaviour {
 
     protected void SetJustComplete()
     {
+        MyActionComplete();
         SetComplete();
         item.SetDone();
         PreferencesSaver.SaveTaskComplete(1, this.GetType().Name);

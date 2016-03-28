@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class TakeKanistra: Task {
 
@@ -38,4 +39,6 @@ public class TakeKanistra: Task {
     {
         isTake = true;
     }
+
+
 }

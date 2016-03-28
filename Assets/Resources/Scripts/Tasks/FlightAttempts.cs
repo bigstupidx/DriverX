@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FlightAttempts : Task
 {
@@ -28,7 +29,7 @@ public class FlightAttempts : Task
     private void MyAction(int currentAttempts)
     {
         string str = taskValue.GetHelperText(0) + " " + currentAttempts + "/" + attempts + " " + taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
 
     protected override string Description()
@@ -47,5 +48,6 @@ public class FlightAttempts : Task
     {
         base.Update();
     }
+
 
 }

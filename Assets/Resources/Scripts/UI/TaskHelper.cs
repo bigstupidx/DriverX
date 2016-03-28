@@ -5,6 +5,7 @@ using System.Collections;
 public class TaskHelper : MonoBehaviour {
 
     Text text;
+    int tempToHide;
 
     IEnumerator currentCoroutine; 
    
@@ -14,7 +15,7 @@ public class TaskHelper : MonoBehaviour {
     }
 
 
-    public void ShowTask(string str)
+    void ShowTask(string str)
     {
         text.enabled = true;
         text.text = str;
@@ -26,9 +27,23 @@ public class TaskHelper : MonoBehaviour {
         StartCoroutine(currentCoroutine);
     }
 
+    public void ShowWinTask(string str)
+    {
+        tempToHide = 3;
+        ShowTask(str);
+        text.color = Color.yellow;
+    }
+
+    public void ShowSimpleTask(string str)
+    {
+        tempToHide = 2;
+        ShowTask(str);
+        text.color = Color.white;
+    }
+
     IEnumerator HideText()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(tempToHide);
         text.text = "";
         text.enabled = false;
        

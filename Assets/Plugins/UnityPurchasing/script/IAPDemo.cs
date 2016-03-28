@@ -184,7 +184,7 @@ public class IAPDemo : MonoBehaviour, IStoreListener
 		// This enables the Microsoft IAP simulator for local testing.
 		// You would remove this before building your release package.
 		builder.Configure<IMicrosoftConfiguration>().useMockBillingSystem = true;
-		builder.Configure<IGooglePlayConfiguration>().SetPublicKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmqIz3u9TRR5zhSJ1f4TZkLaYc2svLlgjh4Q2O1PW3G//2A/i5coiwUQ14jq0Zbj3yo14hqGLjlYMOIffmGfLFKC5SJjdwgMmunInjmeTTOfSUORpwrP60JzUEMXIa91ZLHZwJS8MbQrIbD0csLx3qkF67mlAfOM3c8FCe4ptjY/WAUzMTtFFvdMFY3r/o9HTcPVQBllxv4oIedq2P6ph1kRyKwyxM1ek+E9pHRiU+1eS5VKaYBzVJVkR2Qux0s1LwEDNrZxE+XhUy0fJ19awRkG7AufjhvrzUQRwD0WWw0gJ9Viy/FR60iXyzLczca5ufkfBaAn33EJ1QcDOWM+CHwIDAQAB");
+		builder.Configure<IGooglePlayConfiguration>().SetPublicKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2O/9/H7jYjOsLFT/uSy3ZEk5KaNg1xx60RN7yWJaoQZ7qMeLy4hsVB3IpgMXgiYFiKELkBaUEkObiPDlCxcHnWVlhnzJBvTfeCPrYNVOOSJFZrXdotp5L0iS2NVHjnllM+HA1M0W2eSNjdYzdLmZl1bxTpXa4th+dVli9lZu7B7C2ly79i/hGTmvaClzPBNyX+Rtj7Bmo336zh2lYbRdpD5glozUq+10u91PMDPH+jqhx10eyZpiapr8dFqXl5diMiobknw9CgcjxqMTVBQHK6hS0qYKPmUDONquJn280fBs1PTeA6NMG03gb9FLESKFclcuEZtvM8ZwMMRxSLA9GwIDAQAB");
 
 		// Define our products.
 		// In this case our products have the same identifier across all the App stores,

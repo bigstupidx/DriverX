@@ -29,7 +29,7 @@ public class DestroyAllGarbageBox : Task
     private void MyAction(int count)
     {
         string str = taskValue.GetHelperText(0) +" "+ count+"/"+fullCount+" "+taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
 
     protected override void Conditions()

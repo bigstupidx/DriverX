@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FindLevelExit : Task
 {
@@ -39,4 +40,5 @@ public class FindLevelExit : Task
     {
         isTake = true;
     }
+
 }

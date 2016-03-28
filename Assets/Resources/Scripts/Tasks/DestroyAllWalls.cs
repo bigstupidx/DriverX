@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class DestroyAllWalls : Task
 {
@@ -28,7 +29,7 @@ public class DestroyAllWalls : Task
     private void MyAction(int count)
     {
         string str = taskValue.GetHelperText(0) + " " + count + "/" + fullCount + " " + taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
 
     protected override void Conditions()
@@ -44,4 +45,6 @@ public class DestroyAllWalls : Task
         if (count == fullCount)
             SetJustComplete();
     }
+
+
 }

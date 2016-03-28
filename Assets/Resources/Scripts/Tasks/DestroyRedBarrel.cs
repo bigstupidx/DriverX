@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class DestroyRedBarrel : Task
 {
@@ -28,7 +29,7 @@ public class DestroyRedBarrel : Task
     {
 
         string str = taskValue.GetHelperText(0) + " " + count + "/" + fullCount + " " + taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
 
     protected override void Conditions()
@@ -44,5 +45,6 @@ public class DestroyRedBarrel : Task
         if (count == fullCount)
             SetJustComplete();
     }
+
 
 }

@@ -176,6 +176,27 @@ public class PreferencesSaver : MonoBehaviour {
         return bool.Parse(GetPref("PurchaseComplete", "false"));
 
     }
+
+    public static void AddEnterCount()
+    {
+        SavePref("EnterCount", (GetEnterCount()+1)+"");
+    }
+
+    public static int GetEnterCount()
+    {
+        return int.Parse(GetPref("EnterCount", "0"));
+    }
+
+    public static void SetRateApp()
+    {
+        SavePref("RateApp", "true");
+    }
+
+    public static bool AppIsRate()
+    {
+        return bool.Parse(GetPref("RateApp", "false"));
+    }
+
     private static void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);

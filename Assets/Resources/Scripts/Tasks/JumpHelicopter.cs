@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class JumpHelicopter : Task
 {
@@ -40,4 +41,6 @@ public class JumpHelicopter : Task
     {
         isTake = true;
     }
+
+
 }

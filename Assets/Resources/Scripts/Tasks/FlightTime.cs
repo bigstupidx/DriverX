@@ -26,7 +26,7 @@ public class FlightTime : Task {
     private void MyAction(float time)
     {
         string str = taskValue.GetHelperText(0) + " " + time.ToString("F2") + "/" + timeRequired + " " + taskValue.GetHelperText(1);
-        library.taskHelper.ShowTask(str);
+        library.taskHelper.ShowSimpleTask(str);
     }
 
     protected override string Description()
@@ -44,5 +44,6 @@ public class FlightTime : Task {
     {
         base.Update();
     }
-	
+
+
 }

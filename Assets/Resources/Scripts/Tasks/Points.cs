@@ -17,6 +17,8 @@ public class Points : Task {
         return taskValue.GetFullText(0) + " " + maxPoints+" ("+library.fullScore.GetBigFullScore() + ") " + taskValue.GetFullText(1);
     }
 
+
+
     // Use this for initialization
     new void Start () {
         base.Start();

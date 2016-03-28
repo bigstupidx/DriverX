@@ -7,6 +7,8 @@ public class KAController : MonoBehaviour {
 
     MonoBehaviour currentObject;
 
+    [HideInInspector] public static bool garageWillShow = false;
+
     void Start()
     {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
@@ -27,8 +29,15 @@ public class KAController : MonoBehaviour {
         HideCurrent();
         currentObject = libraryMenu.garage;
         ShowCurrent();
+
         libraryMenu.garage.ToDefault();
 
+        if(!garageWillShow)
+        {
+            libraryMenu.dailyEvents.RateApp();
+        }
+
+        garageWillShow = true;
     }
 
     public void ShowTasksMenu()

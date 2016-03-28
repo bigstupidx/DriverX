@@ -14,8 +14,8 @@ public class Power : MonoBehaviour {
     int valMain = 1;
     int valSecond = 0;
 
-    Sprite[] mainSprites = new Sprite[6];
-    Sprite[] secondSprites = new Sprite[4];
+    public Sprite[] mainSprites = new Sprite[6];
+    public Sprite[] secondSprites = new Sprite[4];
 
     int type;
 	// Use this for initialization
@@ -25,11 +25,11 @@ public class Power : MonoBehaviour {
 
         type = int.Parse(transform.parent.name);
 
-        for(int i = 0; i < 6; i++)
-            mainSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_powers/car_pow_"+(i+1));
+     //   for(int i = 0; i < 6; i++)
+    //        mainSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_powers/car_pow_"+(i+1));
 
-        for (int i = 0; i < 4; i++)
-            secondSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_updates/car_update_" + i);
+   //     for (int i = 0; i < 4; i++)
+   //         secondSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_updates/car_update_" + i);
 
         button.onClick.AddListener(
            delegate

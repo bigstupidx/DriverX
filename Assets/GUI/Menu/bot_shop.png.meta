@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 6f9c41dc8c7ae314b9c08570896c515c
-timeCreated: 1447257750
+timeCreated: 1458070528
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: bot_shop_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -17,7 +18,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -26,7 +27,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
@@ -37,19 +38,54 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  allowsAlphaSplitting: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
-  spritePackingTag: 
+    sprites:
+    - name: bot_shop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 262, y: -16}
+        - {x: 253, y: 2}
+        - {x: 253, y: 21}
+        - {x: 250, y: 29}
+        - {x: 243, y: 35}
+        - {x: 241, y: 40}
+        - {x: 234, y: 48}
+        - {x: 224, y: 65}
+        - {x: -283, y: 65}
+        - {x: -283, y: 63}
+        - {x: -279, y: 54}
+        - {x: -269, y: 34}
+        - {x: -269, y: 23}
+        - {x: -268, y: 20}
+        - {x: -251, y: -21}
+        - {x: -241, y: -43}
+        - {x: -231, y: -47}
+        - {x: -231, y: -49}
+        - {x: -229, y: -51}
+        - {x: 274, y: -51}
+        - {x: 276, y: -49}
+        - {x: 276, y: -46}
+    outline: []
+  spritePackingTag: MenuUI
   userData: 
   assetBundleName: 
   assetBundleVariant: 
