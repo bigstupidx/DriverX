@@ -8,6 +8,7 @@ public class Power : MonoBehaviour {
     public Image second;
     public Button button;
 
+    public Text cost;
     LibraryMenu libraryMenu;
 
 
@@ -25,11 +26,11 @@ public class Power : MonoBehaviour {
 
         type = int.Parse(transform.parent.name);
 
-     //   for(int i = 0; i < 6; i++)
-    //        mainSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_powers/car_pow_"+(i+1));
+        //   for(int i = 0; i < 6; i++)
+        //        mainSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_powers/car_pow_"+(i+1));
 
-   //     for (int i = 0; i < 4; i++)
-   //         secondSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_updates/car_update_" + i);
+        //     for (int i = 0; i < 4; i++)
+        //         secondSprites[i] = Resources.Load<Sprite>("Images/GUI/Menu/car_updates/car_update_" + i);
 
         button.onClick.AddListener(
            delegate
@@ -85,8 +86,18 @@ public class Power : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	
-	}
+        UpdateText();
+        
+    }
+
+    void UpdateText()
+    {
+        string costText = libraryMenu.carChanger.GetCurrentCarParametres().GetUpgradeCost(valSecond + 1) + "";
+
+        if (!costText.Equals(cost.text))
+            cost.text = costText;
+    }
+
 
     public void SetPower(int valMain, int valSecond)
     {

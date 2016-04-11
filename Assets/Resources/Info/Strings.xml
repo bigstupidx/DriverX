@@ -1,7 +1,7 @@
 <items>
   <ru>
     <string name ="done">Выполнено</string>
-    <string name ="no_money">У вас не достаточно средств для покупки</string>
+    <string name ="no_money">У вас недостаточно средств для покупки</string>
     <string name ="minutes">мин.</string>
     <string name ="booster_is_active">Бустер уже активирован</string>
     <string name ="is_activate">Активировано</string>

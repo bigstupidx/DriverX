@@ -14,8 +14,11 @@ public abstract class BoosterMenuElement : MonoBehaviour {
     public Text cost;
     public Text time;
 
- //   bool isActive;
+    public Sprite unActiveSprite;
+    public Sprite activeSprite;
+    //   bool isActive;
 
+    public Image boosterImage;
     DateTime lastDateTime;
     TimeSpan subtractTime;
 
@@ -75,7 +78,15 @@ public abstract class BoosterMenuElement : MonoBehaviour {
         if (subtractTime.TotalSeconds < BoosterValues.BoosterTime[boosterNum] * 60)
         {   
             UpdateTime();
-            cost.text = TextStrings.GetString("is_activate");
+
+            string costText = TextStrings.GetString("is_activate");
+
+            if(!costText.Equals(cost.text))
+                cost.text = costText;
+
+            if (!boosterImage.sprite.Equals(activeSprite))
+                boosterImage.sprite = activeSprite;
+
             isActive = true;
         }
         else
@@ -97,7 +108,10 @@ public abstract class BoosterMenuElement : MonoBehaviour {
                      if (!cost.text.Equals(textCost))
                         cost.text = textCost;
                 }
-            
+
+            if (!boosterImage.sprite.Equals(unActiveSprite))
+                boosterImage.sprite = unActiveSprite;
+
         }
 
     }
@@ -106,7 +120,7 @@ public abstract class BoosterMenuElement : MonoBehaviour {
     {
         TimeSpan ts = (new TimeSpan(0, (int)Mathf.Floor(BoosterValues.BoosterTime[boosterNum]), BoosterValues.BoosterTime[boosterNum] * 60 % 60)).Subtract(subtractTime);
 
-        string timeTemp = ts.Minutes.ToString("D2") + ":" + ts.Seconds.ToString("D2");
+        string timeTemp = ts.Minutes.ToString("D2") + " : " + ts.Seconds.ToString("D2");
 
         if (!time.text.Equals(timeTemp))
         {
