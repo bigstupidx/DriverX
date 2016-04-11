@@ -64,6 +64,7 @@ public class DailyGiftMenu : MonoBehaviour {
         }
 
         PreferencesSaver.SetDailyGiftDate(System.DateTime.Now);
+        PreferencesSaver.SetNextDailyGiftNum();
         libraryMenu.kaController.ShowGarage();
     }
 
