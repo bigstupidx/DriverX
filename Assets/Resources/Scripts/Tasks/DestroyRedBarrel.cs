@@ -17,7 +17,7 @@ public class DestroyRedBarrel : Task
 
     protected override string Description()
     {
-        return taskValue.GetFullText(0)+" " + fullCount+ " ("+lastCount+ ") " + taskValue.GetFullText(GetPadej(fullCount));
+        return taskValue.GetFullText(0)+" " + fullCount+ " ("+lastCount+ ") " + taskValue.GetFullText(Padej.GetPadej(fullCount));
     }
 
     new void Update()

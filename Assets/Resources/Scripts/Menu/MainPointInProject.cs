@@ -16,6 +16,7 @@ public class MainPointInProject : MonoBehaviour {
         InitCrashReporting();
         InitAppodeal();
         PreferencesSaver.AddEnterCount();
+
     }
 	
     void InitCrashReporting()

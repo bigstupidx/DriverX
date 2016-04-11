@@ -1,5 +1,36 @@
 <items>
   <ru>
     <string name ="done">Выполнено</string>
+    <string name ="no_money">У вас не достаточно средств для покупки</string>
+    <string name ="minutes">мин.</string>
+    <string name ="booster_is_active">Бустер уже активирован</string>
+    <string name ="is_activate">Активировано</string>
+    <string name ="booster_0_description">+1 уровень улучшения ко всем показателями автомобиля</string>
+    <string name ="booster_1_description">Вы начинаете все заезды с заполненной шкалой нитро</string>
+    <string name ="booster_2_description">Увеличивается шанс умножения ваших очков после заезда</string>
+    <string name ="day">день</string>
+    <string name ="free">бесплатно</string>
+
+
+    <string name ="additional_rates_1">дополнительная ставка</string>
+    <string name ="additional_rates_2">дополнительные ставки</string>
+    <string name ="additional_rates_3">дополнительных ставок</string>
+
+    <string name ="tuning_set_1">набор тюнинга</string>
+    <string name ="tuning_set_2">набора тюнинга</string>
+    <string name ="tuning_set_3">наборов тюнинга</string>
+
+    <string name ="full_tank_1">полный бак</string>
+    <string name ="full_tank_2">полный бака</string>
+    <string name ="full_tank_3">полных баков</string>
+    
+    <string name ="bonus_1">бонус</string>
+    <string name ="bonus_2">бонуса</string>
+    <string name ="bonus_3">бонусов</string>
+
+    <string name= "valuta">валюты</string>
+  
+    <string name= "secret_box">Cекретный ящик</string>
+
   </ru>
 </items>

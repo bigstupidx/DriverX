@@ -62,7 +62,7 @@ public class MainBonus : MonoBehaviour {
         {
             
             count += col;
-            count = Mathf.Clamp(count, 0, MainBonus.MaxValue);
+            count = Mathf.Clamp(count, 0, 100);
             PreferencesSaver.SetMainBonus(count);
         }
     }

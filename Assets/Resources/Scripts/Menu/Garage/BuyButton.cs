@@ -14,7 +14,7 @@ public class BuyButton : MenuButton {
 
         if (carParametres.GetCost() > Bank.GetMoney())
         {
-            libraryMenu.windowWarning.Show("У вас не достаточно средств для покупки " + carParametres.GetName());
+            libraryMenu.windowWarning.Show(TextStrings.GetString("no_money")+ " " + carParametres.GetName());
         }
         else
         {

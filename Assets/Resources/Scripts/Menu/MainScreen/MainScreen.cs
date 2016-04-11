@@ -25,7 +25,11 @@ public class MainScreen : MonoBehaviour {
             delegate
             {
                 libraryMenu.fireBackground.GetComponent<Particle>().StopLoop();
-                libraryMenu.kaController.ShowGarage();
+
+                if (libraryMenu.dailyGiftMenu.CanShow())
+                    libraryMenu.kaController.ShowDailyGiftMenu();
+                else
+                    libraryMenu.kaController.ShowGarage();
             }
         );
 

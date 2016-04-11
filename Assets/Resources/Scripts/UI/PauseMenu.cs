@@ -3,15 +3,18 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
 
-    [HideInInspector] public ScrollBoxController scrollBoxController;
+    public ScrollBoxController scrollBoxController;
     Library library;
 
     public GameObject pauseButtons;
     public GameObject endButtons;
 
+    public GameObject startPauseMenu;
+
+
 	// Use this for initialization
 	void Start () {
-        scrollBoxController = GameObject.FindObjectOfType<ScrollBoxController>();
+    //    scrollBoxController = GameObject.FindObjectOfType<ScrollBoxController>();
         library = GameObject.FindObjectOfType<Library>();
 	}
 	
@@ -20,24 +23,38 @@ public class PauseMenu : MonoBehaviour {
 	
 	}
 
+    /*
     public void CloseMenu()
     {
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);
-    }
+    }*/
 
     public void OpenPauseMenu()
     {
         OpenMenu();
-        pauseButtons.SetActive(true);
         endButtons.SetActive(false);
+        startPauseMenu.SetActive(false);
+        pauseButtons.SetActive(true);
+
     }
 
     public void OpenEndMenu()
     {
         OpenMenu();
         pauseButtons.SetActive(false);
+        startPauseMenu.SetActive(false);
         endButtons.SetActive(true);
+    }
+
+    public void OpenStartPauseMenu()
+    {
+        OpenMenu();
+        pauseButtons.SetActive(false);
+        endButtons.SetActive(false);
+        startPauseMenu.SetActive(true);
+
+        startPauseMenu.GetComponent<StartPauseMenu>().ToDefault();
     }
 
     private void OpenMenu()
@@ -49,6 +66,7 @@ public class PauseMenu : MonoBehaviour {
         scrollBoxController.UpdateDiscription();
         scrollBoxController.ToDefaultPosition();
 
+        Time.timeScale = 0;
     //    library.canvasController.ShowGameUI(false);
       //  library.inputController.gameObject.SetActive(false);
       //  library.gameUI.gameObject.SetActive(false);

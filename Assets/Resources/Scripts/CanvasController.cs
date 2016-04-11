@@ -3,22 +3,16 @@ using System.Collections;
 
 public class CanvasController : MonoBehaviour {
 
-    GameUI gameUI;
-    InputController inputController;
-    PauseMenu pauseMenu;
-    Baraban baraban;
-    EndMenu endMenu;
+    public GameUI gameUI;
+    public InputController inputController;
+    public PauseMenu pauseMenu;
+    public Baraban baraban;
+   // public EndMenu endMenu;
     public GameObject timeIsOver;
     Library library;
   
 	// Use this for initialization
 	void Start ()  {
-        gameUI = GameObject.FindObjectOfType<GameUI>();
-        inputController = GameObject.FindObjectOfType<InputController>();
-        pauseMenu = GameObject.FindObjectOfType<PauseMenu>();
-        baraban = GameObject.FindObjectOfType<Baraban>();
-        endMenu = GameObject.FindObjectOfType<EndMenu>();
-
         library = GameObject.FindObjectOfType<Library>();
 
         ToDefault();
@@ -48,6 +42,31 @@ public class CanvasController : MonoBehaviour {
         inputController.gameObject.SetActive(false);
     }
 
+
+    public void ShowStartPauseMenu()
+    {
+        HideGameUI();
+        HideInput();
+        HideBaraban();
+        pauseMenu.gameObject.SetActive(true);
+        pauseMenu.OpenStartPauseMenu();
+    }
+
+    public void HideStartPauseMenu()
+    {
+        Time.timeScale = 1;
+        pauseMenu.gameObject.SetActive(false);
+    }
+
+    /*
+    public void HidePauseMenu()
+    {
+        ShowGameUI();
+        ShowInput();
+        pauseMenu.gameObject.SetActive(false);
+    }*/
+
+
     public void ShowPauseMenu()
     {
 
@@ -62,6 +81,7 @@ public class CanvasController : MonoBehaviour {
     {
         ShowGameUI();
         ShowInput();
+        Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
     }
 
@@ -71,12 +91,14 @@ public class CanvasController : MonoBehaviour {
         HideInput();
         HideTimeIsOver();
         baraban.gameObject.SetActive(true);
+        Time.timeScale = 0;
         baraban.ToDefault();
         //baraban.UseBaraban();
     }
 
     public void HideBaraban()
     {
+        Time.timeScale = 1;
         baraban.gameObject.SetActive(false);
     }
 
@@ -86,12 +108,14 @@ public class CanvasController : MonoBehaviour {
 
         pauseMenu.gameObject.SetActive(true);
 
+        Time.timeScale = 0;
 
         pauseMenu.OpenEndMenu();
     }
 
     public void HideEndMenu()
     {
+        Time.timeScale = 1;
         pauseMenu.gameObject.SetActive(false);
 
     }

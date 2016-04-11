@@ -14,7 +14,7 @@ public class PauseButton : MonoBehaviour {
 
         library = GameObject.FindObjectOfType<Library>();
 
-        button.onClick.AddListener(delegate { ShowMenu(); gameObject.SetActive(false); Time.timeScale = 0; });
+        button.onClick.AddListener(delegate { ShowMenu(); gameObject.SetActive(false);});
     }
 
     void ShowMenu()

@@ -10,21 +10,27 @@ public class EnergyLine : MonoBehaviour {
     private RectTransform energyLine;
     private RectTransform mask;
     // Use this for initialization
-    void Start()
+
+    void Awake()
     {
         library = GameObject.FindObjectOfType<Library>();
+
+    }
+
+    void Start()
+    {
 
         energyLine = transform.FindChild("Mask").FindChild("Energy").GetComponent<RectTransform>();
         lineWidth = energyLine.sizeDelta.x;
 
         mask = transform.FindChild("Mask").GetComponent<RectTransform>();
 
-        CreateRaze();
+     //   CreateRaze();
     //    CreateS();
 
     }
 
-    private void CreateRaze()
+    public void CreateRaze()
     {
         float sectorCount = library.energy.GetMaxEnergy() / library.energy.GetNitroCost();
         int razeCount = 0;
@@ -58,7 +64,7 @@ public class EnergyLine : MonoBehaviour {
         updateHealth();
     }
 
-    public void updateHealth()
+    void updateHealth()
     {
         float energy = library.energy.GetEnergy();
         float maxEnergy = library.energy.GetMaxEnergy();
@@ -80,5 +86,16 @@ public class EnergyLine : MonoBehaviour {
     public void ToDefault()
     {
         mask.sizeDelta = new Vector3(0.01f, mask.sizeDelta.y);
+    }
+
+    public void SetMaxEnergy()
+    {
+        float maskSize = lineWidth;
+
+        mask.sizeDelta = new Vector2(maskSize, mask.sizeDelta.y);
+
+        float xPosLine = 0;
+
+        mask.anchoredPosition = new Vector2(xPosLine, mask.anchoredPosition.y);
     }
 }

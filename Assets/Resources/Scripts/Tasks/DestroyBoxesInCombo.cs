@@ -20,7 +20,7 @@ public class DestroyBoxesInCombo : Task
 
     protected override string Description()
     {
-        return taskValue.GetFullText(0) + " "+fullCountInCombo +" " + taskValue.GetFullText(GetPadej(fullCountInCombo));
+        return taskValue.GetFullText(0) + " "+fullCountInCombo +" " + taskValue.GetFullText(Padej.GetPadej(fullCountInCombo));
     }
 
     new void Update()

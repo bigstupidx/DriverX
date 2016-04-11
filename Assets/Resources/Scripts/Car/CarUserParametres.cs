@@ -38,8 +38,10 @@ public class CarUserParametres : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {
-
+    public void AddAllParametres()
+    {
+        controllability = Mathf.Clamp(controllability+1, 1, maxVal);
+        nitro = Mathf.Clamp(nitro+1, 1, maxVal);
+        speed = Mathf.Clamp(speed+1, 1, maxVal);
     }
 }

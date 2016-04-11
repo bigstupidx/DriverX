@@ -105,8 +105,8 @@ public class CarController : MonoBehaviour
 
         asotSystems = transform.FindChild("Particles").FindChild("AsotSystems");
 
-        m_Topspeed += (3+(library.carUserParametres.speed-library.carUserParametres.minSpeed)*2) /(float) CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
 
+        UpdateMaxSpeed();
 
         rayAsot = transform.FindChild("Particles").FindChild("RayAsot").GetComponentsInChildren<ParticleSystem>();
         carContact = GetComponent<CarContact>();
@@ -286,7 +286,10 @@ public class CarController : MonoBehaviour
             m_WheelColliders[i].GetWorldPose(out position, out quat);
             m_WheelMeshes[i].transform.position = position;
             m_WheelMeshes[i].transform.rotation = quat;
+
+
         }
+
 
     }
 
@@ -621,6 +624,11 @@ public class CarController : MonoBehaviour
         }
 
         Move(wheelRotation, verticalAxis, verticalAxis, 0);
+    }
+
+    public void UpdateMaxSpeed()
+    {
+        m_Topspeed += (3 + (library.carUserParametres.speed - library.carUserParametres.minSpeed) * 2) / (float)CarUserParametres.maxVal * (nMaxSpeed - nMinSpeed);
     }
 
 }

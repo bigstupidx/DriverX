@@ -8,9 +8,8 @@ public class MainBonusButton : MonoBehaviour {
     public Text count;
     public Text time;
     public GameObject image;
-
-
     LibraryMenu libraryMenu;
+
 	// Use this for initialization
 	void Start () {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
@@ -23,7 +22,7 @@ public class MainBonusButton : MonoBehaviour {
         count.text = "% "+ MainBonus.count + "";
 
 
-        if (MainBonus.MaxValue == MainBonus.count)
+        if (MainBonus.MaxValue <= MainBonus.count)
         {
             time.text = "";
 
@@ -48,4 +47,6 @@ public class MainBonusButton : MonoBehaviour {
             time.text = ts.Minutes.ToString("D2") + ":" + ts.Seconds.ToString("D2");
         }
 	}
+
+
 }

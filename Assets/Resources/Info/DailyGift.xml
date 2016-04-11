@@ -1,0 +1,35 @@
+<items>
+  <gift type ="money" val ="50" isMain ="false"></gift>
+  <gift type ="booster1"  val ="1" isMain ="false"></gift>
+  <gift type ="booster2"  val ="1" isMain ="false"></gift>
+  <gift type ="booster3"  val ="1" isMain ="false"></gift>
+  <gift type ="bonus"  val ="1" isMain ="false"></gift>
+  <gift type ="money"  val ="500" isMain ="true"></gift>
+
+  <gift type ="booster1"  val ="2" isMain ="false"></gift>
+  <gift type ="booster2"  val ="2" isMain ="false"></gift>
+  <gift type ="money" val ="250" isMain ="false"></gift>
+  <gift type ="bonus"  val ="2" isMain ="false"></gift>
+  <gift type ="money" val ="350" isMain ="false"></gift>
+  <gift type ="booster1"  val ="2" isMain ="false"></gift>
+  <gift type ="money" val ="400" isMain ="false"></gift>
+  <gift type ="booster3"  val ="2" isMain ="false"></gift>
+  <gift type ="bonus"  val ="2" isMain ="false"></gift>
+  <gift type ="money" val ="2000" isMain ="true"></gift>
+  
+  <gift type ="booster2"  val ="2" isMain ="false"></gift>
+  <gift type ="booster3"  val ="2" isMain ="false"></gift>
+  <gift type ="bonus"  val ="3" isMain ="false"></gift>
+  <gift type ="money" val ="550" isMain ="false"></gift>
+  <gift type ="booster1"  val ="3" isMain ="false"></gift>
+  <gift type ="booster2"  val ="3" isMain ="false"></gift>
+  <gift type ="booster3"  val ="3" isMain ="false"></gift>
+  <gift type ="money" val ="650" isMain ="false"></gift>
+  <gift type ="booster1"  val ="3" isMain ="false"></gift>
+  <gift type ="booster2"  val ="3" isMain ="false"></gift>
+  <gift type ="booster3"  val ="3" isMain ="false"></gift>
+  <gift type ="money" val ="750" isMain ="false"></gift>
+  <gift type ="bonus"  val ="3" isMain ="false"></gift>
+  <gift type ="money" val ="3000" isMain ="true"></gift>
+
+</items>

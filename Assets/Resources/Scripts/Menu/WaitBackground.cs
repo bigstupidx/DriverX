@@ -22,6 +22,7 @@ public class WaitBackground : MonoBehaviour {
             iTween.Hash("from", image.color.a,
              "to", 1,
              "time", 1f,
+             "ignoretimescale", true,
              "onupdate", "OnUpdate"
              )
         );
@@ -41,6 +42,7 @@ public class WaitBackground : MonoBehaviour {
              "to", 0,
               "time", 1f,
              "onupdate", "OnUpdate",
+             "ignoretimescale", true,
              "oncomplete", "OnCompleteHide",
              "oncompletetarget", gameObject
              )
@@ -55,7 +57,7 @@ public class WaitBackground : MonoBehaviour {
         if (library != null)
             library.globalController.StartCar();
 
-       
+
     }
 
     void OnUpdate(float newVal)

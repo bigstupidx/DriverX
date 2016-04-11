@@ -13,7 +13,7 @@ public class BackButton : RawButton {
         library = GameObject.FindObjectOfType<Library>();
         button = GetComponent<Button>();
 
-        button.onClick.AddListener(delegate { HideMenu(); ShowPauseButton(); Time.timeScale = 1; });
+        button.onClick.AddListener(delegate { HideMenu(); ShowPauseButton();});
 
        
     }

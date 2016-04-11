@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 
 public class GlobalController : MonoBehaviour {
@@ -18,6 +19,7 @@ public class GlobalController : MonoBehaviour {
         SetToDefault();
 
         SetCameraClipPlane();
+
 	}
 
     void SetCameraClipPlane()
@@ -37,6 +39,9 @@ public class GlobalController : MonoBehaviour {
 
         library.mainBonus.UpdateState();
         library.mainBonus.MinusItem();
+
+
+
         library.secondCamera.SetActive(false);
 
         GameObject level = GameObject.FindGameObjectWithTag("Level");
@@ -58,22 +63,22 @@ public class GlobalController : MonoBehaviour {
             }
         }
 
-       
-
         library.level = level;
-
 
 
         StartCoroutine(
             HideBg());
-
     }
 
     IEnumerator HideBg()
     {
-        yield return new WaitForSeconds(2);
-        library.waitBackground.Hide();
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(2));
 
+        UseBonuses();
+
+        //   library.canvasController.ShowStartPauseMenu();
+
+        library.waitBackground.Hide();
     }
 
     GameObject CreateLevel()
@@ -102,6 +107,7 @@ public class GlobalController : MonoBehaviour {
     {
         library.timerScript.SetStart();
         gs = GameState.Ride;
+        
     }
 
     public void TimerIsEnd()
@@ -148,6 +154,32 @@ public class GlobalController : MonoBehaviour {
     }
 
 
+    void UseBonuses()
+    {
 
+        if (AddParametresBoosterMenuElement.IsActive())
+        {
+            library.carUserParametres.AddAllParametres();
+            library.car.GetComponent<CarController>().UpdateMaxSpeed();
+            library.energy.UpdateNitroCost();
+        }
+
+        if (FullNitroBoosterMenuElement.IsActive())
+        {
+           library.energy.SetMaxEnergy();
+        }
+
+        if (BarabanBoosterMenuElement.IsActive())
+        {
+            library.canvasController.baraban.SetActiveBooster();
+        }
+        /*
+        if (AddParametresBoosterMenuElement.IsActive(0))
+        {
+            library.carUserParametres.AddAllParametres();
+            library.car.GetComponent<CarController>().UpdateMaxSpeed();
+            library.energy.UpdateNitroCost();
+        }*/
+    }
 
 }

@@ -43,7 +43,7 @@ public class TextStrings : MonoBehaviour {
 
     public static string GetString(string name)
     {
-        string str;
+        string str = "";
         textStrings.TryGetValue(name, out str);
 
         return str;

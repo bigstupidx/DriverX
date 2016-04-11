@@ -8,22 +8,20 @@ public class ScrollBoxController : MonoBehaviour {
 
     public float border =0;
     Library library;
-    RectTransform rt;
     GameObject taskItemPrefab;
     int itemCount;
 
     List<Task> tasks = new List<Task>();
 
-    GameObject scrollBox;
+    public GameObject scrollBox;
     // Use this for initialization
     void Start () {
         library = GameObject.FindObjectOfType<Library>();
 
-        rt = GetComponent<RectTransform>();
 
         taskItemPrefab = Resources.Load("Prefabs/UI/TaskItem") as GameObject;
 
-        scrollBox = transform.FindChild("ScrollBox").gameObject;
+//        scrollBox = transform.FindChild("ScrollBox").gameObject;
 
         //library.pauseMenu.CloseMenu();
      //   library.canvasController.ShowPauseMenu(false);
@@ -60,7 +58,7 @@ public class ScrollBoxController : MonoBehaviour {
     public void ToDefaultPosition()
     {
         RectTransform SBRT = scrollBox.GetComponent<RectTransform>();
-        SBRT.anchoredPosition = new Vector2(SBRT.anchoredPosition.x, (rt.rect.height - scrollBox.GetComponent<RectTransform>().rect.height) / 2);
+        SBRT.anchoredPosition = new Vector2(SBRT.anchoredPosition.x, (GetComponent<RectTransform>().rect.height - scrollBox.GetComponent<RectTransform>().rect.height) / 2);
     }
 
     public void UpdateDiscription()

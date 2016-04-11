@@ -34,7 +34,7 @@ public class FlightAttempts : Task
 
     protected override string Description()
     {
-        return taskValue.GetFullText(0) + " " + attempts + " " + taskValue.GetFullText(GetPadej(attempts));
+        return taskValue.GetFullText(0) + " " + attempts + " " + taskValue.GetFullText(Padej.GetPadej(attempts));
     }
 
     // Use this for initialization

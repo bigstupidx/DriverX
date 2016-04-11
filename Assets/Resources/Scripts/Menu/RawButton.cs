@@ -6,8 +6,6 @@ using System;
 
 public class RawButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
-
     Texture image1;
     public Texture clickableImage;
     public Texture disableImage;
@@ -17,7 +15,6 @@ public class RawButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     // Use this for initialization
     public void Start () {
-
         image1 = GetComponent<RawImage>().texture;
     }
 
@@ -55,5 +52,10 @@ public class RawButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         GetComponent<RawImage>().texture = image1;
         GetComponent<RawImage>().uvRect= new Rect(0, 0, 1, 1);
         GetComponent<Button>().interactable = true;
+    }
+
+    public bool IsDisabled()
+    {
+        return GetComponent<Button>().interactable;
     }
 }

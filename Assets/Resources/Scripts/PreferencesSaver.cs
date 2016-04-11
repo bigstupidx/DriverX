@@ -197,6 +197,64 @@ public class PreferencesSaver : MonoBehaviour {
         return bool.Parse(GetPref("RateApp", "false"));
     }
 
+    
+
+    public static void SetBoosterActivateTime(int boosterNum, DateTime dateTime)
+    {
+        SavePref("Booster"+boosterNum+"ActivateTime", dateTime + "");
+    }
+
+    public static DateTime GetBoosterActivateTime(int boosterNum)
+    {
+        try
+        {
+            return System.DateTime.Parse(GetPref("Booster" + boosterNum + "ActivateTime", System.DateTime.MinValue.ToString()));
+        }
+        catch (FormatException)
+        {
+            return System.DateTime.MinValue;
+        }
+
+    }
+
+    public static void SetDailyGiftDate(DateTime dateTime)
+    {
+        SavePref("DailyGiftDate", dateTime.ToString());
+    }
+
+    public static DateTime GetDailyGiftDate()
+    {
+        try
+        {
+            return System.DateTime.Parse(GetPref("DailyGiftDate", System.DateTime.MinValue.ToString()));
+        }
+        catch (FormatException)
+        {
+            return System.DateTime.MinValue;
+        }
+
+    }
+
+    public static void SetNextDailyGiftNum()
+    {
+        SavePref("NextDailyGiftNum", (GetNextDailyGiftNum()+1)+"");
+    }
+
+    public static int GetNextDailyGiftNum()
+    {
+        return int.Parse(GetPref("NextDailyGiftNum", "0"));
+   } 
+
+    public static void SetFreeBoosterCount(int numBooster, int count)
+    {
+        SavePref("FreeBoosterCount_" + numBooster, count + "");
+    }
+
+    public static int GetFreeBoosterCount(int numBooster)
+    {
+        return int.Parse(GetPref("FreeBoosterCount_"+numBooster, "0"));
+    }
+
     private static void SavePref(string key, string val)
     {
         SecurePlayerPrefs.SetString(key, val, pass);

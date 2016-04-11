@@ -14,14 +14,7 @@ public class Energy : MonoBehaviour {
     Library library;
     void Start () {
         library = GameObject.FindObjectOfType<Library>();
-        mnozitelNitro = GetComponent<CarUserParametres>().nitro;
-        // maxEnergy = 0.5f * coef +mnozitelNitro/2 ;
-
-        if (mnozitelNitro == 1)
-            nitroCost = maxEnergy;
-        else
-            nitroCost =  maxEnergy*maxEnergy/(maxEnergy*0.5f  + mnozitelNitro*maxEnergy/2f);
-
+        UpdateNitroCost();
     }
 
     void Update()
@@ -58,6 +51,12 @@ public class Energy : MonoBehaviour {
         return maxEnergy;
     }
 
+    public void SetMaxEnergy()
+    {
+        energy = maxEnergy;
+        library.energyLine.SetMaxEnergy();
+    }
+
     public float GetNitroCost()
     {
         return nitroCost;
@@ -67,7 +66,21 @@ public class Energy : MonoBehaviour {
     {
         energy = 0;
         library.energyLine.ToDefault();
+        
     }
+
+    public void UpdateNitroCost()
+    {
+        mnozitelNitro = GetComponent<CarUserParametres>().nitro;
+
+        if (mnozitelNitro == 1)
+            nitroCost = maxEnergy;
+        else
+            nitroCost = maxEnergy * maxEnergy / (maxEnergy * 0.5f + mnozitelNitro * maxEnergy / 2f);
+
+        library.energyLine.CreateRaze();
+    }
+  
 
   
 }

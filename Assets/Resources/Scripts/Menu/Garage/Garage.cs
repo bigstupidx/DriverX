@@ -20,10 +20,6 @@ public class Garage : MonoBehaviour {
         libraryMenu = GameObject.FindObjectOfType<LibraryMenu>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void ToDefault()
     {

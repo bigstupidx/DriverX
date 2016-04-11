@@ -15,7 +15,7 @@ public class RetryButton : RawButton {
         library = FindObjectOfType<Library>();
 
         button = GetComponent<Button>();
-        button.onClick.AddListener(delegate { ReloadLevel(); Time.timeScale = 1; });
+        button.onClick.AddListener(delegate { ReloadLevel(); });
 
     }
 	
@@ -28,7 +28,7 @@ public class RetryButton : RawButton {
 
     IEnumerator GlobalToDefault()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(1.5f));
         library.globalController.SetToDefault();
 
     }

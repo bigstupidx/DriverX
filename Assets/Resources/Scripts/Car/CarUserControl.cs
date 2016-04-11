@@ -36,10 +36,10 @@ public class CarUserControl : MonoBehaviour
         // pass the input to the car!
         //#if !MOBILE_INPUT
 
-
             if (library.globalController.gs == GlobalController.GameState.Ride)
             {
                 InputController.Direction directionWheel = library.inputController.GetDirection();
+
 
 
                 switch (directionWheel)
