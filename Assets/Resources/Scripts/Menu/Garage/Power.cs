@@ -42,9 +42,9 @@ public class Power : MonoBehaviour {
 
                switch (type)
                {
-                   case 1: tempStr = "увеличения скорости авто"; break;
-                   case 2: tempStr = "увеличения объёма нитро"; break;
-                   case 3: tempStr = "улучшения управляемости"; break;
+                   case 1: tempStr = TextStrings.GetString("2"); break;
+                   case 2: tempStr = TextStrings.GetString("3"); break;
+                   case 3: tempStr = TextStrings.GetString("4"); break;
 
                }
 
@@ -63,13 +63,13 @@ public class Power : MonoBehaviour {
                        }
                        else
                        {
-                           libraryMenu.windowWarning.Show("У вас не достаточно средств для " + tempStr);
+                           libraryMenu.windowWarning.Show(TextStrings.GetString("1")+" " + tempStr);
                        }
                    }
                );
 
 
-               libraryMenu.windowConfirmation.Show("Стоимость " + tempStr + " составляет " + upgradeCost + "%. Произвести улучшение?");
+               libraryMenu.windowConfirmation.Show(TextStrings.GetString("5")+" " + tempStr + " "+ TextStrings.GetString("6")+" ^" + upgradeCost + ". "+ TextStrings.GetString("7")+"?");
            }
         );
 

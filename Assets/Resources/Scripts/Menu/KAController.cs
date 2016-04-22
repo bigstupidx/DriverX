@@ -23,6 +23,7 @@ public class KAController : MonoBehaviour {
         libraryMenu.moneyBar.gameObject.SetActive(false);
         libraryMenu.taskMenu.gameObject.SetActive(false);
         libraryMenu.boosterMenu.gameObject.SetActive(false);
+        libraryMenu.backMenuButton.gameObject.SetActive(false);
         libraryMenu.waitBackground.ToDefault();
         libraryMenu.mainScreen.ToDefault();
     }
@@ -111,6 +112,14 @@ public class KAController : MonoBehaviour {
                 libraryMenu.moneyBar.gameObject.SetActive(false);
                 libraryMenu.carChanger.car.SetActive(false);
             }
+
+            if(currentObject == libraryMenu.boosterMenu || currentObject == libraryMenu.taskMenu)
+            {
+                libraryMenu.backMenuButton.gameObject.SetActive(true);                
+            }
+            else
+                libraryMenu.backMenuButton.gameObject.SetActive(false);
+
         }
         currentObject.gameObject.SetActive(true);
     }
@@ -131,4 +140,21 @@ public class KAController : MonoBehaviour {
        
         yield return async; 
     }
+
+    public void Back()
+    {
+        if(currentObject.Equals(libraryMenu.taskMenu))
+        {
+            ShowGarage();
+            return;
+        }
+
+        if(currentObject.Equals(libraryMenu.boosterMenu))
+        {
+            ShowTasksMenu();
+        }
+
+
+    }
+
 }

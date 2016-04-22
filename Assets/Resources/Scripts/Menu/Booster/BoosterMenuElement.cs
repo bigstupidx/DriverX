@@ -2,8 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
-public abstract class BoosterMenuElement : MonoBehaviour {
+public abstract class BoosterMenuElement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+ {
 
 
     protected int boosterNum;
@@ -24,6 +26,7 @@ public abstract class BoosterMenuElement : MonoBehaviour {
 
     bool isActive;
 
+    public RawBoosterButton rawButton;
 
     // Use this for initialization
     public void Start () {
@@ -31,7 +34,6 @@ public abstract class BoosterMenuElement : MonoBehaviour {
         lastDateTime = PreferencesSaver.GetBoosterActivateTime(boosterNum);
         description.text = TextStrings.GetString("booster_"+boosterNum+"_description");
 
-        
     }
 
 
@@ -85,8 +87,10 @@ public abstract class BoosterMenuElement : MonoBehaviour {
                 cost.text = costText;
 
             if (!boosterImage.sprite.Equals(activeSprite))
+            {
                 boosterImage.sprite = activeSprite;
-
+                rawButton.DisableButton();
+            }
             isActive = true;
         }
         else
@@ -110,8 +114,10 @@ public abstract class BoosterMenuElement : MonoBehaviour {
                 }
 
             if (!boosterImage.sprite.Equals(unActiveSprite))
+            {
                 boosterImage.sprite = unActiveSprite;
-
+                rawButton.EnableButton();
+            }
         }
 
     }
@@ -140,7 +146,15 @@ public abstract class BoosterMenuElement : MonoBehaviour {
             return false;
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        rawButton.OnPointerDown(eventData);
+    }
 
-    
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        rawButton.OnPointerUp(eventData);
+    }
+
 
 }

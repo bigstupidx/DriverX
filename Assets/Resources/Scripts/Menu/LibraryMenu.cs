@@ -24,6 +24,7 @@ public class LibraryMenu : MonoBehaviour {
     [HideInInspector] public MoneyBar moneyBar;
     [HideInInspector] public BoosterMenu boosterMenu;
     [HideInInspector] public DailyGiftMenu dailyGiftMenu;
+    [HideInInspector] public BackMenuButton backMenuButton;
     // [HideInInspector] public GameObject car;
 
     // Use this for initialization
@@ -52,6 +53,8 @@ public class LibraryMenu : MonoBehaviour {
         boosterMenu = GameObject.FindObjectOfType<BoosterMenu>();
 
         dailyGiftMenu = GameObject.FindObjectOfType<DailyGiftMenu>();
+
+        backMenuButton = GameObject.FindObjectOfType<BackMenuButton>();
         /*
         car = garage.transform.Find("Car").gameObject;
         if (car == null)

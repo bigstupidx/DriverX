@@ -1,5 +1,14 @@
 <items>
   <ru>
+    <string name ="1">У вас не достаточно средств для</string>
+    <string name ="2">улучшения двигателя авто</string>
+    <string name ="3">увеличения бака нитро</string>
+    <string name ="4">улучшения управляемости</string>
+    <string name ="5">Стоимость</string>
+    <string name ="6">составляет</string>
+    <string name ="7">Произвести улучшение</string>
+
+
     <string name ="done">Выполнено</string>
     <string name ="no_money">У вас недостаточно средств для покупки</string>
     <string name ="minutes">мин.</string>
@@ -10,7 +19,7 @@
     <string name ="booster_2_description">Увеличивается шанс умножения ваших очков после заезда</string>
     <string name ="day">день</string>
     <string name ="free">бесплатно</string>
-
+    
 
     <string name ="additional_rates_1">дополнительная ставка</string>
     <string name ="additional_rates_2">дополнительные ставки</string>
@@ -21,7 +30,7 @@
     <string name ="tuning_set_3">наборов тюнинга</string>
 
     <string name ="full_tank_1">полный бак</string>
-    <string name ="full_tank_2">полный бака</string>
+    <string name ="full_tank_2">полных бака</string>
     <string name ="full_tank_3">полных баков</string>
     
     <string name ="bonus_1">бонус</string>
