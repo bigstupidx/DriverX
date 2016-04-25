@@ -7,8 +7,15 @@ public class GiftGO : MonoBehaviour {
     public Text description;
     public Text numDay;
     public Image image;
+    public Image panel;
 
     public Sprite[] imageSprites = new Sprite[5];
+    public Sprite[] imageSprites1 = new Sprite[5];
+
+
+    public Sprite[] steelSprites = new Sprite[2];
+    public Sprite[] goldSprites = new Sprite[2];
+
 
     Gift gift;
 
@@ -58,24 +65,39 @@ public class GiftGO : MonoBehaviour {
     {
         switch (gift.type)
         {
-            case Gift.GiftType.Money:  break;
+            case Gift.GiftType.Money: image.sprite = imageSprites[0]; break;
             case Gift.GiftType.Booster1: image.sprite = imageSprites[1]; break;
             case Gift.GiftType.Booster2: image.sprite = imageSprites[2]; break;
             case Gift.GiftType.Booster3: image.sprite = imageSprites[3]; break;
-            case Gift.GiftType.Bonus: break;
+            case Gift.GiftType.Bonus: image.sprite = imageSprites[4]; break;
         }
     }
 
     void SetMain()
     {
-    //    if (gift.isMain)
-         //   GetComponent<Image>().color = new Color(0.8f, 0.8f, 0);
+        if (gift.isMain)
+            panel.sprite = goldSprites[0];
+
     }
   
     public void SetToday()
     {
-    //    if (gift.isMain)
-      //      GetComponent<Image>().color = new Color(0, 0.8f, 0);
+        if (gift.isMain)
+            panel.sprite = goldSprites[1];
+        else
+            panel.sprite = steelSprites[1];
+
+
+        for(int i = 0; i <imageSprites1.Length; i++)
+        {
+            if (image.sprite.Equals(imageSprites[i]))
+            {
+                image.sprite = imageSprites1[i];
+                break;
+            }
+
+        }
+
     }
 
 }

@@ -18,6 +18,11 @@ public abstract class BoosterMenuElement : MonoBehaviour, IPointerDownHandler, I
 
     public Sprite unActiveSprite;
     public Sprite activeSprite;
+
+    public Sprite activeSteel;
+    public Sprite unActiveSteel;
+
+    public Image steel;
     //   bool isActive;
 
     public Image boosterImage;
@@ -90,6 +95,7 @@ public abstract class BoosterMenuElement : MonoBehaviour, IPointerDownHandler, I
             {
                 boosterImage.sprite = activeSprite;
                 rawButton.DisableButton();
+                steel.sprite = activeSteel;
             }
             isActive = true;
         }
@@ -117,6 +123,7 @@ public abstract class BoosterMenuElement : MonoBehaviour, IPointerDownHandler, I
             {
                 boosterImage.sprite = unActiveSprite;
                 rawButton.EnableButton();
+                steel.sprite = unActiveSteel;
             }
         }
 
